@@ -127,6 +127,11 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
     }
 
     @Override
+    public void procesoExitoso(String resultado) {
+
+    }
+
+    @Override
     public void procesoNoExitoso() {
 
     }

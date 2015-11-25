@@ -269,6 +269,11 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
     }
 
     @Override
+    public void procesoExitoso(String resultado) {
+
+    }
+
+    @Override
     public void procesoNoExitoso() {
         try {
             toast = Toast.makeText(getActivity(), "Error al actualizar los eventos, intentelo más tarde", Toast.LENGTH_LONG);

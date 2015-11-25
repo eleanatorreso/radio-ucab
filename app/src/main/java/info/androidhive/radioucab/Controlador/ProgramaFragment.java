@@ -219,6 +219,11 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
     }
 
     @Override
+    public void procesoExitoso(String resultado) {
+
+    }
+
+    @Override
     public void procesoNoExitoso() {
         try {
             toast = Toast.makeText(getActivity(), "Error al actualizar los programas, intentelo mas tarde", Toast.LENGTH_LONG);

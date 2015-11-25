@@ -262,6 +262,11 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
     }
 
     @Override
+    public void procesoExitoso(String resultado) {
+
+    }
+
+    @Override
     public void procesoNoExitoso() {
         try {
             toast = Toast.makeText(getActivity(), "Error al actualizar las noticias, intentelo más tarde", Toast.LENGTH_LONG);

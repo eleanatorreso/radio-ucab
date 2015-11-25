@@ -1,7 +1,5 @@
 package info.androidhive.radioucab.Controlador;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -10,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
@@ -23,10 +22,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONObject;
+import info.androidhive.radioucab.Conexiones.conexionGETAPIString;
 import info.androidhive.radioucab.Logica.FabricLogica;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
-import info.androidhive.radioucab.Logica.UsuarioLogica;
-import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
 import io.fabric.sdk.android.Fabric;
 
@@ -53,8 +51,8 @@ public class InicioSesionTwitter extends Fragment implements RespuestaAsyncTask 
         return null;
     }
 
-    public void comprobarUsuarioAPI(Usuario usuarioTwitter) {
-        conexionGETAPIJSONObject conexion = new conexionGETAPIJSONObject();
+    public void comprobarUsuarioAPI(String usuarioTwitter) {
+        conexionGETAPIString conexion = new conexionGETAPIString();
         conexion.contexto = getActivity();
         conexion.mensaje = "Enviando los datos...";
         conexion.delegate = this;
@@ -94,6 +92,7 @@ public class InicioSesionTwitter extends Fragment implements RespuestaAsyncTask 
                                     public void success(Result<User> userResult) {
                                         User usuarioResultado = userResult.data;
                                         try {
+                                            comprobarUsuarioAPI(result.data.getUserName());/*
                                             Usuario nuevoUsuario = new Usuario();
                                             nuevoUsuario.setNombre(usuarioResultado.name);
                                             nuevoUsuario.setCorreo(usuarioResultado.email);
@@ -105,7 +104,7 @@ public class InicioSesionTwitter extends Fragment implements RespuestaAsyncTask 
                                             CreacionUsuario b = new CreacionUsuario();
                                             b.usuario = nuevoUsuario;
                                             ft.replace(((ViewGroup) getView().getParent()).getId(), b);
-                                            ft.commit();
+                                            ft.commit();*/
                                         } catch (Exception e) {
                                             e.printStackTrace();
                                         }
@@ -114,6 +113,7 @@ public class InicioSesionTwitter extends Fragment implements RespuestaAsyncTask 
                         String msg = "@" + session.getUserName() + " logged in! (#" + session.getUserId() + ")";
                         Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
                     }
+
                     @Override
                     public void failure(com.twitter.sdk.android.core.TwitterException e) {
                         Log.d("TwitterKit", "Login with Twitter failure", e);
@@ -136,20 +136,20 @@ public class InicioSesionTwitter extends Fragment implements RespuestaAsyncTask 
 
     }
 
+
     @Override
     public void procesoExitoso(JSONObject resultado) {
-        try {
-            if (resultado.getString("").equals("Si")) {
-                //esto es temporal
-                toast = Toast.makeText(getActivity(), "Este usuario ya existe", Toast.LENGTH_LONG);
-                toast.show();
+    }
 
-            }
-            else {
-                //debo ir a la ventana de edicion
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
+    @Override
+    public void procesoExitoso(String resultado) {
+        if (resultado.contains("Si")) {
+            //esto es temporal
+            toast = Toast.makeText(getActivity(), "Este usuario ya existe", Toast.LENGTH_LONG);
+            toast.show();
+
+        } else {
+            //debo ir a la ventana de edicion
         }
     }
 
