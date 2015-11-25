@@ -1,0 +1,36 @@
+<LinearLayout
+    android:id="@+id/lower_linear_layout"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_below="@+id/main_top_bit"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_below="@+id/relative_layout_hora"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="120dip"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true">
+
+        <ListView
+            android:id="@+id/lista_hora"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:cacheColorHint="#00000000"
+            android:scrollbars="vertical"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@+id/relative_layout_programa"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true">
+        <ListView
+            android:id="@+id/lista_programa"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:cacheColorHint="#00000000"
+            android:scrollbars="vertical"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TextView
+        android:id="@+id/texto_inicio_sesion"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/azul_radio_ucab"
+        android:text="Inicie sesión a través de Twitter"
+        android:layout_centerInParent="true"/>
+
+    <com.twitter.sdk.android.core.identity.TwitterLoginButton
+        android:id="@+id/twitter_login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/texto_inicio_sesion"/>
+
+    <Button
+        android:id="@+id/cancelarInicioSesion"
+        android:layout_width="200px"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/twitter_login_button"/>
+
+</RelativeLayout><!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/layout/fragment_inicio_sesion_twitter.xml -->

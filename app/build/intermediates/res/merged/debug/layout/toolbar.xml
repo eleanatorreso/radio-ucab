@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/azul_radio_ucab"
+    android:gravity="center_vertical"
+    android:minHeight="50dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="left"
+            android:id="@+id/icono_radio_ucab"
+            android:layout_marginLeft="10dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_foto_perfil"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center|right"
+            android:visibility="gone" />
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/menu_perfil_usuario"
+            android:textColor="@color/blanco"
+            android:textSize="18dp"
+            android:layout_gravity="right"
+            android:onClick="selfDestruct"
+            android:layout_marginRight="10dp"
+            android:id="@+id/botonIngresar" />
+    </FrameLayout>
+</android.support.v7.widget.Toolbar><!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/layout/toolbar.xml -->

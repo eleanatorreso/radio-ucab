@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Radio UCAB</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="drawer_open">Slider Menu Opened</string>
+    <string name="drawer_close">Slider Menu Closed</string>
+    <string name="timeline_empty">Espere un momento por favor...</string>
+    <string name="texto_detalle_programa">Espere un momento por favor...</string>
+    <string name="menu_perfil_usuario">Ingresar</string>
+    <string name="ip_web_service">http://192.168.0.100:24364/</string>
+    
+    <!-- Elementos del menu -->
+    <string-array name="nav_drawer_items">
+        <item >Home</item>
+        <item >¿Qué está pasando hoy?</item>
+        <item >Noticias</item>
+        <item >Eventos</item>
+        <item >Programas</item>
+        <item >Perfil</item>
+        <item >Configuracion</item>
+    </string-array>
+    
+    <!-- Iconos de los elementos del menú -->
+    <!-- Mantener en el orden de los titulos-->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_noticias</item>
+        <item>@drawable/ic_eventos</item>
+        <item>@drawable/ic_parrilla</item>
+        <item>@drawable/ic_perfil</item>
+        <item>@drawable/ic_configuracion</item>
+    </array>
+    
+    <!-- Descripcion de contenido -->
+    <string name="desc_list_item_icon">Iconos</string>
+
+    <!-- Fragment creacion usuario -->
+
+    <!-- Contenido de los campos-->
+    <string name="campo_terminos_condiciones">He leído los terminos y condiciones</string>
+
+    <!-- Hint de los campos-->
+    <string name="hint_campo_nombre">Nombre</string>
+    <string name="hint_campo_apellido">Apellido</string>
+    <string name="hint_campo_correo">Correo Electrónico</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

@@ -1,0 +1,23 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#cbcbcb">
+
+    <TextView
+        android:id="@+id/evento_horario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="horario" />
+
+    <TextView
+        android:id="@+id/evento_direccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_below="@id/evento_horario"
+        android:text="direccion" />
+
+
+
+</RelativeLayout>

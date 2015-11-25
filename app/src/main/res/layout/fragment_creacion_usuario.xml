@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/creacion_usuario"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="info.androidhive.radioucab.Controlador.CreacionUsuario">
+
+    <EditText
+        android:id="@+id/editText_nombre_usuario"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="95dp"
+        android:hint="@string/hint_campo_nombre"/>
+
+    <EditText
+        android:id="@+id/editText_apellido_usuario"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText_nombre_usuario"
+        android:hint="@string/hint_campo_apellido"/>
+
+    <EditText
+        android:id="@+id/editText_correo_usuario"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText_apellido_usuario"
+        android:hint="@string/hint_campo_correo"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_terminosCondiciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText_correo_usuario"
+        android:checked="false"
+        android:text="@string/campo_terminos_condiciones" />
+
+    <Button
+        android:id="@+id/boton_crearUsuario"
+        android:layout_width="300px"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/checkbox_terminosCondiciones"
+        android:layout_marginLeft="47dp"
+        android:layout_marginStart="47dp"
+        android:text="Crear Usuario" />
+
+    <Button
+        android:id="@+id/boton_cancelarCrearUsuario"
+        android:layout_width="300px"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkbox_terminosCondiciones"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@id/boton_crearUsuario"
+        android:text="Cancelar" />
+
+</RelativeLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/azul_radio_ucab"
+    android:gravity="center_vertical"
+    android:minHeight="50dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_stat_play"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:id="@+id/icon_play"
+            android:layout_marginLeft="10dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_stat_stop"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:id="@+id/icon_stop"
+            android:layout_marginLeft="10dp"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_stat_pause"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:id="@+id/icon_pause"
+            android:layout_marginLeft="10dp"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_action_ondas"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="left|center_vertical"
+            android:id="@+id/icon_ondas"
+            android:layout_marginLeft="0dp" />
+
+    </FrameLayout>
+</android.support.v7.widget.Toolbar>
