@@ -4,9 +4,6 @@ import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthToken;
 import com.twitter.sdk.android.core.TwitterSession;
 
-/**
- * Created by Administrator on 11/10/2015.
- */
 public class ManejoSesionTwitter {
 
     private TwitterSession session;

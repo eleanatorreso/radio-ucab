@@ -37,7 +37,7 @@
     <!-- Descripcion de contenido -->
     <string name="desc_list_item_icon">Iconos</string>
 
-    <!-- Fragment creacion usuario -->
+    <!-- Fragment creacion UsuarioSingleton -->
 
     <!-- Contenido de los campos-->
     <string name="campo_terminos_condiciones">He leído los terminos y condiciones</string>

@@ -12,7 +12,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="50dp"
         android:hint="@string/hint_campo_nombre"/>
 
     <EditText
@@ -30,12 +30,20 @@
         android:hint="@string/hint_campo_correo"/>
 
     <CheckBox
-        android:id="@+id/checkbox_terminosCondiciones"
+        android:id="@+id/checkbox_terminos_condiciones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/editText_correo_usuario"
-        android:checked="false"
-        android:text="@string/campo_terminos_condiciones" />
+        android:checked="false" />
+
+    <TextView
+        android:id="@+id/texto_terminos_condiciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText_correo_usuario"
+        android:layout_toRightOf="@id/checkbox_terminos_condiciones"
+        android:textColor="@color/azul_claro"
+        android:clickable="true" />
 
     <Button
         android:id="@+id/boton_crearUsuario"
@@ -43,16 +51,16 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/checkbox_terminosCondiciones"
+        android:layout_below="@+id/checkbox_terminos_condiciones"
         android:layout_marginLeft="47dp"
         android:layout_marginStart="47dp"
         android:text="Crear Usuario" />
 
     <Button
-        android:id="@+id/boton_cancelarCrearUsuario"
+        android:id="@+id/boton_cancelar_creacion"
         android:layout_width="300px"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/checkbox_terminosCondiciones"
+        android:layout_below="@+id/checkbox_terminos_condiciones"
         android:layout_centerInParent="true"
         android:layout_toRightOf="@id/boton_crearUsuario"
         android:text="Cancelar" />

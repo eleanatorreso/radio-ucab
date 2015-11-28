@@ -1,6 +1,8 @@
 package info.androidhive.radioucab.Logica;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -9,28 +11,49 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 
+import info.androidhive.radioucab.R;
+
 public class PerfilLogica {
 
-    public Bitmap convertirImagenCirculo(Bitmap bitmap) {
-        final Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
-                bitmap.getHeight(), Bitmap.Config.ARGB_8888);
-        final Canvas canvas = new Canvas(output);
+    private Context contexto;
 
-        final int color = Color.RED;
-        final Paint paint = new Paint();
-        final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-        final RectF rectF = new RectF(rect);
+    public Context getContexto() {
+        return contexto;
+    }
+    public void setContexto(Context contexto) {
+        this.contexto = contexto;
+    }
 
-        paint.setAntiAlias(true);
-        canvas.drawARGB(0, 0, 0, 0);
-        paint.setColor(color);
-        canvas.drawOval(rectF, paint);
+    public Bitmap convertirImagenCirculo(Bitmap bitmap, int inicio) {
+        try {
+            final Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
+                    bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+            final Canvas canvas = new Canvas(output);
 
-        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-        canvas.drawBitmap(bitmap, rect, rect, paint);
+            final int color = Color.RED;
+            final Paint paint = new Paint();
+            final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            final RectF rectF = new RectF(rect);
 
-        bitmap.recycle();
+            paint.setAntiAlias(true);
+            canvas.drawARGB(0, 0, 0, 0);
+            paint.setColor(color);
+            canvas.drawOval(rectF, paint);
 
-        return output;
+            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+            canvas.drawBitmap(bitmap, rect, rect, paint);
+
+            bitmap.recycle();
+
+            return output;
+        }
+        catch (Exception ex) {
+            if (inicio == 0) {
+                Bitmap bitmapNuevo = BitmapFactory.decodeResource(contexto.getResources(), R.drawable.ic_imagen_perfil);
+                return convertirImagenCirculo(bitmapNuevo, 1);
+            }
+            else
+                return null;
+        }
     }
 }

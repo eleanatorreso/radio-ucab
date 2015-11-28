@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="blanco">#fff</color>
+    <color name="azul_claro">#009BDF</color>
     <color name="list_background">#303030</color>
     <color name="azul_radio_ucab">#002b54</color>
     <color name="amarillo_radio_ucab">#FFD204</color>

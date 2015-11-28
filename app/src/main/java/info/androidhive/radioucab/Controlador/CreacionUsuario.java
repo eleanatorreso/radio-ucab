@@ -2,6 +2,8 @@ package info.androidhive.radioucab.Controlador;
 
 import android.os.Bundle;
 import android.app.Fragment;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +11,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
+import info.androidhive.radioucab.Logica.ManejoDialogs;
 import info.androidhive.radioucab.Logica.UsuarioLogica;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
@@ -22,6 +28,9 @@ public class CreacionUsuario extends Fragment {
     private EditText apellidoUsuario;
     private EditText correoUsuario;
     private CheckBox terminosCondiciones;
+    private TextView textoTerminosCondiciones;
+    private ManejoDialogs dialogo;
+
     public CreacionUsuario() {
 
     }
@@ -48,7 +57,21 @@ public class CreacionUsuario extends Fragment {
                 apellidoUsuario = (EditText) getActivity().findViewById(R.id.editText_apellido_usuario);
                 correoUsuario = (EditText) getActivity().findViewById(R.id.editText_correo_usuario);
                 correoUsuario.setText(usuario.getCorreo());
-                terminosCondiciones = (CheckBox) getActivity().findViewById(R.id.checkbox_terminosCondiciones);
+                terminosCondiciones = (CheckBox) getActivity().findViewById(R.id.checkbox_terminos_condiciones);
+                terminosCondiciones.setText("");
+                textoTerminosCondiciones = (TextView) getActivity().findViewById(R.id.texto_terminos_condiciones);
+                String textoConFormato = "<u>" + getActivity().getString(R.string.campo_terminos_condiciones) + "</u>";
+                textoTerminosCondiciones.setText(Html.fromHtml(textoConFormato));
+                dialogo = new ManejoDialogs("Términos y Condiciones","ja njaskj sdbksdbhcdbhc dbhcd" +
+                        "jnajxahxbhj   xbhxsbhs" +
+                        "jnsjn djndcjn   cdjncdjndcjdc   " +
+                        "jncdnjcdjncdjndcnjdcnjcdnjcdncd    cdjcdnjcmcd","Acepto",getActivity());
+                textoTerminosCondiciones.setOnClickListener(new View.OnClickListener() {
+
+                    public void onClick(View v) {
+                        dialogo.crearDialogo();
+                    }
+                });
                 Button crearUsuario = (Button) getActivity().findViewById(R.id.boton_crearUsuario);
             }
         }
@@ -58,7 +81,7 @@ public class CreacionUsuario extends Fragment {
         if (terminosCondiciones.isChecked()) {
             UsuarioLogica usuarioNuevo = new UsuarioLogica();
             usuarioNuevo.usuario = usuario;
-            usuarioNuevo.almacenarUsuario();
+        //    usuarioNuevo.almacenarUsuario();
         }
     }
 

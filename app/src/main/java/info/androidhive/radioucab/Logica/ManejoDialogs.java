@@ -14,22 +14,24 @@ import info.androidhive.radioucab.R;
 public class ManejoDialogs extends DialogFragment {
 
     private String mensaje;
+    private String titulo;
     private String botonPositivo;
     private String botonNegativo;
     public Context contextoActual;
 
     public ManejoDialogs() {}
 
-    public ManejoDialogs(String mensaje, String botonPositivo, String botonNegativo, Context contextoActual) {
+    public ManejoDialogs(String titulo, String mensaje, String botonPositivo, Context contextoActual) {
+        this.titulo = titulo;
         this.mensaje = mensaje;
         this.botonPositivo = botonPositivo;
-        this.botonNegativo = botonNegativo;
         this.contextoActual = contextoActual;
     }
 
-    public void createAlertDialog() {
+    public void crearDialogo() {
         try {
             AlertDialog.Builder builder = new AlertDialog.Builder(contextoActual);
+            builder.setTitle(titulo);
             builder.setMessage(mensaje);
             builder.setCancelable(true);
             builder.setPositiveButton(botonPositivo,
