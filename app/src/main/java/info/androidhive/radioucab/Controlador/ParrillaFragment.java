@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.TimeZone;
 
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONArray;
+import info.androidhive.radioucab.Logica.ManejoToolbar;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.R;
 
@@ -36,6 +37,7 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
     private List<String> horas;
     private List<String> programas;
     static final String DATEFORMAT = "yyyy-MM-dd HH:mm:ss";
+    private final ManejoToolbar toolbar = ManejoToolbar.getInstancia();
 
     public ParrillaFragment() {
     }
@@ -55,6 +57,8 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //cambio el color del toolbar superior
+        toolbar.cambiarDeColor(2);
         listaHora = (ListView) rootView.findViewById(R.id.lista_hora);
         listaPrograma = (ListView) rootView.findViewById(R.id.lista_programa);
         cargarParrilla();

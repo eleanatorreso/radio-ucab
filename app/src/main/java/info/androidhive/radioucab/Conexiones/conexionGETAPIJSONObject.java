@@ -3,6 +3,7 @@ package info.androidhive.radioucab.Conexiones;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -40,7 +41,8 @@ public class conexionGETAPIJSONObject extends AsyncTask<String, String, JSONObje
             return new JSONObject(response);
         }
         catch (Exception ex) {
-            ex.printStackTrace();
+            if (ex != null && ex.getMessage()!=null)
+                Log.i("Conexion: ", ex.getMessage());
         }
         return null;
     }
@@ -57,7 +59,8 @@ public class conexionGETAPIJSONObject extends AsyncTask<String, String, JSONObje
                 noticiaProgressDialog.show();
             }
         } catch (Exception ex) {
-            int x = 2;
+            if (ex != null && ex.getMessage()!=null)
+                Log.i("Conexion: ", ex.getMessage());
         }
     }
 
@@ -69,8 +72,9 @@ public class conexionGETAPIJSONObject extends AsyncTask<String, String, JSONObje
         if (resultado != null) {
             try {
                 delegate.procesoExitoso(resultado);
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception ex) {
+                if (ex != null && ex.getMessage()!=null)
+                    Log.i("Conexion: ", ex.getMessage());
                 delegate.procesoNoExitoso();
             }
         } else {

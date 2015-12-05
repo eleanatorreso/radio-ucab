@@ -3,7 +3,7 @@
     android:id="@+id/creacion_usuario"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="info.androidhive.radioucab.Controlador.CreacionUsuario">
+    tools:context="info.androidhive.radioucab.Controlador.RegistroUsuario">
 
     <EditText
         android:id="@+id/editText_nombre_usuario"
@@ -42,11 +42,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editText_correo_usuario"
         android:layout_toRightOf="@id/checkbox_terminos_condiciones"
-        android:textColor="@color/azul_claro"
+        android:textColor="@color/azul_ucab"
         android:clickable="true" />
 
     <Button
-        android:id="@+id/boton_crearUsuario"
+        android:id="@+id/boton_crear_usuario"
         android:layout_width="300px"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -57,13 +57,13 @@
         android:text="Crear Usuario" />
 
     <Button
-        android:id="@+id/boton_cancelar_creacion"
+        android:id="@+id/boton_cancelar_registro"
         android:layout_width="300px"
         android:layout_height="wrap_content"
         android:layout_below="@+id/checkbox_terminos_condiciones"
         android:layout_centerInParent="true"
-        android:layout_toRightOf="@id/boton_crearUsuario"
+        android:layout_toRightOf="@id/boton_crear_usuario"
         android:text="Cancelar" />
 
 </RelativeLayout>
-<!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/layout/fragment_creacion_usuario.xml -->
+<!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/layout/fragment_registro_usuario.xml -->

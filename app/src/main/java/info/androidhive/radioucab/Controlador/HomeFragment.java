@@ -9,15 +9,19 @@ import android.view.ViewGroup;
 import com.twitter.sdk.android.tweetui.TweetTimelineListAdapter;
 import com.twitter.sdk.android.tweetui.UserTimeline;
 
+import info.androidhive.radioucab.Logica.ManejoToolbar;
 import info.androidhive.radioucab.R;
 
 public class HomeFragment extends ListFragment {
-	
+
+    private final ManejoToolbar toolbar = ManejoToolbar.getInstancia();
 	public HomeFragment(){}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //cambio el color del toolbar superior
+        toolbar.cambiarDeColor(1);
     try {
         final UserTimeline userTimeline = new UserTimeline.Builder()
                 .screenName("LTorresOrtiz")

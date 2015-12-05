@@ -20,7 +20,7 @@ public final class R {
 		public static final int item_touch_helper_previous_elevation = 0x7f0e0005;
 	}
 	public static final class string {
-		public static final int app_name = 0x7f06004a;
+		public static final int app_name = 0x7f060049;
 	}
 	public static final class styleable {
 		public static final int[] RecyclerView = { 0x010100c4, 0x7f01003f, 0x7f010040, 0x7f010041, 0x7f010042 };

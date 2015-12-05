@@ -37,7 +37,8 @@ public class conexionGETAPIJSONArray extends AsyncTask<String, String, JSONArray
             return new JSONArray(response);
         }
         catch (Exception ex) {
-            Log.i("Conexion: ", ex.getMessage());
+            if (ex != null && ex.getMessage()!=null)
+                Log.i("Conexion: ", ex.getMessage());
         }
         return null;
     }
@@ -54,7 +55,8 @@ public class conexionGETAPIJSONArray extends AsyncTask<String, String, JSONArray
                 noticiaProgressDialog.show();
             }
         } catch (Exception ex) {
-            Log.i("Conexion: ", ex.getMessage());
+            if (ex != null && ex.getMessage()!=null)
+                Log.i("Conexion: ", ex.getMessage());
         }
     }
 
@@ -66,8 +68,9 @@ public class conexionGETAPIJSONArray extends AsyncTask<String, String, JSONArray
         if (resultados != null) {
             try {
                 delegate.procesoExitoso(resultados);
-            } catch (Exception e) {
-                Log.i("Conexion: ", e.getMessage());
+            } catch (Exception ex) {
+                if (ex != null && ex.getMessage()!=null)
+                    Log.i("Conexion: ", ex.getMessage());
                 delegate.procesoNoExitoso();
             }
         } else {

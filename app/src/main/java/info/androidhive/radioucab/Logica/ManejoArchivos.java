@@ -16,16 +16,10 @@ public class ManejoArchivos extends AsyncTask<String, Void, Integer> {
             URL url = new URL(params[0]);
             InputStream input = url.openStream();
             try {
-                //The sdcard directory e.g. '/sdcard' can be used directly, or
-                //more safely abstracted with getExternalStorageDirectory()
                 File storagePath = Environment.getExternalStorageDirectory();
-
-                // create a File object for the parent directory
                 File file = new File("/sdcard/.RadioUCAB/");
-                // have the object build the directory structure, if needed.
                 file.mkdirs();
-                // create a File object for the output file
-                File outputFile = new File(file,params[1] + ".jpeg");
+                File outputFile = new File(file,params[1] + "." + params[2]);
 
                 OutputStream output = new FileOutputStream(outputFile);
                 try {

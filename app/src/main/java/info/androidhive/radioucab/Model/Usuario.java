@@ -10,21 +10,23 @@ public class Usuario extends SugarRecord<Programa> {
     private String token_twitter;
     private String token_secret_twitter;
     private String guid;
-    private String imagen;
+    private String imagenGrande;
+    private String imagenNormal;
+    private String formatoImagen;
 
     public Usuario() {
 
     }
 
-    public Usuario(String usuario_twitter, String token_twitter, String token_secret_twitter, String imagen) {
+    public Usuario(String usuario_twitter, String token_twitter, String token_secret_twitter, String imagenNormal) {
         this.usuario_twitter = usuario_twitter;
         this.token_twitter = token_twitter;
         this.token_secret_twitter = token_secret_twitter;
-        this.imagen = imagen;
+        this.imagenNormal = imagenNormal;
     }
 
     public Usuario(String nombre, String apellido, String correo, String usuario_twitter, String token_twitter
-            , String token_secret_twitter, String guid, String imagen) {
+            , String token_secret_twitter, String guid, String imagenGrande) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
@@ -32,7 +34,7 @@ public class Usuario extends SugarRecord<Programa> {
         this.token_twitter = token_twitter;
         this.token_secret_twitter = token_secret_twitter;
         this.guid = guid;
-        this.imagen = imagen;
+        this.imagenGrande = imagenGrande;
     }
 
     public String getToken_twitter() {
@@ -91,11 +93,27 @@ public class Usuario extends SugarRecord<Programa> {
         this.usuario_twitter = usuario_twitter;
     }
 
-    public String getImagen() {
-        return imagen;
+    public String getImagenGrande() {
+        return imagenGrande;
     }
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
+    public void setImagenGrande(String imagenGrande) {
+        this.imagenGrande = imagenGrande;
+    }
+
+    public String getImagenNormal() {
+        return imagenNormal;
+    }
+
+    public void setImagenNormal(String imagenNormal) {
+        this.imagenNormal = imagenNormal;
+    }
+
+    public String getFormatoImagen() {
+        return formatoImagen;
+    }
+
+    public void setFormatoImagen(String formatoImagen) {
+        this.formatoImagen = formatoImagen;
     }
 }

@@ -47,7 +47,8 @@ public class conexionPOSTAPIJSONArray extends AsyncTask<String, String, JSONArra
             return new JSONArray(response);
         }
         catch (Exception ex) {
-            Log.i("Conexion: ", ex.getMessage());
+            if (ex != null && ex.getMessage()!=null)
+                Log.i("Conexion: ", ex.getMessage());
         }
         return null;
     }
@@ -76,8 +77,9 @@ public class conexionPOSTAPIJSONArray extends AsyncTask<String, String, JSONArra
         if (resultados != null) {
             try {
                 delegate.procesoExitoso(resultados);
-            } catch (Exception e) {
-                Log.i("Conexion: ", e.getMessage());
+            } catch (Exception ex) {
+                if (ex != null && ex.getMessage()!=null)
+                    Log.i("Conexion: ", ex.getMessage());
                 delegate.procesoNoExitoso();
             }
         } else {

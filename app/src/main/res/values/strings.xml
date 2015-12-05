@@ -10,6 +10,7 @@
     <string name="texto_detalle_programa">Espere un momento por favor...</string>
     <string name="menu_perfil_usuario">Ingresar</string>
     <string name="ip_web_service">http://192.168.0.100:24364/</string>
+    <string name="ruta_archivos_radio_ucab">/sdcard/.RadioUCAB/</string>
     
     <!-- Elementos del menu -->
     <string-array name="nav_drawer_items">
@@ -37,18 +38,27 @@
     <!-- Descripcion de contenido -->
     <string name="desc_list_item_icon">Iconos</string>
 
-    <!-- Fragment creacion UsuarioSingleton -->
+    <!-- Contenido Toasts -->
+    <string name="toast_error_terminos_condiciones">Debe aceptar los terminos y condiciones para registrarse en Radio UCAB</string>
+
+    <!-- Contenido Dialogs -->
+    <string name="dialogo_mensaje_cerrar">Cerrar</string>
+    <string name="dialogo_mensaje_Si">Si</string>
+    <string name="dialogo_mensaje_No">No</string>
+    <!-- Registro de Usuario -->
+    <string name="dialogo_asunto_terminos_condiciones">Términos y Condiciones</string>
+    <string name="dialogo_contenido_terminos_condiciones">ja njaskj sdbksdbhcdbhc dbhcd jnajxahxbhj xbhxsbhs jnsjn djndcjn cdjncdjndcjdc jncdnjcdjn cdjnd cnjdcnj cdnjcdncd cdjcdnjcmcd</string>
+    <string name="dialogo_asunto_cancelar_registro">Cancelar registro</string>
+    <string name="dialogo_contenido_cancelar_registro">¿Está seguro de que desea cancelar su registro?</string>
 
     <!-- Contenido de los campos-->
     <string name="campo_terminos_condiciones">He leído los terminos y condiciones</string>
+
 
     <!-- Hint de los campos-->
     <string name="hint_campo_nombre">Nombre</string>
     <string name="hint_campo_apellido">Apellido</string>
     <string name="hint_campo_correo">Correo Electrónico</string>
-
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

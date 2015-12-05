@@ -21,6 +21,7 @@ import java.util.List;
 import info.androidhive.radioucab.Controlador.Adaptor.AdaptadorEvento;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONArray;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONObject;
+import info.androidhive.radioucab.Logica.ManejoToolbar;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.Model.Actualizacion;
 import info.androidhive.radioucab.Model.Evento;
@@ -43,6 +44,7 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
     private static final ManejoFecha tiempoActual = new ManejoFecha();
     private Toast toast;
     private static int pagina = 1;
+    private final ManejoToolbar toolbar = ManejoToolbar.getInstancia();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,6 +63,8 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
         try {
             if (rootView != null) {
                 super.onCreate(savedInstanceState);
+                //cambio el color del toolbar superior
+                toolbar.cambiarDeColor(4);
                 recyclerView = (RecyclerView) rootView.findViewById(R.id.lista_recycler_evento);
                 layoutManager = new LinearLayoutManager(getActivity());
                 recyclerView.setLayoutManager(layoutManager);
@@ -73,7 +77,7 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
                         refrescarContenido();
                     }
                 });
-                swipeRefreshLayout.setColorSchemeResources(R.color.amarillo_radio_ucab, R.color.azul_radio_ucab);
+                swipeRefreshLayout.setColorSchemeResources(R.color.amarillo_ucab, R.color.azul_radio_ucab);
                 recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
                     private int currentScrollState;
                     private int currentFirstVisibleItem;

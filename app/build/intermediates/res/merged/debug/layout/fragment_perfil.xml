@@ -1,8 +1,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout_perfil"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:scrollbars="vertical">
+
+    <ImageView
+        android:id="@+id/rectangulo_fondo"
+        style="@style/BackGroundImageView"
+        android:layout_height="220dp"
+        android:layout_width="fill_parent">
+    </ImageView>
+
     <ImageView
         android:id="@+id/imagen_perfil"
         android:layout_width="120dp"
@@ -12,17 +20,24 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
+
     <TextView
         android:id="@+id/texto_nombre_usuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imagen_perfil"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/blanco"
+        android:layout_marginTop="5dp" />
+
     <TextView
         android:id="@+id/texto_usuario_twitter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/texto_nombre_usuario"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/blanco"
+        android:layout_marginTop="5dp" />
+
 </RelativeLayout>
 <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/layout/fragment_perfil.xml -->

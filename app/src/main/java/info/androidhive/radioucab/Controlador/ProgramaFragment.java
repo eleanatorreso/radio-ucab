@@ -20,6 +20,7 @@ import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONArray;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONObject;
 import info.androidhive.radioucab.Controlador.Adaptor.AdaptadorPrograma;
 import info.androidhive.radioucab.Logica.ActualizacionLogica;
+import info.androidhive.radioucab.Logica.ManejoToolbar;
 import info.androidhive.radioucab.Logica.ProgramaLogica;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.Model.Actualizacion;
@@ -43,6 +44,7 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
     private final ProgramaLogica programaLogica = new ProgramaLogica();
     private final ActualizacionLogica actualizacionLogica = new ActualizacionLogica();
     private static int pagina = 1;
+    private ManejoToolbar toolbar = ManejoToolbar.getInstancia();
 
     public ProgramaFragment() {
     }
@@ -64,6 +66,7 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
         try {
             if (rootView != null) {
                 super.onCreate(savedInstanceState);
+                toolbar.cambiarDeColor(5);
                 recyclerView = (RecyclerView) rootView.findViewById(R.id.lista_recycler_programa);
                 layoutManager = new LinearLayoutManager(getActivity());
                 recyclerView.setLayoutManager(layoutManager);
@@ -76,7 +79,7 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
                         refrescarContenido();
                     }
                 });
-                swipeRefreshLayout.setColorSchemeResources(R.color.amarillo_radio_ucab, R.color.azul_radio_ucab);
+                swipeRefreshLayout.setColorSchemeResources(R.color.amarillo_ucab, R.color.azul_radio_ucab);
                 recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
                     private int currentScrollState;
                     private int currentFirstVisibleItem;

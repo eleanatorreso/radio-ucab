@@ -12,21 +12,24 @@ import java.util.List;
 
 import info.androidhive.radioucab.Conexiones.conexionPOSTAPIJSONArray;
 import info.androidhive.radioucab.Model.Usuario;
+import info.androidhive.radioucab.R;
 
 public class UsuarioLogica implements RespuestaAsyncTask {
 
-    private final File rutaRadioUCAB = new File("/sdcard/.RadioUCAB/");
+    private File rutaRadioUCAB;
     private final ManejoSesionTwitter sesionTwitter = new ManejoSesionTwitter();
     public Context contexto;
     private Toast toast;
     public Usuario usuario;
+
+    public UsuarioLogica(){
+    }
 
     public void crearUsuarioAPI() {
         conexionPOSTAPIJSONArray conexion = new conexionPOSTAPIJSONArray();
         conexion.contexto = contexto;
         conexion.mensaje = "Enviando los datos...";
         conexion.delegate = this;
-        conexion.execute("Api/Usuario/Postusuario");
         JSONObject objeto = new JSONObject();
         try {
             objeto.put("nombre",usuario.getNombre());
@@ -35,21 +38,38 @@ public class UsuarioLogica implements RespuestaAsyncTask {
             objeto.put("token_twitter",usuario.getToken_twitter());
             objeto.put("token_secret_twitter",usuario.getToken_secret_twitter());
             objeto.put("correo",usuario.getCorreo());
-            objeto.put("imagen",usuario.getImagen());
+            objeto.put("imagen",usuario.getImagenGrande());
+            objeto.put("tipo",1);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         conexion.objeto = objeto;
+        conexion.execute("Api/Usuario/Postusuario");
+    }
+
+    public void resetearUsuarioTelefono() {
+        rutaRadioUCAB = new File(contexto.getString(R.string.ruta_archivos_radio_ucab));
+        Usuario.deleteAll(Usuario.class);
+        borrarCarpetaRecursivo(rutaRadioUCAB);
+    }
+
+    private void borrarCarpetaRecursivo(File fileOrDirectory) {
+        if (fileOrDirectory.isDirectory())
+            for (File child : fileOrDirectory.listFiles())
+                borrarCarpetaRecursivo(child);
+        fileOrDirectory.delete();
     }
 
     public void manejoImagenes () {
-        ManejoString cambioUrl = new ManejoString();
-        String url = cambioUrl.getURLImagen(usuario.getImagen());
-        ManejoArchivos almacenarFotoGrande = new ManejoArchivos();
-        almacenarFotoGrande.execute(url, "picBig");
-        ManejoArchivos almacenarFotoNormal = new ManejoArchivos();
-        almacenarFotoNormal.execute(usuario.getImagen(), "picNormal");
         resetearUsuarioTelefono();
+        ManejoString cambioUrl = new ManejoString();
+        String url = cambioUrl.getURLImagen(usuario.getImagenNormal());
+        ManejoArchivos almacenarFotoGrande = new ManejoArchivos();
+        almacenarFotoGrande.execute(url, "picBig", cambioUrl.getFormatoImagen());
+        ManejoArchivos almacenarFotoNormal = new ManejoArchivos();
+        almacenarFotoNormal.execute(usuario.getImagenNormal(), "picNormal", cambioUrl.getFormatoImagen());
+        usuario.setImagenGrande(url);
+        usuario.setFormatoImagen(cambioUrl.getFormatoImagen());
     }
 
     public void almacenarUsuario(boolean actualizar) {
@@ -72,24 +92,12 @@ public class UsuarioLogica implements RespuestaAsyncTask {
             usuarioBD.setToken_secret_twitter(usuarioApp.getToken_secret_twitter());
             actualizar = true;
         }
-        if (!usuarioApp.getImagen().equals(usuarioBD.getImagen())){
-            usuarioBD.setImagen(usuarioApp.getImagen());
+        if (!usuarioApp.getImagenNormal().equals(usuarioBD.getImagenNormal())){
+            usuarioBD.setImagenGrande(usuarioApp.getImagenNormal());
             actualizar = true;
         }
         usuario = usuarioBD;
         almacenarUsuario(actualizar);
-    }
-
-    public void resetearUsuarioTelefono() {
-        Usuario.deleteAll(Usuario.class);
-        borrarCarpetaRecursivo(rutaRadioUCAB);
-    }
-
-    private void borrarCarpetaRecursivo(File fileOrDirectory) {
-        if (fileOrDirectory.isDirectory())
-            for (File child : fileOrDirectory.listFiles())
-                borrarCarpetaRecursivo(child);
-        fileOrDirectory.delete();
     }
 
     @Override

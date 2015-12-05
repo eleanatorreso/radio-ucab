@@ -1,7 +1,7 @@
 package info.androidhive.radioucab.Controlador;
 
+import info.androidhive.radioucab.Logica.ManejoToolbar;
 import info.androidhive.radioucab.Logica.PerfilLogica;
-import info.androidhive.radioucab.Logica.p;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
 
@@ -10,14 +10,6 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,10 +18,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.twitter.sdk.android.Twitter;
-
-import java.util.List;
+import android.widget.Toolbar;
 
 public class PerfilFragment extends Fragment {
 
@@ -38,8 +27,8 @@ public class PerfilFragment extends Fragment {
     private TextView nombre_usuario;
     private TextView usuario_twitter;
     private final PerfilLogica perfilLogica = new PerfilLogica();
-    private Usuario usuario;
-    private RelativeLayout layout;
+    private Usuario usuarioActual;
+    private final ManejoToolbar toolbar = ManejoToolbar.getInstancia();
 
     public PerfilFragment() {
     }
@@ -58,60 +47,34 @@ public class PerfilFragment extends Fragment {
 
     public void cargarDatosUsuario() {
         imagen_perfil = (ImageView) getActivity().findViewById(R.id.imagen_perfil);
-        Bitmap bitmap = BitmapFactory.decodeFile("/sdcard/.RadioUCAB/picBig.jpeg");
+        Bitmap bitmap = BitmapFactory.decodeFile(getActivity().getString(R.string.ruta_archivos_radio_ucab) + "picBig."
+                + usuarioActual.getFormatoImagen());
         imagen_perfil.setImageBitmap(perfilLogica.convertirImagenCirculo(bitmap,0));
         nombre_usuario = (TextView) getActivity().findViewById(R.id.texto_nombre_usuario);
-        nombre_usuario.setText(usuario.getNombre() + " " + usuario.getApellido());
+        nombre_usuario.setText(usuarioActual.getNombre() + " " + usuarioActual.getApellido());
         usuario_twitter = (TextView) getActivity().findViewById(R.id.texto_usuario_twitter);
-        usuario_twitter.setText(usuario.getUsuario_twitter());
-    }
-
-    public void temp() {
-        imagen_perfil = (ImageView) getActivity().findViewById(R.id.imagen_perfil);
-        Bitmap bitmap = BitmapFactory.decodeFile("/sdcard/.RadioUCAB/picBig.jpeg");
-        imagen_perfil.setImageBitmap(perfilLogica.convertirImagenCirculo(bitmap,0));
-       /* Bitmap bitmap = BitmapFactory.decodeResource(getActivity().getResources(),R.drawable.ic_imagen_perfil);
-        Bitmap mutableBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
-        p j = new p(getActivity());
-        Canvas c = new Canvas(mutableBitmap);
-        j.image = mutableBitmap;
-        j.draw(c);
-        layout = (RelativeLayout)getActivity().findViewById(R.id.layout_perfil);
-        layout.addView(j);*/
-       // imagen_perfil.setImageBitmap(getRoundedCornerBitmap(bitmap, 100));
-    }
-
-    public void crear () {
-        Usuario usuario = new Usuario();
-        usuario.setNombre("Eleana");
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.addToBackStack("atras");
-        CreacionUsuario a = new CreacionUsuario();
-        a.usuario = usuario;
-        ft.replace(((ViewGroup) getView().getParent()).getId(), a);
-        ft.commit();
+        usuario_twitter.setText("@" + usuarioActual.getUsuario_twitter());
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         if (rootView != null) {
+            //cambio el color del toolbar superior
+            toolbar.cambiarDeColor(6);
             super.onCreate(savedInstanceState);
             perfilLogica.setContexto(this.getActivity());
-            crear();
-            /*
             if (!Usuario.listAll(Usuario.class).isEmpty()) {
-                usuario = Usuario.listAll(Usuario.class).get(0);
+                usuarioActual = Usuario.listAll(Usuario.class).get(0);
                 cargarDatosUsuario();
             }
             else {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.addToBackStack("atras");
-                InicioSesionTwitter inicioSesionTwitterFragment = new InicioSesionTwitter();
-                ft.replace(((ViewGroup) getView().getParent()).getId(), inicioSesionTwitterFragment);
+                InicioSesionTwitterFragment inicioSesionTwitterFragmentFragment = new InicioSesionTwitterFragment();
+                ft.replace(((ViewGroup) getView().getParent()).getId(), inicioSesionTwitterFragmentFragment);
                 ft.commit();
-            }*/
+            }
         }
     }
 

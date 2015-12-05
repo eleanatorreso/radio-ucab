@@ -40,18 +40,13 @@
     <color name="abc_search_url_text_normal">#7fa87f</color>
     <color name="abc_search_url_text_pressed">@android:color/black</color>
     <color name="abc_search_url_text_selected">@android:color/black</color>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/values/color.xml -->
-    <eat-comment/>
-    <color name="accent_green">#97e08f</color>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
     <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/values/color.xml -->
     <eat-comment/>
-    <color name="amarillo_radio_ucab">#FFD204</color>
-    <color name="azul_claro">#009BDF</color>
+    <color name="amarillo_ucab">#FFD204</color>
     <color name="azul_radio_ucab">#002b54</color>
+    <color name="azul_ucab">#009BDF</color>
     <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/res/values/values.xml -->
     <eat-comment/>
     <color name="background_floating_material_dark">#ff424242</color>
@@ -98,6 +93,7 @@
     <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/values/color.xml -->
     <eat-comment/>
     <color name="divider_gray">#c5c4c4</color>
+    <color name="gris_claro">#ADA7AC</color>
     <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/res/values/values.xml -->
     <eat-comment/>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
@@ -117,11 +113,6 @@
     <color name="material_blue_grey_950">#ff21272b</color>
     <color name="material_deep_teal_200">#ff80cbc4</color>
     <color name="material_deep_teal_500">#ff009688</color>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/values/color.xml -->
-    <eat-comment/>
-    <color name="orange">#FF9900</color>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="primary_dark_material_dark">#ff000000</color>
     <color name="primary_dark_material_light">#ff757575</color>
     <color name="primary_material_dark">#ff212121</color>
@@ -132,20 +123,10 @@
     <color name="primary_text_disabled_material_light">#39000000</color>
     <color name="ripple_material_dark">#40ffffff</color>
     <color name="ripple_material_light">#40000000</color>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/values/color.xml -->
-    <eat-comment/>
-    <color name="sa_green">#14a804</color>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="secondary_text_default_material_dark">#b3ffffff</color>
     <color name="secondary_text_default_material_light">#8a000000</color>
     <color name="secondary_text_disabled_material_dark">#36ffffff</color>
     <color name="secondary_text_disabled_material_light">#24000000</color>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/values/color.xml -->
-    <eat-comment/>
-    <color name="stacked_green">#118504</color>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/res/values/values.xml -->
-    <eat-comment/>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
     <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.5.0/res/values/values.xml -->
@@ -168,7 +149,7 @@
     <color name="tw__tweet_media_preview_bg_color">#e5e5e5</color>
     <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/values/color.xml -->
     <eat-comment/>
-    <color name="white">#FFFFFF</color>
+    <color name="verde_ucab">#0C5426</color>
     <declare-styleable name="ActionBar"><attr name="navigationMode"><enum name="normal" value="0"/><enum name="listMode" value="1"/><enum name="tabMode" value="2"/></attr><attr name="displayOptions"><flag name="none" value="0"/><flag name="useLogo" value="0x1"/><flag name="showHome" value="0x2"/><flag name="homeAsUp" value="0x4"/><flag name="showTitle" value="0x8"/><flag name="showCustom" value="0x10"/><flag name="disableHome" value="0x20"/></attr><attr name="title"/><attr format="string" name="subtitle"/><attr format="reference" name="titleTextStyle"/><attr format="reference" name="subtitleTextStyle"/><attr format="reference" name="icon"/><attr format="reference" name="logo"/><attr format="reference" name="divider"/><attr format="reference" name="background"/><attr format="reference|color" name="backgroundStacked"/><attr format="reference|color" name="backgroundSplit"/><attr format="reference" name="customNavigationLayout"/><attr name="height"/><attr format="reference" name="homeLayout"/><attr format="reference" name="progressBarStyle"/><attr format="reference" name="indeterminateProgressStyle"/><attr format="dimension" name="progressBarPadding"/><attr name="homeAsUpIndicator"/><attr format="dimension" name="itemPadding"/><attr format="boolean" name="hideOnContentScroll"/><attr format="dimension" name="contentInsetStart"/><attr format="dimension" name="contentInsetEnd"/><attr format="dimension" name="contentInsetLeft"/><attr format="dimension" name="contentInsetRight"/><attr format="dimension" name="elevation"/><attr format="reference" name="popupTheme"/></declare-styleable>
     <declare-styleable name="ActionBarLayout"><attr name="android:layout_gravity"/></declare-styleable>
     <declare-styleable name="ActionMenuItemView"><attr name="android:minWidth"/></declare-styleable>
@@ -399,6 +380,11 @@
     <string name="action_settings">Settings</string>
     <string name="app_name">Radio UCAB</string>
     <string name="campo_terminos_condiciones">He leído los terminos y condiciones</string>
+    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/fabric/res/debug/values/com_crashlytics_build_id.xml -->
+    <eat-comment/>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">91c3069a-ffb7-4c3c-a964-9ff5fe9689c0</string>
+    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
     <string name="desc_list_item_icon">Iconos</string>
     <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.digits.sdk.android/digits/1.8.0/res/values/values.xml -->
     <eat-comment/>
@@ -455,9 +441,15 @@
     <string name="dgts_verifying">Verifying</string>
     <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="dialogo_asunto_cancelar_registro">Cancelar registro</string>
+    <string name="dialogo_asunto_terminos_condiciones">Términos y Condiciones</string>
+    <string name="dialogo_contenido_cancelar_registro">¿Está seguro de que desea cancelar su registro?</string>
+    <string name="dialogo_contenido_terminos_condiciones">ja njaskj sdbksdbhcdbhc dbhcd jnajxahxbhj xbhxsbhs jnsjn djndcjn cdjncdjndcjdc jncdnjcdjn cdjnd cnjdcnj cdnjcdncd cdjcdnjcmcd</string>
+    <string name="dialogo_mensaje_No">No</string>
+    <string name="dialogo_mensaje_Si">Si</string>
+    <string name="dialogo_mensaje_cerrar">Cerrar</string>
     <string name="drawer_close">Slider Menu Closed</string>
     <string name="drawer_open">Slider Menu Opened</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello_world">Hello world!</string>
     <string name="hint_campo_apellido">Apellido</string>
     <string name="hint_campo_correo">Correo Electrónico</string>
@@ -469,8 +461,10 @@
     <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="menu_perfil_usuario">Ingresar</string>
+    <string name="ruta_archivos_radio_ucab">/sdcard/.RadioUCAB/</string>
     <string name="texto_detalle_programa">Espere un momento por favor...</string>
     <string name="timeline_empty">Espere un momento por favor...</string>
+    <string name="toast_error_terminos_condiciones">Debe aceptar los terminos y condiciones para registrarse en Radio UCAB</string>
     <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.5.0/res/values/values.xml -->
     <eat-comment/>
     <string name="tw__allow_btn_txt">Allow</string>
@@ -509,6 +503,10 @@
         -->
     </style>
     <style name="AppTheme" parent="AppBaseTheme">
+    </style>
+    <style name="BackGroundImageView">
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:src">@drawable/rectangulo</item>
     </style>
     <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/res/values/values.xml -->
     <eat-comment/>

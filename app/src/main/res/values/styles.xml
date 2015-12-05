@@ -21,4 +21,9 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
+    <style name="BackGroundImageView">
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:src">@drawable/rectangulo</item>
+    </style>
+
 </resources>

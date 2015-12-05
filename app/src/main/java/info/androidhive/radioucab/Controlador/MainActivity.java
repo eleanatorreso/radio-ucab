@@ -3,14 +3,17 @@ package info.androidhive.radioucab.Controlador;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
 import info.androidhive.radioucab.Logica.FabricLogica;
+import info.androidhive.radioucab.Logica.ManejoToolbar;
+import info.androidhive.radioucab.Logica.PerfilLogica;
 import info.androidhive.radioucab.Logica.ServicioRadio;
 import info.androidhive.radioucab.Controlador.Adaptor.AdaptorNavDrawerList;
+import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
 
 import java.util.ArrayList;
 
 import android.app.Activity;
-import android.app.Dialog;
+
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.BroadcastReceiver;
@@ -19,20 +22,27 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
+
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends Activity {
     private DrawerLayout mDrawerLayout;
@@ -51,6 +61,12 @@ public class MainActivity extends Activity {
     private CharSequence mTitle;
     private FabricLogica fabric;
     private TwitterLoginButton loginButton;
+    private boolean menuAbierto;
+    private ImageView imagen_perfil;
+    private TextView boton_ingresar;
+    private final PerfilLogica perfilLogica = new PerfilLogica();
+    private Usuario usuario_actual;
+    private ManejoToolbar toolbar = ManejoToolbar.getInstancia();
 
     @Override
     protected void onStop() {
@@ -77,6 +93,18 @@ public class MainActivity extends Activity {
         }
     }
 
+    public void cargarUsuario () {
+        if (!Usuario.listAll(Usuario.class).isEmpty()) {
+            usuario_actual = Usuario.listAll(Usuario.class).get(0);
+            boton_ingresar.setVisibility(View.INVISIBLE);
+            imagen_perfil.setVisibility(View.VISIBLE);
+            Bitmap bitmap = BitmapFactory.decodeFile(this.getString(R.string.ruta_archivos_radio_ucab) + "picBig." +
+                    usuario_actual.getFormatoImagen());
+            perfilLogica.setContexto(this);
+            imagen_perfil.setImageBitmap(perfilLogica.convertirImagenCirculo(bitmap, 0));
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +112,10 @@ public class MainActivity extends Activity {
         fabric = fabric.getInstance();
         fabric.context = this;
         fabric.initFabric();
+
+        //cambio el color del toolbar superior
+        toolbar.setActivityPrincipal(this);
+        toolbar.cambiarDeColor(1);
 //	COMENTA ESTO MIENTRAS XQ CREO QUE EL GET TITLE ES PARA AGARARR EL TITULO DEL ACTIONBAR
 //		mTitle = mDrawerTitle = getTitle();
 
@@ -127,30 +159,36 @@ public class MainActivity extends Activity {
 
         playbackServiceIntent = new Intent(this, ServicioRadio.class);
 
-        ImageView boton = (ImageView) findViewById(R.id.icono_radio_ucab);
+        final ImageView boton = (ImageView) findViewById(R.id.icono_menu);
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //start abre a la izquierda, end a la derecha
                 if (mDrawerLayout.isDrawerOpen(Gravity.START)) {
                     mDrawerLayout.closeDrawer(Gravity.START);
+                    menuAbierto = false;
+                    boton.setImageDrawable(getResources().getDrawable(R.drawable.ic_menu_white_24dp));
                 } else {
                     mDrawerLayout.openDrawer(Gravity.START);
+                    boton.setImageDrawable(getResources().getDrawable(R.drawable.ic_launcher));
                 }
             }
         });
 
-        TextView loginBtn = (TextView) findViewById(R.id.botonIngresar);
+        boton_ingresar = (TextView) findViewById(R.id.botonIngresar);
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+        boton_ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new InicioSesionTwitter();
+                Fragment fragment = new InicioSesionTwitterFragment();
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.frame_container, fragment).commit();
             }
         });
+
+        imagen_perfil = (ImageView) findViewById(R.id.imagen_usuario);
+        cargarUsuario();
 
         boton_play = (ImageView) findViewById(R.id.icon_play);
         boton_play.setOnClickListener(new View.OnClickListener() {
@@ -242,14 +280,15 @@ public class MainActivity extends Activity {
     /**
      * Slide menu item click listener
      */
-    private class SlideMenuClickListener implements
-            ListView.OnItemClickListener {
+    private class SlideMenuClickListener implements ListView.OnItemClickListener {
+
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
             // display view for selected nav drawer item
             displayView(position);
         }
+
     }
 
     @Override
@@ -260,6 +299,7 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         // toggle nav drawer on selecting action bar app icon/title
 	/*	if (mDrawerToggle.onOptionsItemSelected(item)) {
 			return true;
@@ -323,7 +363,6 @@ public class MainActivity extends Activity {
             FragmentManager fragmentManager = getFragmentManager();
             fragmentManager.beginTransaction()
                     .replace(R.id.frame_container, fragment).commit();
-
             // update selected item and title, then close the drawer
             mDrawerList.setItemChecked(position, true);
             mDrawerList.setSelection(position);
