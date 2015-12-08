@@ -1,50 +1,59 @@
 package info.androidhive.radioucab.Controlador;
 
+import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
 import info.androidhive.radioucab.Logica.FabricLogica;
-import info.androidhive.radioucab.Logica.ManejoToolbar;
+import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.PerfilLogica;
 import info.androidhive.radioucab.Logica.ServicioRadio;
 import info.androidhive.radioucab.Controlador.Adaptor.AdaptorNavDrawerList;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 import android.app.Activity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.internal.widget.AdapterViewCompat;
+import android.support.v7.widget.ListPopupWindow;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 
-import org.w3c.dom.Text;
-
-public class MainActivity extends Activity {
+public class MainActivity extends ActionBarActivity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private String[] navMenuTitles;
@@ -64,9 +73,12 @@ public class MainActivity extends Activity {
     private boolean menuAbierto;
     private ImageView imagen_perfil;
     private TextView boton_ingresar;
+    private ImageView boton_menu_opciones;
     private final PerfilLogica perfilLogica = new PerfilLogica();
     private Usuario usuario_actual;
-    private ManejoToolbar toolbar = ManejoToolbar.getInstancia();
+    private ManejoActivity manejoActivity = ManejoActivity.getInstancia();
+    private Menu menu;
+    private static boolean usuarioLogeado;
 
     @Override
     protected void onStop() {
@@ -93,7 +105,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    public void cargarUsuario () {
+    public void cargarUsuario() {
         if (!Usuario.listAll(Usuario.class).isEmpty()) {
             usuario_actual = Usuario.listAll(Usuario.class).get(0);
             boton_ingresar.setVisibility(View.INVISIBLE);
@@ -102,7 +114,93 @@ public class MainActivity extends Activity {
                     usuario_actual.getFormatoImagen());
             perfilLogica.setContexto(this);
             imagen_perfil.setImageBitmap(perfilLogica.convertirImagenCirculo(bitmap, 0));
+            usuarioLogeado = true;
         }
+        else {
+            usuarioLogeado = false;
+            boton_ingresar.setVisibility(View.VISIBLE);
+            invalidateOptionsMenu();
+        }
+    }
+
+    private Fragment getPosicion(int position) {
+        Fragment fragment = null;
+        switch (position) {
+            case 0:
+                fragment = new HomeFragment();
+                break;
+            case 1:
+                fragment = new ParrillaFragment();
+                break;
+            case 2:
+                fragment = new NoticiaFragment();
+                break;
+            case 3:
+                fragment = new EventoFragment();
+                break;
+            case 4:
+                fragment = new ProgramaFragment();
+                break;
+            case 5:
+                fragment = new PerfilFragment();
+                break;
+            case 6:
+                fragment = new ConfiguracionFragment();
+                break;
+
+            default:
+                break;
+        }
+        return fragment;
+    }
+
+    private void verPerfil() {
+        Fragment fragmento = getPosicion(5);
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.frame_container, fragmento).commit();
+        // update selected item and title, then close the drawer
+        mDrawerList.setItemChecked(5, true);
+        mDrawerList.setSelection(5);
+        setTitle(navMenuTitles[5]);
+    }
+
+    public void crearDialogoSiYNo(String titulo, String mensaje, String botonPositivo, String botonNegativo) {
+        try {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(titulo);
+            builder.setMessage(mensaje);
+            builder.setPositiveButton(botonPositivo,
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            cerrarSesion();
+                            dialog.cancel();
+                        }
+                    });
+            builder.setNegativeButton(botonNegativo,
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            Dialog alerta = builder.create();
+            alerta.getWindow().setType(
+                    WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+            alerta.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void cerrarSesion() {
+        //cerrar sesion en Twitter
+        Twitter.getSessionManager().clearActiveSession();
+        Twitter.logOut();
+        Usuario.deleteAll(Usuario.class);
+        boton_ingresar.setVisibility(View.VISIBLE);
+        imagen_perfil.setVisibility(View.INVISIBLE);
+        usuarioLogeado = false;
+        invalidateOptionsMenu();
     }
 
     @Override
@@ -114,8 +212,8 @@ public class MainActivity extends Activity {
         fabric.initFabric();
 
         //cambio el color del toolbar superior
-        toolbar.setActivityPrincipal(this);
-        toolbar.cambiarDeColor(1);
+        manejoActivity.setActivityPrincipal(this);
+        manejoActivity.cambiarDeColor(1);
 //	COMENTA ESTO MIENTRAS XQ CREO QUE EL GET TITLE ES PARA AGARARR EL TITULO DEL ACTIONBAR
 //		mTitle = mDrawerTitle = getTitle();
 
@@ -141,11 +239,12 @@ public class MainActivity extends Activity {
         // Eventos
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
         // Programas
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1), true, "22"));
+        //navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1), true, "22"));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
         // Perfil
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
         // Configuracion
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1), true, "50+"));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1)));
 
         // Recycle the typed array
         navMenuIcons.recycle();
@@ -186,6 +285,28 @@ public class MainActivity extends Activity {
                         .replace(R.id.frame_container, fragment).commit();
             }
         });
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.inflateMenu(R.menu.main);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.accion_ver_perfil:
+                        verPerfil();
+                        break;
+                    case R.id.accion_cerrar_sesion:
+                        crearDialogoSiYNo(getString(R.string.dialogo_asunto_cerrar_sesion)
+                                ,getString(R.string.dialogo_contenido_cerrar_sesion)
+                                ,getString(R.string.dialogo_mensaje_Si)
+                                ,getString(R.string.dialogo_mensaje_No));
+                        break;
+                }
+                return true;
+            }
+        });
+
 
         imagen_perfil = (ImageView) findViewById(R.id.imagen_usuario);
         cargarUsuario();
@@ -301,7 +422,7 @@ public class MainActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         // toggle nav drawer on selecting action bar app icon/title
-	/*	if (mDrawerToggle.onOptionsItemSelected(item)) {
+    /*	if (mDrawerToggle.onOptionsItemSelected(item)) {
 			return true;
 		}*/
         // Handle action bar actions click
@@ -323,6 +444,19 @@ public class MainActivity extends Activity {
         // if nav drawer is opened, hide the action items
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
         //menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
+        this.menu = menu;
+        if (usuarioLogeado == false) {
+            MenuItem itemCerrarSesion = menu.findItem(R.id.accion_cerrar_sesion);
+            itemCerrarSesion.setVisible(false);
+            MenuItem itemPerfil = menu.findItem(R.id.accion_ver_perfil);
+            itemPerfil.setVisible(false);
+        }
+        else {
+            MenuItem itemCerrarSesion = menu.findItem(R.id.accion_cerrar_sesion);
+            itemCerrarSesion.setVisible(true);
+            MenuItem itemPerfil = menu.findItem(R.id.accion_ver_perfil);
+            itemPerfil.setVisible(true);
+        }
         return super.onPrepareOptionsMenu(menu);
     }
 

@@ -2,53 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.2.0\jars\classes.jar"
+        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
         jumboMode="false"
         revision="21.0.2"
-        sha1="5b37cf49773f7f17aca9830efd3053b0cac56728">
-        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-75b0e32f329d8f2a5780113b8f7c3ece788ad67d.jar" />
-    </item>
-    <item
-        jar="C:\Users\Eleana Torres\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
-        jumboMode="false"
-        revision="21.0.2"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\picasso-2.5.2-5906fa70436f82866eb735912b697a3fb2eec9d7.jar" />
-    </item>
-    <item
-        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.github.satyan\sugar\1.3.1\jars\classes.jar"
-        jumboMode="false"
-        revision="21.0.2"
-        sha1="d59de211e85bc8c7f75c7a4890d229ff8c4dab87">
-        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-9eb58c3b6fa6f54fa5a9fd24f19e5e480f02eff1.jar" />
-    </item>
-    <item
-        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\io.fabric.sdk.android\fabric\1.3.5\jars\classes.jar"
-        jumboMode="false"
-        revision="21.0.2"
-        sha1="6e65060ef2ec6ec98365250d2119d7968626fd3f">
-        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-e2a5a1d3bdf4ac0a3b0f28e5e062ccd465a9913c.jar" />
-    </item>
-    <item
-        jar="C:\Users\Eleana Torres\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3\5fc52c41ef0239d1093a1eb7c3697036183677ce\gson-2.3.jar"
-        jumboMode="false"
-        revision="21.0.2"
-        sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce">
-        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\gson-2.3-db1fa35e61affe0dc8f8ff37f82f3dfa3633e2bb.jar" />
-    </item>
-    <item
-        jar="C:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
-        jumboMode="false"
-        revision="21.0.2"
-        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-70ba567356d3f4e70248bb87208265e9c5e15549.jar" />
-    </item>
-    <item
-        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="21.0.2"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-2a4029c479cf3e54acadd4ee78178fbfcf12edc7.jar" />
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-8495abe0c3e517a5cc671a4c012f67fe18bebcdd.jar" />
     </item>
     <item
         jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.0\jars\classes.jar"
@@ -58,46 +16,11 @@
         <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-32dfeda705ee387a36a2282fe0f6464e43accd4e.jar" />
     </item>
     <item
-        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.digits.sdk.android\digits\1.8.0\jars\classes.jar"
+        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.github.satyan\sugar\1.3.1\jars\classes.jar"
         jumboMode="false"
         revision="21.0.2"
-        sha1="074b93197194a0225023845f90cceba9518be74c">
-        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-eabad859502a0b0edcb75b5e972567430443cce5.jar" />
-    </item>
-    <item
-        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.twitter.sdk.android\twitter-core\1.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.0.2"
-        sha1="3c598243d9616e3c6132e054d43f50ff8f8dee63">
-        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-1b76b4a9b7c5e65353c260b2949f830e2b0503db.jar" />
-    </item>
-    <item
-        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\jars\classes.jar"
-        jumboMode="false"
-        revision="21.0.2"
-        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
-        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-d22cd964ddcdcdec2a0c3dcbe8d1ee8f817374a9.jar" />
-    </item>
-    <item
-        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.twitter.sdk.android\tweet-composer\0.9.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.0.2"
-        sha1="de76a31d4a478cd8fcd7e30ec63261c18ba4f5a5">
-        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-5cec02b5f9ba7f960660977c5853deb13ea7fbfc.jar" />
-    </item>
-    <item
-        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.twitter.sdk.android\twitter\1.8.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.0.2"
-        sha1="6fc144eac80d908c45c4308e9aaa55622cae086f">
-        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-e063afe5f53589c1d14a40bbbaf1287b59443bc7.jar" />
-    </item>
-    <item
-        jar="C:\Users\Eleana Torres\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit\retrofit\1.8.0\a517f29ed06be2b2879524fcd94b6e9b36e2e0b5\retrofit-1.8.0.jar"
-        jumboMode="false"
-        revision="21.0.2"
-        sha1="a517f29ed06be2b2879524fcd94b6e9b36e2e0b5">
-        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\retrofit-1.8.0-2e07ea2bf93d664e68bf416a69997d65087d016a.jar" />
+        sha1="d59de211e85bc8c7f75c7a4890d229ff8c4dab87">
+        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-9eb58c3b6fa6f54fa5a9fd24f19e5e480f02eff1.jar" />
     </item>
     <item
         jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.twitter.sdk.android\tweet-ui\1.5.0\jars\classes.jar"
@@ -107,11 +30,81 @@
         <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-611860876aaff591b5798d18df4cb382a388d45e.jar" />
     </item>
     <item
-        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.twitter.sdk.android\tweet-composer\0.9.0\jars\classes.jar"
         jumboMode="false"
         revision="21.0.2"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-8495abe0c3e517a5cc671a4c012f67fe18bebcdd.jar" />
+        sha1="de76a31d4a478cd8fcd7e30ec63261c18ba4f5a5">
+        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-5cec02b5f9ba7f960660977c5853deb13ea7fbfc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\jars\classes.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-d22cd964ddcdcdec2a0c3dcbe8d1ee8f817374a9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Eleana Torres\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3\5fc52c41ef0239d1093a1eb7c3697036183677ce\gson-2.3.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce">
+        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\gson-2.3-db1fa35e61affe0dc8f8ff37f82f3dfa3633e2bb.jar" />
+    </item>
+    <item
+        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="5b37cf49773f7f17aca9830efd3053b0cac56728">
+        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-75b0e32f329d8f2a5780113b8f7c3ece788ad67d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-2a4029c479cf3e54acadd4ee78178fbfcf12edc7.jar" />
+    </item>
+    <item
+        jar="C:\Users\Eleana Torres\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\picasso-2.5.2-5906fa70436f82866eb735912b697a3fb2eec9d7.jar" />
+    </item>
+    <item
+        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.digits.sdk.android\digits\1.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="074b93197194a0225023845f90cceba9518be74c">
+        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-eabad859502a0b0edcb75b5e972567430443cce5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Eleana Torres\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit\retrofit\1.8.0\a517f29ed06be2b2879524fcd94b6e9b36e2e0b5\retrofit-1.8.0.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="a517f29ed06be2b2879524fcd94b6e9b36e2e0b5">
+        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\retrofit-1.8.0-2e07ea2bf93d664e68bf416a69997d65087d016a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.twitter.sdk.android\twitter\1.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="6fc144eac80d908c45c4308e9aaa55622cae086f">
+        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-e063afe5f53589c1d14a40bbbaf1287b59443bc7.jar" />
+    </item>
+    <item
+        jar="C:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-70ba567356d3f4e70248bb87208265e9c5e15549.jar" />
+    </item>
+    <item
+        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.twitter.sdk.android\twitter-core\1.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="3c598243d9616e3c6132e054d43f50ff8f8dee63">
+        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-1b76b4a9b7c5e65353c260b2949f830e2b0503db.jar" />
     </item>
     <item
         jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.bignerdranch.android\expandablerecyclerview\1.0.3\jars\classes.jar"
@@ -119,6 +112,13 @@
         revision="21.0.2"
         sha1="f5eeb4583102dd6771ab71bc8f0c6965548dd3e0">
         <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-d346d6a1fc2e27e5ab6adcca838b5562525a5ae3.jar" />
+    </item>
+    <item
+        jar="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\io.fabric.sdk.android\fabric\1.3.5\jars\classes.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="6e65060ef2ec6ec98365250d2119d7968626fd3f">
+        <dex dex="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\pre-dexed\debug\classes-e2a5a1d3bdf4ac0a3b0f28e5e062ccd465a9913c.jar" />
     </item>
 
 </items>

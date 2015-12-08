@@ -21,7 +21,7 @@ import java.util.List;
 import info.androidhive.radioucab.Controlador.Adaptor.AdaptadorEvento;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONArray;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONObject;
-import info.androidhive.radioucab.Logica.ManejoToolbar;
+import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.Model.Actualizacion;
 import info.androidhive.radioucab.Model.Evento;
@@ -44,7 +44,7 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
     private static final ManejoFecha tiempoActual = new ManejoFecha();
     private Toast toast;
     private static int pagina = 1;
-    private final ManejoToolbar toolbar = ManejoToolbar.getInstancia();
+    private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,7 +64,8 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
             if (rootView != null) {
                 super.onCreate(savedInstanceState);
                 //cambio el color del toolbar superior
-                toolbar.cambiarDeColor(4);
+                manejoActivity.cambiarDeColor(4);
+                manejoActivity.cambiarIconoMenu();
                 recyclerView = (RecyclerView) rootView.findViewById(R.id.lista_recycler_evento);
                 layoutManager = new LinearLayoutManager(getActivity());
                 recyclerView.setLayoutManager(layoutManager);

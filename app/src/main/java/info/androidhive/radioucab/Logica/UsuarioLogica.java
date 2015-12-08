@@ -1,6 +1,7 @@
 package info.androidhive.radioucab.Logica;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 import com.twitter.sdk.android.core.TwitterAuthToken;
 import com.twitter.sdk.android.core.TwitterSession;
@@ -11,6 +12,7 @@ import java.io.File;
 import java.util.List;
 
 import info.androidhive.radioucab.Conexiones.conexionPOSTAPIJSONArray;
+import info.androidhive.radioucab.Conexiones.conexionPUTAPIJSONArray;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
 
@@ -38,7 +40,8 @@ public class UsuarioLogica implements RespuestaAsyncTask {
             objeto.put("token_twitter",usuario.getToken_twitter());
             objeto.put("token_secret_twitter",usuario.getToken_secret_twitter());
             objeto.put("correo",usuario.getCorreo());
-            objeto.put("imagen",usuario.getImagenGrande());
+            objeto.put("imagen_grande",usuario.getImagenGrande());
+            objeto.put("imagen_normal",usuario.getImagenNormal());
             objeto.put("tipo",1);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -47,17 +50,45 @@ public class UsuarioLogica implements RespuestaAsyncTask {
         conexion.execute("Api/Usuario/Postusuario");
     }
 
+    public void actualizarUsuarioAPI() {
+        conexionPUTAPIJSONArray conexion = new conexionPUTAPIJSONArray();
+        conexion.contexto = contexto;
+        conexion.mensaje = "Enviando los datos...";
+        conexion.delegate = this;
+        JSONObject objeto = new JSONObject();
+        try {
+            objeto.put("guid",usuario.getGuid());
+            objeto.put("nombre",usuario.getNombre());
+            objeto.put("apellido",usuario.getApellido());
+            objeto.put("usuario_twitter",usuario.getUsuario_twitter());
+            objeto.put("token_twitter",usuario.getToken_twitter());
+            objeto.put("token_secret_twitter",usuario.getToken_secret_twitter());
+            objeto.put("correo",usuario.getCorreo());
+            objeto.put("imagen_grande",usuario.getImagenGrande());
+            objeto.put("imagen_normal",usuario.getImagenNormal());
+            objeto.put("tipo",1);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        conexion.objeto = objeto;
+        conexion.execute("Api/Usuario/Putusuario");
+    }
+
     public void resetearUsuarioTelefono() {
         rutaRadioUCAB = new File(contexto.getString(R.string.ruta_archivos_radio_ucab));
-        Usuario.deleteAll(Usuario.class);
         borrarCarpetaRecursivo(rutaRadioUCAB);
     }
 
     private void borrarCarpetaRecursivo(File fileOrDirectory) {
-        if (fileOrDirectory.isDirectory())
-            for (File child : fileOrDirectory.listFiles())
-                borrarCarpetaRecursivo(child);
-        fileOrDirectory.delete();
+        try {
+            if (fileOrDirectory.isDirectory())
+                for (File child : fileOrDirectory.listFiles())
+                    borrarCarpetaRecursivo(child);
+            fileOrDirectory.delete();
+        }
+        catch (Exception ex) {
+            Log.e("Carpeta",ex.getMessage());
+        }
     }
 
     public void manejoImagenes () {
@@ -72,12 +103,14 @@ public class UsuarioLogica implements RespuestaAsyncTask {
         usuario.setFormatoImagen(cambioUrl.getFormatoImagen());
     }
 
-    public void almacenarUsuario(boolean actualizar) {
+    public void almacenarUsuario(boolean actualizar, boolean usuarioNuevo) {
         manejoImagenes ();
-        Usuario.deleteAll(Usuario.class);
         usuario.save();
-        if (actualizar)
+        if (actualizar && usuarioNuevo)
             crearUsuarioAPI();
+        else if (actualizar && !usuarioNuevo) {
+            actualizarUsuarioAPI();
+        }
     }
 
     public void comprobarUsuario (Usuario usuarioApp, Usuario usuarioBD) {
@@ -92,12 +125,13 @@ public class UsuarioLogica implements RespuestaAsyncTask {
             usuarioBD.setToken_secret_twitter(usuarioApp.getToken_secret_twitter());
             actualizar = true;
         }
-        if (!usuarioApp.getImagenNormal().equals(usuarioBD.getImagenNormal())){
-            usuarioBD.setImagenGrande(usuarioApp.getImagenNormal());
+        if (!usuarioApp.getImagenNormal().equals(usuarioBD.getImagenNormal())) {
+            usuarioBD.setImagenNormal(usuarioApp.getImagenNormal());
             actualizar = true;
         }
+
         usuario = usuarioBD;
-        almacenarUsuario(actualizar);
+        almacenarUsuario(actualizar, false);
     }
 
     @Override
@@ -117,6 +151,7 @@ public class UsuarioLogica implements RespuestaAsyncTask {
 
     @Override
     public void procesoNoExitoso() {
-
+        toast = Toast.makeText(contexto, "No es posible procesar su solicitud, intente más tarde", Toast.LENGTH_LONG);
+        toast.show();
     }
 }

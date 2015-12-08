@@ -6,15 +6,15 @@
 
     <ImageView
         android:id="@+id/rectangulo_fondo"
-        style="@style/BackGroundImageView"
-        android:layout_height="220dp"
+        style="@style/fondoRectangulo"
+        android:layout_height="200dp"
         android:layout_width="fill_parent">
     </ImageView>
 
     <ImageView
         android:id="@+id/imagen_perfil"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:scaleType="fitXY"
         android:layout_gravity="center"
         android:layout_alignParentTop="true"
@@ -22,22 +22,134 @@
         android:layout_marginTop="20dp" />
 
     <TextView
-        android:id="@+id/texto_nombre_usuario"
+        android:id="@+id/texto_usuario_nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imagen_perfil"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/blanco"
+        android:textColor="@color/lista_texto"
+        android:textSize="17dp"
         android:layout_marginTop="5dp" />
+
+    <Button android:id="@+id/boton_editar_perfil"
+        android:layout_width="110dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/blanco"
+        android:background="@drawable/boton"
+        android:layout_below="@id/texto_usuario_nombre"
+        android:text="Editar perfil"
+        android:layout_marginTop="5dp"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/texto_informacion_personal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/azul_ucab"
+        android:layout_below="@id/rectangulo_fondo"
+        android:layout_centerHorizontal="true"
+        android:text="Información Personal"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp" />
+
+    <ImageView
+        android:id="@+id/icono_twitter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.5"
+        android:layout_below="@id/texto_informacion_personal"
+        android:src="@drawable/ic_twitter"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"/>
 
     <TextView
         android:id="@+id/texto_usuario_twitter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/texto_nombre_usuario"
+        android:textColor="@color/lista_texto"
+        android:layout_toRightOf="@id/icono_twitter"
+        android:layout_below="@id/texto_informacion_personal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:textSize="17dp" />
+
+    <ImageView
+        android:id="@+id/icono_correo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.5"
+        android:layout_below="@+id/icono_twitter"
+        android:src="@drawable/ic_correo"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/texto_usuario_correo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/lista_texto"
+        android:layout_toRightOf="@id/icono_correo"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/icono_twitter"
+        android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/texto_tu_y_radio_ucab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/azul_ucab"
+        android:layout_below="@id/icono_correo"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/blanco"
+        android:text="Tú + Radio UCAB"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp" />
+
+    <ImageView
+        android:id="@+id/icono_premiacion"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_premiacion"
+        android:layout_below="@+id/texto_tu_y_radio_ucab"
+        android:layout_toLeftOf="@+id/texto_tu_y_radio_ucab"
+        android:layout_toStartOf="@+id/texto_tu_y_radio_ucab"
         android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/texto_ver_premiaciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/azul_ucab"
+        android:text="Mis premios"
+        android:textSize="14dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_below="@+id/icono_premiacion"
+        android:layout_toRightOf="@+id/icono_correo"
+        android:layout_toEndOf="@+id/icono_correo" />
+
+    <ImageView
+        android:id="@+id/icono_programas_favoritos"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_favoritos"
+        android:layout_above="@+id/texto_ver_programas"
+        android:layout_toRightOf="@+id/texto_tu_y_radio_ucab"
+        android:layout_toEndOf="@+id/texto_tu_y_radio_ucab" />
+
+    <TextView
+        android:id="@+id/texto_ver_programas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/azul_ucab"
+        android:text="Mis programas favoritos"
+        android:textSize="14dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_alignTop="@+id/texto_ver_premiaciones"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
 <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/layout/fragment_perfil.xml -->

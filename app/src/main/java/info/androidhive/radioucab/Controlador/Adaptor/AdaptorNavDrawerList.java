@@ -53,6 +53,7 @@ public class AdaptorNavDrawerList extends BaseAdapter {
          
         imgIcon.setImageResource(navDrawerItems.get(position).getIcon());        
         txtTitle.setText(navDrawerItems.get(position).getTitle());
+		txtTitle.setTextColor(convertView.getResources().getColor(R.color.lista_texto));
         
         // displaying count
         // check whether it set visible or not

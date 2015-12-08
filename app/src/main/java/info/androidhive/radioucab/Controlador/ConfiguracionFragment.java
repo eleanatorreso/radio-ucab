@@ -6,12 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import info.androidhive.radioucab.Logica.ManejoToolbar;
+import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.R;
 
 public class ConfiguracionFragment extends Fragment {
 
-    private ManejoToolbar toolbar = ManejoToolbar.getInstancia();
+    private ManejoActivity manejoActivity = ManejoActivity.getInstancia();
 	public ConfiguracionFragment(){}
 	
 	
@@ -25,7 +25,8 @@ public class ConfiguracionFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        toolbar.cambiarDeColor(7);
+        manejoActivity.cambiarDeColor(7);
+        manejoActivity.cambiarIconoMenu();
     }
 
 }

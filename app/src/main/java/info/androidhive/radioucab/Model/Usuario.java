@@ -26,7 +26,7 @@ public class Usuario extends SugarRecord<Programa> {
     }
 
     public Usuario(String nombre, String apellido, String correo, String usuario_twitter, String token_twitter
-            , String token_secret_twitter, String guid, String imagenGrande) {
+            , String token_secret_twitter, String guid, String imagenNormal, String imagenGrande) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
@@ -34,6 +34,7 @@ public class Usuario extends SugarRecord<Programa> {
         this.token_twitter = token_twitter;
         this.token_secret_twitter = token_secret_twitter;
         this.guid = guid;
+        this.imagenNormal = imagenNormal;
         this.imagenGrande = imagenGrande;
     }
 

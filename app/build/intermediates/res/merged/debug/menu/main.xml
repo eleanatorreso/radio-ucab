@@ -1,4 +1,10 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
-
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/accion_ver_perfil"
+        android:title="@string/menu_accion_ver_perfil"
+        app:showAsAction="never"/>
+    <item android:id="@+id/accion_cerrar_sesion"
+        android:title="@string/menu_accion_cerrar_sesion"
+        app:showAsAction="never"/>
 </menu>
 <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/menu/main.xml -->

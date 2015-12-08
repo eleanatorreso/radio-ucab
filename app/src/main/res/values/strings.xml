@@ -2,8 +2,8 @@
 <resources>
 
     <string name="app_name">Radio UCAB</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="menu_accion_cerrar_sesion">Cerrar Sesión</string>
+    <string name="menu_accion_ver_perfil">Ver mi perfil</string>
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="drawer_close">Slider Menu Closed</string>
     <string name="timeline_empty">Espere un momento por favor...</string>
@@ -50,9 +50,16 @@
     <string name="dialogo_contenido_terminos_condiciones">ja njaskj sdbksdbhcdbhc dbhcd jnajxahxbhj xbhxsbhs jnsjn djndcjn cdjncdjndcjdc jncdnjcdjn cdjnd cnjdcnj cdnjcdncd cdjcdnjcmcd</string>
     <string name="dialogo_asunto_cancelar_registro">Cancelar registro</string>
     <string name="dialogo_contenido_cancelar_registro">¿Está seguro de que desea cancelar su registro?</string>
+    <!-- Cerrar Sesion -->
+    <string name="dialogo_asunto_cerrar_sesion">Cerrar Sesión</string>
+    <string name="dialogo_contenido_cerrar_sesion">¿Está seguro de que desea cerrar su sesión?</string>
 
     <!-- Contenido de los campos-->
+    <!-- Registro del Usuario-->
     <string name="campo_terminos_condiciones">He leído los terminos y condiciones</string>
+    <!-- Perfil del Usuario-->
+    <string name="campo_usuario_twitter">Usuario Twitter</string>
+    <string name="campo_usuario_correo">Correo Electrónico</string>
 
 
     <!-- Hint de los campos-->

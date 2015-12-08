@@ -1,7 +1,5 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <gradient
-        android:startColor="@color/azul_radio_ucab"
-        android:endColor="@color/azul_radio_ucab" />
+    <solid android:color="@color/list_pressed"/>
 </shape>
 

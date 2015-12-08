@@ -3,7 +3,7 @@
     android:id="@+id/creacion_usuario"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="info.androidhive.radioucab.Controlador.RegistroUsuario">
+    tools:context="info.androidhive.radioucab.Controlador.RegistroUsuarioFragment">
 
     <EditText
         android:id="@+id/editText_nombre_usuario"
@@ -43,6 +43,7 @@
         android:layout_below="@id/editText_correo_usuario"
         android:layout_toRightOf="@id/checkbox_terminos_condiciones"
         android:textColor="@color/azul_ucab"
+        android:text="trd"
         android:clickable="true" />
 
     <Button

@@ -23,7 +23,7 @@ import java.util.List;
 
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONArray;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONObject;
-import info.androidhive.radioucab.Logica.ManejoToolbar;
+import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.Controlador.Adaptor.AdaptadorNoticia;
 import info.androidhive.radioucab.Model.Actualizacion;
@@ -42,7 +42,7 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
     private Toast toast;
     private static Date ultimaActWS;
     private static final ManejoFecha tiempoActual = new ManejoFecha();
-    private final ManejoToolbar toolbar = ManejoToolbar.getInstancia();
+    private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
 
     public static final String[] descriptions = new String[]{
             "Descripcion 1",
@@ -68,7 +68,8 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //cambio el color del toolbar superior
-        toolbar.cambiarDeColor(3);
+        manejoActivity.cambiarDeColor(3);
+        manejoActivity.cambiarIconoMenu();
         swipeRefreshLayout = (SwipeRefreshLayout) getActivity().findViewById(R.id.activity_main_swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

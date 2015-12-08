@@ -1,6 +1,6 @@
 package info.androidhive.radioucab.Controlador;
 
-import info.androidhive.radioucab.Logica.ManejoToolbar;
+import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.PerfilLogica;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
@@ -15,20 +15,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 public class PerfilFragment extends Fragment {
 
     private View rootView;
     private ImageView imagen_perfil;
-    private TextView nombre_usuario;
+    private TextView usuario_nombre;
     private TextView usuario_twitter;
+    private TextView usuario_correo;
+    private Button boton_cerrar_sesion;
     private final PerfilLogica perfilLogica = new PerfilLogica();
-    private Usuario usuarioActual;
-    private final ManejoToolbar toolbar = ManejoToolbar.getInstancia();
+    private Usuario usuario_actual;
+    private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
 
     public PerfilFragment() {
     }
@@ -48,31 +49,37 @@ public class PerfilFragment extends Fragment {
     public void cargarDatosUsuario() {
         imagen_perfil = (ImageView) getActivity().findViewById(R.id.imagen_perfil);
         Bitmap bitmap = BitmapFactory.decodeFile(getActivity().getString(R.string.ruta_archivos_radio_ucab) + "picBig."
-                + usuarioActual.getFormatoImagen());
-        imagen_perfil.setImageBitmap(perfilLogica.convertirImagenCirculo(bitmap,0));
-        nombre_usuario = (TextView) getActivity().findViewById(R.id.texto_nombre_usuario);
-        nombre_usuario.setText(usuarioActual.getNombre() + " " + usuarioActual.getApellido());
+                + usuario_actual.getFormatoImagen());
+        imagen_perfil.setImageBitmap(perfilLogica.convertirImagenCirculo(bitmap, 0));
+        usuario_nombre = (TextView) getActivity().findViewById(R.id.texto_usuario_nombre);
+        usuario_nombre.setText(usuario_actual.getNombre() + " " + usuario_actual.getApellido());
         usuario_twitter = (TextView) getActivity().findViewById(R.id.texto_usuario_twitter);
-        usuario_twitter.setText("@" + usuarioActual.getUsuario_twitter());
+      //usuario_twitter.setText(getActivity().getString(R.string.campo_usuario_twitter) + ": @" + usuario_actual.getUsuario_twitter());
+        usuario_twitter.setText("@" + usuario_actual.getUsuario_twitter());
+        usuario_correo = (TextView) getActivity().findViewById(R.id.texto_usuario_correo);
+      //  usuario_correo.setText(getActivity().getString(R.string.campo_usuario_correo) + ": " + usuario_actual.getCorreo());
+        usuario_correo.setText(usuario_actual.getCorreo());
+        boton_cerrar_sesion = (Button) getActivity().findViewById(R.id.boton_editar_perfil);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         if (rootView != null) {
             //cambio el color del toolbar superior
-            toolbar.cambiarDeColor(6);
+            manejoActivity.cambiarDeColor(6);
+            manejoActivity.cambiarIconoMenu();
             super.onCreate(savedInstanceState);
             perfilLogica.setContexto(this.getActivity());
             if (!Usuario.listAll(Usuario.class).isEmpty()) {
-                usuarioActual = Usuario.listAll(Usuario.class).get(0);
+                usuario_actual = Usuario.listAll(Usuario.class).get(0);
                 cargarDatosUsuario();
             }
             else {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.addToBackStack("atras");
-                InicioSesionTwitterFragment inicioSesionTwitterFragmentFragment = new InicioSesionTwitterFragment();
-                ft.replace(((ViewGroup) getView().getParent()).getId(), inicioSesionTwitterFragmentFragment);
+                InicioSesionTwitterFragment inicioSesionTwitterFragment = new InicioSesionTwitterFragment();
+                ft.replace(((ViewGroup) getView().getParent()).getId(), inicioSesionTwitterFragment);
                 ft.commit();
             }
         }
