@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="info.androidhive.radioucab.test">
+    package="com.radioucabmovil.test">
 
     <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="17" />
 
@@ -9,8 +9,8 @@
     </application>
 
     <instrumentation android:name="android.test.InstrumentationTestRunner"
-                     android:targetPackage="info.androidhive.radioucab"
+                     android:targetPackage="com.radioucabmovil"
                      android:handleProfiling="false"
                      android:functionalTest="false"
-                     android:label="Tests for info.androidhive.radioucab"/>
+                     android:label="Tests for com.radioucabmovil"/>
 </manifest>

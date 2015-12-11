@@ -1,9 +1,32 @@
 package info.androidhive.radioucab.Logica;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import info.androidhive.radioucab.Controlador.ConfiguracionFragment;
+import info.androidhive.radioucab.Controlador.EditarPerfilFragment;
+import info.androidhive.radioucab.Controlador.EventoFragment;
+import info.androidhive.radioucab.Controlador.HomeFragment;
+import info.androidhive.radioucab.Controlador.InicioSesionTwitterFragment;
+import info.androidhive.radioucab.Controlador.NavDrawerItem;
+import info.androidhive.radioucab.Controlador.NoticiaFragment;
+import info.androidhive.radioucab.Controlador.ParrillaFragment;
+import info.androidhive.radioucab.Controlador.PerfilFragment;
+import info.androidhive.radioucab.Controlador.ProgramaFragment;
+import info.androidhive.radioucab.Controlador.RegistroUsuarioFragment;
+import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
 
 public class ManejoActivity {
@@ -11,8 +34,18 @@ public class ManejoActivity {
     private static ManejoActivity instancia;
     private static Activity activityPrincipal;
     private Toolbar toolbar;
+    private ImageView imagen_perfil;
+    private TextView boton_ingresar;
+    private Usuario usuario_actual;
+    private ImageView botonMenu;
+    private final PerfilLogica perfilLogica = new PerfilLogica();
+    private DrawerLayout mDrawerLayout;
+    private ListView mDrawerList;
+    private String[] navMenuTitles;
+    private TypedArray navMenuIcons;
+    private ArrayList<NavDrawerItem> navDrawerItems;
 
-    public static ManejoActivity getInstancia () {
+    public static ManejoActivity getInstancia() {
         if (instancia == null) {
             instancia = new ManejoActivity();
         }
@@ -26,14 +59,35 @@ public class ManejoActivity {
     public void setActivityPrincipal(Activity activityPrincipal) {
         this.activityPrincipal = activityPrincipal;
         toolbar = (Toolbar) activityPrincipal.findViewById(R.id.toolbar);
+        perfilLogica.setContexto(activityPrincipal);
+        boton_ingresar = (TextView) activityPrincipal.findViewById(R.id.botonIngresar);
+        imagen_perfil = (ImageView) activityPrincipal.findViewById(R.id.imagen_usuario);
+        navMenuTitles = activityPrincipal.getResources().getStringArray(R.array.nav_drawer_items);
+        // nav drawer icons from resources
+        navMenuIcons = activityPrincipal.getResources()
+                .obtainTypedArray(R.array.nav_drawer_icons);
+        mDrawerLayout = (DrawerLayout) activityPrincipal.findViewById(R.id.drawer_layout);
+        mDrawerList = (ListView) activityPrincipal.findViewById(R.id.list_slidermenu);
+    }
+
+    public void cambiarToolbar() {
+        if (Usuario.listAll(Usuario.class) != null) {
+            usuario_actual = Usuario.listAll(Usuario.class).get(0);
+            boton_ingresar.setVisibility(View.INVISIBLE);
+            imagen_perfil.setVisibility(View.VISIBLE);
+            Bitmap bitmap = BitmapFactory.decodeFile(activityPrincipal.getString(R.string.ruta_archivos_radio_ucab) + "picBig." +
+                    usuario_actual.getFormatoImagen());
+            imagen_perfil.setImageBitmap(perfilLogica.convertirImagenCirculo(bitmap, 0));
+            activityPrincipal.invalidateOptionsMenu();
+        }
     }
 
     public void cambiarIconoMenu() {
-        ImageView botonMenu = (ImageView) getActivityPrincipal().findViewById(R.id.icono_menu);
+        botonMenu = (ImageView) getActivityPrincipal().findViewById(R.id.icono_menu);
         botonMenu.setImageDrawable(getActivityPrincipal().getResources().getDrawable(R.drawable.ic_menu_white_24dp));
     }
 
-    public void cambiarDeColor (int seccion) {
+    public void cambiarDeColor(int seccion) {
         int color = 0;
         switch (seccion) {
             //Home
@@ -66,6 +120,117 @@ public class ManejoActivity {
                 break;
         }
         toolbar.setBackgroundColor(color);
+    }
+
+    private Fragment getPosicion(int position) {
+        Fragment fragment = null;
+        switch (position) {
+            case 0:
+                fragment = new HomeFragment();
+                break;
+            case 1:
+                fragment = new ParrillaFragment();
+                break;
+            case 2:
+                fragment = new NoticiaFragment();
+                break;
+            case 3:
+                fragment = new EventoFragment();
+                break;
+            case 4:
+                fragment = new ProgramaFragment();
+                break;
+            case 5:
+                fragment = new PerfilFragment();
+                break;
+            case 6:
+                fragment = new ConfiguracionFragment();
+                break;
+
+            default:
+                break;
+        }
+        return fragment;
+    }
+
+    public Fragment getFragment(int position) {
+        Fragment fragment = null;
+        switch (position) {
+            case 0:
+                fragment = new HomeFragment();
+                break;
+            case 1:
+                fragment = new ParrillaFragment();
+                break;
+            case 2:
+                fragment = new NoticiaFragment();
+                break;
+            case 3:
+                fragment = new EventoFragment();
+                break;
+            case 4:
+                fragment = new ProgramaFragment();
+                break;
+            case 5:
+                fragment = new PerfilFragment();
+                break;
+            case 6:
+                fragment = new ConfiguracionFragment();
+                break;
+            case 7:
+                fragment = new RegistroUsuarioFragment();
+                break;
+            case 8:
+                fragment = new InicioSesionTwitterFragment();
+                break;
+            case 9:
+                fragment = new EditarPerfilFragment();
+                break;
+
+            default:
+                break;
+        }
+        return fragment;
+    }
+
+    public int getPosicion (String nombre_fragment) {
+        switch (nombre_fragment) {
+            case "Home":
+                return 0;
+            case "Parrilla":
+                return 1;
+            case "Noticia":
+                return 2;
+            case "Evento":
+                return 3;
+            case "Programa":
+                return 4;
+            case "Perfil":
+                return 5;
+            case "Configuracion":
+                return 6;
+            case "Registro":
+                return 7;
+            case "Inicio":
+                return 8;
+            case "Editar":
+                return 9;
+        }
+        return 0;
+    }
+
+    public Fragment cambiarFragment(String nombre_fragment) {
+        int posicion = getPosicion(nombre_fragment);
+        Fragment fragmento = getFragment(posicion);
+        FragmentManager fragmentManager = getActivityPrincipal().getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.frame_container, fragmento).commit();
+        if (posicion != 7 && posicion != 8 && posicion != 9) {// update selected item and title, then close the drawer
+            mDrawerList.setItemChecked(posicion, true);
+            mDrawerList.setSelection(posicion);
+            getActivityPrincipal().setTitle(navMenuTitles[posicion]);
+        }
+        return fragmento;
     }
 
 }

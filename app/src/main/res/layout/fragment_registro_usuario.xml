@@ -5,65 +5,103 @@
     android:layout_height="match_parent"
     tools:context="info.androidhive.radioucab.Controlador.RegistroUsuarioFragment">
 
+    <TextView
+        android:id="@+id/texto_encabezado_registro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:text="@string/campo_encabezado_registro"
+        android:textColor="@color/azul_ucab"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/texto_registro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_below="@id/texto_encabezado_registro"
+        android:text="@string/campo_texto_resgistro_usuario"
+        android:textColor="@color/azul_radio_ucab"
+        android:textSize="16dp" />
+
     <EditText
         android:id="@+id/editText_nombre_usuario"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="50dp"
-        android:hint="@string/hint_campo_nombre"/>
+        android:layout_below="@+id/texto_registro"
+        android:hint="@string/hint_campo_nombre" />
 
     <EditText
         android:id="@+id/editText_apellido_usuario"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editText_nombre_usuario"
-        android:hint="@string/hint_campo_apellido"/>
+        android:hint="@string/hint_campo_apellido" />
 
     <EditText
         android:id="@+id/editText_correo_usuario"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editText_apellido_usuario"
-        android:hint="@string/hint_campo_correo"/>
+        android:hint="@string/hint_campo_correo" />
 
     <CheckBox
         android:id="@+id/checkbox_terminos_condiciones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/editText_correo_usuario"
-        android:checked="false" />
-
-    <TextView
-        android:id="@+id/texto_terminos_condiciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editText_correo_usuario"
-        android:layout_toRightOf="@id/checkbox_terminos_condiciones"
+        android:checked="false"
+        android:clickable="true"
         android:textColor="@color/azul_ucab"
-        android:text="trd"
-        android:clickable="true" />
+        android:textSize="16dp"/>
 
-    <Button
-        android:id="@+id/boton_crear_usuario"
-        android:layout_width="300px"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/checkbox_terminos_condiciones"
-        android:layout_marginLeft="47dp"
-        android:layout_marginStart="47dp"
-        android:text="Crear Usuario" />
+        android:layout_below="@id/checkbox_terminos_condiciones"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/boton_cancelar_registro"
-        android:layout_width="300px"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/checkbox_terminos_condiciones"
-        android:layout_centerInParent="true"
-        android:layout_toRightOf="@id/boton_crear_usuario"
-        android:text="Cancelar" />
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:gravity="center|top"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/boton_crear_usuario"
+                android:layout_width="133dp"
+                android:layout_height="50dp"
+                android:background="@drawable/boton_azul_claro"
+                android:gravity="center"
+                android:text="@string/campo_boton_crear_usuario"
+                android:textColor="@color/blanco" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:gravity="center|top"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/boton_cancelar_registro"
+                android:layout_width="133dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/checkbox_terminos_condiciones"
+                android:background="@drawable/boton_gris"
+                android:gravity="center"
+                android:text="@string/campo_boton_cancelar"
+                android:textColor="@color/blanco" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

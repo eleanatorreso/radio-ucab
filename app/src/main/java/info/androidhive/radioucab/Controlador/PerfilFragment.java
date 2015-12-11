@@ -26,7 +26,7 @@ public class PerfilFragment extends Fragment {
     private TextView usuario_nombre;
     private TextView usuario_twitter;
     private TextView usuario_correo;
-    private Button boton_cerrar_sesion;
+    private Button boton_editar_perfil;
     private final PerfilLogica perfilLogica = new PerfilLogica();
     private Usuario usuario_actual;
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
@@ -59,7 +59,25 @@ public class PerfilFragment extends Fragment {
         usuario_correo = (TextView) getActivity().findViewById(R.id.texto_usuario_correo);
       //  usuario_correo.setText(getActivity().getString(R.string.campo_usuario_correo) + ": " + usuario_actual.getCorreo());
         usuario_correo.setText(usuario_actual.getCorreo());
-        boton_cerrar_sesion = (Button) getActivity().findViewById(R.id.boton_editar_perfil);
+        boton_editar_perfil = (Button) getActivity().findViewById(R.id.boton_editar_perfil);
+        boton_editar_perfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                manejoActivity.cambiarFragment("Editar");
+            }
+        });
+    }
+
+    public void actualizarPerfil () {
+        perfilLogica.setContexto(this.getActivity());
+        if (!Usuario.listAll(Usuario.class).isEmpty()) {
+            usuario_actual = Usuario.listAll(Usuario.class).get(0);
+            cargarDatosUsuario();
+            manejoActivity.cambiarToolbar();
+        }
+        else {
+            manejoActivity.cambiarFragment("Inicio");
+        }
     }
 
     @Override
@@ -69,19 +87,7 @@ public class PerfilFragment extends Fragment {
             manejoActivity.cambiarDeColor(6);
             manejoActivity.cambiarIconoMenu();
             super.onCreate(savedInstanceState);
-            perfilLogica.setContexto(this.getActivity());
-            if (!Usuario.listAll(Usuario.class).isEmpty()) {
-                usuario_actual = Usuario.listAll(Usuario.class).get(0);
-                cargarDatosUsuario();
-            }
-            else {
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.addToBackStack("atras");
-                InicioSesionTwitterFragment inicioSesionTwitterFragment = new InicioSesionTwitterFragment();
-                ft.replace(((ViewGroup) getView().getParent()).getId(), inicioSesionTwitterFragment);
-                ft.commit();
-            }
+            actualizarPerfil();
         }
     }
 

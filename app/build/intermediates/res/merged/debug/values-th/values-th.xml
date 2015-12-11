@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.twitter.sdk.android/tweet-ui/1.5.0/res/values-th/values-th.xml -->
-    <eat-comment/>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
     <plurals name="tw__time_hours">
         <item quantity="one">1ชม.</item>
         <item quantity="other">%dชม.</item>
@@ -14,11 +12,7 @@
         <item quantity="one">1วิ</item>
         <item quantity="other">%dวิ</item>
     </plurals>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/res/values-th/values.xml -->
-    <eat-comment/>
     <string msgid="4600421777120114993" name="abc_action_bar_home_description">"นำทางไปหน้าแรก"</string>
-    <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
-    <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
     <string msgid="1594238315039666878" name="abc_action_bar_up_description">"นำทางขึ้น"</string>
     <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"ตัวเลือกอื่น"</string>
     <string msgid="4076576682505996667" name="abc_action_mode_done">"เสร็จสิ้น"</string>
@@ -31,8 +25,38 @@
     <string msgid="893419373245838918" name="abc_searchview_description_voice">"ค้นหาด้วยเสียง"</string>
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"แชร์กับ"</string>
     <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"แชร์กับ %s"</string>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.digits.sdk.android/digits/1.8.0/res/values-th/values-th.xml -->
-    <eat-comment/>
+    <string msgid="6428604800157361567" name="common_android_wear_notification_needs_update_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> ต้องการให้อัปเดตแอป Android Wear"</string>
+    <string msgid="2453027084525739603" name="common_android_wear_update_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> จะไม่ทำงานจนกว่าคุณจะอัปเดตแอป Android Wear"</string>
+    <string msgid="1366439133145190222" name="common_android_wear_update_title">"อัปเดต Android Wear"</string>
+    <string msgid="6534628256897874213" name="common_google_play_services_api_unavailable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> ต้องใช้บริการ Google Play อย่างน้อย 1 บริการ ซึ่งไม่พร้อมใช้งานในปัจจุบัน โปรดติดต่อนักพัฒนาซอฟต์แวร์เพื่อขอความช่วยเหลือ"</string>
+    <string msgid="4181637455539816337" name="common_google_play_services_enable_button">"เปิดใช้งานบริการ Google Play"</string>
+    <string msgid="4896236883690196080" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> จะไม่ทำงานจนกว่าคุณจะเปิดใช้บริการ Google Play"</string>
+    <string msgid="529078775174559253" name="common_google_play_services_enable_title">"เปิดใช้งานบริการ Google Play"</string>
+    <string msgid="2443362625939284971" name="common_google_play_services_error_notification_requested_by_msg">"ขอโดย <ns1:g id="APP_NAME">%1$s</ns1:g>"</string>
+    <string msgid="8515591849428043265" name="common_google_play_services_install_button">"รับบริการ Google Play"</string>
+    <string msgid="8836325110837822534" name="common_google_play_services_install_text_phone">"<ns1:g id="APP_NAME">%1$s</ns1:g> จะไม่ทำงานหากไม่มีบริการ Google Play ซึ่งไม่มีในโทรศัพท์ของคุณ"</string>
+    <string msgid="542176290824754127" name="common_google_play_services_install_text_tablet">"<ns1:g id="APP_NAME">%1$s</ns1:g> จะไม่ทำงานหากไม่มีบริการ Google Play ซึ่งไม่มีในแท็บเล็ตของคุณ"</string>
+    <string msgid="26645092511305524" name="common_google_play_services_install_title">"รับบริการ Google Play"</string>
+    <string msgid="4983316348021735578" name="common_google_play_services_invalid_account_text">"บัญชีที่ระบุไม่มีอยู่บนอุปกรณ์นี้ โปรดเลือกบัญชีอื่น"</string>
+    <string msgid="1066672360770936753" name="common_google_play_services_invalid_account_title">"บัญชีไม่ถูกต้อง"</string>
+    <string msgid="2583358409598976717" name="common_google_play_services_needs_enabling_title">"แอปพลิเคชันหนึ่งจำเป็นต้องมีบริการ Google Play เพื่อเปิดใช้งาน"</string>
+    <string msgid="9038847255613537209" name="common_google_play_services_network_error_text">"ต้องมีการเขื่อมต่อข้อมูลเพื่อเชื่อมต่อกับบริการ Google Play"</string>
+    <string msgid="3827284619958211114" name="common_google_play_services_network_error_title">"ข้อผิดพลาดของเครือข่าย"</string>
+    <string msgid="1388129345631079938" name="common_google_play_services_notification_needs_update_title">"แอปพลิเคชันหนึ่งจำเป็นต้องมีการอัปเดตสำหรับบริการ Google Play"</string>
+    <string msgid="1852570676146674985" name="common_google_play_services_notification_ticker">"ข้อผิดพลาดของบริการ Google Play"</string>
+    <string msgid="5194079840165204725" name="common_google_play_services_sign_in_failed_text">"เกิดข้อผิดพลาดในการลงชื่อเข้าใช้บัญชีที่ระบุ โปรดเลือกบัญชีอื่น"</string>
+    <string msgid="8164948898147532159" name="common_google_play_services_sign_in_failed_title">"การลงชื่อเข้าใช้ล้มเหลว"</string>
+    <string msgid="4762332809710093730" name="common_google_play_services_unknown_issue">"ปัญหาที่ไม่รู้จักของบริการ Google Play"</string>
+    <string msgid="7682982632307307938" name="common_google_play_services_unsupported_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> ต้องใช้บริการ Google Play ซึ่งอุปกรณ์ของคุณไม่สนับสนุน โปรดติดต่อผู้ผลิตเพื่อขอความช่วยเหลือ"</string>
+    <string msgid="6334768798839376943" name="common_google_play_services_unsupported_title">"บริการ Google Play"</string>
+    <string msgid="8932944190611227642" name="common_google_play_services_update_button">"อัปเดต"</string>
+    <string msgid="5709479369299147668" name="common_google_play_services_update_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> จะไม่ทำงานจนกว่าคุณจะอัปเดตบริการ Google Play"</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">"อัปเดตบริการ Google Play"</string>
+    <string msgid="2201289642219771610" name="common_google_play_services_updating_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> จะไม่ทำงานหากไม่มีบริการ Google Play ซึ่งกำลังอัปเดตอยู่ในขณะนี้"</string>
+    <string msgid="815008177440683245" name="common_google_play_services_updating_title">"กำลังอัปเดตบริการ Google Play"</string>
+    <string msgid="411506735369601515" name="common_open_on_phone">"เปิดบนโทรศัพท์"</string>
+    <string msgid="3156914698180786012" name="common_signin_button_text">"ลงชื่อเข้าใช้"</string>
+    <string msgid="1483290677806110088" name="common_signin_button_text_long">"ลงชื่อเข้าใช้ด้วย Google"</string>
     <string name="dgts__cancel">ยกเลิก</string>
     <string name="dgts__communication_error">ข้อผิดพลาดการสื่อสาร</string>
     <string name="dgts__confirmation_code">รหัสยืนยัน</string>
@@ -77,29 +101,24 @@
     <string name="dgts_pin_code_terms">คุณได้ตั้งรหัสยืนยัน 2 ชั้นไว้ก่อนหน้านี้บน digits.com</string>
     <string name="dgts_verify">ยืนยัน</string>
     <string name="dgts_verifying">กำลังยืนยัน</string>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.5.0/res/values-th/values-th.xml -->
-    <eat-comment/>
+    <string msgid="4271159405637008602" name="mr_media_route_button_content_description">"เอาต์พุตสื่อ"</string>
+    <string msgid="7553005460920830010" name="mr_media_route_chooser_searching">"กำลังค้นหาอุปกรณ์…"</string>
+    <string msgid="7106830097177242655" name="mr_media_route_chooser_title">"เชื่อมต่อกับอุปกรณ์"</string>
+    <string msgid="109793632378378069" name="mr_media_route_controller_disconnect">"ยกเลิกการเชื่อมต่อ"</string>
+    <string msgid="5441529851481176817" name="mr_system_route_name">"ระบบ"</string>
+    <string msgid="7498112907524977311" name="mr_user_route_category_name">"อุปกรณ์"</string>
     <string name="tw__allow_btn_txt">อนุญาต</string>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.twitter.sdk.android/tweet-ui/1.5.0/res/values-th/values-th.xml -->
-    <eat-comment/>
     <string name="tw__loading_tweet">กำลังโหลดทวีต</string>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.5.0/res/values-th/values-th.xml -->
-    <eat-comment/>
     <string name="tw__login_btn_txt">เข้าสู่ระบบด้วยทวิตเตอร์</string>
     <string name="tw__not_now_btn_txt">ไม่ใช่ตอนนี้</string>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.twitter.sdk.android/tweet-ui/1.5.0/res/values-th/values-th.xml -->
-    <eat-comment/>
     <string name="tw__relative_date_format_long">d/M/y</string>
     <string name="tw__relative_date_format_short">d MMM</string>
     <string name="tw__retweeted_by_format">ถูกรีทวีตโดย %1$s</string>
     <string name="tw__share_content_format">ดูทวีตของ \@%1$s: Tweet: https://twitter.com/%1$s/status/%2$s</string>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.5.0/res/values-th/values-th.xml -->
-    <eat-comment/>
     <string name="tw__share_email_desc">รับการอัพเดทและข้อมูลอื่นๆ ได้จาก %1$s เมื่อคุณให้สิทธิ์ในการเข้าถึงอีเมลของคุณบนบัญชีทวิตเตอร์ \@%2$s</string>
     <string name="tw__share_email_title">แชร์ที่อยู่อีเมลของคุณ</string>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.twitter.sdk.android/tweet-ui/1.5.0/res/values-th/values-th.xml -->
-    <eat-comment/>
     <string name="tw__share_subject_format">ทวีตจาก %1$s (\@%2$s)</string>
     <string name="tw__share_tweet">แบ่งปันทวีต</string>
     <string name="tw__tweet_content_description">%1$s. %2$s. %3$s.</string>
+    <string msgid="4184147110658930238" name="wallet_buy_button_place_holder">"ซื้อด้วย Google"</string>
 </resources>

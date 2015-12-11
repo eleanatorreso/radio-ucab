@@ -10,17 +10,11 @@ import info.androidhive.radioucab.Logica.ServicioRadio;
 import info.androidhive.radioucab.Controlador.Adaptor.AdaptorNavDrawerList;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
-
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-
-import android.app.Activity;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -34,19 +28,13 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.internal.widget.AdapterViewCompat;
-import android.support.v7.widget.ListPopupWindow;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -78,7 +66,6 @@ public class MainActivity extends ActionBarActivity {
     private Usuario usuario_actual;
     private ManejoActivity manejoActivity = ManejoActivity.getInstancia();
     private Menu menu;
-    private static boolean usuarioLogeado;
 
     @Override
     protected void onStop() {
@@ -105,8 +92,8 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    public void cargarUsuario() {
-        if (!Usuario.listAll(Usuario.class).isEmpty()) {
+    public void cargarUsuarioToolbar() {
+        if (Usuario.listAll(Usuario.class).isEmpty() == false) {
             usuario_actual = Usuario.listAll(Usuario.class).get(0);
             boton_ingresar.setVisibility(View.INVISIBLE);
             imagen_perfil.setVisibility(View.VISIBLE);
@@ -114,56 +101,24 @@ public class MainActivity extends ActionBarActivity {
                     usuario_actual.getFormatoImagen());
             perfilLogica.setContexto(this);
             imagen_perfil.setImageBitmap(perfilLogica.convertirImagenCirculo(bitmap, 0));
-            usuarioLogeado = true;
         }
         else {
-            usuarioLogeado = false;
             boton_ingresar.setVisibility(View.VISIBLE);
             invalidateOptionsMenu();
         }
     }
-
-    private Fragment getPosicion(int position) {
-        Fragment fragment = null;
-        switch (position) {
-            case 0:
-                fragment = new HomeFragment();
-                break;
-            case 1:
-                fragment = new ParrillaFragment();
-                break;
-            case 2:
-                fragment = new NoticiaFragment();
-                break;
-            case 3:
-                fragment = new EventoFragment();
-                break;
-            case 4:
-                fragment = new ProgramaFragment();
-                break;
-            case 5:
-                fragment = new PerfilFragment();
-                break;
-            case 6:
-                fragment = new ConfiguracionFragment();
-                break;
-
-            default:
-                break;
-        }
-        return fragment;
-    }
-
-    private void verPerfil() {
-        Fragment fragmento = getPosicion(5);
+/*
+    public void cambiarFragment(String nombre_fragment) {
+        int posicion = manejoActivity.getPosicion(nombre_fragment);
+        Fragment fragmento = manejoActivity.getFragment(posicion);
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.frame_container, fragmento).commit();
         // update selected item and title, then close the drawer
-        mDrawerList.setItemChecked(5, true);
-        mDrawerList.setSelection(5);
-        setTitle(navMenuTitles[5]);
-    }
+        mDrawerList.setItemChecked(posicion, true);
+        mDrawerList.setSelection(posicion);
+        setTitle(navMenuTitles[posicion]);
+    }*/
 
     public void crearDialogoSiYNo(String titulo, String mensaje, String botonPositivo, String botonNegativo) {
         try {
@@ -199,12 +154,23 @@ public class MainActivity extends ActionBarActivity {
         Usuario.deleteAll(Usuario.class);
         boton_ingresar.setVisibility(View.VISIBLE);
         imagen_perfil.setVisibility(View.INVISIBLE);
-        usuarioLogeado = false;
         invalidateOptionsMenu();
+        Fragment fragment = getFragmentManager().findFragmentById(R.id.frame_container);
+        try {
+            PerfilFragment perfilFragment = (PerfilFragment) fragment;
+            if (perfilFragment != null && perfilFragment.isVisible()) {
+                // Call a method in the ArticleFragment to update its content
+                perfilFragment.actualizarPerfil();
+            }
+        }
+        catch (Exception ex) {
+            Log.e("Activity", ex.getMessage());
+        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        manejoActivity.setActivityPrincipal(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fabric = fabric.getInstance();
@@ -294,7 +260,7 @@ public class MainActivity extends ActionBarActivity {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.accion_ver_perfil:
-                        verPerfil();
+                        manejoActivity.cambiarFragment("Perfil");
                         break;
                     case R.id.accion_cerrar_sesion:
                         crearDialogoSiYNo(getString(R.string.dialogo_asunto_cerrar_sesion)
@@ -309,7 +275,7 @@ public class MainActivity extends ActionBarActivity {
 
 
         imagen_perfil = (ImageView) findViewById(R.id.imagen_usuario);
-        cargarUsuario();
+        cargarUsuarioToolbar();
 
         boton_play = (ImageView) findViewById(R.id.icon_play);
         boton_play.setOnClickListener(new View.OnClickListener() {
@@ -445,7 +411,7 @@ public class MainActivity extends ActionBarActivity {
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
         //menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
         this.menu = menu;
-        if (usuarioLogeado == false) {
+        if (Usuario.listAll(Usuario.class).isEmpty() == true) {
             MenuItem itemCerrarSesion = menu.findItem(R.id.accion_cerrar_sesion);
             itemCerrarSesion.setVisible(false);
             MenuItem itemPerfil = menu.findItem(R.id.accion_ver_perfil);

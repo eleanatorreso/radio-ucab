@@ -37,6 +37,10 @@ public class conexionGETAPIJSONObject extends AsyncTask<String, String, JSONObje
             HttpGet httpGet = new HttpGet(contexto.getResources().getString(R.string.ip_web_service) + params[0]);
             HttpResponse httpResponse = httpclient.execute(httpGet);
             HttpEntity httpEntity = httpResponse.getEntity();
+            int code = httpResponse.getStatusLine().getStatusCode();
+            if (code != 200) {
+                return null;
+            }
             response = EntityUtils.toString(httpEntity);
             return new JSONObject(response);
         }
@@ -70,13 +74,7 @@ public class conexionGETAPIJSONObject extends AsyncTask<String, String, JSONObje
         if (noticiaProgressDialog != null)
             noticiaProgressDialog.dismiss();
         if (resultado != null) {
-            try {
-                delegate.procesoExitoso(resultado);
-            } catch (Exception ex) {
-                if (ex != null && ex.getMessage()!=null)
-                    Log.i("Conexion: ", ex.getMessage());
-                delegate.procesoNoExitoso();
-            }
+            delegate.procesoExitoso(resultado);
         } else {
             delegate.procesoNoExitoso();
         }

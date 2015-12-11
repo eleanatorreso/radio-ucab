@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter-core/1.5.0/res/values-xhdpi/values-xhdpi.xml -->
-    <eat-comment/>
-    <dimen name="tw__login_btn_text_size">18sp</dimen>
-</resources>

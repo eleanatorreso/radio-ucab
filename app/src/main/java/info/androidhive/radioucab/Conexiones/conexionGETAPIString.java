@@ -70,7 +70,7 @@ public class conexionGETAPIString extends AsyncTask<String, String, String> {
             noticiaProgressDialog.dismiss();
         if (resultado != null) {
             try {
-                delegate.procesoExitoso(resultado);
+              //  delegate.procesoExitoso(resultado);
             } catch (Exception ex) {
                 if (ex != null && ex.getMessage()!=null)
                     Log.i("Conexion: ", ex.getMessage());

@@ -18,7 +18,6 @@ import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 import com.twitter.sdk.android.core.models.User;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,6 +25,7 @@ import org.json.JSONObject;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONArray;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONObject;
 import info.androidhive.radioucab.Logica.FabricLogica;
+import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.ManejoSesionTwitter;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.Logica.UsuarioLogica;
@@ -42,6 +42,7 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
     private User usuarioResultado;
     private final UsuarioLogica usuarioLogica = new UsuarioLogica();
     private final ManejoSesionTwitter sesionTwitter = new ManejoSesionTwitter();
+    private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
 
     public InicioSesionTwitterFragment() {
     }
@@ -68,7 +69,7 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
     }*/
 
     public void comprobarUsuarioAPI(String usuarioTwitter) {
-        conexionGETAPIJSONObject conexion = new conexionGETAPIJSONObject();
+        conexionGETAPIJSONArray conexion = new conexionGETAPIJSONArray();
         conexion.contexto = getActivity();
         conexion.mensaje = "Comprobando datos...";
         conexion.delegate = this;
@@ -81,6 +82,8 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
             super.onCreate(savedInstanceState);
             if (Usuario.listAll(Usuario.class).isEmpty()) {
                 loginButton = (TwitterLoginButton) getActivity().findViewById(R.id.twitter_login_button);
+                manejoActivity.cambiarDeColor(6);
+                manejoActivity.cambiarIconoMenu();
                 if (!Fabric.isInitialized()) {
                     fabric = fabric.getInstance();
                     fabric.context = getActivity();
@@ -133,103 +136,38 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
         super.onActivityResult(requestCode, resultCode, data);
         loginButton.onActivityResult(requestCode, resultCode, data);
     }
-/*
 
     @Override
     public void procesoExitoso(JSONArray resultados) {
         if (resultados != null && resultados.length() > 0) {
-            //esto es temporal
             JSONObject resultado = null;
             try {
                 resultado = resultados.getJSONObject(0);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            toast = Toast.makeText(getActivity(), "Este usuario ya existe", Toast.LENGTH_LONG);
-            toast.show();
-            try {
                 Usuario usuarioBD = new Usuario(resultado.getString("nombre"), resultado.getString("apellido"), resultado.getString("correo")
                         , resultado.getString("usuario_twitter"), resultado.getString("token_twitter"), resultado.getString("token_secret_twitter")
                         , resultado.getString("guid"), resultado.getString("imagen_normal"),  resultado.getString("imagen_grande"));
                 Usuario usuarioApp = new Usuario(usuarioResultado.screenName, sesionTwitter.getAuthToken().token
                         , sesionTwitter.getAuthToken().secret, usuarioResultado.profileImageUrl);
                 usuarioLogica.comprobarUsuario(usuarioApp, usuarioBD);
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.addToBackStack("atras");
-                PerfilFragment perfilFragment = new PerfilFragment();
-                ft.replace(((ViewGroup) getView().getParent()).getId(), perfilFragment);
-                ft.commit();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             //cargo el perfil
         } else {
-            Usuario nuevoUsuario = new Usuario();
-            nuevoUsuario.setNombre(usuarioResultado.name);
-            nuevoUsuario.setCorreo(usuarioResultado.email);
-            nuevoUsuario.setUsuario_twitter(usuarioResultado.screenName);
-            nuevoUsuario.setImagenNormal(usuarioResultado.profileImageUrl);
-            nuevoUsuario.setToken_secret_twitter(sesionTwitter.getAuthToken().secret);
-            nuevoUsuario.setToken_twitter(sesionTwitter.getAuthToken().token);
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            ft.addToBackStack("atras");
-            RegistroUsuarioFragment registroUsuarioFragment = new RegistroUsuarioFragment();
+            Usuario nuevoUsuario = new Usuario(usuarioResultado.name, usuarioResultado.email, usuarioResultado.screenName,
+                    sesionTwitter.getAuthToken().token, sesionTwitter.getAuthToken().secret, usuarioResultado.profileImageUrl);
+            RegistroUsuarioFragment registroUsuarioFragment = (RegistroUsuarioFragment) manejoActivity.cambiarFragment("Registro");
             registroUsuarioFragment.usuario = nuevoUsuario;
-            ft.replace(((ViewGroup) getView().getParent()).getId(), registroUsuarioFragment);
-            ft.commit();
         }
-    }
-*/
-    @Override
-    public void procesoExitoso(JSONArray resultados) {
-        int x = 1;
     }
 
     @Override
     public void procesoExitoso(JSONObject resultado) {
-        if (resultado != null) {
-            //esto es temporal
-            toast = Toast.makeText(getActivity(), "Este usuario ya existe", Toast.LENGTH_LONG);
-            toast.show();
-            try {
-                Usuario usuarioBD = new Usuario(resultado.getString("nombre"), resultado.getString("apellido"), resultado.getString("correo")
-                        , resultado.getString("usuario_twitter"), resultado.getString("token_twitter"), resultado.getString("token_secret_twitter")
-                        , resultado.getString("guid"), resultado.getString("imagen_normal"),  resultado.getString("imagen_grande"));
-                Usuario usuarioApp = new Usuario(usuarioResultado.screenName, sesionTwitter.getAuthToken().token
-                        , sesionTwitter.getAuthToken().secret, usuarioResultado.profileImageUrl);
-                usuarioLogica.comprobarUsuario(usuarioApp, usuarioBD);
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.addToBackStack("atras");
-                PerfilFragment perfilFragment = new PerfilFragment();
-                ft.replace(((ViewGroup) getView().getParent()).getId(), perfilFragment);
-                ft.commit();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            //cargo el perfil
-        } else {
-            Usuario nuevoUsuario = new Usuario();
-            nuevoUsuario.setNombre(usuarioResultado.name);
-            nuevoUsuario.setCorreo(usuarioResultado.email);
-            nuevoUsuario.setUsuario_twitter(usuarioResultado.screenName);
-            nuevoUsuario.setImagenNormal(usuarioResultado.profileImageUrl);
-            nuevoUsuario.setToken_secret_twitter(sesionTwitter.getAuthToken().secret);
-            nuevoUsuario.setToken_twitter(sesionTwitter.getAuthToken().token);
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            ft.addToBackStack("atras");
-            RegistroUsuarioFragment registroUsuarioFragment = new RegistroUsuarioFragment();
-            registroUsuarioFragment.usuario = nuevoUsuario;
-            ft.replace(((ViewGroup) getView().getParent()).getId(), registroUsuarioFragment);
-            ft.commit();
-        }
+
     }
 
     @Override
-    public void procesoExitoso(String resultado) {
+    public void procesoExitoso(int codigo) {
 
     }
 

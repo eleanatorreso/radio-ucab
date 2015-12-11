@@ -31,4 +31,10 @@ public class ManejoString {
     public void setFormatoImagen(String formatoImagen) {
         this.formatoImagen = formatoImagen;
     }
+
+    public boolean verificarEspacioNull (String campo) {
+        if (campo != null && campo.trim().length() > 0)
+            return true;
+        return false;
+    }
 }

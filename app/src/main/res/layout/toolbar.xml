@@ -16,9 +16,10 @@
             android:id="@+id/imagen_usuario"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_centerHorizontal="true"
             android:layout_gravity="center|right"
-            android:visibility="gone" />
+            android:layout_marginRight="0dp"
+            android:visibility="gone"
+            android:contentDescription="profile picture" />
 
         <TextView
             android:layout_height="wrap_content"
@@ -26,21 +27,19 @@
             android:text="@string/menu_perfil_usuario"
             android:textColor="@color/blanco"
             android:textSize="16dp"
-            android:layout_gravity="right|center_vertical"
-            android:layout_centerHorizontal="true"
+            android:layout_gravity="right|center"
             android:onClick="selfDestruct"
             android:layout_marginRight="10dp"
-            android:id="@+id/botonIngresar"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            android:id="@+id/botonIngresar" />
 
         <ImageView
             android:id="@+id/icono_menu"
-            android:layout_width="42dp"
+            android:layout_width="30dp"
             android:layout_height="match_parent"
             android:src="@drawable/ic_menu_white_24dp"
             android:layout_centerHorizontal="true"
-            android:layout_gravity="left|center_vertical"
-            android:layout_marginLeft="10dp"/>
-
+            android:layout_gravity="left|center_vertical" />
     </FrameLayout>
+
 </android.support.v7.widget.Toolbar>

@@ -100,4 +100,4 @@
         android:layout_below="@id/tw__tweet_text"/>
 
 </RelativeLayout>
-<!-- From: file:/Users/android/workspace/jenkins/workspace/fabric-android-deploy-to-staging/sdk/twitter/tweet-ui/src/main/res/layout/tw__tweet.xml --><!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.twitter.sdk.android/tweet-ui/1.5.0/res/layout/tw__tweet.xml -->
+<!-- From: file:/Users/android/workspace/jenkins/workspace/fabric-android-deploy-to-staging/sdk/twitter/tweet-ui/src/main/res/layout/tw__tweet.xml -->

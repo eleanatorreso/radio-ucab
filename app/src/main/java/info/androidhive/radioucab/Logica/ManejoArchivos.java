@@ -2,6 +2,8 @@ package info.androidhive.radioucab.Logica;
 
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.util.Log;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -9,6 +11,10 @@ import java.io.OutputStream;
 import java.net.URL;
 
 public class ManejoArchivos extends AsyncTask<String, Void, Integer> {
+
+    public RespuestaArchivoAsyncTask delegate = null;
+    //0 foto grande, 1 foto pequeña
+    public int tipo_foto;
 
     @Override
     protected Integer doInBackground(String... params) {
@@ -35,14 +41,17 @@ public class ManejoArchivos extends AsyncTask<String, Void, Integer> {
                 input.close();
             }
 
-        } catch (Exception e) {
-            int x = 2;
+        } catch (Exception ex) {
+            if (ex != null && ex.getMessage()!=null)
+                Log.i("Almacenamiento: ", ex.getMessage());
             return 0;
         }
         return 1;
     }
 
-    protected void onPostExecute(int result) {
-
+    @Override
+    protected void onPostExecute(Integer result) {
+        super.onPostExecute(result);
+        delegate.resultadoProceso(result, tipo_foto);
     }
 }

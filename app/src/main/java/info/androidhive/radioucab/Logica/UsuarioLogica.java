@@ -3,46 +3,49 @@ package info.androidhive.radioucab.Logica;
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
-import com.twitter.sdk.android.core.TwitterAuthToken;
-import com.twitter.sdk.android.core.TwitterSession;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import java.io.File;
-import java.util.List;
 
-import info.androidhive.radioucab.Conexiones.conexionPOSTAPIJSONArray;
-import info.androidhive.radioucab.Conexiones.conexionPUTAPIJSONArray;
+import java.io.File;
+
+import info.androidhive.radioucab.Conexiones.conexionPOSTAPIString;
+import info.androidhive.radioucab.Conexiones.conexionPUTAPI;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
 
-public class UsuarioLogica implements RespuestaAsyncTask {
+public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncTask, RespuestaStringAsyncTask {
 
     private File rutaRadioUCAB;
     private final ManejoSesionTwitter sesionTwitter = new ManejoSesionTwitter();
     public Context contexto;
     private Toast toast;
     public Usuario usuario;
+    private ManejoString cambioUrl = new ManejoString();
+    private String url;
+    private boolean actualizar, usuarioNuevo;
+    private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
 
-    public UsuarioLogica(){
+    public UsuarioLogica() {
     }
 
     public void crearUsuarioAPI() {
-        conexionPOSTAPIJSONArray conexion = new conexionPOSTAPIJSONArray();
+        conexionPOSTAPIString conexion = new conexionPOSTAPIString();
         conexion.contexto = contexto;
         conexion.mensaje = "Enviando los datos...";
-        conexion.delegate = this;
+        conexion.delegate = (RespuestaStringAsyncTask) this;
         JSONObject objeto = new JSONObject();
         try {
-            objeto.put("nombre",usuario.getNombre());
-            objeto.put("apellido",usuario.getApellido());
-            objeto.put("usuario_twitter",usuario.getUsuario_twitter());
-            objeto.put("token_twitter",usuario.getToken_twitter());
-            objeto.put("token_secret_twitter",usuario.getToken_secret_twitter());
-            objeto.put("correo",usuario.getCorreo());
-            objeto.put("imagen_grande",usuario.getImagenGrande());
-            objeto.put("imagen_normal",usuario.getImagenNormal());
-            objeto.put("tipo",1);
+            objeto.put("nombre", usuario.getNombre());
+            objeto.put("apellido", usuario.getApellido());
+            objeto.put("usuario_twitter", usuario.getUsuario_twitter());
+            objeto.put("token_twitter", usuario.getToken_twitter());
+            objeto.put("token_secret_twitter", usuario.getToken_secret_twitter());
+            objeto.put("correo", usuario.getCorreo());
+            objeto.put("imagen_grande", usuario.getImagenGrande());
+            objeto.put("imagen_normal", usuario.getImagenNormal());
+            objeto.put("tipo", 1);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -51,22 +54,22 @@ public class UsuarioLogica implements RespuestaAsyncTask {
     }
 
     public void actualizarUsuarioAPI() {
-        conexionPUTAPIJSONArray conexion = new conexionPUTAPIJSONArray();
+        conexionPUTAPI conexion = new conexionPUTAPI();
         conexion.contexto = contexto;
         conexion.mensaje = "Enviando los datos...";
         conexion.delegate = this;
         JSONObject objeto = new JSONObject();
         try {
-            objeto.put("guid",usuario.getGuid());
-            objeto.put("nombre",usuario.getNombre());
-            objeto.put("apellido",usuario.getApellido());
-            objeto.put("usuario_twitter",usuario.getUsuario_twitter());
-            objeto.put("token_twitter",usuario.getToken_twitter());
-            objeto.put("token_secret_twitter",usuario.getToken_secret_twitter());
-            objeto.put("correo",usuario.getCorreo());
-            objeto.put("imagen_grande",usuario.getImagenGrande());
-            objeto.put("imagen_normal",usuario.getImagenNormal());
-            objeto.put("tipo",1);
+            objeto.put("guid", usuario.getGuid());
+            objeto.put("nombre", usuario.getNombre());
+            objeto.put("apellido", usuario.getApellido());
+            objeto.put("usuario_twitter", usuario.getUsuario_twitter());
+            objeto.put("token_twitter", usuario.getToken_twitter());
+            objeto.put("token_secret_twitter", usuario.getToken_secret_twitter());
+            objeto.put("correo", usuario.getCorreo());
+            objeto.put("imagen_grande", usuario.getImagenGrande());
+            objeto.put("imagen_normal", usuario.getImagenNormal());
+            objeto.put("tipo", 1);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -85,38 +88,41 @@ public class UsuarioLogica implements RespuestaAsyncTask {
                 for (File child : fileOrDirectory.listFiles())
                     borrarCarpetaRecursivo(child);
             fileOrDirectory.delete();
-        }
-        catch (Exception ex) {
-            Log.e("Carpeta",ex.getMessage());
+        } catch (Exception ex) {
+            Log.e("Carpeta", ex.getMessage());
         }
     }
 
-    public void manejoImagenes () {
+    public void manejoImagenes() {
         resetearUsuarioTelefono();
-        ManejoString cambioUrl = new ManejoString();
-        String url = cambioUrl.getURLImagen(usuario.getImagenNormal());
+        cambioUrl = new ManejoString();
+        url = cambioUrl.getURLImagen(usuario.getImagenNormal());
         ManejoArchivos almacenarFotoGrande = new ManejoArchivos();
+        almacenarFotoGrande.delegate = (RespuestaArchivoAsyncTask) this;
+        almacenarFotoGrande.tipo_foto = 0;
         almacenarFotoGrande.execute(url, "picBig", cambioUrl.getFormatoImagen());
-        ManejoArchivos almacenarFotoNormal = new ManejoArchivos();
-        almacenarFotoNormal.execute(usuario.getImagenNormal(), "picNormal", cambioUrl.getFormatoImagen());
-        usuario.setImagenGrande(url);
-        usuario.setFormatoImagen(cambioUrl.getFormatoImagen());
+    }
+
+    public void almacenarUsuarioContinuacion() {
+        if (actualizar && usuarioNuevo) {
+            crearUsuarioAPI();
+        } else if (actualizar && !usuarioNuevo) {
+            actualizarUsuarioAPI();
+        } else {
+            manejoActivity.cambiarFragment("Perfil");
+        }
     }
 
     public void almacenarUsuario(boolean actualizar, boolean usuarioNuevo) {
-        manejoImagenes ();
-        usuario.save();
-        if (actualizar && usuarioNuevo)
-            crearUsuarioAPI();
-        else if (actualizar && !usuarioNuevo) {
-            actualizarUsuarioAPI();
-        }
+        this.actualizar = actualizar;
+        this.usuarioNuevo = usuarioNuevo;
+        manejoImagenes();
     }
 
-    public void comprobarUsuario (Usuario usuarioApp, Usuario usuarioBD) {
+    public void comprobarUsuario(Usuario usuarioApp, Usuario usuarioBD) {
         //debo actualizar los token de session en la base de datos, aunque creo que esto no es valido, siempre mantiene los mismos
         //tokens
-        boolean actualizar = false;
+        actualizar = false;
         if (!usuarioApp.getToken_twitter().equals(usuarioBD.getToken_twitter())) {
             usuarioBD.setToken_twitter(usuarioApp.getToken_twitter());
             actualizar = true;
@@ -136,7 +142,16 @@ public class UsuarioLogica implements RespuestaAsyncTask {
 
     @Override
     public void procesoExitoso(JSONArray resultados) {
-
+        //me regresa el usuario almacenado
+        JSONObject resultado = null;
+        try {
+            resultado = resultados.getJSONObject(0);
+            usuario.setGuid(resultado.getString("guid").replace("\"", ""));
+            usuario.save();
+            manejoActivity.cambiarFragment("Perfil");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -145,12 +160,43 @@ public class UsuarioLogica implements RespuestaAsyncTask {
     }
 
     @Override
-    public void procesoExitoso(String resultado) {
+    public void procesoExitoso(int codigo) {
+        if (codigo == 204) {
+            usuario.save();
+            manejoActivity.cambiarFragment("Perfil");
+        }
+    }
 
+    @Override
+    public void resultadoProceso(int respuesta, int tipo) {
+        if (tipo == 0) {
+            ManejoArchivos almacenarFotoNormal = new ManejoArchivos();
+            almacenarFotoNormal.delegate = this;
+            almacenarFotoNormal.tipo_foto = 1;
+            almacenarFotoNormal.execute(usuario.getImagenNormal(), "picNormal", cambioUrl.getFormatoImagen());
+        } else {
+            usuario.setImagenGrande(url);
+            usuario.setFormatoImagen(cambioUrl.getFormatoImagen());
+            almacenarUsuarioContinuacion();
+        }
     }
 
     @Override
     public void procesoNoExitoso() {
+        toast = Toast.makeText(contexto, "No es posible procesar su solicitud, intente más tarde", Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    @Override
+    public void procesoExitoso(String resultado) {
+        //me regresa el guid del usuario almacenado
+        usuario.setGuid(resultado.replace("\"", ""));
+        usuario.save();
+        manejoActivity.cambiarFragment("Perfil");
+    }
+
+    @Override
+    public void procesoNoExitosoString() {
         toast = Toast.makeText(contexto, "No es posible procesar su solicitud, intente más tarde", Toast.LENGTH_LONG);
         toast.show();
     }

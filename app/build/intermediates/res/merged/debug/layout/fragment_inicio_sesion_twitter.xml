@@ -18,12 +18,4 @@
         android:layout_centerInParent="true"
         android:layout_below="@+id/texto_inicio_sesion"/>
 
-    <Button
-        android:id="@+id/cancelarInicioSesion"
-        android:layout_width="200px"
-        android:layout_height="wrap_content"
-        android:text="Cancelar"
-        android:layout_centerInParent="true"
-        android:layout_below="@+id/twitter_login_button"/>
-
-</RelativeLayout><!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/layout/fragment_inicio_sesion_twitter.xml -->
+</RelativeLayout>

@@ -17,4 +17,4 @@
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@drawable/ic_tweet_action_inline_share" />
-</selector><!-- From: file:/Users/android/workspace/jenkins/workspace/fabric-android-deploy-to-staging/sdk/twitter/tweet-ui/src/main/res/drawable/tw__share_action.xml --><!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/build/intermediates/exploded-aar/com.twitter.sdk.android/tweet-ui/1.5.0/res/drawable/tw__share_action.xml -->
+</selector><!-- From: file:/Users/android/workspace/jenkins/workspace/fabric-android-deploy-to-staging/sdk/twitter/tweet-ui/src/main/res/drawable/tw__share_action.xml -->

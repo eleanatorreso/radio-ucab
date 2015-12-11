@@ -129,7 +129,7 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
     }
 
     @Override
-    public void procesoExitoso(String resultado) {
+    public void procesoExitoso(int codigo) {
 
     }
 

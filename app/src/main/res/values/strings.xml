@@ -39,7 +39,9 @@
     <string name="desc_list_item_icon">Iconos</string>
 
     <!-- Contenido Toasts -->
+    <!-- Registro de Usuario -->
     <string name="toast_error_terminos_condiciones">Debe aceptar los terminos y condiciones para registrarse en Radio UCAB</string>
+    <string name="toast_error_campos_obligatorios">Todos los campos son obligatorios completelos</string>
 
     <!-- Contenido Dialogs -->
     <string name="dialogo_mensaje_cerrar">Cerrar</string>
@@ -50,16 +52,31 @@
     <string name="dialogo_contenido_terminos_condiciones">ja njaskj sdbksdbhcdbhc dbhcd jnajxahxbhj xbhxsbhs jnsjn djndcjn cdjncdjndcjdc jncdnjcdjn cdjnd cnjdcnj cdnjcdncd cdjcdnjcmcd</string>
     <string name="dialogo_asunto_cancelar_registro">Cancelar registro</string>
     <string name="dialogo_contenido_cancelar_registro">¿Está seguro de que desea cancelar su registro?</string>
+    <!-- Editar Usuario -->
+    <string name="dialogo_asunto_cancelar_edicion">Cancelar edición</string>
+    <string name="dialogo_contenido_cancelar_edicion">¿Está seguro de que desea cancelar la edición?</string>
     <!-- Cerrar Sesion -->
     <string name="dialogo_asunto_cerrar_sesion">Cerrar Sesión</string>
     <string name="dialogo_contenido_cerrar_sesion">¿Está seguro de que desea cerrar su sesión?</string>
 
     <!-- Contenido de los campos-->
+    <string name="campo_boton_cancelar">Cancelar</string>
+    <string name="campo_boton_guardar">Guardar</string>
+    <!-- Editar Perfil del Usuario-->
+    <string name="campo_encabezado_editar_perfil">Editar Perfil</string>
     <!-- Registro del Usuario-->
+    <string name="campo_boton_crear_usuario">Crear Usuario</string>
     <string name="campo_terminos_condiciones">He leído los terminos y condiciones</string>
+    <string name="campo_encabezado_registro">Registro de Usuario</string>
+    <string name="campo_texto_resgistro_usuario">Ya falta poco para que te unas a Radio UCAB, pero antes necesitamos los siguientes datos para completar tu registro:</string>
     <!-- Perfil del Usuario-->
     <string name="campo_usuario_twitter">Usuario Twitter</string>
     <string name="campo_usuario_correo">Correo Electrónico</string>
+    <string name="campo_boton_editar_perfil">Editar perfil</string>
+    <string name="campo_texto_informacion_personal">Información Personal</string>
+    <string name="campo_texto_tu_radio_ucab">Tú + Radio UCAB</string>
+    <string name="campo_texto_mis_premios">Mis premios</string>
+    <string name="campo_texto_mis_programas_favoritos">Mis programas favoritos</string>
 
 
     <!-- Hint de los campos-->

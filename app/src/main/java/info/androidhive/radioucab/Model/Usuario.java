@@ -18,6 +18,16 @@ public class Usuario extends SugarRecord<Programa> {
 
     }
 
+    public Usuario(String nombre, String correo, String usuario_twitter, String token_twitter
+            , String token_secret_twitter, String imagenNormal) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.usuario_twitter = usuario_twitter;
+        this.token_twitter = token_twitter;
+        this.token_secret_twitter = token_secret_twitter;
+        this.imagenNormal = imagenNormal;
+    }
+
     public Usuario(String usuario_twitter, String token_twitter, String token_secret_twitter, String imagenNormal) {
         this.usuario_twitter = usuario_twitter;
         this.token_twitter = token_twitter;

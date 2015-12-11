@@ -8,9 +8,9 @@ package com.orm;
 
 public final class R {
 	public static final class drawable {
-		public static final int ic_launcher = 0x7f02004f;
+		public static final int ic_launcher = 0x7f020090;
 	}
 	public static final class string {
-		public static final int app_name = 0x7f060048;
+		public static final int app_name = 0x7f060072;
 	}
 }

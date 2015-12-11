@@ -5,4 +5,4 @@
     <item android:drawable="@drawable/list_item_bg_pressed" android:state_pressed="true"/>
     <item android:drawable="@drawable/list_item_bg_pressed" android:state_activated="true"/>
 
-</selector><!-- From: file:/C:/Users/Eleana%20Torres/Documents/radio-ucab-app-movil/app/src/main/res/drawable/list_selector.xml -->
+</selector>

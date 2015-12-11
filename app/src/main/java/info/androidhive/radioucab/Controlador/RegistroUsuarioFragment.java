@@ -20,8 +20,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.orm.StringUtil;
+
 import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.ManejoDialogs;
+import info.androidhive.radioucab.Logica.ManejoString;
 import info.androidhive.radioucab.Logica.UsuarioLogica;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
@@ -34,13 +37,13 @@ public class RegistroUsuarioFragment extends Fragment {
     private EditText apellidoUsuario;
     private EditText correoUsuario;
     private CheckBox terminosCondiciones;
-    private TextView textoTerminosCondiciones;
     private Button crearUsuario;
     private Button cancelarUsuario;
     private ManejoDialogs dialogoTerminosCondiciones;
     private ManejoDialogs cancelarRegistroUsuario;
     private Toast toast;
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
+    private ManejoString manejoString = new ManejoString();
 
     public RegistroUsuarioFragment() {
 
@@ -71,14 +74,13 @@ public class RegistroUsuarioFragment extends Fragment {
                 correoUsuario = (EditText) getActivity().findViewById(R.id.editText_correo_usuario);
                 correoUsuario.setText(usuario.getCorreo());
                 terminosCondiciones = (CheckBox) getActivity().findViewById(R.id.checkbox_terminos_condiciones);
-                terminosCondiciones.setText("");
-                textoTerminosCondiciones = (TextView) getActivity().findViewById(R.id.texto_terminos_condiciones);
-                String textoConFormato = "<u>" + getActivity().getString(R.string.campo_terminos_condiciones) + "</u>";
-                textoTerminosCondiciones.setText(Html.fromHtml(textoConFormato));
+                terminosCondiciones.setText(Html.fromHtml("<u>" + getActivity().getString(R.string.campo_terminos_condiciones)
+                        + "</u>"));
                 dialogoTerminosCondiciones = new ManejoDialogs(getActivity().getString(R.string.dialogo_asunto_terminos_condiciones),
                         getActivity().getString(R.string.dialogo_contenido_terminos_condiciones),
                         getActivity().getString(R.string.dialogo_mensaje_cerrar), getActivity());
-                textoTerminosCondiciones.setOnClickListener(new View.OnClickListener() {
+                terminosCondiciones.setOnClickListener(new View.OnClickListener() {
+                    @Override
                     public void onClick(View v) {
                         dialogoTerminosCondiciones.crearDialogo();
                     }
@@ -102,22 +104,22 @@ public class RegistroUsuarioFragment extends Fragment {
     }
 
     public void crearUsuario() {
-        if (terminosCondiciones.isChecked()) {
+        if (terminosCondiciones.isChecked() && manejoString.verificarEspacioNull(nombreUsuario.getText().toString()) == true
+                && manejoString.verificarEspacioNull(apellidoUsuario.getText().toString()) == true
+                && manejoString.verificarEspacioNull(correoUsuario.getText().toString()) == true) {
             UsuarioLogica usuarioNuevo = new UsuarioLogica();
-            usuario.setNombre(nombreUsuario.getText().toString());
-            usuario.setApellido(apellidoUsuario.getText().toString());
-            usuario.setCorreo(correoUsuario.getText().toString());
+            usuario.setNombre(nombreUsuario.getText().toString().trim());
+            usuario.setApellido(apellidoUsuario.getText().toString().trim());
+            usuario.setCorreo(correoUsuario.getText().toString().trim());
             usuarioNuevo.usuario = usuario;
             usuarioNuevo.contexto = getActivity();
             usuarioNuevo.almacenarUsuario(true, true);
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            ft.addToBackStack("atras");
-            PerfilFragment perfilFragment = new PerfilFragment();
-            ft.replace(((ViewGroup) getView().getParent()).getId(), perfilFragment);
-            ft.commit();
-        } else {
+        } else if (!terminosCondiciones.isChecked()) {
             toast = Toast.makeText(getActivity(), getActivity().getString(R.string.toast_error_terminos_condiciones), Toast.LENGTH_LONG);
+            toast.show();
+        }
+        else {
+            toast = Toast.makeText(getActivity(), getActivity().getString(R.string.toast_error_campos_obligatorios), Toast.LENGTH_LONG);
             toast.show();
         }
     }
@@ -130,12 +132,7 @@ public class RegistroUsuarioFragment extends Fragment {
     }
 
     public void cambiarPerfil() {
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.addToBackStack("atras");
-        PerfilFragment perfilFragment = new PerfilFragment();
-        ft.replace(((ViewGroup) getView().getParent()).getId(), perfilFragment);
-        ft.commit();
+        manejoActivity.cambiarFragment("Perfil");
     }
 
     public void crearDialogoSiYNo(String titulo, String mensaje, String botonPositivo, String botonNegativo) {
