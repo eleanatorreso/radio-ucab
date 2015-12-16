@@ -20,7 +20,24 @@
         <FrameLayout
             android:id="@+id/frame_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/boton_interaccion"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="@dimen/fab_size"
+                android:layout_height="@dimen/fab_size"
+                android:background="@drawable/fab_fondo"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="25dp"
+                android:stateListAnimator="@drawable/animacion_fab"
+                android:src="@drawable/fab_icono"
+                android:elevation="@dimen/fab_elevation"
+                android:layout_gravity="bottom|right" />
+
+
+        </FrameLayout>
 
         <!-- Listview to display slider menu -->
         <ListView

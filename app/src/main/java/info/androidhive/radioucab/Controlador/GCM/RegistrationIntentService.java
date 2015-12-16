@@ -27,23 +27,33 @@ import com.google.android.gms.gcm.GcmPubSub;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 
+import info.androidhive.radioucab.Conexiones.conexionPUTAPI;
+import info.androidhive.radioucab.Logica.ManejoActivity;
+import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
+import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
 
-public class RegistrationIntentService extends IntentService {
+public class RegistrationIntentService extends IntentService implements RespuestaAsyncTask {
 
     private static final String TAG = "RegIntentService";
     private static final String[] TOPICS = {"global"};
+    private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
+    private Usuario usuario;
 
     public RegistrationIntentService() {
         super(TAG);
+        usuario = Usuario.listAll(Usuario.class).get(0);
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-
         try {
             // [START register_for_gcm]
             // Initially this call goes out to the network to retrieve the token, subsequent calls
@@ -54,6 +64,7 @@ public class RegistrationIntentService extends IntentService {
             InstanceID instanceID = InstanceID.getInstance(this);
             String token = instanceID.getToken(getString(R.string.gcm_defaultSenderId),
                     GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
+            usuario.setId_movil(token);
             // [END get_token]
             Log.i(TAG, "GCM Registration Token: " + token);
 
@@ -89,6 +100,7 @@ public class RegistrationIntentService extends IntentService {
      */
     private void sendRegistrationToServer(String token) {
         // Add custom implementation, as needed.
+        enviarIdMovil(token);
     }
 
     /**
@@ -105,5 +117,53 @@ public class RegistrationIntentService extends IntentService {
         }
     }
     // [END subscribe_topics]
+
+    public void enviarIdMovil(String token) {
+        conexionPUTAPI conexion = new conexionPUTAPI();
+        conexion.contexto = manejoActivity.getActivityPrincipal();
+        //conexion.mensaje = "Enviando los datos...";
+        conexion.delegate = this;
+        JSONObject objeto = new JSONObject();
+        try {
+            objeto.put("guid", usuario.getGuid());
+            objeto.put("nombre", usuario.getNombre());
+            objeto.put("apellido", usuario.getApellido());
+            objeto.put("usuario_twitter", usuario.getUsuario_twitter());
+            objeto.put("token_twitter", usuario.getToken_twitter());
+            objeto.put("token_secret_twitter", usuario.getToken_secret_twitter());
+            objeto.put("correo", usuario.getCorreo());
+            objeto.put("imagen_grande", usuario.getImagenGrande());
+            objeto.put("imagen_normal", usuario.getImagenNormal());
+            objeto.put("tipo", 1);
+            objeto.put("id_movil", usuario.getId_movil());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        conexion.objeto = objeto;
+        conexion.execute("Api/GCM/PutGcm");
+    }
+
+    @Override
+    public void procesoExitoso(JSONArray resultados) {
+
+    }
+
+    @Override
+    public void procesoExitoso(JSONObject resultado) {
+
+    }
+
+    @Override
+    public void procesoExitoso(int codigo) {
+        if (codigo == 204) {
+            int x = 1;
+            Log.i("Exito","Todo bien");
+        }
+    }
+
+    @Override
+    public void procesoNoExitoso() {
+
+    }
 
 }

@@ -68,8 +68,7 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //cambio el color del toolbar superior
-        manejoActivity.cambiarDeColor(3);
-        manejoActivity.cambiarIconoMenu();
+        manejoActivity.editarActivity(3, true);
         swipeRefreshLayout = (SwipeRefreshLayout) getActivity().findViewById(R.id.activity_main_swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -128,9 +127,9 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.addToBackStack("atras");
-                DetalleNoticiaFragment detalleNoticiaFragment = new DetalleNoticiaFragment();
-                detalleNoticiaFragment.noticia = Noticia.findById(Noticia.class, item.getId());
-                ft.replace(((ViewGroup) getView().getParent()).getId(), detalleNoticiaFragment);
+                NoticiaDetalleFragment noticiaDetalleFragment = new NoticiaDetalleFragment();
+                noticiaDetalleFragment.noticia = Noticia.findById(Noticia.class, item.getId());
+                ft.replace(((ViewGroup) getView().getParent()).getId(), noticiaDetalleFragment);
                 ft.commit();
             }
         });

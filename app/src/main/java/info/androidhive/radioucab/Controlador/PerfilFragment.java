@@ -84,8 +84,7 @@ public class PerfilFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         if (rootView != null) {
             //cambio el color del toolbar superior
-            manejoActivity.cambiarDeColor(6);
-            manejoActivity.cambiarIconoMenu();
+            manejoActivity.editarActivity(6, false);
             super.onCreate(savedInstanceState);
             actualizarPerfil();
         }

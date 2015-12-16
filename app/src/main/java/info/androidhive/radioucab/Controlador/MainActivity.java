@@ -24,24 +24,31 @@ import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private String[] navMenuTitles;
@@ -66,6 +73,8 @@ public class MainActivity extends ActionBarActivity {
     private Usuario usuario_actual;
     private ManejoActivity manejoActivity = ManejoActivity.getInstancia();
     private Menu menu;
+    private ActionBarDrawerToggle mDrawerToggle;
+    private ImageButton fab_interaccion;
 
     @Override
     protected void onStop() {
@@ -168,6 +177,69 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    public void abrirDialogoInteraccion() {
+        //Dialog dialogo = new Dialog(MainActivity.this);
+        final AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+        final AlertDialog myAlert;
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialogo_interaccion2, null);
+        dialogo.setView(dialogView);
+
+        LinearLayout dedicar_cancion= (LinearLayout) dialogView.findViewById(R.id.icono_dedicar_cancion);
+        dedicar_cancion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast toast = Toast.makeText(v.getContext(), "Aja todo bien", Toast.LENGTH_LONG);
+                toast.show();
+            }
+        });
+        LinearLayout solicitar_cancion= (LinearLayout) dialogView.findViewById(R.id.icono_solicitar_canción);
+        solicitar_cancion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast toast = Toast.makeText(v.getContext(), "Aja todo bien", Toast.LENGTH_LONG);
+                toast.show();
+            }
+        });
+
+        LinearLayout comentario = (LinearLayout) dialogView.findViewById(R.id.icono_comentario);
+        comentario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast toast = Toast.makeText(v.getContext(), "Aja todo bien", Toast.LENGTH_LONG);
+                toast.show();
+            }
+        });
+
+        LinearLayout concurso = (LinearLayout) dialogView.findViewById(R.id.icono_concurso);
+        concurso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast toast = Toast.makeText(v.getContext(), "Aja todo bien", Toast.LENGTH_LONG);
+                toast.show();
+            }
+        });
+
+        LinearLayout programa = (LinearLayout) dialogView.findViewById(R.id.icono_programa);
+        programa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast toast = Toast.makeText(v.getContext(), "Aja todo bien", Toast.LENGTH_LONG);
+                toast.show();
+            }
+        });
+
+        myAlert = dialogo.create(); //returns an AlertDialog from a Builder.
+        myAlert.show();
+        Button boton_cerrar= (Button) dialogView.findViewById(R.id.boton_cerrar_interaccion);
+        boton_cerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myAlert.dismiss();
+            }
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         manejoActivity.setActivityPrincipal(this);
@@ -179,9 +251,9 @@ public class MainActivity extends ActionBarActivity {
 
         //cambio el color del toolbar superior
         manejoActivity.setActivityPrincipal(this);
-        manejoActivity.cambiarDeColor(1);
-//	COMENTA ESTO MIENTRAS XQ CREO QUE EL GET TITLE ES PARA AGARARR EL TITULO DEL ACTIONBAR
-//		mTitle = mDrawerTitle = getTitle();
+        manejoActivity.editarActivity(1, true);
+        //COMENTA ESTO MIENTRAS XQ CREO QUE EL GET TITLE ES PARA AGARARR EL TITULO DEL ACTIONBAR
+        //mTitle = mDrawerTitle = getTitle();
 
         // load slide menu items
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
@@ -217,10 +289,12 @@ public class MainActivity extends ActionBarActivity {
 
         mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
 
+
         // setting the nav drawer list adapter
         adapter = new AdaptorNavDrawerList(getApplicationContext(),
                 navDrawerItems);
         mDrawerList.setAdapter(adapter);
+
 
         playbackServiceIntent = new Intent(this, ServicioRadio.class);
 
@@ -232,7 +306,7 @@ public class MainActivity extends ActionBarActivity {
                 if (mDrawerLayout.isDrawerOpen(Gravity.START)) {
                     mDrawerLayout.closeDrawer(Gravity.START);
                     menuAbierto = false;
-                    boton.setImageDrawable(getResources().getDrawable(R.drawable.ic_menu_white_24dp));
+                    boton.setImageDrawable(getResources().getDrawable(R.drawable.ic_menu));
                 } else {
                     mDrawerLayout.openDrawer(Gravity.START);
                     boton.setImageDrawable(getResources().getDrawable(R.drawable.ic_launcher));
@@ -240,7 +314,38 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        boton_ingresar = (TextView) findViewById(R.id.botonIngresar);
+        mDrawerToggle = new ActionBarDrawerToggle(
+                this,                  /* host Activity */
+                mDrawerLayout,         /* DrawerLayout object */
+                R.string.drawer_open,  /* "open drawer" description */
+                R.string.drawer_close  /* "close drawer" description */
+        ) {
+
+            /** Called when a drawer has settled in a completely closed state. */
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+                boton.setImageDrawable(getResources().getDrawable(R.drawable.ic_menu));
+            }
+
+            /** Called when a drawer has settled in a completely open state. */
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                boton.setImageDrawable(getResources().getDrawable(R.drawable.ic_launcher));
+            }
+        };
+
+        // Set the drawer toggle as the DrawerListener
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+        fab_interaccion = (ImageButton) findViewById(R.id.boton_interaccion);
+        fab_interaccion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abrirDialogoInteraccion();
+            }
+        });
+
+        boton_ingresar = (TextView) findViewById(R.id.boton_ingresar);
 
         boton_ingresar.setOnClickListener(new View.OnClickListener() {
             @Override

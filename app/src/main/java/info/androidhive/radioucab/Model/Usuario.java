@@ -13,6 +13,7 @@ public class Usuario extends SugarRecord<Programa> {
     private String imagenGrande;
     private String imagenNormal;
     private String formatoImagen;
+    private String id_movil;
 
     public Usuario() {
 
@@ -46,6 +47,14 @@ public class Usuario extends SugarRecord<Programa> {
         this.guid = guid;
         this.imagenNormal = imagenNormal;
         this.imagenGrande = imagenGrande;
+    }
+
+    public String getId_movil() {
+        return id_movil;
+    }
+
+    public void setId_movil(String id_movil) {
+        this.id_movil = id_movil;
     }
 
     public String getToken_twitter() {

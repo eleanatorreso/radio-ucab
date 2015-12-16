@@ -121,7 +121,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/icono_premiacion"
+                android:id="@+id/imagen_premiacion"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:gravity="center"
@@ -145,7 +145,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/icono_programas_favoritos"
+                android:id="@+id/imagen_programas_favoritos"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:gravity="center"

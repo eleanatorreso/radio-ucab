@@ -59,8 +59,7 @@ public class EditarPerfilFragment extends Fragment {
             super.onCreate(savedInstanceState);
             if (!Usuario.listAll(Usuario.class).isEmpty()) {
                 usuario = Usuario.listAll(Usuario.class).get(0);
-                manejoActivity.cambiarDeColor(6);
-                manejoActivity.cambiarIconoMenu();
+                manejoActivity.editarActivity(6, false);
                 nombreUsuario = (EditText) getActivity().findViewById(R.id.editText_nombre_usuario);
                 nombreUsuario.setText(usuario.getNombre());
                 apellidoUsuario = (EditText) getActivity().findViewById(R.id.editText_apellido_usuario);

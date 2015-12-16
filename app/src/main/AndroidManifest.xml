@@ -15,6 +15,9 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <permission android:name="info.androidhive.radioucab.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="info.androidhive.radioucab.permission.C2D_MESSAGE" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
@@ -49,6 +52,31 @@
             android:exported="true"
             >
         </service>
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="info.androidhive.radioucab" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name=".Controlador.GCM.MyGcmListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".Controlador.GCM.MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <service android:name=".Controlador.GCM.RegistrationIntentService"></service>
     </application>
     <receiver android:name="ServicioRadio$notificationButtonReceiver" />
 </manifest>

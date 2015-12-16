@@ -116,7 +116,7 @@
     <string name="tw__retweeted_by_format">%1$s retweetelte</string>
     <string name="tw__share_content_format">Nézd meg \@%1$s\ felhasználó tweetjét: https://twitter.com/%1$s/status/%2$s</string>
     <string name="tw__share_email_desc">Frissítéseket és egyéb információkat kaphatsz %1$s felhasználótól, ha engedélyezed, hogy hozzáférhessen a Twitter-fiókodhoz kapcsolódó e-mail címedhez \@%2$s</string>
-    <string name="tw__share_email_title">Oszd meg e-mail címedet</string>
+    <string name="tw__share_email_title">Oszd meg az e-mail címedet</string>
     <string name="tw__share_subject_format">Tweet %1$s (\@%2$s) felhasználótól</string>
     <string name="tw__share_tweet">Tweet megosztása</string>
     <string name="tw__tweet_content_description">%1$s. %2$s. %3$s.</string>

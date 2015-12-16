@@ -66,8 +66,7 @@ public class RegistroUsuarioFragment extends Fragment {
         if (rootView != null) {
             super.onCreate(savedInstanceState);
             if (usuario != null) {
-                manejoActivity.cambiarDeColor(6);
-                manejoActivity.cambiarIconoMenu();
+                manejoActivity.editarActivity(6, false);
                 nombreUsuario = (EditText) getActivity().findViewById(R.id.editText_nombre_usuario);
                 nombreUsuario.setText(usuario.getNombre());
                 apellidoUsuario = (EditText) getActivity().findViewById(R.id.editText_apellido_usuario);

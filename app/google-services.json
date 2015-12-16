@@ -11,7 +11,7 @@
         "client_id": "android:com.radioucabmovil",
         "client_type": 1,
         "android_client_info": {
-          "package_name": "com.radioucabmovil"
+          "package_name": "info.androidhive.radioucab"
         }
       },
       "oauth_client": [],

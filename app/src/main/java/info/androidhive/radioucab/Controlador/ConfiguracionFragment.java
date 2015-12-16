@@ -25,8 +25,7 @@ public class ConfiguracionFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        manejoActivity.cambiarDeColor(7);
-        manejoActivity.cambiarIconoMenu();
+        manejoActivity.editarActivity(7, false);
     }
 
 }

@@ -64,8 +64,7 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
             if (rootView != null) {
                 super.onCreate(savedInstanceState);
                 //cambio el color del toolbar superior
-                manejoActivity.cambiarDeColor(4);
-                manejoActivity.cambiarIconoMenu();
+                manejoActivity.editarActivity(4, true);
                 recyclerView = (RecyclerView) rootView.findViewById(R.id.lista_recycler_evento);
                 layoutManager = new LinearLayoutManager(getActivity());
                 recyclerView.setLayoutManager(layoutManager);

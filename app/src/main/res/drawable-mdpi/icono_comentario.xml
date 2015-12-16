@@ -1,0 +1,5 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android" android:enterFadeDuration="@android:integer/config_shortAnimTime">
+    <item>
+        <bitmap android:tint="@color/azul_radio_ucab" android:src="@drawable/ic_comentario" />
+    </item>
+</selector>

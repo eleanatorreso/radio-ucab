@@ -55,8 +55,7 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //cambio el color del toolbar superior
-        manejoActivity.cambiarDeColor(2);
-        manejoActivity.cambiarIconoMenu();
+        manejoActivity.editarActivity(2, true);
         listaHora = (ListView) rootView.findViewById(R.id.lista_hora);
         listaPrograma = (ListView) rootView.findViewById(R.id.lista_programa);
         cargarParrilla();

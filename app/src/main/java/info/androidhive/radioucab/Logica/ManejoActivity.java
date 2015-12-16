@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -43,6 +44,7 @@ public class ManejoActivity {
     private ListView mDrawerList;
     private String[] navMenuTitles;
     private TypedArray navMenuIcons;
+    private ImageButton boton_interaccion;
     private ArrayList<NavDrawerItem> navDrawerItems;
 
     public static ManejoActivity getInstancia() {
@@ -60,8 +62,9 @@ public class ManejoActivity {
         this.activityPrincipal = activityPrincipal;
         toolbar = (Toolbar) activityPrincipal.findViewById(R.id.toolbar);
         perfilLogica.setContexto(activityPrincipal);
-        boton_ingresar = (TextView) activityPrincipal.findViewById(R.id.botonIngresar);
+        boton_ingresar = (TextView) activityPrincipal.findViewById(R.id.boton_ingresar);
         imagen_perfil = (ImageView) activityPrincipal.findViewById(R.id.imagen_usuario);
+        boton_interaccion = (ImageButton) activityPrincipal.findViewById(R.id.boton_interaccion);
         navMenuTitles = activityPrincipal.getResources().getStringArray(R.array.nav_drawer_items);
         // nav drawer icons from resources
         navMenuIcons = activityPrincipal.getResources()
@@ -82,12 +85,12 @@ public class ManejoActivity {
         }
     }
 
-    public void cambiarIconoMenu() {
+    private void cambiarIconoMenu() {
         botonMenu = (ImageView) getActivityPrincipal().findViewById(R.id.icono_menu);
-        botonMenu.setImageDrawable(getActivityPrincipal().getResources().getDrawable(R.drawable.ic_menu_white_24dp));
+        botonMenu.setImageDrawable(getActivityPrincipal().getResources().getDrawable(R.drawable.ic_menu));
     }
 
-    public void cambiarDeColor(int seccion) {
+    private void cambiarDeColor(int seccion) {
         int color = 0;
         switch (seccion) {
             //Home
@@ -118,8 +121,20 @@ public class ManejoActivity {
             case 7:
                 color = activityPrincipal.getResources().getColor(R.color.gris_claro);
                 break;
+
         }
         toolbar.setBackgroundColor(color);
+    }
+
+    public void editarActivity (int seccion, boolean mostrarBotonInteraccion) {
+        cambiarDeColor(seccion);
+        cambiarIconoMenu();
+        if (mostrarBotonInteraccion == true) {
+            boton_interaccion.setVisibility(View.VISIBLE);
+        }
+        else {
+            boton_interaccion.setVisibility(View.INVISIBLE);
+        }
     }
 
     private Fragment getPosicion(int position) {

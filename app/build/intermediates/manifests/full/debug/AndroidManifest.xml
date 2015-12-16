@@ -17,6 +17,12 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <permission
+        android:name="info.androidhive.radioucab.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="info.androidhive.radioucab.permission.C2D_MESSAGE" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
@@ -70,6 +76,33 @@
             android:exported="true" >
         </service>
 
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="info.androidhive.radioucab" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="info.androidhive.radioucab.Controlador.GCM.MyGcmListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="info.androidhive.radioucab.Controlador.GCM.MyInstanceIDListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <service android:name="info.androidhive.radioucab.Controlador.GCM.RegistrationIntentService" />
+
         <provider
             android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"
             android:authorities="com.radioucabmovil.google_measurement_service"
@@ -104,6 +137,16 @@
             android:exported="false"
             android:icon="@drawable/tw__transparent"
             android:label="@string/kit_name" />
+        <activity
+            android:name="com.twitter.sdk.android.tweetcomposer.ComposerActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateVisible" />
+
+        <service
+            android:name="com.twitter.sdk.android.tweetcomposer.TweetUploadService"
+            android:enabled="true"
+            android:exported="false" />
+
         <activity
             android:name="com.digits.sdk.android.PhoneNumberActivity"
             android:configChanges="orientation|screenSize"
