@@ -2,7 +2,7 @@ package info.androidhive.radioucab.Model;
 
 import com.orm.SugarRecord;
 
-public class Locutor extends SugarRecord<Locutor> {
+public class Locutor extends SugarRecord {
 
     private int myId;
     private String nombreCompleto;

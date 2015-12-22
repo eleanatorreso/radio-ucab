@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import com.orm.SugarRecord;
 import java.util.Date;
 
-public class Actualizacion extends SugarRecord<Actualizacion> {
+public class Actualizacion extends SugarRecord {
     private Date actEvento;
     private Date actNoticia;
     private Date actPrograma;

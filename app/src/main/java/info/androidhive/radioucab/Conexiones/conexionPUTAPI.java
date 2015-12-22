@@ -76,7 +76,7 @@ public class conexionPUTAPI extends AsyncTask<String, String, Integer> {
             noticiaProgressDialog.dismiss();
         if (codigo != 0) {
             try {
-                delegate.procesoExitoso(codigo);
+                delegate.procesoExitoso(codigo, tipo);
             } catch (Exception ex) {
                 if (ex != null && ex.getMessage()!=null)
                     Log.i("Conexion: ", ex.getMessage());

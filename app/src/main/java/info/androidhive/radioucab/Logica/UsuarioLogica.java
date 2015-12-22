@@ -43,8 +43,8 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
             objeto.put("token_twitter", usuario.getToken_twitter());
             objeto.put("token_secret_twitter", usuario.getToken_secret_twitter());
             objeto.put("correo", usuario.getCorreo());
-            objeto.put("imagen_grande", usuario.getImagenGrande());
-            objeto.put("imagen_normal", usuario.getImagenNormal());
+            objeto.put("imagen_grande", usuario.getImagen_grande());
+            objeto.put("imagen_normal", usuario.getImagen_normal());
             objeto.put("tipo", 1);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -67,8 +67,8 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
             objeto.put("token_twitter", usuario.getToken_twitter());
             objeto.put("token_secret_twitter", usuario.getToken_secret_twitter());
             objeto.put("correo", usuario.getCorreo());
-            objeto.put("imagen_grande", usuario.getImagenGrande());
-            objeto.put("imagen_normal", usuario.getImagenNormal());
+            objeto.put("imagen_grande", usuario.getImagen_grande());
+            objeto.put("imagen_normal", usuario.getImagen_normal());
             objeto.put("tipo", 1);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -96,7 +96,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
     public void manejoImagenes() {
         resetearUsuarioTelefono();
         cambioUrl = new ManejoString();
-        url = cambioUrl.getURLImagen(usuario.getImagenNormal());
+        url = cambioUrl.getURLImagen(usuario.getImagen_normal());
         ManejoArchivos almacenarFotoGrande = new ManejoArchivos();
         almacenarFotoGrande.delegate = (RespuestaArchivoAsyncTask) this;
         almacenarFotoGrande.tipo_foto = 0;
@@ -109,6 +109,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
         } else if (actualizar && !usuarioNuevo) {
             actualizarUsuarioAPI();
         } else {
+            usuario.save();
             manejoActivity.cambiarFragment("Perfil");
         }
     }
@@ -131,8 +132,8 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
             usuarioBD.setToken_secret_twitter(usuarioApp.getToken_secret_twitter());
             actualizar = true;
         }
-        if (!usuarioApp.getImagenNormal().equals(usuarioBD.getImagenNormal())) {
-            usuarioBD.setImagenNormal(usuarioApp.getImagenNormal());
+        if (!usuarioApp.getImagen_normal().equals(usuarioBD.getImagen_normal())) {
+            usuarioBD.setImagen_normal(usuarioApp.getImagen_normal());
             actualizar = true;
         }
 
@@ -160,7 +161,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
     }
 
     @Override
-    public void procesoExitoso(int codigo) {
+    public void procesoExitoso(int codigo, int tipo) {
         if (codigo == 204) {
             usuario.save();
             manejoActivity.cambiarFragment("Perfil");
@@ -173,10 +174,10 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
             ManejoArchivos almacenarFotoNormal = new ManejoArchivos();
             almacenarFotoNormal.delegate = this;
             almacenarFotoNormal.tipo_foto = 1;
-            almacenarFotoNormal.execute(usuario.getImagenNormal(), "picNormal", cambioUrl.getFormatoImagen());
+            almacenarFotoNormal.execute(usuario.getImagen_normal(), "picNormal", cambioUrl.getFormatoImagen());
         } else {
-            usuario.setImagenGrande(url);
-            usuario.setFormatoImagen(cambioUrl.getFormatoImagen());
+            usuario.setImagen_grande(url);
+            usuario.setFormato_imagen(cambioUrl.getFormatoImagen());
             almacenarUsuarioContinuacion();
         }
     }

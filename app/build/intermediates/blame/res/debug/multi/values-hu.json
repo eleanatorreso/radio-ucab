@@ -1879,7 +1879,7 @@
                     "endOffset": 12450
                 },
                 "from": {
-                    "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\twitter-core\\1.6.2\\res\\values-hu\\values-hu.xml",
+                    "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\twitter-core\\1.5.0\\res\\values-hu\\values-hu.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -1917,7 +1917,7 @@
                     "endOffset": 12588
                 },
                 "from": {
-                    "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\twitter-core\\1.6.2\\res\\values-hu\\values-hu.xml",
+                    "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\twitter-core\\1.5.0\\res\\values-hu\\values-hu.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -1936,7 +1936,7 @@
                     "endOffset": 12645
                 },
                 "from": {
-                    "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\twitter-core\\1.6.2\\res\\values-hu\\values-hu.xml",
+                    "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\twitter-core\\1.5.0\\res\\values-hu\\values-hu.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -2031,7 +2031,7 @@
                     "endOffset": 13185
                 },
                 "from": {
-                    "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\twitter-core\\1.6.2\\res\\values-hu\\values-hu.xml",
+                    "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\twitter-core\\1.5.0\\res\\values-hu\\values-hu.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -2046,17 +2046,17 @@
                     "startLine": 118,
                     "startColumn": 4,
                     "startOffset": 13190,
-                    "endColumn": 76,
-                    "endOffset": 13262
+                    "endColumn": 73,
+                    "endOffset": 13259
                 },
                 "from": {
-                    "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\twitter-core\\1.6.2\\res\\values-hu\\values-hu.xml",
+                    "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\twitter-core\\1.5.0\\res\\values-hu\\values-hu.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
                         "startOffset": 633,
-                        "endColumn": 76,
-                        "endOffset": 705
+                        "endColumn": 73,
+                        "endOffset": 702
                     }
                 }
             },
@@ -2064,9 +2064,9 @@
                 "to": {
                     "startLine": 119,
                     "startColumn": 4,
-                    "startOffset": 13267,
+                    "startOffset": 13264,
                     "endColumn": 87,
-                    "endOffset": 13350
+                    "endOffset": 13347
                 },
                 "from": {
                     "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\tweet-ui\\1.5.0\\res\\values-hu\\values-hu.xml",
@@ -2083,9 +2083,9 @@
                 "to": {
                     "startLine": 120,
                     "startColumn": 4,
-                    "startOffset": 13355,
+                    "startOffset": 13352,
                     "endColumn": 60,
-                    "endOffset": 13411
+                    "endOffset": 13408
                 },
                 "from": {
                     "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\tweet-ui\\1.5.0\\res\\values-hu\\values-hu.xml",
@@ -2102,9 +2102,9 @@
                 "to": {
                     "startLine": 121,
                     "startColumn": 4,
-                    "startOffset": 13416,
+                    "startOffset": 13413,
                     "endColumn": 75,
-                    "endOffset": 13487
+                    "endOffset": 13484
                 },
                 "from": {
                     "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\tweet-ui\\1.5.0\\res\\values-hu\\values-hu.xml",
@@ -2121,9 +2121,9 @@
                 "to": {
                     "startLine": 122,
                     "startColumn": 4,
-                    "startOffset": 13492,
+                    "startOffset": 13489,
                     "endColumn": 110,
-                    "endOffset": 13598
+                    "endOffset": 13595
                 },
                 "from": {
                     "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-wallet\\8.3.0\\res\\values-hu\\wallet_strings.xml",

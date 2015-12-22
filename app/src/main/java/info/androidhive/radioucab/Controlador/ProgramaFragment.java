@@ -222,7 +222,7 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
     }
 
     @Override
-    public void procesoExitoso(int codigo) {
+    public void procesoExitoso(int codigo, int tipo) {
 
     }
 

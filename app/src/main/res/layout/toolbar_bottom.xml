@@ -19,8 +19,7 @@
             android:src="@drawable/ic_stat_play"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:id="@+id/icon_play"
-            android:layout_marginLeft="10dp" />
+            android:id="@+id/icon_play" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -29,7 +28,6 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:id="@+id/icon_stop"
-            android:layout_marginLeft="10dp"
             android:visibility="gone"/>
 
         <ImageView
@@ -43,13 +41,12 @@
             android:visibility="gone"/>
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="match_parent"
             android:src="@drawable/ic_action_ondas"
             android:layout_centerHorizontal="true"
             android:layout_gravity="left|center_vertical"
-            android:id="@+id/icon_ondas"
-            android:layout_marginLeft="0dp" />
+            android:id="@+id/icon_ondas"/>
 
     </FrameLayout>
 </android.support.v7.widget.Toolbar>

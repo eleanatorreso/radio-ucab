@@ -4,7 +4,7 @@ import com.orm.SugarRecord;
 
 import java.util.Date;
 
-public class Evento extends SugarRecord<Evento> implements Comparable<Evento> {
+public class Evento extends SugarRecord implements Comparable<Evento> {
     private int myId;
     private String titulo;
     private String horario;

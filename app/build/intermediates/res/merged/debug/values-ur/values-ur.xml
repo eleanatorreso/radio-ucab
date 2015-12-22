@@ -49,6 +49,5 @@
     <string name="tw__relative_date_format_long">d/M/y</string>
     <string name="tw__relative_date_format_short">d MMM</string>
     <string name="tw__retweeted_by_format">%1$s کی ریٹویٹ کردہ</string>
-    <string name="tw__share_email_desc">%1$s سے اپ ڈیٹس اور دیگر معلومات حاصل کریں جب آپ نے انہیں ‎\@%2$s اپنے ٹوئٹر اکاؤنٹ پر اپنے ای میل تک رسائی کی اجازت دی ہو</string>
     <string name="tw__share_email_title">اپنا ای میل ایڈریس شیئر کریں</string>
 </resources>

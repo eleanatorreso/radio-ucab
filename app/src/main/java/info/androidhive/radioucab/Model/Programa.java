@@ -3,7 +3,7 @@ package info.androidhive.radioucab.Model;
 import com.orm.SugarRecord;
 import java.util.List;
 
-public class Programa extends SugarRecord<Programa> {
+public class Programa extends SugarRecord {
     private int myId;
     private String titulo;
     private String descripcion;

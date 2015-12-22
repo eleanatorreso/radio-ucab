@@ -132,8 +132,8 @@ public class RegistrationIntentService extends IntentService implements Respuest
             objeto.put("token_twitter", usuario.getToken_twitter());
             objeto.put("token_secret_twitter", usuario.getToken_secret_twitter());
             objeto.put("correo", usuario.getCorreo());
-            objeto.put("imagen_grande", usuario.getImagenGrande());
-            objeto.put("imagen_normal", usuario.getImagenNormal());
+            objeto.put("imagen_grande", usuario.getImagen_grande());
+            objeto.put("imagen_normal", usuario.getImagen_normal());
             objeto.put("tipo", 1);
             objeto.put("id_movil", usuario.getId_movil());
         } catch (JSONException e) {
@@ -154,7 +154,7 @@ public class RegistrationIntentService extends IntentService implements Respuest
     }
 
     @Override
-    public void procesoExitoso(int codigo) {
+    public void procesoExitoso(int codigo, int tipo) {
         if (codigo == 204) {
             int x = 1;
             Log.i("Exito","Todo bien");

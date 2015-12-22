@@ -138,16 +138,6 @@
             android:icon="@drawable/tw__transparent"
             android:label="@string/kit_name" />
         <activity
-            android:name="com.twitter.sdk.android.tweetcomposer.ComposerActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize|stateVisible" />
-
-        <service
-            android:name="com.twitter.sdk.android.tweetcomposer.TweetUploadService"
-            android:enabled="true"
-            android:exported="false" />
-
-        <activity
             android:name="com.digits.sdk.android.PhoneNumberActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"

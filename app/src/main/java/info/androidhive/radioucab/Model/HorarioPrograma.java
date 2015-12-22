@@ -2,7 +2,7 @@ package info.androidhive.radioucab.Model;
 
 import com.orm.SugarRecord;
 
-public class HorarioPrograma extends SugarRecord<HorarioPrograma> {
+public class HorarioPrograma extends SugarRecord {
     private int myId;
     private String horario;
     private Programa programa;

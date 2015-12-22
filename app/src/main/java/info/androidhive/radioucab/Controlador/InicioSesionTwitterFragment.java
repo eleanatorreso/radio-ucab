@@ -85,7 +85,6 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
                 manejoActivity.editarActivity(6, false);
                 if (!Fabric.isInitialized()) {
                     fabric = fabric.getInstance();
-                    fabric.context = getActivity();
                     fabric.initFabric();
                 }
                 usuarioLogica.contexto = getActivity();
@@ -144,7 +143,8 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
                 resultado = resultados.getJSONObject(0);
                 Usuario usuarioBD = new Usuario(resultado.getString("nombre"), resultado.getString("apellido"), resultado.getString("correo")
                         , resultado.getString("usuario_twitter"), resultado.getString("token_twitter"), resultado.getString("token_secret_twitter")
-                        , resultado.getString("guid"), resultado.getString("imagen_normal"),  resultado.getString("imagen_grande"));
+                        , resultado.getString("guid"), resultado.getString("imagen_normal"),  resultado.getString("imagen_grande")
+                        , resultado.getInt("comentarios_inapropiados"), resultado.getBoolean("sancionado"));
                 Usuario usuarioApp = new Usuario(usuarioResultado.screenName, sesionTwitter.getAuthToken().token
                         , sesionTwitter.getAuthToken().secret, usuarioResultado.profileImageUrl);
                 usuarioLogica.comprobarUsuario(usuarioApp, usuarioBD);
@@ -166,7 +166,7 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
     }
 
     @Override
-    public void procesoExitoso(int codigo) {
+    public void procesoExitoso(int codigo, int tipo) {
 
     }
 

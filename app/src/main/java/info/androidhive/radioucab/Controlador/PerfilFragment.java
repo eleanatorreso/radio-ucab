@@ -6,8 +6,6 @@ import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
 
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -49,7 +47,7 @@ public class PerfilFragment extends Fragment {
     public void cargarDatosUsuario() {
         imagen_perfil = (ImageView) getActivity().findViewById(R.id.imagen_perfil);
         Bitmap bitmap = BitmapFactory.decodeFile(getActivity().getString(R.string.ruta_archivos_radio_ucab) + "picBig."
-                + usuario_actual.getFormatoImagen());
+                + usuario_actual.getFormato_imagen());
         imagen_perfil.setImageBitmap(perfilLogica.convertirImagenCirculo(bitmap, 0));
         usuario_nombre = (TextView) getActivity().findViewById(R.id.texto_usuario_nombre);
         usuario_nombre.setText(usuario_actual.getNombre() + " " + usuario_actual.getApellido());

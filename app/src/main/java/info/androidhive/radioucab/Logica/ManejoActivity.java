@@ -18,6 +18,8 @@ import java.util.ArrayList;
 
 import info.androidhive.radioucab.Controlador.ConfiguracionFragment;
 import info.androidhive.radioucab.Controlador.EditarPerfilFragment;
+import info.androidhive.radioucab.Controlador.EditarTweetComentarioFragment;
+import info.androidhive.radioucab.Controlador.EnviarTweet;
 import info.androidhive.radioucab.Controlador.EventoFragment;
 import info.androidhive.radioucab.Controlador.HomeFragment;
 import info.androidhive.radioucab.Controlador.InicioSesionTwitterFragment;
@@ -79,7 +81,7 @@ public class ManejoActivity {
             boton_ingresar.setVisibility(View.INVISIBLE);
             imagen_perfil.setVisibility(View.VISIBLE);
             Bitmap bitmap = BitmapFactory.decodeFile(activityPrincipal.getString(R.string.ruta_archivos_radio_ucab) + "picBig." +
-                    usuario_actual.getFormatoImagen());
+                    usuario_actual.getFormato_imagen());
             imagen_perfil.setImageBitmap(perfilLogica.convertirImagenCirculo(bitmap, 0));
             activityPrincipal.invalidateOptionsMenu();
         }
@@ -137,37 +139,6 @@ public class ManejoActivity {
         }
     }
 
-    private Fragment getPosicion(int position) {
-        Fragment fragment = null;
-        switch (position) {
-            case 0:
-                fragment = new HomeFragment();
-                break;
-            case 1:
-                fragment = new ParrillaFragment();
-                break;
-            case 2:
-                fragment = new NoticiaFragment();
-                break;
-            case 3:
-                fragment = new EventoFragment();
-                break;
-            case 4:
-                fragment = new ProgramaFragment();
-                break;
-            case 5:
-                fragment = new PerfilFragment();
-                break;
-            case 6:
-                fragment = new ConfiguracionFragment();
-                break;
-
-            default:
-                break;
-        }
-        return fragment;
-    }
-
     public Fragment getFragment(int position) {
         Fragment fragment = null;
         switch (position) {
@@ -192,14 +163,20 @@ public class ManejoActivity {
             case 6:
                 fragment = new ConfiguracionFragment();
                 break;
-            case 7:
+            case 20:
                 fragment = new RegistroUsuarioFragment();
                 break;
-            case 8:
+            case 21:
                 fragment = new InicioSesionTwitterFragment();
                 break;
-            case 9:
+            case 22:
                 fragment = new EditarPerfilFragment();
+                break;
+            case 23:
+                fragment = new EnviarTweet();
+                break;
+            case 24:
+                fragment = new EditarTweetComentarioFragment();
                 break;
 
             default:
@@ -225,11 +202,15 @@ public class ManejoActivity {
             case "Configuracion":
                 return 6;
             case "Registro":
-                return 7;
+                return 20;
             case "Inicio":
-                return 8;
+                return 21;
             case "Editar":
-                return 9;
+                return 22;
+            case "EnviarTweet":
+                return 23;
+            case "TweetComentario":
+                return 24;
         }
         return 0;
     }
@@ -240,7 +221,7 @@ public class ManejoActivity {
         FragmentManager fragmentManager = getActivityPrincipal().getFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.frame_container, fragmento).commit();
-        if (posicion != 7 && posicion != 8 && posicion != 9) {// update selected item and title, then close the drawer
+        if (posicion < 20) {// update selected item and title, then close the drawer
             mDrawerList.setItemChecked(posicion, true);
             mDrawerList.setSelection(posicion);
             getActivityPrincipal().setTitle(navMenuTitles[posicion]);

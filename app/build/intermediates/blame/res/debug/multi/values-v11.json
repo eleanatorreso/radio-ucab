@@ -297,51 +297,9 @@
                     "startLine": 62,
                     "startColumn": 4,
                     "startOffset": 4366,
-                    "endLine": 69,
+                    "endLine": 64,
                     "endColumn": 12,
-                    "endOffset": 4871
-                },
-                "from": {
-                    "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\tweet-composer\\1.0.2\\res\\values-v11\\values-v11.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 236,
-                        "endLine": 11,
-                        "endColumn": 12,
-                        "endOffset": 741
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 70,
-                    "startColumn": 4,
-                    "startOffset": 4876,
-                    "endLine": 77,
-                    "endColumn": 12,
-                    "endOffset": 5387
-                },
-                "from": {
-                    "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\tweet-composer\\1.0.2\\res\\values-v11\\values-v11.xml",
-                    "position": {
-                        "startLine": 12,
-                        "startColumn": 4,
-                        "startOffset": 746,
-                        "endLine": 19,
-                        "endColumn": 12,
-                        "endOffset": 1257
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 78,
-                    "startColumn": 4,
-                    "startOffset": 5392,
-                    "endLine": 80,
-                    "endColumn": 12,
-                    "endOffset": 5549
+                    "endOffset": 4523
                 },
                 "from": {
                     "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.digits.sdk.android\\digits\\1.8.0\\res\\values-v11\\values-v11.xml",
@@ -357,11 +315,11 @@
             },
             {
                 "to": {
-                    "startLine": 81,
+                    "startLine": 65,
                     "startColumn": 4,
-                    "startOffset": 5554,
+                    "startOffset": 4528,
                     "endColumn": 70,
-                    "endOffset": 5620
+                    "endOffset": 4594
                 },
                 "from": {
                     "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v11\\values-v11.xml",
@@ -376,11 +334,11 @@
             },
             {
                 "to": {
-                    "startLine": 82,
+                    "startLine": 66,
                     "startColumn": 4,
-                    "startOffset": 5625,
+                    "startOffset": 4599,
                     "endColumn": 82,
-                    "endOffset": 5703
+                    "endOffset": 4677
                 },
                 "from": {
                     "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v11\\values-v11.xml",
@@ -395,12 +353,12 @@
             },
             {
                 "to": {
-                    "startLine": 83,
+                    "startLine": 67,
                     "startColumn": 4,
-                    "startOffset": 5708,
-                    "endLine": 133,
+                    "startOffset": 4682,
+                    "endLine": 117,
                     "endColumn": 12,
-                    "endOffset": 9452
+                    "endOffset": 8426
                 },
                 "from": {
                     "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v11\\values-v11.xml",
@@ -416,12 +374,12 @@
             },
             {
                 "to": {
-                    "startLine": 134,
+                    "startLine": 118,
                     "startColumn": 4,
-                    "startOffset": 9457,
-                    "endLine": 185,
+                    "startOffset": 8431,
+                    "endLine": 169,
                     "endColumn": 12,
-                    "endOffset": 13341
+                    "endOffset": 12315
                 },
                 "from": {
                     "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\values-v11\\values-v11.xml",

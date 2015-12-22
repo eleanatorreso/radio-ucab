@@ -2,7 +2,7 @@ package info.androidhive.radioucab.Model;
 
 import com.orm.SugarRecord;
 
-public class Usuario extends SugarRecord<Programa> {
+public class Usuario extends SugarRecord {
     private String nombre;
     private String apellido;
     private String correo;
@@ -10,34 +10,37 @@ public class Usuario extends SugarRecord<Programa> {
     private String token_twitter;
     private String token_secret_twitter;
     private String guid;
-    private String imagenGrande;
-    private String imagenNormal;
-    private String formatoImagen;
+    private String imagen_grande;
+    private String imagen_normal;
+    private String formato_imagen;
     private String id_movil;
+    private int comentarios_inapropiados;
+    private boolean sancionado;
 
     public Usuario() {
 
     }
 
     public Usuario(String nombre, String correo, String usuario_twitter, String token_twitter
-            , String token_secret_twitter, String imagenNormal) {
+            , String token_secret_twitter, String imagen_normal) {
         this.nombre = nombre;
         this.correo = correo;
         this.usuario_twitter = usuario_twitter;
         this.token_twitter = token_twitter;
         this.token_secret_twitter = token_secret_twitter;
-        this.imagenNormal = imagenNormal;
+        this.imagen_normal = imagen_normal;
     }
 
-    public Usuario(String usuario_twitter, String token_twitter, String token_secret_twitter, String imagenNormal) {
+    public Usuario(String usuario_twitter, String token_twitter, String token_secret_twitter, String imagen_normal) {
         this.usuario_twitter = usuario_twitter;
         this.token_twitter = token_twitter;
         this.token_secret_twitter = token_secret_twitter;
-        this.imagenNormal = imagenNormal;
+        this.imagen_normal = imagen_normal;
     }
 
     public Usuario(String nombre, String apellido, String correo, String usuario_twitter, String token_twitter
-            , String token_secret_twitter, String guid, String imagenNormal, String imagenGrande) {
+            , String token_secret_twitter, String guid, String imagen_normal, String imagen_grande, int comentarios_inapropiados,
+                   boolean sancionado) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
@@ -45,8 +48,10 @@ public class Usuario extends SugarRecord<Programa> {
         this.token_twitter = token_twitter;
         this.token_secret_twitter = token_secret_twitter;
         this.guid = guid;
-        this.imagenNormal = imagenNormal;
-        this.imagenGrande = imagenGrande;
+        this.imagen_normal = imagen_normal;
+        this.imagen_grande = imagen_grande;
+        this.sancionado = sancionado;
+        this.comentarios_inapropiados = comentarios_inapropiados;
     }
 
     public String getId_movil() {
@@ -113,27 +118,43 @@ public class Usuario extends SugarRecord<Programa> {
         this.usuario_twitter = usuario_twitter;
     }
 
-    public String getImagenGrande() {
-        return imagenGrande;
+    public String getImagen_grande() {
+        return imagen_grande;
     }
 
-    public void setImagenGrande(String imagenGrande) {
-        this.imagenGrande = imagenGrande;
+    public void setImagen_grande(String imagen_grande) {
+        this.imagen_grande = imagen_grande;
     }
 
-    public String getImagenNormal() {
-        return imagenNormal;
+    public String getImagen_normal() {
+        return imagen_normal;
     }
 
-    public void setImagenNormal(String imagenNormal) {
-        this.imagenNormal = imagenNormal;
+    public void setImagen_normal(String imagen_normal) {
+        this.imagen_normal = imagen_normal;
     }
 
-    public String getFormatoImagen() {
-        return formatoImagen;
+    public String getFormato_imagen() {
+        return formato_imagen;
     }
 
-    public void setFormatoImagen(String formatoImagen) {
-        this.formatoImagen = formatoImagen;
+    public void setFormato_imagen(String formato_imagen) {
+        this.formato_imagen = formato_imagen;
+    }
+
+    public int getComentarios_inapropiados() {
+        return comentarios_inapropiados;
+    }
+
+    public void setComentarios_inapropiados(int comentarios_inapropiados) {
+        this.comentarios_inapropiados = comentarios_inapropiados;
+    }
+
+    public boolean isSancionado() {
+        return sancionado;
+    }
+
+    public void setSancionado(boolean sancionado) {
+        this.sancionado = sancionado;
     }
 }

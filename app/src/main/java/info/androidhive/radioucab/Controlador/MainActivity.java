@@ -10,7 +10,9 @@ import info.androidhive.radioucab.Logica.ServicioRadio;
 import info.androidhive.radioucab.Controlador.Adaptor.AdaptorNavDrawerList;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
+
 import java.util.ArrayList;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
@@ -24,13 +26,12 @@ import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -48,7 +49,7 @@ import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ActionBarActivity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private String[] navMenuTitles;
@@ -107,11 +108,10 @@ public class MainActivity extends AppCompatActivity {
             boton_ingresar.setVisibility(View.INVISIBLE);
             imagen_perfil.setVisibility(View.VISIBLE);
             Bitmap bitmap = BitmapFactory.decodeFile(this.getString(R.string.ruta_archivos_radio_ucab) + "picBig." +
-                    usuario_actual.getFormatoImagen());
+                    usuario_actual.getFormato_imagen());
             perfilLogica.setContexto(this);
             imagen_perfil.setImageBitmap(perfilLogica.convertirImagenCirculo(bitmap, 0));
-        }
-        else {
+        } else {
             boton_ingresar.setVisibility(View.VISIBLE);
             invalidateOptionsMenu();
         }
@@ -171,8 +171,7 @@ public class MainActivity extends AppCompatActivity {
                 // Call a method in the ArticleFragment to update its content
                 perfilFragment.actualizarPerfil();
             }
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             Log.e("Activity", ex.getMessage());
         }
     }
@@ -180,12 +179,14 @@ public class MainActivity extends AppCompatActivity {
     public void abrirDialogoInteraccion() {
         //Dialog dialogo = new Dialog(MainActivity.this);
         final AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
-        final AlertDialog myAlert;
+        final AlertDialog alerta_dialogo;
         LayoutInflater inflater = getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.dialogo_interaccion2, null);
         dialogo.setView(dialogView);
-
-        LinearLayout dedicar_cancion= (LinearLayout) dialogView.findViewById(R.id.icono_dedicar_cancion);
+        dialogo.setCancelable(true);
+        alerta_dialogo = dialogo.create(); //returns an AlertDialog from a Builder.
+        alerta_dialogo.show();
+        LinearLayout dedicar_cancion = (LinearLayout) dialogView.findViewById(R.id.icono_dedicar_cancion);
         dedicar_cancion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -193,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
                 toast.show();
             }
         });
-        LinearLayout solicitar_cancion= (LinearLayout) dialogView.findViewById(R.id.icono_solicitar_canción);
+        LinearLayout solicitar_cancion = (LinearLayout) dialogView.findViewById(R.id.icono_solicitar_canción);
         solicitar_cancion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -206,8 +207,8 @@ public class MainActivity extends AppCompatActivity {
         comentario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(v.getContext(), "Aja todo bien", Toast.LENGTH_LONG);
-                toast.show();
+                manejoActivity.cambiarFragment("TweetComentario");
+                alerta_dialogo.dismiss();
             }
         });
 
@@ -228,14 +229,11 @@ public class MainActivity extends AppCompatActivity {
                 toast.show();
             }
         });
-
-        myAlert = dialogo.create(); //returns an AlertDialog from a Builder.
-        myAlert.show();
-        Button boton_cerrar= (Button) dialogView.findViewById(R.id.boton_cerrar_interaccion);
+        Button boton_cerrar = (Button) dialogView.findViewById(R.id.boton_cerrar_interaccion);
         boton_cerrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myAlert.dismiss();
+                alerta_dialogo.dismiss();
             }
         });
     }
@@ -369,9 +367,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.accion_cerrar_sesion:
                         crearDialogoSiYNo(getString(R.string.dialogo_asunto_cerrar_sesion)
-                                ,getString(R.string.dialogo_contenido_cerrar_sesion)
-                                ,getString(R.string.dialogo_mensaje_Si)
-                                ,getString(R.string.dialogo_mensaje_No));
+                                , getString(R.string.dialogo_contenido_cerrar_sesion)
+                                , getString(R.string.dialogo_mensaje_Si)
+                                , getString(R.string.dialogo_mensaje_No));
                         break;
                 }
                 return true;
@@ -494,7 +492,7 @@ public class MainActivity extends AppCompatActivity {
 
         // toggle nav drawer on selecting action bar app icon/title
     /*	if (mDrawerToggle.onOptionsItemSelected(item)) {
-			return true;
+            return true;
 		}*/
         // Handle action bar actions click
 		/*
@@ -521,8 +519,7 @@ public class MainActivity extends AppCompatActivity {
             itemCerrarSesion.setVisible(false);
             MenuItem itemPerfil = menu.findItem(R.id.accion_ver_perfil);
             itemPerfil.setVisible(false);
-        }
-        else {
+        } else {
             MenuItem itemCerrarSesion = menu.findItem(R.id.accion_cerrar_sesion);
             itemCerrarSesion.setVisible(true);
             MenuItem itemPerfil = menu.findItem(R.id.accion_ver_perfil);
