@@ -32,7 +32,7 @@ public class NoticiaDetalleFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        manejoActivity.editarActivity(3, true);
+        manejoActivity.editarActivity(3, true, null);
         titulo = (TextView) getView().findViewById(R.id.titulo_noticia);
         titulo.setText(noticia.getTitular());
         texto_noticia = (TextView) getView().findViewById(R.id.texto_noticia);

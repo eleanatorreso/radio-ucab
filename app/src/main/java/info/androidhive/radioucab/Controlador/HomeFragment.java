@@ -57,7 +57,7 @@ public class HomeFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //cambio el color del toolbar superior
-        manejoActivity.editarActivity(1, true);
+        manejoActivity.editarActivity(1, true, "Home");
         try {
 
             final UserTimeline userTimeline = new UserTimeline.Builder()

@@ -68,7 +68,7 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //cambio el color del toolbar superior
-        manejoActivity.editarActivity(3, true);
+        manejoActivity.editarActivity(3, true, "Noticia");
         swipeRefreshLayout = (SwipeRefreshLayout) getActivity().findViewById(R.id.activity_main_swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

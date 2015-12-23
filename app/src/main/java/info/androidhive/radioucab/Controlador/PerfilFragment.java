@@ -61,7 +61,7 @@ public class PerfilFragment extends Fragment {
         boton_editar_perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("Editar");
+                manejoActivity.cambiarFragment("EditarPerfil");
             }
         });
     }
@@ -82,7 +82,7 @@ public class PerfilFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         if (rootView != null) {
             //cambio el color del toolbar superior
-            manejoActivity.editarActivity(6, false);
+            manejoActivity.editarActivity(6, false, "Perfil");
             super.onCreate(savedInstanceState);
             actualizarPerfil();
         }

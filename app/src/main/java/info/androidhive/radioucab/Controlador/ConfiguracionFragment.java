@@ -25,7 +25,7 @@ public class ConfiguracionFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        manejoActivity.editarActivity(7, false);
+        manejoActivity.editarActivity(7, false, "Configuracion");
     }
 
 }

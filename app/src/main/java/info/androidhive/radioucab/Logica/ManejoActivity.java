@@ -48,12 +48,21 @@ public class ManejoActivity {
     private TypedArray navMenuIcons;
     private ImageButton boton_interaccion;
     private ArrayList<NavDrawerItem> navDrawerItems;
+    private String fragmentoActual;
 
     public static ManejoActivity getInstancia() {
         if (instancia == null) {
             instancia = new ManejoActivity();
         }
         return instancia;
+    }
+
+    public String getFragmentoActual() {
+        return fragmentoActual;
+    }
+
+    public void setFragmentoActual(String fragmentoActual) {
+        this.fragmentoActual = fragmentoActual;
     }
 
     public Activity getActivityPrincipal() {
@@ -128,7 +137,7 @@ public class ManejoActivity {
         toolbar.setBackgroundColor(color);
     }
 
-    public void editarActivity (int seccion, boolean mostrarBotonInteraccion) {
+    public void editarActivity (int seccion, boolean mostrarBotonInteraccion, String fragmentoActual) {
         cambiarDeColor(seccion);
         cambiarIconoMenu();
         if (mostrarBotonInteraccion == true) {
@@ -137,6 +146,8 @@ public class ManejoActivity {
         else {
             boton_interaccion.setVisibility(View.INVISIBLE);
         }
+        if (fragmentoActual != null)
+            this.fragmentoActual = fragmentoActual;
     }
 
     public Fragment getFragment(int position) {
@@ -205,12 +216,16 @@ public class ManejoActivity {
                 return 20;
             case "Inicio":
                 return 21;
-            case "Editar":
+            case "EditarPerfil":
                 return 22;
             case "EnviarTweet":
                 return 23;
             case "TweetComentario":
                 return 24;
+            case "NoticiaDetalle":
+                return 25;
+            case "ProgramaDetalle":
+                return 26;
         }
         return 0;
     }

@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
@@ -26,9 +27,13 @@ import info.androidhive.radioucab.R;
 
 public class ManejoEnvioTweet implements RespuestaAsyncTask, RespuestaStringAsyncTask {
     public Context contexto;
+    public String fragmentoActual;
     public Comentario comentario;
     private final Usuario usuario = Usuario.listAll(Usuario.class).get(0);
     private final ManejoDialogs manejoDialogs = new ManejoDialogs();
+    private final ManejoString manejoString = new ManejoString();
+    private Toast toast;
+    private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
 
     public ManejoEnvioTweet (Context contexto, Comentario comentario) {
         this.contexto = contexto;
@@ -45,6 +50,9 @@ public class ManejoEnvioTweet implements RespuestaAsyncTask, RespuestaStringAsyn
                 respuesta[0] = true;
                 comentario.setIdTweet(result.data.getId());
                 enviarIdTweet();
+                toast = Toast.makeText(contexto, "Su comentario ha sido procesado con exito", Toast.LENGTH_LONG);
+                toast.show();
+                manejoActivity.cambiarFragment(manejoActivity.getFragmentoActual());
             }
 
             @Override
@@ -92,6 +100,7 @@ public class ManejoEnvioTweet implements RespuestaAsyncTask, RespuestaStringAsyn
             objeto.put("comentario", comentario.getComentario());
             objeto.put("finalidad", comentario.getFinalidad());
             objeto.put("inapropiado", comentario.isInapropiado());
+            objeto.put("idPrograma", comentario.getIdPrograma());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -162,54 +171,45 @@ public class ManejoEnvioTweet implements RespuestaAsyncTask, RespuestaStringAsyn
     @Override
     public void procesoExitoso(int codigo, int tipo) {
         //respuesta sobre chequeo de comentario
-        if (tipo == 0) {
-
-        }
-        //respuesta sobre retweet a cuenta de interaccion
-        else {
-            if (codigo == 204) {
-                //decirle al usuario que todo ok
-            }
-            else {
-                //error al retwitear
-            }
-        }
-
     }
 
     @Override
     public void procesoNoExitoso() {
-
+        toast = Toast.makeText(contexto, "No es posible procesar su solicitud, intente más tarde", Toast.LENGTH_LONG);
+        toast.show();
     }
 
     @Override
     public void procesoExitoso(String resultado) {
-        String split [] = resultado.split("|");
-        int codigo = Integer.getInteger(split[0]);
-        String hashtag = split[1];
-        comentario.setComentario(comentario.getComentario().trim() + " " + hashtag);
-        if (codigo == 1) {
-            //exitoso
-            crearDialogoSiYNo(contexto.getString(R.string.dialogo_asunto_interaccion_exitoso), comentario.getComentario(),
-                    contexto.getString(R.string.dialogo_mensaje_Si),
-                    contexto.getString(R.string.dialogo_mensaje_No));
+        if (manejoString.verificarEspacioNull(resultado)) {
+            resultado = resultado.replace("\"", "");
+            String[] split = resultado.split(":");
+            int codigo = Integer.parseInt(split[0]);
+            String hashtag = split[1];
+            comentario.setComentario(comentario.getComentario().trim() + " #" + hashtag);
+            if (codigo == 1) {
+                //exitoso
+                crearDialogoSiYNo(contexto.getString(R.string.dialogo_asunto_interaccion_exitoso), comentario.getComentario(),
+                        contexto.getString(R.string.dialogo_mensaje_Si),
+                        contexto.getString(R.string.dialogo_mensaje_No));
 
-        } else if (codigo == 2) {
-            //no puede comentar mas de 3 inapropiados
-            usuario.setSancionado(true);
-            usuario.setComentarios_inapropiados(3);
-            usuario.save();
-        } else if (codigo == 3) {
-            //comentario inapropiado
-            usuario.setComentarios_inapropiados(usuario.getComentarios_inapropiados() + 1);
-            usuario.save();
-        } else if (codigo == 4) {
-            //comentario inapropiado, ud ha sido bloqueado
-            usuario.setSancionado(true);
-            usuario.setComentarios_inapropiados(3);
-            usuario.save();
-        } else if (codigo == 0) {
-            //error intente de nuevo
+            } else if (codigo == 2) {
+                //no puede comentar mas de 3 inapropiados
+                usuario.setSancionado(true);
+                usuario.setComentarios_inapropiados(3);
+                usuario.save();
+            } else if (codigo == 3) {
+                //comentario inapropiado
+                usuario.setComentarios_inapropiados(usuario.getComentarios_inapropiados() + 1);
+                usuario.save();
+            } else if (codigo == 4) {
+                //comentario inapropiado, ud ha sido bloqueado
+                usuario.setSancionado(true);
+                usuario.setComentarios_inapropiados(3);
+                usuario.save();
+            } else if (codigo == 0) {
+                //error intente de nuevo
+            }
         }
     }
 

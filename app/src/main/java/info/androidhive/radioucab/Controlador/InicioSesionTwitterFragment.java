@@ -82,7 +82,7 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
             super.onCreate(savedInstanceState);
             if (Usuario.listAll(Usuario.class).isEmpty()) {
                 loginButton = (TwitterLoginButton) getActivity().findViewById(R.id.twitter_login_button);
-                manejoActivity.editarActivity(6, false);
+                manejoActivity.editarActivity(6, false, null);
                 if (!Fabric.isInitialized()) {
                     fabric = fabric.getInstance();
                     fabric.initFabric();

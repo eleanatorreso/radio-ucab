@@ -249,7 +249,7 @@ public class MainActivity extends ActionBarActivity {
 
         //cambio el color del toolbar superior
         manejoActivity.setActivityPrincipal(this);
-        manejoActivity.editarActivity(1, true);
+        manejoActivity.editarActivity(1, true, "Home");
         //COMENTA ESTO MIENTRAS XQ CREO QUE EL GET TITLE ES PARA AGARARR EL TITULO DEL ACTIONBAR
         //mTitle = mDrawerTitle = getTitle();
 

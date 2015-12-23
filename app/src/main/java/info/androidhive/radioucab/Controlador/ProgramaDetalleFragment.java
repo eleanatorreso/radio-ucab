@@ -73,7 +73,7 @@ public class ProgramaDetalleFragment extends Fragment {
         try {
             super.onCreate(savedInstanceState);
             layout = (RelativeLayout) getView().findViewById(R.id.layout_detalle_programa);
-            manejoActivity.editarActivity(5, true);
+            manejoActivity.editarActivity(5, true, "ProgramaDetalle");
             crearHijos();
         } catch (Exception e) {
             Log.i("detallePrograma", e.getMessage());
