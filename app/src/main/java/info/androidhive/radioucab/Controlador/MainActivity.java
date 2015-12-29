@@ -190,16 +190,16 @@ public class MainActivity extends ActionBarActivity {
         dedicar_cancion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(v.getContext(), "Aja todo bien", Toast.LENGTH_LONG);
-                toast.show();
+                manejoActivity.cambiarFragment("TweetDedicatoria");
+                alerta_dialogo.dismiss();
             }
         });
         LinearLayout solicitar_cancion = (LinearLayout) dialogView.findViewById(R.id.icono_solicitar_canción);
         solicitar_cancion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(v.getContext(), "Aja todo bien", Toast.LENGTH_LONG);
-                toast.show();
+                manejoActivity.cambiarFragment("TweetSolicitud");
+                alerta_dialogo.dismiss();
             }
         });
 

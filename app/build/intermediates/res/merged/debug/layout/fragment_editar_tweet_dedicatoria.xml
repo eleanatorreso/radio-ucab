@@ -1,0 +1,107 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/creacion_usuario"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanco"
+    tools:context="info.androidhive.radioucab.Controlador.RegistroUsuarioFragment">
+
+    <ImageView
+        android:id="@+id/encabezado_icono_interaccion_dedicar"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="15dp"
+        android:gravity="left"
+        android:src="@drawable/icono_solicitar_cancion" />
+
+    <TextView
+        android:id="@+id/texto_encabezado_editar_tweet_solicitud"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="@string/campo_encabezado_editar_tweet_solicitar"
+        android:textColor="@color/azul_ucab"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/texto_descripcion_solicitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/texto_encabezado_editar_tweet_solicitud"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:text="@string/campo_texto_tweet_solicitud"
+        android:textColor="@android:color/black"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/texto_encabezado_datos_cancion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/texto_descripcion_solicitud"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/campo_encabezado_datos_cancion"
+        android:textColor="@color/azul_radio_ucab"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/editText_cancion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/texto_encabezado_datos_cancion"
+        android:hint="@string/hint_campo_editText_cancion"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/editText_artista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/editText_cancion"
+        android:hint="@string/hint_campo_editText_artista"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/editText_usuario_destinatario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/editText_artista"
+        android:hint="@string/hint_campo_editText_usuario_dedicatoria"
+        android:textSize="16sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/editText_usuario_destinatario"
+        android:gravity="center|right"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/boton_enviar_solicitud"
+            android:layout_width="110dp"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/boton_azul_claro"
+            android:gravity="center"
+            android:text="@string/campo_boton_enviar"
+            android:textColor="@color/blanco"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/creacion_usuario"
+    android:id="@+id/tweet_comentario"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blanco"
@@ -99,7 +99,7 @@
         android:textSize="16dp" />
 
     <EditText
-        android:id="@+id/editText_tweet_comentario"
+        android:id="@+id/editText_tweet_programa"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_below="@id/texto_encabezado_comentario"
@@ -119,7 +119,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/boton_siguiente_comentario"
+            android:id="@+id/boton_enviar_comentario"
             android:layout_width="110dp"
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"

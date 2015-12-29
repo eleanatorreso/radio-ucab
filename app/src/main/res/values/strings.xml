@@ -88,7 +88,7 @@
     <string name="campo_texto_concurso">Participar en concurso</string>
     <string name="campo_texto_programa">Participar en el programa actual</string>
     <string name="campo_boton_cerrar">Cerrar</string>
-    <!-- Dialogo resultado de INteraccion-->
+    <!-- Dialogo resultado de Interaccion-->
     <string name="dialogo_asunto_interaccion_exitoso">Tu tweet lucirá de la siguiente forma</string>
     <string name="dialogo_contenido_interaccion_exitoso_comentario">Tweet publicado exitosamente</string>
     <string name="dialogo_contenido_interaccion_exitoso_solicitud">Canción solicitada exitosamente, recibirás una notificación de ser seleccionada entre las más pedidas</string>
@@ -109,7 +109,27 @@
     <string name="campo_radio_button_finalidad_queja">Queja</string>
     <string name="hint_campo_tweet_comentario">Escriba acá su comentario</string>
     <string name="campo_boton_enviar">Enviar</string>
+    <string name="toast_error_campos_obligatorios_comentario">Debe escribir su comentario</string>
 
+    <!-- Solicitud Cancion-->
+    <string name="campo_encabezado_editar_tweet_solicitar">Solicitar canción</string>
+    <string name="campo_texto_tweet_solicitud">Completa los siguientes campos para generar tu solicitud:</string>
+    <string name="campo_encabezado_datos_cancion">Datos de la canción:</string>
+    <string name="campo_encabezado_cancion">Canción:</string>
+    <string name="hint_campo_editText_cancion">Canción</string>
+    <string name="hint_campo_editText_artista">Artista / Grupo</string>
+    <string name="campo_encabezado_artista_grupo">Artista / Grupo:</string>
+    <string name="toast_error_campos_obligatorios_solicitud">Debe completar los datos de la canción (Canción y Artista)</string>
+
+    <!-- Dedicatoria Cancion-->
+    <string name="campo_encabezado_editar_tweet_dedicar">Dedicar canción</string>
+    <string name="campo_texto_tweet_dedicatoria">Completa los siguientes campos para generar tu dedicatoria. Recuerda que el usuario que recibirá la dedicatoria debe poseer una cuenta de Twitter para que reciba su dedicatoria.</string>
+    <string name="hint_campo_editText_usuario_dedicatoria">Usuario receptor de la dedicatoria</string>
+
+    <!-- Tweet Programa-->
+    <string name="campo_encabezado_editar_tweet_programa">Estas escuchando....</string>
+    <string name="campo_texto_enviar_a">Enviar a:</string>
+    <string name="hint_campo_editText_usuario_dedicatoria">Usuario receptor de la dedicatoria</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

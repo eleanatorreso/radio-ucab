@@ -29,7 +29,7 @@ public class EditarTweetComentarioFragment extends Fragment {
     private RadioButton radio_comentario;
     private RadioButton radio_queja;
     private RadioButton radio_sugerencia;
-    private Button boton_siguiente;
+    private Button botonEnviarComentario;
     private EditText editTextComentario;
     private Toast toast;
 
@@ -66,8 +66,8 @@ public class EditarTweetComentarioFragment extends Fragment {
         radio_comentario = (RadioButton) getActivity().findViewById(R.id.radiobutton_comentario);
         radio_queja = (RadioButton) getActivity().findViewById(R.id.radiobutton_queja);
         radio_sugerencia = (RadioButton) getActivity().findViewById(R.id.radiobutton_sugerencia);
-        boton_siguiente = (Button) getActivity().findViewById(R.id.boton_siguiente_comentario);
-        boton_siguiente.setOnClickListener(new View.OnClickListener() {
+        botonEnviarComentario = (Button) getActivity().findViewById(R.id.boton_enviar_comentario);
+        botonEnviarComentario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 publicarTweet();
@@ -82,7 +82,7 @@ public class EditarTweetComentarioFragment extends Fragment {
             manejoTwitter.verificarTweet();
         }
         else {
-            toast = Toast.makeText(getActivity(), "Debe escribir su comentario", Toast.LENGTH_LONG);
+            toast = Toast.makeText(getActivity(), getActivity().getString(R.string.toast_error_campos_obligatorios_comentario), Toast.LENGTH_LONG);
             toast.show();
         }
     }

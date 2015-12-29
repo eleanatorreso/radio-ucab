@@ -409,9 +409,14 @@
     <string name="campo_boton_editar_perfil">Editar perfil</string>
     <string name="campo_boton_enviar">Enviar</string>
     <string name="campo_boton_guardar">Guardar</string>
+    <string name="campo_encabezado_artista_grupo">Artista / Grupo:</string>
+    <string name="campo_encabezado_cancion">Canción:</string>
     <string name="campo_encabezado_comentario">Comentario:</string>
+    <string name="campo_encabezado_datos_cancion">Datos de la canción:</string>
     <string name="campo_encabezado_editar_perfil">Editar Perfil</string>
     <string name="campo_encabezado_editar_tweet_comentario">Enviar comentario</string>
+    <string name="campo_encabezado_editar_tweet_dedicar">Dedicar canción</string>
+    <string name="campo_encabezado_editar_tweet_solicitar">Solicitar canción</string>
     <string name="campo_encabezado_finalidad_comentario">Finalidad:</string>
     <string name="campo_encabezado_registro">Registro de Usuario</string>
     <string name="campo_header_dialogo">Interactúa con nosotros</string>
@@ -430,12 +435,14 @@
     <string name="campo_texto_solicitar_cancion">Solicitar canción</string>
     <string name="campo_texto_tu_radio_ucab">Tú + Radio UCAB</string>
     <string name="campo_texto_tweet_comentario">Completa los siguientes campos para generar tu tweet:</string>
+    <string name="campo_texto_tweet_dedicatoria">Completa los siguientes campos para generar tu dedicatoria. Recuerda que el usuario que recibirá la dedicatoria debe poseer una cuenta de Twitter para que reciba su dedicatoria.</string>
+    <string name="campo_texto_tweet_solicitud">Completa los siguientes campos para generar tu solicitud:</string>
     <string name="campo_usuario_correo">Correo Electrónico</string>
     <string name="campo_usuario_twitter">Usuario Twitter</string>
     <string name="cast_notification_connected_message">Connected to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_connecting_message">Connecting to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_disconnect">Disconnect</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">cd8055fa-88e9-40ed-b117-1eee3a6cd877</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">0e2d8fd2-246c-453b-b88c-97ade4922237</string>
     <string name="common_android_wear_notification_needs_update_text"><ns1:g id="app_name">%1$s</ns1:g> requires an update to the Android Wear app.</string>
     <string name="common_android_wear_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update the Android Wear app.</string>
     <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>
@@ -549,6 +556,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint_campo_apellido">Apellido</string>
     <string name="hint_campo_correo">Correo Electrónico</string>
+    <string name="hint_campo_editText_artista">Artista / Grupo</string>
+    <string name="hint_campo_editText_cancion">Canción</string>
+    <string name="hint_campo_editText_usuario_dedicatoria">Usuario receptor de la dedicatoria</string>
     <string name="hint_campo_nombre">Nombre</string>
     <string name="hint_campo_tweet_comentario">Escriba acá su comentario</string>
     <string name="ip_web_service">http://192.168.0.100:24364/</string>
@@ -573,6 +583,8 @@
     <string name="texto_detalle_programa">Espere un momento por favor...</string>
     <string name="timeline_empty">Espere un momento por favor...</string>
     <string name="toast_error_campos_obligatorios">Todos los campos son obligatorios completelos</string>
+    <string name="toast_error_campos_obligatorios_comentario">Debe escribir su comentario</string>
+    <string name="toast_error_campos_obligatorios_solicitud">Debe completar los datos de la canción (Canción y Artista)</string>
     <string name="toast_error_terminos_condiciones">Debe aceptar los terminos y condiciones para registrarse en Radio UCAB</string>
     <string name="tw__allow_btn_txt">Allow</string>
     <string name="tw__favorite_tweet">Favorite Tweet</string>

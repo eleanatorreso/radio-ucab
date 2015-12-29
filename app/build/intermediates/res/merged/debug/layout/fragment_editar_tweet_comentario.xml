@@ -119,7 +119,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/boton_siguiente_comentario"
+            android:id="@+id/boton_enviar_comentario"
             android:layout_width="110dp"
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"

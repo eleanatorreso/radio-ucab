@@ -19,14 +19,18 @@ import java.util.ArrayList;
 import info.androidhive.radioucab.Controlador.ConfiguracionFragment;
 import info.androidhive.radioucab.Controlador.EditarPerfilFragment;
 import info.androidhive.radioucab.Controlador.EditarTweetComentarioFragment;
+import info.androidhive.radioucab.Controlador.EditarTweetDedicatoriaFragment;
+import info.androidhive.radioucab.Controlador.EditarTweetSolicitarFragment;
 import info.androidhive.radioucab.Controlador.EnviarTweet;
 import info.androidhive.radioucab.Controlador.EventoFragment;
 import info.androidhive.radioucab.Controlador.HomeFragment;
 import info.androidhive.radioucab.Controlador.InicioSesionTwitterFragment;
 import info.androidhive.radioucab.Controlador.NavDrawerItem;
+import info.androidhive.radioucab.Controlador.NoticiaDetalleFragment;
 import info.androidhive.radioucab.Controlador.NoticiaFragment;
 import info.androidhive.radioucab.Controlador.ParrillaFragment;
 import info.androidhive.radioucab.Controlador.PerfilFragment;
+import info.androidhive.radioucab.Controlador.ProgramaDetalleFragment;
 import info.androidhive.radioucab.Controlador.ProgramaFragment;
 import info.androidhive.radioucab.Controlador.RegistroUsuarioFragment;
 import info.androidhive.radioucab.Model.Usuario;
@@ -189,7 +193,18 @@ public class ManejoActivity {
             case 24:
                 fragment = new EditarTweetComentarioFragment();
                 break;
-
+            case 25:
+                fragment = new NoticiaDetalleFragment();
+                break;
+            case 26:
+                fragment = new ProgramaDetalleFragment();
+                break;
+            case 27:
+                fragment = new EditarTweetSolicitarFragment();
+                break;
+            case 28:
+                fragment = new EditarTweetDedicatoriaFragment();
+                break;
             default:
                 break;
         }
@@ -226,6 +241,10 @@ public class ManejoActivity {
                 return 25;
             case "ProgramaDetalle":
                 return 26;
+            case "TweetSolicitud":
+                return 27;
+            case "TweetDedicatoria":
+                return 28;
         }
         return 0;
     }
