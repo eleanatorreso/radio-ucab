@@ -34,7 +34,7 @@
         android:layout_marginTop="15dp"
         android:text="@string/campo_texto_tweet_comentario"
         android:textColor="@android:color/black"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_gravity="center_horizontal"/>
@@ -99,7 +99,7 @@
         android:textSize="16dp" />
 
     <EditText
-        android:id="@+id/editText_tweet_programa"
+        android:id="@+id/editText_tweet_comentario"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_below="@id/texto_encabezado_comentario"

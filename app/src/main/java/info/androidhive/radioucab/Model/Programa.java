@@ -10,6 +10,7 @@ public class Programa extends SugarRecord {
     private List<HorarioPrograma> horarios;
     private List<Locutor> locutores;
     private String image;
+    private int tipo;
 
     public Programa (){
 
@@ -22,10 +23,15 @@ public class Programa extends SugarRecord {
         this.image = image;
     }
 
-    public Programa(int myId, String titulo, String descripcion) {
+    public Programa(int myId, String titulo, String descripcion, int tipo) {
         this.myId = myId;
         this.titulo = titulo;
         this.descripcion = descripcion;
+        this.tipo = tipo;
+    }
+
+    public Programa(String titulo) {
+        this.titulo = titulo;
     }
 
     public int getMyId() {

@@ -164,14 +164,13 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
             if (listaActualizaciones != null && listaActualizaciones.size() > 0) {
                 ultimaActualizacion = listaActualizaciones.get(0);
                 Date noticia = ultimaActualizacion.getActNoticia();
-                Date parrilla = ultimaActualizacion.getActPrograma();
+                Date programa = ultimaActualizacion.getActPrograma();
+                Date parrilla = ultimaActualizacion.getActParrilla();
                 Actualizacion.deleteAll(Actualizacion.class);
-                Actualizacion n = new Actualizacion(ultimaActWS, noticia, parrilla);
-                n.save();
+                Actualizacion nuevaActualizacion = new Actualizacion(ultimaActWS, noticia, programa, parrilla);
+                nuevaActualizacion.save();
             } else {
-                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-                Date fake = format.parse("01/01/1900 12:00:00");
-                Actualizacion n = new Actualizacion(ultimaActWS, fake, fake);
+                Actualizacion n = new Actualizacion(ultimaActWS, null, null, null);
                 n.save();
             }
         } catch (Exception e) {

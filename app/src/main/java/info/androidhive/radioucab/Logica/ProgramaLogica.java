@@ -1,10 +1,13 @@
 package info.androidhive.radioucab.Logica;
 
 
+import com.google.android.gms.games.internal.constants.TimeSpan;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +25,9 @@ public class ProgramaLogica {
         for (int horario = 0; horario < resultadoConsulta.length(); horario ++) {
             try {
                 objeto = resultadoConsulta.getJSONObject(horario);
-                horarioNuevo = new HorarioPrograma(objeto.getInt("id"), objeto.getString("horario"), programa);
+                //int myId, int dia_semana, Time horario_inicio, Time horario_fin, Programa programa
+                horarioNuevo = new HorarioPrograma(objeto.getInt("id"), objeto.getInt("dia_semana"),
+                        objeto.getString("hora_inicio"),objeto.getString("hora_final"), programa);
                 horarioNuevo.save();
                 horarios.add(horarioNuevo);
             } catch (JSONException e) {
@@ -54,14 +59,15 @@ public class ProgramaLogica {
         Programa programaNuevo = new Programa();
         LocutorProgramaLogica listaProgramaLocutor = new LocutorProgramaLogica();
         List<Programa> programas = new ArrayList<Programa>();
-        for (int evento = 0; evento < resultadoConsulta.length(); evento++) {
+        for (int programa = 0; programa < resultadoConsulta.length(); programa++) {
             JSONObject objeto = null;
             try {
-                objeto = resultadoConsulta.getJSONObject(evento);
+                objeto = resultadoConsulta.getJSONObject(programa);
                 JSONArray locutores = objeto.getJSONArray("locutores");
                 JSONArray horarios = objeto.getJSONArray("horarios");
                 //Long id, String titulo, String descripcion, List<HorarioPrograma> horarios, List<Locutor> locutores, String image
-                programaNuevo = new Programa(objeto.getInt("id"), objeto.getString("nombre"), objeto.getString("descripcion"));
+                programaNuevo = new Programa(objeto.getInt("id"), objeto.getString("nombre"), objeto.getString("descripcion")
+                        , objeto.getString("tipo"));
                 programaNuevo.save();
                 procesarHorarios(horarios, programaNuevo);
                 List<Locutor> locutoresPrograma = procesarLocutores(locutores);
@@ -72,7 +78,7 @@ public class ProgramaLogica {
             }
             int a = 2;
         }
-        List<LocutorPrograma> aaa = LocutorPrograma.listAll(LocutorPrograma.class);
         return programas;
     }
+
 }

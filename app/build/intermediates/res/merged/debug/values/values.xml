@@ -416,6 +416,7 @@
     <string name="campo_encabezado_editar_perfil">Editar Perfil</string>
     <string name="campo_encabezado_editar_tweet_comentario">Enviar comentario</string>
     <string name="campo_encabezado_editar_tweet_dedicar">Dedicar canción</string>
+    <string name="campo_encabezado_editar_tweet_programa">Estas escuchando....</string>
     <string name="campo_encabezado_editar_tweet_solicitar">Solicitar canción</string>
     <string name="campo_encabezado_finalidad_comentario">Finalidad:</string>
     <string name="campo_encabezado_registro">Registro de Usuario</string>
@@ -427,6 +428,7 @@
     <string name="campo_texto_comentario">Comentario</string>
     <string name="campo_texto_concurso">Participar en concurso</string>
     <string name="campo_texto_dedicar_cancion">Dedicar canción</string>
+    <string name="campo_texto_enviar_a">Enviar a:</string>
     <string name="campo_texto_informacion_personal">Información Personal</string>
     <string name="campo_texto_mis_premios">Mis premios</string>
     <string name="campo_texto_mis_programas_favoritos">Mis programas favoritos</string>
@@ -442,7 +444,7 @@
     <string name="cast_notification_connected_message">Connected to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_connecting_message">Connecting to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_disconnect">Disconnect</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">0e2d8fd2-246c-453b-b88c-97ade4922237</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">fe76ab10-cf99-42c9-afe2-1124330d7f31</string>
     <string name="common_android_wear_notification_needs_update_text"><ns1:g id="app_name">%1$s</ns1:g> requires an update to the Android Wear app.</string>
     <string name="common_android_wear_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update the Android Wear app.</string>
     <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>
@@ -530,6 +532,13 @@
     <string name="dgts_pin_code_terms">You have previously set a 2-step verification code on digits.com</string>
     <string name="dgts_verify">Verify</string>
     <string name="dgts_verifying">Verifying</string>
+    <string name="dia_semana_1">Lunes</string>
+    <string name="dia_semana_2">Martes</string>
+    <string name="dia_semana_3">Miercoles</string>
+    <string name="dia_semana_4">Jueves</string>
+    <string name="dia_semana_5">Viernes</string>
+    <string name="dia_semana_6">Sábado</string>
+    <string name="dia_semana_7">Domingo</string>
     <string name="dialogo_asunto_cancelar_edicion">Cancelar edición</string>
     <string name="dialogo_asunto_cancelar_registro">Cancelar registro</string>
     <string name="dialogo_asunto_cerrar_sesion">Cerrar Sesión</string>

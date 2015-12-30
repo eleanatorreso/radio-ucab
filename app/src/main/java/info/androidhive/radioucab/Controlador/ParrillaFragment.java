@@ -21,8 +21,11 @@ import java.util.List;
 import java.util.TimeZone;
 
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONArray;
+import info.androidhive.radioucab.Logica.ActualizacionLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
+import info.androidhive.radioucab.Logica.ParillaLogica;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
+import info.androidhive.radioucab.Model.Programa;
 import info.androidhive.radioucab.R;
 
 public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
@@ -35,7 +38,8 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
     private List<String> programas;
     static final String DATEFORMAT = "yyyy-MM-dd HH:mm:ss";
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
-
+    private final ParillaLogica parrillaLogica = new ParillaLogica();
+    private ActualizacionLogica actualizacionLogica = new ActualizacionLogica();
     public ParrillaFragment() {
     }
 
@@ -58,7 +62,10 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
         manejoActivity.editarActivity(2, true, "Parrilla");
         listaHora = (ListView) rootView.findViewById(R.id.lista_hora);
         listaPrograma = (ListView) rootView.findViewById(R.id.lista_programa);
-        cargarParrilla();
+        if (!parrillaLogica.comprobarActualizacionParrilla()) {
+            cargarParrilla();
+            actualizacionLogica.almacenarUltimaActualizacion(4, new Date());
+        }
     }
 
     public static Date GetUTCdatetimeAsDate()
@@ -102,15 +109,18 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
     public void mostrarResultados(JSONArray resultados){
         horas = new ArrayList<String>();
         programas = new ArrayList<String>();
+        List<Programa> parrilaDelDia = new ArrayList<Programa>();
         for (int i = 0; i < resultados.length(); i++) {
             try {
                 JSONObject objeto = resultados.getJSONObject(i);
                 horas.add(objeto.getString("hora_inicio") + " - " + objeto.getString("hora_fin"));
                 programas.add(objeto.getString("nombre"));
+                parrilaDelDia.add(new Programa(objeto.getString("nombre")));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
+        parrillaLogica.setParrillaDelDia(parrilaDelDia);
         ArrayAdapter<String> adapterHora = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,horas );
         listaHora.setAdapter(adapterHora);
         ArrayAdapter<String> adapterPrograma = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,programas);

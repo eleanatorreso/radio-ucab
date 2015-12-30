@@ -187,14 +187,13 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
             if (listaActualizaciones != null && listaActualizaciones.size() > 0) {
                 ultimaActualizacion = listaActualizaciones.get(0);
                 Date evento = ultimaActualizacion.getActEvento();
-                Date parrilla = ultimaActualizacion.getActPrograma();
+                Date programa = ultimaActualizacion.getActPrograma();
+                Date parrilla = ultimaActualizacion.getActParrilla();
                 Actualizacion.deleteAll(Actualizacion.class);
-                Actualizacion nuevaActualizacion = new Actualizacion(evento, ultimaActWS, parrilla);
+                Actualizacion nuevaActualizacion = new Actualizacion(evento, ultimaActWS, programa, parrilla);
                 nuevaActualizacion.save();
             } else {
-                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-                Date fechaFalsa = format.parse("01/01/1900 12:00:00");
-                Actualizacion nuevaActualizacion = new Actualizacion(fechaFalsa, ultimaActWS, fechaFalsa);
+                Actualizacion nuevaActualizacion = new Actualizacion(null, ultimaActWS, null, null);
                 nuevaActualizacion.save();
             }
         } catch (Exception e) {

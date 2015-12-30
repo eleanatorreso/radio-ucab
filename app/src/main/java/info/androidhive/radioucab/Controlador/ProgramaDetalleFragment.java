@@ -29,6 +29,7 @@ import android.widget.RelativeLayout;
 
 import java.util.List;
 
+import info.androidhive.radioucab.Logica.HorarioProgramaLogica;
 import info.androidhive.radioucab.Logica.LocutorProgramaLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Model.HorarioPrograma;
@@ -50,7 +51,7 @@ public class ProgramaDetalleFragment extends Fragment {
     private int idTwitter;
     private int idLocutores;
     private ManejoActivity manejoActivity = ManejoActivity.getInstancia();
-
+    private final HorarioProgramaLogica horarioProgramaLogica = new HorarioProgramaLogica();
     private LinearLayout contentView;
 
 
@@ -180,14 +181,34 @@ public class ProgramaDetalleFragment extends Fragment {
         }
     }
 
+    private String getDiaSemana(int diaSemana) {
+        switch (diaSemana) {
+            case 1:
+                return getActivity().getString(R.string.dia_semana_1);
+            case 2:
+                return getActivity().getString(R.string.dia_semana_2);
+            case 3:
+                return getActivity().getString(R.string.dia_semana_3);
+            case 4:
+                return getActivity().getString(R.string.dia_semana_4);
+            case 5:
+                return getActivity().getString(R.string.dia_semana_5);
+            case 6:
+                return getActivity().getString(R.string.dia_semana_6);
+            case 7:
+                return getActivity().getString(R.string.dia_semana_7);
+        }
+        return "";
+    }
+
     public void cargarHorarios() {
-        List<HorarioPrograma> horarios = programa.getHorarios();
+        List<HorarioPrograma> horarios = horarioProgramaLogica.getHorarioPrograma(programa.getId());
         if (horarios != null) {
             TextView horario = new TextView(getActivity());
             RelativeLayout.LayoutParams paramHorario;
             previoTextView = 0;
             for (HorarioPrograma horarioPrograma : horarios) {
-                horario.setText(horarioPrograma.getHorario());
+                horario.setText(getDiaSemana(horarioPrograma.getDia_semana()) + ": " + horarioPrograma.getHorario_inicio() + "-" + horarioPrograma.getHorario_fin());
                 horario.setId(Integer.parseInt(siguienteIdElemento()));
                 paramHorario = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
                 if (previoTextView == 0) {

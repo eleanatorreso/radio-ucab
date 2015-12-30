@@ -38,7 +38,16 @@
     <!-- Descripcion de contenido -->
     <string name="desc_list_item_icon">Iconos</string>
 
-    <!-- Contenido Toasts -->
+    <!-- Programa -->
+    <string name="dia_semana_1">Lunes</string>
+    <string name="dia_semana_2">Martes</string>
+    <string name="dia_semana_3">Miercoles</string>
+    <string name="dia_semana_4">Jueves</string>
+    <string name="dia_semana_5">Viernes</string>
+    <string name="dia_semana_6">Sábado</string>
+    <string name="dia_semana_7">Domingo</string>
+
+
     <!-- Registro de Usuario -->
     <string name="toast_error_terminos_condiciones">Debe aceptar los terminos y condiciones para registrarse en Radio UCAB</string>
     <string name="toast_error_campos_obligatorios">Todos los campos son obligatorios completelos</string>
@@ -129,7 +138,12 @@
     <!-- Tweet Programa-->
     <string name="campo_encabezado_editar_tweet_programa">Estas escuchando....</string>
     <string name="campo_texto_enviar_a">Enviar a:</string>
-    <string name="hint_campo_editText_usuario_dedicatoria">Usuario receptor de la dedicatoria</string>
+
+    <!-- Tweet Premiacion-->
+    <string name="campo_encabezado_editar_tweet_premiacion">Participa en esta premiación</string>
+    <string name="campo_boton_participar">Participar</string>
+    <string name="campo_terminos_condiciones_concurso">He leído los terminos y condiciones del concurso</string>
+    <string name="dialogo_asunto_terminos_condiciones_concurso">Términos y Condiciones del Concurso</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

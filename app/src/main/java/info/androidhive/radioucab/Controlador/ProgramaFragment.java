@@ -25,6 +25,8 @@ import info.androidhive.radioucab.Logica.ProgramaLogica;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.Model.Actualizacion;
 import info.androidhive.radioucab.Logica.ManejoFecha;
+import info.androidhive.radioucab.Model.HorarioPrograma;
+import info.androidhive.radioucab.Model.Locutor;
 import info.androidhive.radioucab.Model.Programa;
 import info.androidhive.radioucab.R;
 
@@ -161,6 +163,8 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
     public List<Programa> procesarResultados(JSONArray resultadoConsulta) {
         actualizacionLogica.almacenarUltimaActualizacion(3, ultimaActWS);
         Programa.deleteAll(Programa.class);
+        HorarioPrograma.deleteAll(HorarioPrograma.class);
+        Locutor.deleteAll(Locutor.class);
         List<Programa> programas = new ArrayList<Programa>();
         try {
             programas = programaLogica.procesarResultados(resultadoConsulta);

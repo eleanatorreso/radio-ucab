@@ -9,15 +9,17 @@ public class Actualizacion extends SugarRecord {
     private Date actEvento;
     private Date actNoticia;
     private Date actPrograma;
+    private Date actParrilla;
 
     public Actualizacion () {
 
     }
 
-    public Actualizacion(Date actEvento, Date actNoticia, Date actPrograma) {
+    public Actualizacion(Date actEvento, Date actNoticia, Date actPrograma, Date actParrilla) {
         this.actEvento = actEvento;
         this.actNoticia = actNoticia;
         this.actPrograma = actPrograma;
+        this.actParrilla = actParrilla;
     }
 
     public Date getActPrograma() {
@@ -44,4 +46,11 @@ public class Actualizacion extends SugarRecord {
         this.actNoticia = actNoticia;
     }
 
+    public Date getActParrilla() {
+        return actParrilla;
+    }
+
+    public void setActParrilla(Date actParrilla) {
+        this.actParrilla = actParrilla;
+    }
 }

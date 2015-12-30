@@ -20,6 +20,7 @@ import info.androidhive.radioucab.Controlador.ConfiguracionFragment;
 import info.androidhive.radioucab.Controlador.EditarPerfilFragment;
 import info.androidhive.radioucab.Controlador.EditarTweetComentarioFragment;
 import info.androidhive.radioucab.Controlador.EditarTweetDedicatoriaFragment;
+import info.androidhive.radioucab.Controlador.EditarTweetProgramaFragment;
 import info.androidhive.radioucab.Controlador.EditarTweetSolicitarFragment;
 import info.androidhive.radioucab.Controlador.EnviarTweet;
 import info.androidhive.radioucab.Controlador.EventoFragment;
@@ -52,7 +53,7 @@ public class ManejoActivity {
     private TypedArray navMenuIcons;
     private ImageButton boton_interaccion;
     private ArrayList<NavDrawerItem> navDrawerItems;
-    private String fragmentoActual;
+    private static String fragmentoActual;
 
     public static ManejoActivity getInstancia() {
         if (instancia == null) {
@@ -205,6 +206,9 @@ public class ManejoActivity {
             case 28:
                 fragment = new EditarTweetDedicatoriaFragment();
                 break;
+            case 29:
+                fragment = new EditarTweetProgramaFragment();
+                break;
             default:
                 break;
         }
@@ -245,6 +249,8 @@ public class ManejoActivity {
                 return 27;
             case "TweetDedicatoria":
                 return 28;
+            case "TweetPrograma":
+                return 29;
         }
         return 0;
     }

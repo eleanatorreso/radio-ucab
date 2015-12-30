@@ -225,8 +225,8 @@ public class MainActivity extends ActionBarActivity {
         programa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(v.getContext(), "Aja todo bien", Toast.LENGTH_LONG);
-                toast.show();
+                manejoActivity.cambiarFragment("TweetPrograma");
+                alerta_dialogo.dismiss();
             }
         });
         Button boton_cerrar = (Button) dialogView.findViewById(R.id.boton_cerrar_interaccion);

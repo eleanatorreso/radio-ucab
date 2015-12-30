@@ -1,5 +1,6 @@
 package info.androidhive.radioucab.Logica;
 
+import android.text.format.DateUtils;
 import android.util.Log;
 
 import java.text.ParseException;
@@ -13,47 +14,51 @@ public class ActualizacionLogica {
 
     public Date ultimaActWS;
 
-    //1 evento, 2 noticia, 3 programa
+    //1 evento, 2 noticia, 3 programa, 4 parrilla
     public Actualizacion crearActualizacion(int tipo) {
         Actualizacion nuevaActualizacion = new Actualizacion();
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         try {
-            Date fake = format.parse("01/01/1900 12:00:00");
             switch (tipo) {
                 case 1:
-                    nuevaActualizacion = new Actualizacion(ultimaActWS, fake, fake);
+                    nuevaActualizacion = new Actualizacion(ultimaActWS, null, null, null);
                     break;
                 case 2:
-                    nuevaActualizacion = new Actualizacion(fake, ultimaActWS, fake);
+                    nuevaActualizacion = new Actualizacion(null, ultimaActWS, null, null);
                     break;
                 case 3:
-                    nuevaActualizacion = new Actualizacion(fake, fake, ultimaActWS);
+                    nuevaActualizacion = new Actualizacion(null, null, ultimaActWS, null);
+                    break;
+                case 4:
+                    nuevaActualizacion = new Actualizacion(null, null, null, ultimaActWS);
                     break;
             }
-        } catch (ParseException e) {
+        } catch (Exception e) {
             Log.i("Actualizacion", e.getMessage());
         }
         return nuevaActualizacion;
     }
 
     //1 evento, 2 noticia, 3 programa
-    public Actualizacion modificarActualizacion(int tipo, Date evento, Date noticia, Date programa) {
+    public Actualizacion modificarActualizacion(int tipo, Date evento, Date noticia, Date programa, Date parrilla) {
         Actualizacion nuevaActualizacion = new Actualizacion();
         switch (tipo) {
             case 1:
                 nuevaActualizacion.setActEvento(ultimaActWS);
                 nuevaActualizacion.setActNoticia(noticia);
                 nuevaActualizacion.setActPrograma(programa);
+                nuevaActualizacion.setActParrilla(parrilla);
                 break;
             case 2:
                 nuevaActualizacion.setActEvento(evento);
                 nuevaActualizacion.setActNoticia(ultimaActWS);
                 nuevaActualizacion.setActPrograma(programa);
+                nuevaActualizacion.setActParrilla(parrilla);
                 break;
             case 3:
                 nuevaActualizacion.setActEvento(evento);
                 nuevaActualizacion.setActNoticia(noticia);
                 nuevaActualizacion.setActPrograma(ultimaActWS);
+                nuevaActualizacion.setActParrilla(parrilla);
                 break;
         }
         return nuevaActualizacion;
@@ -70,7 +75,8 @@ public class ActualizacionLogica {
                 Date noticia = ultimaActualizacion.getActNoticia();
                 Date evento = ultimaActualizacion.getActEvento();
                 Date programa = ultimaActualizacion.getActPrograma();
-                nuevaActualizacion = modificarActualizacion(tipo, evento, noticia, programa);
+                Date parrilla = ultimaActualizacion.getActParrilla();
+                nuevaActualizacion = modificarActualizacion(tipo, evento, noticia, programa, parrilla);
                 Actualizacion.deleteAll(Actualizacion.class);
             } else {
                 nuevaActualizacion = crearActualizacion(tipo);
@@ -80,4 +86,5 @@ public class ActualizacionLogica {
             Log.e("Evento: ult.act", e.getMessage());
         }
     }
+
 }

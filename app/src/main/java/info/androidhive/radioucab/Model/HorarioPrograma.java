@@ -2,17 +2,21 @@ package info.androidhive.radioucab.Model;
 
 import com.orm.SugarRecord;
 
+import java.sql.Time;
+
 public class HorarioPrograma extends SugarRecord {
     private int myId;
-    private String horario;
+    private String horario_inicio;
+    private String horario_fin;
+    private int dia_semana;
     private Programa programa;
-    //private Long idPrograma;
 
-    public HorarioPrograma(int myId, String horario, Programa programa) {
+    public HorarioPrograma(int myId, int dia_semana, String horario_inicio, String horario_fin, Programa programa) {
         this.myId = myId;
-        this.horario = horario;
-        //this.idPrograma = idPrograma;
+        this.horario_fin = horario_fin;
+        this.horario_inicio = horario_inicio;
         this.programa = programa;
+        this.dia_semana = dia_semana;
     }
 
     public HorarioPrograma () {}
@@ -25,13 +29,6 @@ public class HorarioPrograma extends SugarRecord {
         this.myId = myId;
     }
 
-    /*public Long getIdPrograma() {
-        return idPrograma;
-    }
-
-    public void setIdPrograma(Long idPrograma) {
-        this.idPrograma = idPrograma;
-    }*/
 
     public Programa getPrograma() {
         return programa;
@@ -41,12 +38,27 @@ public class HorarioPrograma extends SugarRecord {
         this.programa = programa;
     }
 
-    public String getHorario() {
-
-        return horario;
+    public String getHorario_inicio() {
+        return horario_inicio;
     }
 
-    public void setHorario(String horario) {
-        this.horario = horario;
+    public void setHorario_inicio(String horario_inicio) {
+        this.horario_inicio = horario_inicio;
+    }
+
+    public String getHorario_fin() {
+        return horario_fin;
+    }
+
+    public void setHorario_fin(String horario_fin) {
+        this.horario_fin = horario_fin;
+    }
+
+    public int getDia_semana() {
+        return dia_semana;
+    }
+
+    public void setDia_semana(int dia_semana) {
+        this.dia_semana = dia_semana;
     }
 }
