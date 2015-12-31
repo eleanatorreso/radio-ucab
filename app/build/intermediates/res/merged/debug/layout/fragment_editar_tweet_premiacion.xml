@@ -1,0 +1,113 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tweet_programa"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanco"
+    tools:context="info.androidhive.radioucab.Controlador.RegistroUsuarioFragment">
+
+    <ImageView
+        android:id="@+id/encabezado_icono_interaccion_premiacion"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:src="@drawable/ic_concurso" />
+
+    <TextView
+        android:id="@+id/texto_encabezado_editar_tweet_premiacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/encabezado_icono_interaccion_premiacion"
+        android:gravity="center"
+        android:text="@string/campo_encabezado_editar_tweet_premiacion"
+        android:textColor="@color/azul_ucab"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/texto_nombre_premiacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/encabezado_icono_interaccion_premiacion"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Nombre Concurso"
+        android:textColor="@color/azul_radio_ucab"
+        android:textSize="19dp" />
+
+    <TextView
+        android:id="@+id/texto_descripcion_premiacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/texto_nombre_premiacion"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center|left"
+        android:text="Descripcion del Concurso, debo traerla de la base de datos"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editText_tweet_premiacion"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@id/texto_descripcion_premiacion"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/borde_text_area"
+        android:hint="@string/hint_campo_tweet_comentario"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText_tweet_premiacion"
+        android:gravity="center|right"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/checkbox_terminos_condiciones_concurso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:clickable="true"
+                android:textColor="@color/azul_ucab"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.23"
+            android:gravity="center|right"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/boton_participar_premiacion"
+                android:layout_width="110dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/boton_azul_claro"
+                android:gravity="center"
+                android:text="@string/campo_boton_participar"
+                android:textColor="@color/blanco"
+                android:textSize="15dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
