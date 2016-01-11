@@ -1,0 +1,96 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="info.androidhive.radioucab.Controlador.ConcursoFragment">
+
+    <TextView
+        android:id="@+id/texto_encabezado_concurso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/campo_encabezado_concurso"
+        android:textColor="@color/azul_ucab"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/texto_con_concursos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:text="@string/campo_texto_con_concursos"
+        android:layout_below="@id/texto_encabezado_concurso"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:gravity="center"/>
+
+    <ImageView
+        android:id="@+id/imagen_sin_concursos"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_sin_concursos"
+        android:visibility="gone"
+        android:layout_below="@+id/texto_encabezado_concurso"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:id="@+id/layout_radio_buttons_concursos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/texto_con_concursos"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/grupo_radio_button_concursos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/layout_radio_buttons_concursos"
+        android:gravity="center|right"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/boton_siguiente"
+            android:layout_width="110dp"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/boton_azul_claro"
+            android:gravity="center"
+            android:text="@string/campo_boton_siguiente"
+            android:textColor="@color/blanco"
+            android:textSize="15dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/texto_sin_concursos"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/azul_radio_ucab"
+        android:text="@string/campo_texto_sin_concursos"
+        android:layout_below="@id/imagen_sin_concursos"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:gravity="center"/>
+
+</RelativeLayout>

@@ -15,6 +15,7 @@ import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.ManejoEnvioTweet;
 import info.androidhive.radioucab.Logica.ManejoString;
 import info.androidhive.radioucab.Model.Comentario;
+import info.androidhive.radioucab.Model.Programa;
 import info.androidhive.radioucab.R;
 
 public class EditarTweetProgramaFragment extends Fragment {
@@ -25,6 +26,7 @@ public class EditarTweetProgramaFragment extends Fragment {
     private Toast toast;
     private EditText editTextComentario;
     private String array_spinner[];
+    private Programa programa;
 
     public EditarTweetProgramaFragment() {
         // Required empty public constructor
@@ -64,7 +66,8 @@ public class EditarTweetProgramaFragment extends Fragment {
 
     public void publicarTweet () {
         if (manejoString.verificarEspacioNull(editTextComentario.getText().toString())) {
-            Comentario tweet = new Comentario(editTextComentario.getText().toString(), 2);
+            Comentario tweet = new Comentario(editTextComentario.getText().toString(), 7);
+            tweet.setIdPrograma(programa.getMyId());
             final ManejoEnvioTweet manejoTwitter = new ManejoEnvioTweet(getActivity(), tweet);
             manejoTwitter.verificarTweet();
         }

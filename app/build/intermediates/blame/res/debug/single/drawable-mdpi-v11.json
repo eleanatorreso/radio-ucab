@@ -4,12 +4,12 @@
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-mdpi-v11\\ic_stat_off.png"
     },
     {
-        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v11\\ic_silueta_musica.png",
-        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-mdpi-v11\\ic_silueta_musica.png"
-    },
-    {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v11\\ic_stat_close.png",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-mdpi-v11\\ic_stat_close.png"
+    },
+    {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v11\\ic_silueta_musica.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-mdpi-v11\\ic_silueta_musica.png"
     },
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v11\\ic_stat_pause.png",

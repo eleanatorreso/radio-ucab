@@ -50,8 +50,6 @@ public class ManejoEnvioTweet implements RespuestaAsyncTask, RespuestaStringAsyn
                 respuesta[0] = true;
                 comentario.setIdTweet(result.data.getId());
                 enviarIdTweet();
-                toast = Toast.makeText(contexto, "Su comentario ha sido procesado con exito", Toast.LENGTH_LONG);
-                toast.show();
                 manejoActivity.cambiarFragment(manejoActivity.getFragmentoActual());
             }
 
@@ -101,6 +99,10 @@ public class ManejoEnvioTweet implements RespuestaAsyncTask, RespuestaStringAsyn
             objeto.put("finalidad", comentario.getFinalidad());
             objeto.put("inapropiado", comentario.isInapropiado());
             objeto.put("idPrograma", comentario.getIdPrograma());
+            objeto.put("idConcurso", comentario.getIdConcurso());
+            objeto.put("artista", comentario.getArtista());
+            objeto.put("cancion", comentario.getCancion());
+            objeto.put("receptor_dedicatoria", comentario.getReceptor_dedicatoria());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -117,13 +119,18 @@ public class ManejoEnvioTweet implements RespuestaAsyncTask, RespuestaStringAsyn
         conexion.tipo = 1;
         JSONObject objeto = new JSONObject();
         try {
+            objeto.put("idTwitter", comentario.getIdTweet());
             objeto.put("guid", usuario.getGuid());
             objeto.put("token_twitter", usuario.getToken_twitter());
             objeto.put("token_secret_twitter", usuario.getToken_secret_twitter());
             objeto.put("comentario", comentario.getComentario());
             objeto.put("finalidad", comentario.getFinalidad());
-            objeto.put("idTwitter", comentario.getIdTweet());
             objeto.put("inapropiado", comentario.isInapropiado());
+            objeto.put("idPrograma", comentario.getIdPrograma());
+            objeto.put("idConcurso", comentario.getIdConcurso());
+            objeto.put("artista", comentario.getArtista());
+            objeto.put("cancion", comentario.getCancion());
+            objeto.put("receptor_dedicatoria", comentario.getReceptor_dedicatoria());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -171,11 +178,21 @@ public class ManejoEnvioTweet implements RespuestaAsyncTask, RespuestaStringAsyn
     @Override
     public void procesoExitoso(int codigo, int tipo) {
         //respuesta sobre chequeo de comentario
+        if (tipo == 1){
+            if (codigo == 204){
+                toast = Toast.makeText(contexto, contexto.getString(R.string.toast_comentario_exitosos) , Toast.LENGTH_LONG);
+                toast.show();
+            }
+            else {
+                toast = Toast.makeText(contexto,contexto.getString(R.string.toast_error_general), Toast.LENGTH_LONG);
+                toast.show();
+            }
+        }
     }
 
     @Override
     public void procesoNoExitoso() {
-        toast = Toast.makeText(contexto, "No es posible procesar su solicitud, intente más tarde", Toast.LENGTH_LONG);
+        toast = Toast.makeText(contexto,contexto.getString(R.string.toast_error_general), Toast.LENGTH_LONG);
         toast.show();
     }
 
@@ -192,20 +209,13 @@ public class ManejoEnvioTweet implements RespuestaAsyncTask, RespuestaStringAsyn
                 crearDialogoSiYNo(contexto.getString(R.string.dialogo_asunto_interaccion_exitoso), comentario.getComentario(),
                         contexto.getString(R.string.dialogo_mensaje_Si),
                         contexto.getString(R.string.dialogo_mensaje_No));
-
             } else if (codigo == 2) {
-                //no puede comentar mas de 3 inapropiados
+                //no puede comentar está sancionado
                 usuario.setSancionado(true);
-                usuario.setComentarios_inapropiados(3);
                 usuario.save();
             } else if (codigo == 3) {
                 //comentario inapropiado
                 usuario.setComentarios_inapropiados(usuario.getComentarios_inapropiados() + 1);
-                usuario.save();
-            } else if (codigo == 4) {
-                //comentario inapropiado, ud ha sido bloqueado
-                usuario.setSancionado(true);
-                usuario.setComentarios_inapropiados(3);
                 usuario.save();
             } else if (codigo == 0) {
                 //error intente de nuevo

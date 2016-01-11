@@ -410,9 +410,11 @@
     <string name="campo_boton_enviar">Enviar</string>
     <string name="campo_boton_guardar">Guardar</string>
     <string name="campo_boton_participar">Participar</string>
+    <string name="campo_boton_siguiente">Siguiente</string>
     <string name="campo_encabezado_artista_grupo">Artista / Grupo:</string>
     <string name="campo_encabezado_cancion">Canción:</string>
     <string name="campo_encabezado_comentario">Comentario:</string>
+    <string name="campo_encabezado_concurso">Concursos actuales</string>
     <string name="campo_encabezado_datos_cancion">Datos de la canción:</string>
     <string name="campo_encabezado_editar_perfil">Editar Perfil</string>
     <string name="campo_encabezado_editar_tweet_comentario">Enviar comentario</string>
@@ -421,7 +423,9 @@
     <string name="campo_encabezado_editar_tweet_programa">Estas escuchando....</string>
     <string name="campo_encabezado_editar_tweet_solicitar">Solicitar canción</string>
     <string name="campo_encabezado_finalidad_comentario">Finalidad:</string>
+    <string name="campo_encabezado_inicio_sesion">Iniciar sesión</string>
     <string name="campo_encabezado_registro">Registro de Usuario</string>
+    <string name="campo_encabezado_sin_concursos">No hay concursos actualmente</string>
     <string name="campo_header_dialogo">Interactúa con nosotros</string>
     <string name="campo_radio_button_finalidad_comentario">Comentario</string>
     <string name="campo_radio_button_finalidad_queja">Queja</string>
@@ -429,14 +433,18 @@
     <string name="campo_terminos_condiciones">He leído los terminos y condiciones</string>
     <string name="campo_terminos_condiciones_concurso">He leído los terminos y condiciones del concurso</string>
     <string name="campo_texto_comentario">Comentario</string>
-    <string name="campo_texto_concurso">Participar en concurso</string>
+    <string name="campo_texto_con_concursos">Puedes participar en los siguientes concursos, recuerda que hay un límite de comentarios establecidos por día.</string>
+    <string name="campo_texto_concurso">Verificar concursos disponibles</string>
     <string name="campo_texto_dedicar_cancion">Dedicar canción</string>
     <string name="campo_texto_enviar_a">Enviar a:</string>
     <string name="campo_texto_informacion_personal">Información Personal</string>
+    <string name="campo_texto_inicio_sesion_dos">Si estás o no registrado, presiona inicio de sesión y en unos pocos pasos comienza la experiencia Radio UCAB</string>
+    <string name="campo_texto_inicio_sesion_uno">Inicia sesión para comenzar a disfrutar de todo lo que Radio UCAB trae para ti: interacción con lo que escuchas, concursos, solicitudes de canciones y mucho más.</string>
     <string name="campo_texto_mis_premios">Mis premios</string>
     <string name="campo_texto_mis_programas_favoritos">Mis programas favoritos</string>
     <string name="campo_texto_programa">Participar en el programa actual</string>
     <string name="campo_texto_resgistro_usuario">Ya falta poco para que te unas a Radio UCAB, pero antes necesitamos los siguientes datos para completar tu registro:</string>
+    <string name="campo_texto_sin_concursos">No hay concursos en este momento, está atento a nuestra programación para conocer cuando será el próximo.</string>
     <string name="campo_texto_solicitar_cancion">Solicitar canción</string>
     <string name="campo_texto_tu_radio_ucab">Tú + Radio UCAB</string>
     <string name="campo_texto_tweet_comentario">Completa los siguientes campos para generar tu tweet:</string>
@@ -447,7 +455,7 @@
     <string name="cast_notification_connected_message">Connected to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_connecting_message">Connecting to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_disconnect">Disconnect</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">42865b33-668e-48e7-8888-1e25921944ae</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">428eba27-6143-4b76-bbc8-8888a9707449</string>
     <string name="common_android_wear_notification_needs_update_text"><ns1:g id="app_name">%1$s</ns1:g> requires an update to the Android Wear app.</string>
     <string name="common_android_wear_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update the Android Wear app.</string>
     <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>
@@ -574,7 +582,7 @@
     <string name="hint_campo_editText_usuario_dedicatoria">Usuario receptor de la dedicatoria</string>
     <string name="hint_campo_nombre">Nombre</string>
     <string name="hint_campo_tweet_comentario">Escriba acá su comentario</string>
-    <string name="ip_web_service">http://192.168.0.100:24364/</string>
+    <string name="ip_web_service">http://192.168.1.107:24364/</string>
     <string name="kit_name">Twitter</string>
     <string name="menu_accion_cerrar_sesion">Cerrar Sesión</string>
     <string name="menu_accion_ver_perfil">Ver mi perfil</string>
@@ -595,10 +603,14 @@
     <string name="store_picture_title">Save image</string>
     <string name="texto_detalle_programa">Espere un momento por favor...</string>
     <string name="timeline_empty">Espere un momento por favor...</string>
+    <string name="toast_comentario_exitosos">"Su comentario ha sido procesado con exito"</string>
     <string name="toast_error_campos_obligatorios">Todos los campos son obligatorios completelos</string>
     <string name="toast_error_campos_obligatorios_comentario">Debe escribir su comentario</string>
     <string name="toast_error_campos_obligatorios_solicitud">Debe completar los datos de la canción (Canción y Artista)</string>
+    <string name="toast_error_general">No es posible procesar su solicitud, intente más tarde</string>
     <string name="toast_error_terminos_condiciones">Debe aceptar los terminos y condiciones para registrarse en Radio UCAB</string>
+    <string name="toast_error_terminos_condiciones_concurso">Debe aceptar los terminos y condiciones para participar en este concurso</string>
+    <string name="toast_error_terminos_condiciones_tweet">Debe completar el campo tweet</string>
     <string name="tw__allow_btn_txt">Allow</string>
     <string name="tw__favorite_tweet">Favorite Tweet</string>
     <string name="tw__favorited_tweet">Favorited Tweet</string>

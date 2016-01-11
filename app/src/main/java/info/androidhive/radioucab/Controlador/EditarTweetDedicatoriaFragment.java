@@ -58,7 +58,10 @@ public class EditarTweetDedicatoriaFragment extends Fragment {
         if (manejoString.verificarEspacioNull(editTextCancion.getText().toString()) == true &&
                 manejoString.verificarEspacioNull(editTextArtista.getText().toString()) == true &&
                 manejoString.verificarEspacioNull(editTextUsuario.getText().toString()) == true) {
-            Comentario tweet = new Comentario(editTextCancion.getText().toString(), 2);
+            String comentario = "Quiero dedicar " + editTextCancion.getText().toString() + " - " + editTextArtista.getText().toString()
+            + " a " + editTextUsuario.getText().toString();
+            Comentario tweet = new Comentario(comentario, 2, editTextArtista.getText().toString(), editTextCancion.getText().toString(),
+                    editTextUsuario.getText().toString());
             final ManejoEnvioTweet manejoTwitter = new ManejoEnvioTweet(getActivity(), tweet);
             manejoTwitter.verificarTweet();
         }

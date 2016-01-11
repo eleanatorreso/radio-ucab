@@ -48,11 +48,11 @@ public class EditarTweetComentarioFragment extends Fragment {
     private int getFinalidadTweet() {
         int radioSeleccionado = grupo_radio_button.getCheckedRadioButtonId();
         if (radioSeleccionado == radio_comentario.getId())
-            return 3;
-        else if (radioSeleccionado == radio_sugerencia.getId())
             return 4;
-        else
+        else if (radioSeleccionado == radio_sugerencia.getId())
             return 5;
+        else
+            return 6;
     }
 
     @Override

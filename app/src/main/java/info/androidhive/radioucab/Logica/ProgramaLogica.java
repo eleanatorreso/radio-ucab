@@ -65,7 +65,6 @@ public class ProgramaLogica {
                 objeto = resultadoConsulta.getJSONObject(programa);
                 JSONArray locutores = objeto.getJSONArray("locutores");
                 JSONArray horarios = objeto.getJSONArray("horarios");
-                //Long id, String titulo, String descripcion, List<HorarioPrograma> horarios, List<Locutor> locutores, String image
                 programaNuevo = new Programa(objeto.getInt("id"), objeto.getString("nombre"), objeto.getString("descripcion")
                         , objeto.getString("tipo"));
                 programaNuevo.save();
@@ -79,6 +78,10 @@ public class ProgramaLogica {
             int a = 2;
         }
         return programas;
+    }
+
+    public Programa getProgramaActual() {
+        return null;
     }
 
 }

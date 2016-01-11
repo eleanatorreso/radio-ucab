@@ -56,7 +56,8 @@ public class EditarTweetSolicitarFragment extends Fragment {
     public void publicarTweet () {
         if (manejoString.verificarEspacioNull(editTextCancion.getText().toString()) == true &&
                 manejoString.verificarEspacioNull(editTextArtista.getText().toString()) == true) {
-            Comentario tweet = new Comentario(editTextCancion.getText().toString(), 1);
+            String comentario = "Quiero escuchar " + editTextCancion.getText().toString() + " - " + editTextArtista.getText().toString();
+            Comentario tweet = new Comentario(comentario,3,editTextArtista.getText().toString(),editTextCancion.getText().toString());
             final ManejoEnvioTweet manejoTwitter = new ManejoEnvioTweet(getActivity(), tweet);
             manejoTwitter.verificarTweet();
         }

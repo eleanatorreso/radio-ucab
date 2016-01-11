@@ -5,13 +5,16 @@ import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
 import info.androidhive.radioucab.Logica.FabricLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
+import info.androidhive.radioucab.Logica.ManejoConcurso;
 import info.androidhive.radioucab.Logica.PerfilLogica;
 import info.androidhive.radioucab.Logica.ServicioRadio;
 import info.androidhive.radioucab.Controlador.Adaptor.AdaptorNavDrawerList;
+import info.androidhive.radioucab.Model.Concurso;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -38,6 +41,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -45,6 +49,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
@@ -76,6 +81,7 @@ public class MainActivity extends ActionBarActivity {
     private Menu menu;
     private ActionBarDrawerToggle mDrawerToggle;
     private ImageButton fab_interaccion;
+    // private ManejoConcurso manejoConcurso = new ManejoConcurso();
 
     @Override
     protected void onStop() {
@@ -177,11 +183,12 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void abrirDialogoInteraccion() {
-        //Dialog dialogo = new Dialog(MainActivity.this);
+        //manejoConcurso.contexto = this;
+        //manejoConcurso.comprobarConcursosActuales();
         final AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
         final AlertDialog alerta_dialogo;
         LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.dialogo_interaccion2, null);
+        View dialogView = inflater.inflate(R.layout.dialogo_interaccion, null);
         dialogo.setView(dialogView);
         dialogo.setCancelable(true);
         alerta_dialogo = dialogo.create(); //returns an AlertDialog from a Builder.
@@ -212,15 +219,6 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        LinearLayout concurso = (LinearLayout) dialogView.findViewById(R.id.icono_concurso);
-        concurso.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast toast = Toast.makeText(v.getContext(), "Aja todo bien", Toast.LENGTH_LONG);
-                toast.show();
-            }
-        });
-
         LinearLayout programa = (LinearLayout) dialogView.findViewById(R.id.icono_programa);
         programa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -229,6 +227,16 @@ public class MainActivity extends ActionBarActivity {
                 alerta_dialogo.dismiss();
             }
         });
+
+        LinearLayout concurso = (LinearLayout) dialogView.findViewById(R.id.icono_concurso);
+        concurso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                manejoActivity.cambiarFragment("ConcursoFragment");
+                alerta_dialogo.dismiss();
+            }
+        });
+
         Button boton_cerrar = (Button) dialogView.findViewById(R.id.boton_cerrar_interaccion);
         boton_cerrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -495,7 +503,7 @@ public class MainActivity extends ActionBarActivity {
             return true;
 		}*/
         // Handle action bar actions click
-		/*
+        /*
 		switch (item.getItemId()) {
 		case R.id.action_settings:
 			return true;

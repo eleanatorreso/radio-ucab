@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.twitter.sdk.android.Twitter;
@@ -36,6 +37,7 @@ import io.fabric.sdk.android.Fabric;
 public class InicioSesionTwitterFragment extends Fragment implements RespuestaAsyncTask {
 
     private TwitterLoginButton loginButton;
+    private TextView segundoEncabezado;
     private View rootView;
     private FabricLogica fabric;
     private Toast toast;
@@ -59,14 +61,6 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
         }
         return null;
     }
-/*
-    public void comprobarUsuarioAPI(String usuarioTwitter) {
-        conexionGETAPIJSONObject conexion = new conexionGETAPIJSONObject();
-        conexion.contexto = getActivity();
-        conexion.mensaje = "Comprobando datos...";
-        conexion.delegate = this;
-        conexion.execute("Api/Usuario/Getusuario?usuarioTwitter=" + usuarioTwitter);
-    }*/
 
     public void comprobarUsuarioAPI(String usuarioTwitter) {
         conexionGETAPIJSONArray conexion = new conexionGETAPIJSONArray();
@@ -76,12 +70,17 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
         conexion.execute("Api/Usuario/Getusuario?usuarioTwitter=" + usuarioTwitter);
     }
 
+    private void personalizarFragment(){
+
+    }
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         try {
             super.onCreate(savedInstanceState);
             if (Usuario.listAll(Usuario.class).isEmpty()) {
                 loginButton = (TwitterLoginButton) getActivity().findViewById(R.id.twitter_login_button);
+                segundoEncabezado = (TextView) getActivity().findViewById(R.id.campo_texto_inicio_sesion_dos);
                 manejoActivity.editarActivity(6, false, null);
                 if (!Fabric.isInitialized()) {
                     fabric = fabric.getInstance();

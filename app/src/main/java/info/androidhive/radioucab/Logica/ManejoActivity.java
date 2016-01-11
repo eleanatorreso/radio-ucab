@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import info.androidhive.radioucab.Controlador.ConcursoFragment;
 import info.androidhive.radioucab.Controlador.ConfiguracionFragment;
 import info.androidhive.radioucab.Controlador.EditarPerfilFragment;
 import info.androidhive.radioucab.Controlador.EditarTweetComentarioFragment;
@@ -34,6 +35,8 @@ import info.androidhive.radioucab.Controlador.PerfilFragment;
 import info.androidhive.radioucab.Controlador.ProgramaDetalleFragment;
 import info.androidhive.radioucab.Controlador.ProgramaFragment;
 import info.androidhive.radioucab.Controlador.RegistroUsuarioFragment;
+import info.androidhive.radioucab.EditarTweetPremiacionFragment;
+import info.androidhive.radioucab.Model.Programa;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
 
@@ -54,12 +57,19 @@ public class ManejoActivity {
     private ImageButton boton_interaccion;
     private ArrayList<NavDrawerItem> navDrawerItems;
     private static String fragmentoActual;
+    private static Programa programaActual;
 
     public static ManejoActivity getInstancia() {
         if (instancia == null) {
             instancia = new ManejoActivity();
         }
         return instancia;
+    }
+
+    public static Programa getInstanciaPrograma(){
+        if (programaActual == null) {
+        }
+        return null;
     }
 
     public String getFragmentoActual() {
@@ -209,6 +219,12 @@ public class ManejoActivity {
             case 29:
                 fragment = new EditarTweetProgramaFragment();
                 break;
+            case 30:
+                fragment = new info.androidhive.radioucab.Controlador.EditarTweetPremiacionFragment();
+                break;
+            case 31:
+                fragment = new ConcursoFragment();
+                break;
             default:
                 break;
         }
@@ -251,6 +267,10 @@ public class ManejoActivity {
                 return 28;
             case "TweetPrograma":
                 return 29;
+            case "TweetConcurso":
+                return 30;
+            case "ConcursoFragment":
+                return 31;
         }
         return 0;
     }
@@ -259,8 +279,7 @@ public class ManejoActivity {
         int posicion = getPosicion(nombre_fragment);
         Fragment fragmento = getFragment(posicion);
         FragmentManager fragmentManager = getActivityPrincipal().getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.frame_container, fragmento).commit();
+        fragmentManager.beginTransaction().replace(R.id.frame_container, fragmento).commit();
         if (posicion < 20) {// update selected item and title, then close the drawer
             mDrawerList.setItemChecked(posicion, true);
             mDrawerList.setSelection(posicion);
