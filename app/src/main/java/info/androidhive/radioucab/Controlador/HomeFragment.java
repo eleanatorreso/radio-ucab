@@ -67,7 +67,7 @@ public class HomeFragment extends ListFragment {
                     .build();
             final TweetTimelineListAdapter adapter = new TweetTimelineListAdapter(getActivity(), userTimeline);
             setListAdapter(adapter);
-
+/*
             final SwipeRefreshLayout swipeLayout = (SwipeRefreshLayout) getActivity().findViewById(R.id.swipe_layout_home);
             swipeLayout.setColorSchemeResources(R.color.amarillo_ucab, R.color.azul_radio_ucab);
             timeLine = (ListView) getActivity().findViewById(android.R.id.list);
@@ -120,7 +120,7 @@ public class HomeFragment extends ListFragment {
                         }
                     });
                 }
-            });
+            });*/
         } catch (Exception e) {
             int x = 0;
         }
