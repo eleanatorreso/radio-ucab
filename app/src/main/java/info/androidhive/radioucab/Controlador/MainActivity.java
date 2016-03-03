@@ -35,6 +35,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -54,7 +55,7 @@ import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private String[] navMenuTitles;
@@ -388,6 +389,13 @@ public class MainActivity extends ActionBarActivity {
         imagen_perfil = (ImageView) findViewById(R.id.imagen_usuario);
         cargarUsuarioToolbar();
 
+
+
+        if (savedInstanceState == null) {
+            // on first time display view for first nav item
+            displayView(0);
+        }
+
         boton_play = (ImageView) findViewById(R.id.icon_play);
         boton_play.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -408,12 +416,7 @@ public class MainActivity extends ActionBarActivity {
                 playStreaming(3);
             }
         });
-
-        if (savedInstanceState == null) {
-            // on first time display view for first nav item
-            displayView(0);
-        }
-
+        /*
         receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -436,7 +439,7 @@ public class MainActivity extends ActionBarActivity {
                     boton_stop.setVisibility(View.INVISIBLE);
                 }
             }
-        };
+        };*/
     }
 
     /**
@@ -462,22 +465,8 @@ public class MainActivity extends ActionBarActivity {
                 streaming = true;
                 break;
         }
-        /*
-        if (streaming == false) {
-			playbackServiceIntent.setAction(ServicioRadio.ACTION_PLAY);
-			this.startService(playbackServiceIntent);
-			streaming = true;
-		}
-
-		else {
-			this.stopService(playbackServiceIntent);
-			streaming = false;
-		}*/
     }
 
-    /**
-     * Slide menu item click listener
-     */
     private class SlideMenuClickListener implements ListView.OnItemClickListener {
 
         @Override

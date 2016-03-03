@@ -9,7 +9,7 @@
     <string name="timeline_empty">Espere un momento por favor...</string>
     <string name="texto_detalle_programa">Espere un momento por favor...</string>
     <string name="menu_perfil_usuario">Ingresar</string>
-    <string name="ip_web_service">http://192.168.1.107:24364/</string>
+    <string name="ip_web_service">http://192.168.0.101:24364/</string>
     <string name="ruta_archivos_radio_ucab">/sdcard/.RadioUCAB/</string>
     
     <!-- Elementos del menu -->
@@ -162,6 +162,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_velo_app">VeloApp</string>
 
 
 </resources>

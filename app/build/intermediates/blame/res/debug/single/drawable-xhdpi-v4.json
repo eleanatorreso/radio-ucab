@@ -544,6 +544,10 @@
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.3.0\\res\\drawable-xhdpi\\common_google_signin_btn_text_dark_disabled.9.png"
     },
     {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_radio_ucab_caratula.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_radio_ucab_caratula.png"
+    },
+    {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\cast_ic_notification_0.png",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast\\8.3.0\\res\\drawable-xhdpi\\cast_ic_notification_0.png"
     },

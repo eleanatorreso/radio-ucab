@@ -51,7 +51,7 @@
     <color name="background_floating_material_light">#ffeeeeee</color>
     <color name="background_material_dark">#ff303030</color>
     <color name="background_material_light">#ffeeeeee</color>
-    <color name="blanco">#fff</color>
+    <color name="blanco">#ffff</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
@@ -95,6 +95,7 @@
     <color name="dim_foreground_material_light">#ff323232</color>
     <color name="divider_gray">#c5c4c4</color>
     <color name="gris_claro">#ADA7AC</color>
+    <color name="gris_oscuro">#424242</color>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
@@ -109,6 +110,7 @@
     <color name="material_blue_grey_950">#ff21272b</color>
     <color name="material_deep_teal_200">#ff80cbc4</color>
     <color name="material_deep_teal_500">#ff009688</color>
+    <color name="naranja">#F98D11</color>
     <color name="primary_dark_material_dark">#ff000000</color>
     <color name="primary_dark_material_light">#ff757575</color>
     <color name="primary_material_dark">#ff212121</color>
@@ -455,7 +457,7 @@
     <string name="cast_notification_connected_message">Connected to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_connecting_message">Connecting to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_disconnect">Disconnect</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">fc56410d-0870-4cbd-8908-68a7fc70b773</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">3847b8ea-9aee-4201-b349-9d7aff4feeb8</string>
     <string name="common_android_wear_notification_needs_update_text"><ns1:g id="app_name">%1$s</ns1:g> requires an update to the Android Wear app.</string>
     <string name="common_android_wear_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update the Android Wear app.</string>
     <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>
@@ -582,7 +584,7 @@
     <string name="hint_campo_editText_usuario_dedicatoria">Usuario receptor de la dedicatoria</string>
     <string name="hint_campo_nombre">Nombre</string>
     <string name="hint_campo_tweet_comentario">Escriba acá su comentario</string>
-    <string name="ip_web_service">http://192.168.1.107:24364/</string>
+    <string name="ip_web_service">http://192.168.0.101:24364/</string>
     <string name="kit_name">Twitter</string>
     <string name="menu_accion_cerrar_sesion">Cerrar Sesión</string>
     <string name="menu_accion_ver_perfil">Ver mi perfil</string>
@@ -603,6 +605,7 @@
     <string name="store_picture_title">Save image</string>
     <string name="texto_detalle_programa">Espere un momento por favor...</string>
     <string name="timeline_empty">Espere un momento por favor...</string>
+    <string name="title_activity_velo_app">VeloApp</string>
     <string name="toast_comentario_exitosos">"Su comentario ha sido procesado con exito"</string>
     <string name="toast_error_campos_obligatorios">Todos los campos son obligatorios completelos</string>
     <string name="toast_error_campos_obligatorios_comentario">Debe escribir su comentario</string>
@@ -633,11 +636,6 @@
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
     <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
     <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
         <item name="android:windowActionBar">false</item>
     </style>
     <style name="AppTheme" parent="AppBaseTheme">

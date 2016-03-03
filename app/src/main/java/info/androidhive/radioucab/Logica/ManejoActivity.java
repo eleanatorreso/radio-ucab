@@ -3,6 +3,7 @@ package info.androidhive.radioucab.Logica;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -58,6 +59,11 @@ public class ManejoActivity {
     private ArrayList<NavDrawerItem> navDrawerItems;
     private static String fragmentoActual;
     private static Programa programaActual;
+    private ImageView boton_play;
+    private ImageView boton_stop;
+    private ImageView boton_pause;
+    private Intent playbackServiceIntent;
+    private boolean streaming;
 
     public static ManejoActivity getInstancia() {
         if (instancia == null) {
@@ -97,6 +103,9 @@ public class ManejoActivity {
                 .obtainTypedArray(R.array.nav_drawer_icons);
         mDrawerLayout = (DrawerLayout) activityPrincipal.findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) activityPrincipal.findViewById(R.id.list_slidermenu);
+        boton_play = (ImageView) activityPrincipal.findViewById(R.id.icon_play);
+        boton_stop = (ImageView) activityPrincipal.findViewById(R.id.icon_stop);
+        boton_pause = (ImageView) activityPrincipal.findViewById(R.id.icon_pause);
     }
 
     public void cambiarToolbar() {
@@ -133,7 +142,7 @@ public class ManejoActivity {
                 break;
             //eventos
             case 4:
-                color = activityPrincipal.getResources().getColor(R.color.azul_radio_ucab);
+                color = activityPrincipal.getResources().getColor(R.color.naranja);
                 break;
             //programas
             case 5:
@@ -286,6 +295,48 @@ public class ManejoActivity {
             getActivityPrincipal().setTitle(navMenuTitles[posicion]);
         }
         return fragmento;
+    }
+
+    public void playStreaming(int action) {
+        switch (action) {
+            //Play
+            case 1:
+                playbackServiceIntent.setAction(ServicioRadio.ACTION_PLAY);
+                activityPrincipal.startService(playbackServiceIntent);
+                streaming = true;
+                break;
+            //Stop
+            case 2:
+                activityPrincipal.stopService(playbackServiceIntent);
+                streaming = false;
+                break;
+            //Pause
+            case 3:
+                playbackServiceIntent.setAction(ServicioRadio.ACTION_PAUSE);
+                activityPrincipal.startService(playbackServiceIntent);
+                streaming = true;
+                break;
+        }
+    }
+
+    public void cambioReproductor(String mensaje){
+        if (mensaje.equals("Play")) {
+            boton_pause.setVisibility(View.INVISIBLE);
+            boton_play.setVisibility(View.INVISIBLE);
+            boton_stop.setVisibility(View.VISIBLE);
+        } else if (mensaje.equals("Pausar")) {
+            boton_pause.setVisibility(View.INVISIBLE);
+            boton_play.setVisibility(View.VISIBLE);
+            boton_stop.setVisibility(View.INVISIBLE);
+        } else if (mensaje.equals("Pausar/Stop")) {
+            boton_pause.setVisibility(View.INVISIBLE);
+            boton_play.setVisibility(View.INVISIBLE);
+            boton_stop.setVisibility(View.VISIBLE);
+        } else if (mensaje.equals("Stop")) {
+            boton_pause.setVisibility(View.INVISIBLE);
+            boton_play.setVisibility(View.VISIBLE);
+            boton_stop.setVisibility(View.INVISIBLE);
+        }
     }
 
 }
