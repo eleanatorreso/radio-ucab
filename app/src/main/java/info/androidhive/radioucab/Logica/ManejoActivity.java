@@ -7,12 +7,14 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.PorterDuff;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -62,8 +64,7 @@ public class ManejoActivity {
     private ImageView boton_play;
     private ImageView boton_stop;
     private ImageView boton_pause;
-    private Intent playbackServiceIntent;
-    private boolean streaming;
+    private ProgressBar progressStreaming;
 
     public static ManejoActivity getInstancia() {
         if (instancia == null) {
@@ -106,6 +107,7 @@ public class ManejoActivity {
         boton_play = (ImageView) activityPrincipal.findViewById(R.id.icon_play);
         boton_stop = (ImageView) activityPrincipal.findViewById(R.id.icon_stop);
         boton_pause = (ImageView) activityPrincipal.findViewById(R.id.icon_pause);
+        progressStreaming = (ProgressBar) activityPrincipal.findViewById(R.id.progressBar_streaming);
     }
 
     public void cambiarToolbar() {
@@ -297,25 +299,14 @@ public class ManejoActivity {
         return fragmento;
     }
 
-    public void playStreaming(int action) {
-        switch (action) {
-            //Play
-            case 1:
-                playbackServiceIntent.setAction(ServicioRadio.ACTION_PLAY);
-                activityPrincipal.startService(playbackServiceIntent);
-                streaming = true;
-                break;
-            //Stop
-            case 2:
-                activityPrincipal.stopService(playbackServiceIntent);
-                streaming = false;
-                break;
-            //Pause
-            case 3:
-                playbackServiceIntent.setAction(ServicioRadio.ACTION_PAUSE);
-                activityPrincipal.startService(playbackServiceIntent);
-                streaming = true;
-                break;
+    public void progressBarStreaming (boolean flag) {
+        if (flag) {
+            progressStreaming.setVisibility(View.VISIBLE);
+            boton_play.setVisibility(View.INVISIBLE);
+            progressStreaming.getIndeterminateDrawable().setColorFilter(activityPrincipal.getResources().getColor(R.color.blanco), PorterDuff.Mode.SRC_IN);
+        }
+        else {
+            progressStreaming.setVisibility(View.GONE);
         }
     }
 

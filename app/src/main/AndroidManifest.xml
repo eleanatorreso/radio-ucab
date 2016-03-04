@@ -39,9 +39,13 @@
             android:name=".Controlador.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/NoActionBar" >
+        </activity>
+        <activity
+            android:name=".Controlador.VeloApp"
+            android:label="@string/app_name"
+            android:theme="@style/NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -95,10 +99,6 @@
         </service>
         <service android:name=".Controlador.GCM.RegistrationIntentService" />
 
-        <activity
-            android:name=".Controlador.VeloApp"
-            android:label="@string/title_activity_velo_app" >
-        </activity>
     </application>
 
 </manifest>

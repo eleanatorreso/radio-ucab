@@ -10,6 +10,8 @@
     <string name="texto_detalle_programa">Espere un momento por favor...</string>
     <string name="menu_perfil_usuario">Ingresar</string>
     <string name="ip_web_service">http://192.168.0.101:24364/</string>
+    <string name="ip_streaming_high">http://31.200.244.181:8110</string>
+    <string name="ip_streaming_low">http://31.200.244.181:8110</string>
     <string name="ruta_archivos_radio_ucab">/sdcard/.RadioUCAB/</string>
     
     <!-- Elementos del menu -->

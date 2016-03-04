@@ -457,7 +457,7 @@
     <string name="cast_notification_connected_message">Connected to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_connecting_message">Connecting to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_disconnect">Disconnect</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">3847b8ea-9aee-4201-b349-9d7aff4feeb8</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">348655ac-5377-4679-96c8-12627611a360</string>
     <string name="common_android_wear_notification_needs_update_text"><ns1:g id="app_name">%1$s</ns1:g> requires an update to the Android Wear app.</string>
     <string name="common_android_wear_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update the Android Wear app.</string>
     <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>
@@ -584,6 +584,8 @@
     <string name="hint_campo_editText_usuario_dedicatoria">Usuario receptor de la dedicatoria</string>
     <string name="hint_campo_nombre">Nombre</string>
     <string name="hint_campo_tweet_comentario">Escriba acá su comentario</string>
+    <string name="ip_streaming_high">http://31.200.244.181:8110</string>
+    <string name="ip_streaming_low">http://31.200.244.181:8110</string>
     <string name="ip_web_service">http://192.168.0.101:24364/</string>
     <string name="kit_name">Twitter</string>
     <string name="menu_accion_cerrar_sesion">Cerrar Sesión</string>

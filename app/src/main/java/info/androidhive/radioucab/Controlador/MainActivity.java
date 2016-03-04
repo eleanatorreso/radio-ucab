@@ -123,18 +123,6 @@ public class MainActivity extends AppCompatActivity {
             invalidateOptionsMenu();
         }
     }
-/*
-    public void cambiarFragment(String nombre_fragment) {
-        int posicion = manejoActivity.getPosicion(nombre_fragment);
-        Fragment fragmento = manejoActivity.getFragment(posicion);
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.frame_container, fragmento).commit();
-        // update selected item and title, then close the drawer
-        mDrawerList.setItemChecked(posicion, true);
-        mDrawerList.setSelection(posicion);
-        setTitle(navMenuTitles[posicion]);
-    }*/
 
     public void crearDialogoSiYNo(String titulo, String mensaje, String botonPositivo, String botonNegativo) {
         try {
@@ -249,6 +237,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
         manejoActivity.setActivityPrincipal(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -388,9 +377,6 @@ public class MainActivity extends AppCompatActivity {
 
         imagen_perfil = (ImageView) findViewById(R.id.imagen_usuario);
         cargarUsuarioToolbar();
-
-
-
         if (savedInstanceState == null) {
             // on first time display view for first nav item
             displayView(0);
@@ -416,30 +402,6 @@ public class MainActivity extends AppCompatActivity {
                 playStreaming(3);
             }
         });
-        /*
-        receiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                String mensaje = intent.getStringExtra(ServicioRadio.mensaje);
-                if (mensaje.equals("Play")) {
-                    boton_pause.setVisibility(View.INVISIBLE);
-                    boton_play.setVisibility(View.INVISIBLE);
-                    boton_stop.setVisibility(View.VISIBLE);
-                } else if (mensaje.equals("Pausar")) {
-                    boton_pause.setVisibility(View.VISIBLE);
-                    boton_play.setVisibility(View.INVISIBLE);
-                    boton_stop.setVisibility(View.INVISIBLE);
-                } else if (mensaje.equals("Pausar/Stop")) {
-                    boton_pause.setVisibility(View.INVISIBLE);
-                    boton_play.setVisibility(View.INVISIBLE);
-                    boton_stop.setVisibility(View.VISIBLE);
-                } else if (mensaje.equals("Stop")) {
-                    boton_pause.setVisibility(View.INVISIBLE);
-                    boton_play.setVisibility(View.VISIBLE);
-                    boton_stop.setVisibility(View.INVISIBLE);
-                }
-            }
-        };*/
     }
 
     /**
@@ -578,11 +540,6 @@ public class MainActivity extends AppCompatActivity {
         mTitle = title;
 //		getActionBar().setTitle(mTitle);
     }
-
-    /**
-     * When using the ActionBarDrawerToggle, you must call it during
-     * onPostCreate() and onConfigurationChanged()...
-     */
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {

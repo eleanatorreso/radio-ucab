@@ -66,6 +66,7 @@ public class ServicioRadio extends Service implements MediaPlayer.OnPreparedList
 
     private void initMedia() {
         mediaPlayer = new MediaPlayer();
+        manejoActivity.progressBarStreaming(true);
         int sdkVersion = android.os.Build.VERSION.SDK_INT;
         String deviceVersion = Build.VERSION.RELEASE;
         if (currentVersionSupportBigNotification()) {
@@ -212,6 +213,7 @@ public class ServicioRadio extends Service implements MediaPlayer.OnPreparedList
         String songName = "Nombre de la Cancion";
         crearNotificacion(R.drawable.ic_stat_pause, "Pausar", 3);
         Log.i("Servicio Streaming", "Inicie Notificacion");
+        manejoActivity.progressBarStreaming(false);
         manejoActivity.cambioReproductor("Pausar/Stop");
     }
 
@@ -230,8 +232,12 @@ public class ServicioRadio extends Service implements MediaPlayer.OnPreparedList
     @Override
     public boolean onError(MediaPlayer mp, int what, int extra) {
         Log.i("Servicio Streaming", "ERROR:" + what + " extra:" + extra);
-        if (what == 261 && extra == -1003)
+        if (what == 261 && extra == -1003) {
             createAlertDialog("Error al conectarse al Streaming, vuelva a intentarlo.");
+        }
+        else {
+            createAlertDialog("Se ha producido un error, vuelva a intentarlo.");
+        }
         mp.reset();
         stopForeground(true);
         return false;
