@@ -12,7 +12,7 @@
         android:layout_height="35dp"
         android:layout_marginTop="15dp"
         android:gravity="left"
-        android:src="@drawable/icono_solicitar_cancion" />
+        android:src="@drawable/ic_solicitar_cancion" />
 
     <TextView
         android:id="@+id/texto_encabezado_editar_tweet_solicitud"

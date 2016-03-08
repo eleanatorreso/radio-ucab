@@ -12,7 +12,7 @@
         android:layout_height="35dp"
         android:layout_marginTop="15dp"
         android:gravity="left"
-        android:src="@drawable/icono_comentario"
+        android:src="@drawable/ic_comentario"
         android:layout_alignLeft="@+id/editText_tweet_comentario"
         android:layout_alignStart="@+id/editText_tweet_comentario" />
 

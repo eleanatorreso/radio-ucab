@@ -110,7 +110,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
             actualizarUsuarioAPI();
         } else {
             usuario.save();
-            manejoActivity.cambiarFragment("Perfil");
+            manejoActivity.cambiarFragment("Perfil",false);
         }
     }
 
@@ -149,7 +149,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
             resultado = resultados.getJSONObject(0);
             usuario.setGuid(resultado.getString("guid").replace("\"", ""));
             usuario.save();
-            manejoActivity.cambiarFragment("Perfil");
+            manejoActivity.cambiarFragment("Perfil",false);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -164,7 +164,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
     public void procesoExitoso(int codigo, int tipo) {
         if (codigo == 204) {
             usuario.save();
-            manejoActivity.cambiarFragment("Perfil");
+            manejoActivity.cambiarFragment("Perfil",false);
         }
     }
 
@@ -193,7 +193,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
         //me regresa el guid del usuario almacenado
         usuario.setGuid(resultado.replace("\"", ""));
         usuario.save();
-        manejoActivity.cambiarFragment("Perfil");
+        manejoActivity.cambiarFragment("Perfil",false);
     }
 
     @Override

@@ -61,7 +61,7 @@ public class PerfilFragment extends Fragment {
         boton_editar_perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("EditarPerfil");
+                manejoActivity.cambiarFragment("EditarPerfil",true);
             }
         });
     }
@@ -74,7 +74,7 @@ public class PerfilFragment extends Fragment {
             manejoActivity.cambiarToolbar();
         }
         else {
-            manejoActivity.cambiarFragment("Inicio");
+            manejoActivity.cambiarFragment("Inicio",false);
         }
     }
 

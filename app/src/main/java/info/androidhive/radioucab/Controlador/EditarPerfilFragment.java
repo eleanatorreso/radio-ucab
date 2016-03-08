@@ -110,7 +110,7 @@ public class EditarPerfilFragment extends Fragment {
     }
 
     public void cambiarPerfil() {
-        manejoActivity.cambiarFragment("Perfil");
+        manejoActivity.cambiarFragment("Perfil",false);
     }
 
     public void crearDialogoSiYNo(String titulo, String mensaje, String botonPositivo, String botonNegativo) {

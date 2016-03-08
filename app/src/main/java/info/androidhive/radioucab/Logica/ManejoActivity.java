@@ -3,7 +3,7 @@ package info.androidhive.radioucab.Logica;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Intent;
+import android.app.FragmentTransaction;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -38,7 +38,6 @@ import info.androidhive.radioucab.Controlador.PerfilFragment;
 import info.androidhive.radioucab.Controlador.ProgramaDetalleFragment;
 import info.androidhive.radioucab.Controlador.ProgramaFragment;
 import info.androidhive.radioucab.Controlador.RegistroUsuarioFragment;
-import info.androidhive.radioucab.EditarTweetPremiacionFragment;
 import info.androidhive.radioucab.Model.Programa;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
@@ -64,7 +63,11 @@ public class ManejoActivity {
     private ImageView boton_play;
     private ImageView boton_stop;
     private ImageView boton_pause;
+    private ImageView ondas_on;
+    private ImageView ondas_off;
     private ProgressBar progressStreaming;
+    private ImageView icono_interaccion;
+    private static int streaming = 4;
 
     public static ManejoActivity getInstancia() {
         if (instancia == null) {
@@ -73,7 +76,7 @@ public class ManejoActivity {
         return instancia;
     }
 
-    public static Programa getInstanciaPrograma(){
+    public static Programa getInstanciaPrograma() {
         if (programaActual == null) {
         }
         return null;
@@ -108,6 +111,9 @@ public class ManejoActivity {
         boton_stop = (ImageView) activityPrincipal.findViewById(R.id.icon_stop);
         boton_pause = (ImageView) activityPrincipal.findViewById(R.id.icon_pause);
         progressStreaming = (ProgressBar) activityPrincipal.findViewById(R.id.progressBar_streaming);
+        ondas_off = (ImageView) activityPrincipal.findViewById(R.id.imagen_ondas_off);
+        ondas_on = (ImageView) activityPrincipal.findViewById(R.id.imagen_ondas_on);
+        icono_interaccion = (ImageView) activityPrincipal.findViewById(R.id.imagen_interaccion);
     }
 
     public void cambiarToolbar() {
@@ -163,14 +169,18 @@ public class ManejoActivity {
         toolbar.setBackgroundColor(color);
     }
 
-    public void editarActivity (int seccion, boolean mostrarBotonInteraccion, String fragmentoActual) {
+    public void editarActivity(int seccion, boolean mostrarBotonInteraccion, String fragmentoActual) {
         cambiarDeColor(seccion);
         cambiarIconoMenu();
         if (mostrarBotonInteraccion == true) {
-            boton_interaccion.setVisibility(View.VISIBLE);
-        }
-        else {
+            if (currentVersionL()) {
+                boton_interaccion.setVisibility(View.VISIBLE);
+            } else {
+                icono_interaccion.setVisibility(View.VISIBLE);
+            }
+        } else {
             boton_interaccion.setVisibility(View.INVISIBLE);
+            icono_interaccion.setVisibility(View.INVISIBLE);
         }
         if (fragmentoActual != null)
             this.fragmentoActual = fragmentoActual;
@@ -242,7 +252,7 @@ public class ManejoActivity {
         return fragment;
     }
 
-    public int getPosicion (String nombre_fragment) {
+    public int getPosicion(String nombre_fragment) {
         switch (nombre_fragment) {
             case "Home":
                 return 0;
@@ -286,48 +296,122 @@ public class ManejoActivity {
         return 0;
     }
 
-    public Fragment cambiarFragment(String nombre_fragment) {
+    public Fragment cambiarFragment(String nombre_fragment, boolean addToBackStack) {
         int posicion = getPosicion(nombre_fragment);
         Fragment fragmento = getFragment(posicion);
         FragmentManager fragmentManager = getActivityPrincipal().getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.frame_container, fragmento).commit();
-        if (posicion < 20) {// update selected item and title, then close the drawer
+        //fragmentManager.beginTransaction().replace(R.id.frame_container, fragmento).commit();
+        if (posicion < 20) {
             mDrawerList.setItemChecked(posicion, true);
             mDrawerList.setSelection(posicion);
             getActivityPrincipal().setTitle(navMenuTitles[posicion]);
         }
+        fragmentManager.popBackStack();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.frame_container, fragmento);
+        /*
+        if (addToBackStack)
+            transaction.addToBackStack(null);*/
+        transaction.commit();
         return fragmento;
     }
 
-    public void progressBarStreaming (boolean flag) {
+    public void comprobarControlesReproductor() {
+        switch (streaming) {
+            //cargando
+            case 0:
+                progressStreaming.setVisibility(View.VISIBLE);
+                boton_play.setVisibility(View.INVISIBLE);
+                ondas_on.setVisibility(View.INVISIBLE);
+                ondas_off.setVisibility(View.VISIBLE);
+                break;
+            //play
+            case 1:
+                ondas_on.setVisibility(View.VISIBLE);
+                ondas_off.setVisibility(View.INVISIBLE);
+                boton_pause.setVisibility(View.INVISIBLE);
+                boton_play.setVisibility(View.INVISIBLE);
+                boton_stop.setVisibility(View.VISIBLE);
+                break;
+            //pausa
+            case 2:
+                progressStreaming.setVisibility(View.INVISIBLE);
+                ondas_on.setVisibility(View.INVISIBLE);
+                ondas_off.setVisibility(View.VISIBLE);
+                boton_pause.setVisibility(View.INVISIBLE);
+                boton_play.setVisibility(View.VISIBLE);
+                boton_stop.setVisibility(View.INVISIBLE);
+                break;
+            //pausar/stop
+            case 3:
+                ondas_on.setVisibility(View.VISIBLE);
+                ondas_off.setVisibility(View.INVISIBLE);
+                boton_pause.setVisibility(View.INVISIBLE);
+                boton_play.setVisibility(View.INVISIBLE);
+                boton_stop.setVisibility(View.VISIBLE);
+                break;
+            //stop
+            case 4:
+                ondas_off.setVisibility(View.VISIBLE);
+                ondas_on.setVisibility(View.INVISIBLE);
+                boton_pause.setVisibility(View.INVISIBLE);
+                boton_play.setVisibility(View.VISIBLE);
+                boton_stop.setVisibility(View.INVISIBLE);
+                break;
+        }
+    }
+
+
+    public void progressBarStreaming(boolean flag) {
         if (flag) {
             progressStreaming.setVisibility(View.VISIBLE);
             boton_play.setVisibility(View.INVISIBLE);
             progressStreaming.getIndeterminateDrawable().setColorFilter(activityPrincipal.getResources().getColor(R.color.blanco), PorterDuff.Mode.SRC_IN);
-        }
-        else {
+            streaming = 0;
+        } else {
             progressStreaming.setVisibility(View.GONE);
         }
     }
 
-    public void cambioReproductor(String mensaje){
+    //metodo crear para actualizar el activity cada vez que la notificacion de la musica sea abierta
+    public void cambioReproductor(String mensaje) {
         if (mensaje.equals("Play")) {
+            ondas_on.setVisibility(View.VISIBLE);
+            ondas_off.setVisibility(View.INVISIBLE);
             boton_pause.setVisibility(View.INVISIBLE);
             boton_play.setVisibility(View.INVISIBLE);
             boton_stop.setVisibility(View.VISIBLE);
+            streaming = 1;
         } else if (mensaje.equals("Pausar")) {
+            ondas_on.setVisibility(View.INVISIBLE);
+            ondas_off.setVisibility(View.VISIBLE);
             boton_pause.setVisibility(View.INVISIBLE);
             boton_play.setVisibility(View.VISIBLE);
             boton_stop.setVisibility(View.INVISIBLE);
+            streaming = 2;
         } else if (mensaje.equals("Pausar/Stop")) {
+            ondas_on.setVisibility(View.VISIBLE);
+            ondas_off.setVisibility(View.INVISIBLE);
             boton_pause.setVisibility(View.INVISIBLE);
             boton_play.setVisibility(View.INVISIBLE);
             boton_stop.setVisibility(View.VISIBLE);
+            streaming = 3;
         } else if (mensaje.equals("Stop")) {
+            ondas_off.setVisibility(View.VISIBLE);
+            ondas_on.setVisibility(View.INVISIBLE);
             boton_pause.setVisibility(View.INVISIBLE);
             boton_play.setVisibility(View.VISIBLE);
             boton_stop.setVisibility(View.INVISIBLE);
+            streaming = 4;
         }
+    }
+
+    public boolean currentVersionL() {
+        int sdkVersion = android.os.Build.VERSION.SDK_INT;
+        if (sdkVersion >= 21) {
+            return true;
+        }
+        return false;
     }
 
 }

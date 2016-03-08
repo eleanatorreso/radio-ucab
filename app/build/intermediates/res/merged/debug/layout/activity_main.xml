@@ -34,7 +34,8 @@
                 android:stateListAnimator="@drawable/animacion_fab"
                 android:src="@drawable/fab_icono"
                 android:elevation="@dimen/fab_elevation"
-                android:layout_gravity="bottom|right" />
+                android:layout_gravity="bottom|right"
+                android:visibility="gone"/>
 
 
         </FrameLayout>

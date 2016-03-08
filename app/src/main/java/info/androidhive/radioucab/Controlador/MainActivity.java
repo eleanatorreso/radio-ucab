@@ -5,23 +5,17 @@ import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
 import info.androidhive.radioucab.Logica.FabricLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
-import info.androidhive.radioucab.Logica.ManejoConcurso;
 import info.androidhive.radioucab.Logica.PerfilLogica;
 import info.androidhive.radioucab.Logica.ServicioRadio;
 import info.androidhive.radioucab.Controlador.Adaptor.AdaptorNavDrawerList;
-import info.androidhive.radioucab.Model.Concurso;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
-
 import java.util.ArrayList;
-import java.util.List;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -32,17 +26,15 @@ import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -50,10 +42,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
@@ -82,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
     private Menu menu;
     private ActionBarDrawerToggle mDrawerToggle;
     private ImageButton fab_interaccion;
+    private ImageView icono_interaccion;
     // private ManejoConcurso manejoConcurso = new ManejoConcurso();
 
     @Override
@@ -186,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
         dedicar_cancion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("TweetDedicatoria");
+                manejoActivity.cambiarFragment("TweetDedicatoria",true);
                 alerta_dialogo.dismiss();
             }
         });
@@ -194,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
         solicitar_cancion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("TweetSolicitud");
+                manejoActivity.cambiarFragment("TweetSolicitud",true);
                 alerta_dialogo.dismiss();
             }
         });
@@ -203,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
         comentario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("TweetComentario");
+                manejoActivity.cambiarFragment("TweetComentario",true);
                 alerta_dialogo.dismiss();
             }
         });
@@ -212,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
         programa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("TweetPrograma");
+                manejoActivity.cambiarFragment("TweetPrograma",true);
                 alerta_dialogo.dismiss();
             }
         });
@@ -221,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
         concurso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("ConcursoFragment");
+                manejoActivity.cambiarFragment("ConcursoFragment",true);
                 alerta_dialogo.dismiss();
             }
         });
@@ -299,12 +290,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //start abre a la izquierda, end a la derecha
-                if (mDrawerLayout.isDrawerOpen(Gravity.START)) {
-                    mDrawerLayout.closeDrawer(Gravity.START);
+                if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    mDrawerLayout.closeDrawer(GravityCompat.START);
                     menuAbierto = false;
                     boton.setImageDrawable(getResources().getDrawable(R.drawable.ic_menu));
                 } else {
-                    mDrawerLayout.openDrawer(Gravity.START);
+                    mDrawerLayout.openDrawer(GravityCompat.START);
                     boton.setImageDrawable(getResources().getDrawable(R.drawable.ic_launcher));
                 }
             }
@@ -332,14 +323,26 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the drawer toggle as the DrawerListener
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-
         fab_interaccion = (ImageButton) findViewById(R.id.boton_interaccion);
-        fab_interaccion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                abrirDialogoInteraccion();
-            }
-        });
+        if (manejoActivity.currentVersionL()) {
+            //fab_interaccion.setVisibility(View.VISIBLE);
+            fab_interaccion.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    abrirDialogoInteraccion();
+                }
+            });
+        }
+        else {
+            icono_interaccion = (ImageView) findViewById(R.id.imagen_interaccion);
+            icono_interaccion.setVisibility(View.VISIBLE);
+            icono_interaccion.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    abrirDialogoInteraccion();
+                }
+            });
+        }
 
         boton_ingresar = (TextView) findViewById(R.id.boton_ingresar);
 
@@ -361,7 +364,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.accion_ver_perfil:
-                        manejoActivity.cambiarFragment("Perfil");
+                        manejoActivity.cambiarFragment("Perfil",false);
                         break;
                     case R.id.accion_cerrar_sesion:
                         crearDialogoSiYNo(getString(R.string.dialogo_asunto_cerrar_sesion)
@@ -402,6 +405,7 @@ public class MainActivity extends AppCompatActivity {
                 playStreaming(3);
             }
         });
+        manejoActivity.comprobarControlesReproductor();
     }
 
     /**

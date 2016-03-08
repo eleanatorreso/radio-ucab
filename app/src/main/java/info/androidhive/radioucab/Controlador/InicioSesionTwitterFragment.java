@@ -154,7 +154,7 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
         } else {
             Usuario nuevoUsuario = new Usuario(usuarioResultado.name, usuarioResultado.email, usuarioResultado.screenName,
                     sesionTwitter.getAuthToken().token, sesionTwitter.getAuthToken().secret, usuarioResultado.profileImageUrl);
-            RegistroUsuarioFragment registroUsuarioFragment = (RegistroUsuarioFragment) manejoActivity.cambiarFragment("Registro");
+            RegistroUsuarioFragment registroUsuarioFragment = (RegistroUsuarioFragment) manejoActivity.cambiarFragment("Registro",true);
             registroUsuarioFragment.usuario = nuevoUsuario;
         }
     }

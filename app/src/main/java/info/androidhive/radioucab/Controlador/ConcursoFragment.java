@@ -123,7 +123,7 @@ public class ConcursoFragment extends Fragment implements RespuestaLogica {
     }
 
     public void participarConcurso(){
-        EditarTweetPremiacionFragment fragment = (EditarTweetPremiacionFragment)manejoActivity.cambiarFragment("TweetConcurso");
+        EditarTweetPremiacionFragment fragment = (EditarTweetPremiacionFragment)manejoActivity.cambiarFragment("TweetConcurso", true);
         Concurso concursoActual = getConcursoSeleccionado();
         fragment.concurso = concursoActual;
     }

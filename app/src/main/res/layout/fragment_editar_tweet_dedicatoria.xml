@@ -12,7 +12,7 @@
         android:layout_height="35dp"
         android:layout_marginTop="15dp"
         android:gravity="left"
-        android:src="@drawable/icono_solicitar_cancion" />
+        android:src="@drawable/ic_dedicar_cancion" />
 
     <TextView
         android:id="@+id/texto_encabezado_editar_tweet_solicitud"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:gravity="center"
-        android:text="@string/campo_encabezado_editar_tweet_solicitar"
+        android:text="@string/campo_encabezado_editar_tweet_dedicar"
         android:textColor="@color/azul_ucab"
         android:textSize="25dp" />
 

@@ -29,6 +29,8 @@ import android.view.WindowManager;
 
 import java.io.IOException;
 
+import info.androidhive.radioucab.Controlador.HomeFragment;
+import info.androidhive.radioucab.Controlador.MainActivity;
 import info.androidhive.radioucab.R;
 
 public class ServicioRadio extends Service implements MediaPlayer.OnPreparedListener, MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnErrorListener, MediaPlayer.OnCompletionListener {
@@ -69,7 +71,7 @@ public class ServicioRadio extends Service implements MediaPlayer.OnPreparedList
         manejoActivity.progressBarStreaming(true);
         int sdkVersion = android.os.Build.VERSION.SDK_INT;
         String deviceVersion = Build.VERSION.RELEASE;
-        if (currentVersionSupportBigNotification()) {
+        if (manejoActivity.currentVersionL()) {
             mManager = (MediaSessionManager) getSystemService(Context.MEDIA_SESSION_SERVICE);
             mediaSession = new MediaSession(this, "Radio UCAB");
             mController = mediaSession.getController();
@@ -78,14 +80,6 @@ public class ServicioRadio extends Service implements MediaPlayer.OnPreparedList
         } else {
             Log.i("Servicio Streaming", "No soporta notif. grandes");
         }
-    }
-
-    public boolean currentVersionSupportBigNotification() {
-        int sdkVersion = android.os.Build.VERSION.SDK_INT;
-        if (sdkVersion >= 21) {
-            return true;
-        }
-        return false;
     }
 
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -135,6 +129,10 @@ public class ServicioRadio extends Service implements MediaPlayer.OnPreparedList
     }
 
     private void crearNotificacion(int icon, String title, int action) {
+        Intent notificationIntent = new Intent(this, MainActivity.class);
+        notificationIntent.setAction("abrir_ventana");
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+
         try {
             Bitmap notificationLargeIconBitmap = BitmapFactory.decodeResource(
                     getResources(),
@@ -142,7 +140,7 @@ public class ServicioRadio extends Service implements MediaPlayer.OnPreparedList
             Resources res = this.getResources();
             int height = (int) res.getDimension(android.R.dimen.notification_large_icon_height);
             int width = (int) res.getDimension(android.R.dimen.notification_large_icon_width);
-            if (currentVersionSupportBigNotification()) {
+            if (manejoActivity.currentVersionL()) {
                 notification = new Notification.Builder(this)
                         // Hide the timestamp
                         .setShowWhen(false)
@@ -158,6 +156,7 @@ public class ServicioRadio extends Service implements MediaPlayer.OnPreparedList
                         .setContentTitle("Radio UCAB")
                         .addAction(icon, title, retreivePlaybackAction(action))
                         .addAction(R.drawable.ic_stat_stop, "Parar", retreivePlaybackAction(2))
+                        .setContentIntent(contentIntent)
                         .build();
             } else {
                 notification = new Notification.Builder(this)
@@ -168,6 +167,7 @@ public class ServicioRadio extends Service implements MediaPlayer.OnPreparedList
                         .setContentTitle("Radio UCAB")
                         .addAction(icon, title, retreivePlaybackAction(action))
                         .addAction(R.drawable.ic_stat_stop, "Parar", retreivePlaybackAction(2))
+                        .setContentIntent(contentIntent)
                         .build();
                 notification.icon = R.drawable.ic_silueta_radio;
             }

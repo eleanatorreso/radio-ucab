@@ -59,7 +59,6 @@
         android:background="@drawable/borde_linear_layout"
         android:clickable="true"
         android:focusable="true"
-        android:onClick="onClick"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -75,7 +74,7 @@
                 android:layout_height="40dp"
                 android:layout_marginLeft="20dp"
                 android:gravity="center"
-                android:src="@drawable/icono_solicitar_cancion" />
+                android:src="@drawable/ic_solicitar_cancion" />
         </LinearLayout>
 
         <LinearLayout
@@ -161,7 +160,7 @@
                 android:layout_height="40dp"
                 android:layout_marginLeft="20dp"
                 android:gravity="center"
-                android:src="@drawable/icono_comentario" />
+                android:src="@drawable/ic_comentario" />
         </LinearLayout>
 
         <LinearLayout
@@ -248,7 +247,7 @@
                 android:layout_height="40dp"
                 android:layout_marginLeft="20dp"
                 android:gravity="center"
-                android:src="@drawable/icono_programa" />
+                android:src="@drawable/ic_programa" />
         </LinearLayout>
 
         <LinearLayout

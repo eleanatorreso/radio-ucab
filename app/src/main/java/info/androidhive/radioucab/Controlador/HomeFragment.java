@@ -47,12 +47,6 @@ public class HomeFragment extends ListFragment {
     public HomeFragment() {
     }
 
-
-    public void prueba() {
-        Intent intent = new Intent(getActivity(), RegistrationIntentService.class);
-        manejoActivity.getActivityPrincipal().startService(intent);
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,7 +118,6 @@ public class HomeFragment extends ListFragment {
         } catch (Exception e) {
             int x = 0;
         }
-        //prueba();
     }
 
     @Override

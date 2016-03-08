@@ -12,7 +12,7 @@
         android:layout_height="35dp"
         android:layout_marginTop="15dp"
         android:gravity="center"
-        android:src="@drawable/icono_programa" />
+        android:src="@drawable/ic_programa" />
 
     <TextView
         android:id="@+id/texto_encabezado_editar_tweet_programa"

@@ -50,7 +50,7 @@ public class ManejoEnvioTweet implements RespuestaAsyncTask, RespuestaStringAsyn
                 respuesta[0] = true;
                 comentario.setIdTweet(result.data.getId());
                 enviarIdTweet();
-                manejoActivity.cambiarFragment(manejoActivity.getFragmentoActual());
+                manejoActivity.cambiarFragment(manejoActivity.getFragmentoActual(),false);
             }
 
             @Override
