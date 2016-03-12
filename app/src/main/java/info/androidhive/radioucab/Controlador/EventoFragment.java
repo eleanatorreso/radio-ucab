@@ -21,6 +21,8 @@ import java.util.List;
 import info.androidhive.radioucab.Controlador.Adaptor.AdaptadorEvento;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONArray;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONObject;
+import info.androidhive.radioucab.Logica.ActualizacionLogica;
+import info.androidhive.radioucab.Logica.EventoLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.Model.Actualizacion;
@@ -45,6 +47,8 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
     private Toast toast;
     private static int pagina = 1;
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
+    private final ActualizacionLogica actualizacionLogica = new ActualizacionLogica();
+    private final EventoLogica eventoLogica = new EventoLogica();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -156,52 +160,10 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
         conexionObjeto.tipo = 1;
         conexionObjeto.execute("Api/Evento/ultimaModificacionEvento");
     }
-    public void almacenarUltimaAct() {
-        try {
-            ManejoFecha tiempoActual = new ManejoFecha();
-            Actualizacion ultimaActualizacion = new Actualizacion();
-            List<Actualizacion> listaActualizaciones = Actualizacion.listAll(Actualizacion.class);
-            if (listaActualizaciones != null && listaActualizaciones.size() > 0) {
-                ultimaActualizacion = listaActualizaciones.get(0);
-                Date noticia = ultimaActualizacion.getActNoticia();
-                Date programa = ultimaActualizacion.getActPrograma();
-                Date parrilla = ultimaActualizacion.getActParrilla();
-                Actualizacion.deleteAll(Actualizacion.class);
-                Actualizacion nuevaActualizacion = new Actualizacion(ultimaActWS, noticia, programa, parrilla);
-                nuevaActualizacion.save();
-            } else {
-                Actualizacion n = new Actualizacion(ultimaActWS, null, null, null);
-                n.save();
-            }
-        } catch (Exception e) {
-            Log.e("Evento: ult.act", e.getMessage());
-        }
-    }
 
     public List<Evento> procesarResultados(JSONArray resultadoConsulta) {
-        almacenarUltimaAct();
-        List<Evento> eventos = new ArrayList<Evento>();
-        Evento.deleteAll(Evento.class);
-        Evento eventoNuevo = new Evento();
-        try {
-            for (int evento = 0; evento < resultadoConsulta.length(); evento++) {
-                JSONObject objeto = resultadoConsulta.getJSONObject(evento);
-                JSONArray direccion = objeto.getJSONArray("detalles");
-                for (int detalles = 0; detalles < direccion.length(); detalles++) {
-                    JSONObject objetoDetalle = direccion.getJSONObject(detalles);
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
-                    Date fecha_inicio = new Date();
-                    fecha_inicio = dateFormat.parse(objetoDetalle.getString("fecha_inicio"));
-                    eventoNuevo = new Evento(objeto.getInt("id"), objeto.getString("nombre"), objetoDetalle.getString("horario"), objetoDetalle.getString("direccion_completa"),fecha_inicio);
-                    eventoNuevo.save();
-                    eventos.add(eventoNuevo);
-
-                }
-            }
-        } catch (Exception excep) {
-            Log.e("Eventos: procesar resul", excep.getMessage());
-        }
-        Collections.sort(eventos);
+        actualizacionLogica.almacenarUltimaActualizacion(1, ultimaActWS);
+        List<Evento> eventos = eventoLogica.procesarResultados(resultadoConsulta);
         return eventos;
     }
 
@@ -209,7 +171,7 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
         ArrayList<ParentObject> parentObjects = new ArrayList<>();
         for (Evento evento : resultadosEventos) {
             ArrayList<Object> listaHijosEvento = new ArrayList<>();
-            listaHijosEvento.add(new EventoHijoViewHolder(evento.getDireccion(), evento.getHorario()));
+            listaHijosEvento.add(new EventoHijoViewHolder(evento.getDireccion(), evento.getHorario(), evento.getDescripcion()));
             EventoPadreViewHolder objeto = new EventoPadreViewHolder(listaHijosEvento, evento.getTitulo());
             parentObjects.add(objeto);
         }

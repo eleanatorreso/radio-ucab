@@ -11,10 +11,12 @@ public class EventoHijoFragment extends ChildViewHolder {
 
     public TextView horarioEvento;
     public TextView direccionEvento;
+    public TextView descripcionEvento;
 
     public EventoHijoFragment(View itemView) {
         super(itemView);
         horarioEvento = (TextView) itemView.findViewById(R.id.evento_horario);
         direccionEvento = (TextView) itemView.findViewById(R.id.evento_direccion);
+        descripcionEvento = (TextView) itemView.findViewById(R.id.descripcion_evento);
     }
 }

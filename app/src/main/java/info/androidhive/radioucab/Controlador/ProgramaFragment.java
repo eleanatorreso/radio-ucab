@@ -60,6 +60,7 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
         } catch (Exception e) {
             Log.e("Programas: onCreateView", e.getMessage());
         }
+        manejoActivity.registrarPantallaAnalytics("Programa");
         return null;
     }
 

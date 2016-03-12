@@ -17,21 +17,42 @@ public class AdaptadorPrograma extends RecyclerView.Adapter<ProgramaViewHolder>{
 
     private List<Programa> programas;
     private Fragment fragment;
-
-    public static final Integer[] images = {R.drawable.ic_parrilla,
-            R.drawable.ic_home, R.drawable.ic_perfil, R.drawable.ic_launcher, R.drawable.ic_parrilla,
-            R.drawable.ic_home, R.drawable.ic_perfil, R.drawable.ic_launcher, R.drawable.ic_parrilla,
-            R.drawable.ic_home, R.drawable.ic_perfil, R.drawable.ic_launcher, R.drawable.ic_parrilla,
-            R.drawable.ic_home, R.drawable.ic_perfil, R.drawable.ic_launcher, R.drawable.ic_parrilla,
-            R.drawable.ic_home, R.drawable.ic_perfil, R.drawable.ic_launcher, R.drawable.ic_parrilla,
-            R.drawable.ic_home, R.drawable.ic_perfil, R.drawable.ic_launcher, R.drawable.ic_parrilla,
-            R.drawable.ic_home, R.drawable.ic_perfil, R.drawable.ic_launcher, R.drawable.ic_parrilla,
-            R.drawable.ic_home, R.drawable.ic_perfil, R.drawable.ic_launcher, R.drawable.ic_home,
-            R.drawable.ic_perfil, R.drawable.ic_launcher};
+    private int iconoPrograma = 1;
 
     public AdaptadorPrograma(List<Programa> programas, Fragment fragment) {
         this.programas = programas;
         this.fragment = fragment;
+    }
+
+    private int seleccionarIconoPrograma(){
+        int resultado = 0;
+        switch (iconoPrograma){
+            case 1:
+                resultado = R.drawable.ic_parrilla;
+                iconoPrograma++;
+                break;
+            case 2:
+                resultado = R.drawable.ic_parrilla2;
+                iconoPrograma++;
+                break;
+            case 3:
+                resultado = R.drawable.ic_parrilla3;
+                iconoPrograma++;
+                break;
+            case 4:
+                resultado = R.drawable.ic_parrilla4;
+                iconoPrograma++;
+                break;
+            case 5:
+                resultado = R.drawable.ic_parrilla5;
+                iconoPrograma++;
+                break;
+            case 6:
+                resultado = R.drawable.ic_parrilla6;
+                iconoPrograma = 1;
+                break;
+        }
+        return resultado;
     }
 
     @Override
@@ -46,7 +67,7 @@ public class AdaptadorPrograma extends RecyclerView.Adapter<ProgramaViewHolder>{
         holder.tituloPrograma.setText(programas.get(position).getTitulo());
         holder.descripcionPrograma.setText(programas.get(position).getDescripcion());
         holder.tituloPrograma.setText(programas.get(position).getTitulo());
-        holder.imagenPrograma.setImageResource(images[position]);
+        holder.imagenPrograma.setImageResource(seleccionarIconoPrograma());
         holder.fragment = fragment;
     }
 

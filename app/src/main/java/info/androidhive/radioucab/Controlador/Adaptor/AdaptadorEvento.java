@@ -58,5 +58,6 @@ public class AdaptadorEvento extends ExpandableRecyclerAdapter<EventoPadreFragme
         EventoHijoViewHolder child = (EventoHijoViewHolder)o;
         eventoHijoFragment.direccionEvento.setText(child.getDireccionEvento());
         eventoHijoFragment.horarioEvento.setText(child.getHorarioEvento());
+        eventoHijoFragment.descripcionEvento.setText(child.getDescripcion());
     }
 }

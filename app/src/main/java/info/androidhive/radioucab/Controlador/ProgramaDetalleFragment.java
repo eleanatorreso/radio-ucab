@@ -54,7 +54,6 @@ public class ProgramaDetalleFragment extends Fragment {
     private final HorarioProgramaLogica horarioProgramaLogica = new HorarioProgramaLogica();
     private LinearLayout contentView;
 
-
     public ProgramaDetalleFragment() {
     }
 
@@ -162,7 +161,7 @@ public class ProgramaDetalleFragment extends Fragment {
     }
 
     public void cargarLocutores() {
-        List<Locutor> locutores = logicaLocutor.getLocutoresPrograma(programa.getId());
+        List <Locutor> locutores = logicaLocutor.getLocutoresPrograma(programa.getId());
         if (locutores != null) {
             TextView nombreLocutor;
             RelativeLayout.LayoutParams paramLocutor;
@@ -243,13 +242,15 @@ public class ProgramaDetalleFragment extends Fragment {
 
         cargarHorarios();
 
-        textoLocutores.setText("Comunicate con los locutores:");
-        RelativeLayout.LayoutParams paramTextoLocutores = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        paramTextoLocutores.addRule(RelativeLayout.BELOW, previoTextView);
-        layout.addView(textoLocutores, paramTextoLocutores);
-        previoTextView = textoLocutores.getId();
-
-        cargarLocutores();
+        if (programa.getTipo() == 0) {
+            textoLocutores.setText("Comunicate con los locutores:");
+            RelativeLayout.LayoutParams paramTextoLocutores = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+            paramTextoLocutores.addRule(RelativeLayout.BELOW, previoTextView);
+            layout.addView(textoLocutores, paramTextoLocutores);
+            previoTextView = textoLocutores.getId();
+            cargarLocutores();
+        }
+        personalizarVista();
     }
 
     public static Intent intentAbrirFacebook(Context context, String idFacebook) {
@@ -263,6 +264,13 @@ public class ProgramaDetalleFragment extends Fragment {
             return new Intent(Intent.ACTION_VIEW,
                     Uri.parse("https://www.facebook.com/sentiapps")); //catches and opens a url to the desired page
         }
+    }
+
+    public void personalizarVista(){
+        titulo.setPadding(20,0,0,0);
+        titulo.setTextColor(getResources().getColor(R.color.azul_radio_ucab));
+        titulo.setTextSize(20);
+        titulo.setGravity(Gravity.CENTER_HORIZONTAL);
     }
 
 

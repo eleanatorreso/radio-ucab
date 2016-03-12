@@ -2,6 +2,8 @@ package info.androidhive.radioucab.Controlador;
 
 import android.os.Bundle;
 import android.app.Fragment;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,10 @@ public class NoticiaDetalleFragment extends Fragment {
     public Noticia noticia;
     private TextView titulo;
     private TextView texto_noticia;
+    private TextView link;
+    private TextView fecha_creacion;
+    private TextView fuente;
+    private TextView etiquetas;
     private ManejoActivity manejoActivity = ManejoActivity.getInstancia();
 
     public NoticiaDetalleFragment() {
@@ -37,5 +43,14 @@ public class NoticiaDetalleFragment extends Fragment {
         titulo.setText(noticia.getTitular());
         texto_noticia = (TextView) getView().findViewById(R.id.texto_noticia);
         texto_noticia.setText(noticia.getTexto_noticia());
+        fuente = (TextView) getView().findViewById(R.id.fuente_noticia);
+        fuente.setText("Fuente: " + noticia.getFuente());
+        fecha_creacion = (TextView) getView().findViewById(R.id.fecha_creacion_noticia);
+        fecha_creacion.setText("Fecha de creación: " + noticia.getFecha_creacion());
+        link = (TextView) getView().findViewById(R.id.link_noticia);
+        link.setMovementMethod(LinkMovementMethod.getInstance());
+        link.setText(Html.fromHtml("<a>" + noticia.getLink() + "</a>"));
+        etiquetas = (TextView) getView().findViewById(R.id.etiquetas_noticia);
+        etiquetas.setText("Etiquetas: " + noticia.getEtiquetas());
     }
 }

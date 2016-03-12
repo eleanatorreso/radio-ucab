@@ -1,23 +1,65 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#cbcbcb">
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/titulo_descripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/azul_radio_ucab"
+        android:text="@string/campo_encabezado_eventos_descripcion" />
+
+    <TextView
+        android:id="@+id/descripcion_evento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_below="@id/titulo_descripcion"
+        android:text="descripcion" />
+
+    <TextView
+        android:id="@+id/titulo_horario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/descripcion_evento"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/azul_radio_ucab"
+        android:text="@string/campo_encabezado_eventos_horarios" />
 
     <TextView
         android:id="@+id/evento_horario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:layout_below="@id/titulo_horario"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
         android:text="horario" />
+
+    <TextView
+        android:id="@+id/titulo_direccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/evento_horario"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/azul_radio_ucab"
+        android:text="@string/campo_encabezado_eventos_direccion" />
 
     <TextView
         android:id="@+id/evento_direccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:layout_below="@id/evento_horario"
+        android:padding="10dp"
+        android:layout_below="@id/titulo_direccion"
         android:text="direccion" />
-
-
 
 </RelativeLayout>

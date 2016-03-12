@@ -16,7 +16,8 @@ import info.androidhive.radioucab.R;
 
 public class AdaptadorNoticia extends ArrayAdapter<Noticia> {
 
-    Context context;
+    private Context context;
+    private int iconoNoticia = 1;
 
     public AdaptadorNoticia(Context context, int resourceId,
                             List<Noticia> items) {
@@ -24,21 +25,41 @@ public class AdaptadorNoticia extends ArrayAdapter<Noticia> {
         this.context = context;
     }
 
-    public static final Integer[] images = {R.drawable.ic_parrilla,
-            R.drawable.ic_home, R.drawable.ic_perfil, R.drawable.ic_launcher, R.drawable.ic_parrilla,
-            R.drawable.ic_home, R.drawable.ic_perfil, R.drawable.ic_launcher, R.drawable.ic_parrilla,
-            R.drawable.ic_home, R.drawable.ic_perfil, R.drawable.ic_launcher, R.drawable.ic_parrilla,
-            R.drawable.ic_home, R.drawable.ic_perfil, R.drawable.ic_launcher, R.drawable.ic_parrilla,
-            R.drawable.ic_home, R.drawable.ic_perfil, R.drawable.ic_launcher, R.drawable.ic_parrilla,
-            R.drawable.ic_home, R.drawable.ic_perfil, R.drawable.ic_launcher, R.drawable.ic_parrilla,
-            R.drawable.ic_home, R.drawable.ic_perfil, R.drawable.ic_launcher, R.drawable.ic_parrilla,
-            R.drawable.ic_home, R.drawable.ic_perfil, R.drawable.ic_launcher, R.drawable.ic_home,
-            R.drawable.ic_perfil, R.drawable.ic_launcher};
-
     private class ViewHolder {
         ImageView imageView;
         TextView titulo;
         TextView descripcion;
+    }
+
+    private int seleccionarIconoGeneral(){
+        int resultado = 0;
+        switch (iconoNoticia){
+            case 1:
+                resultado = R.drawable.ic_noticias;
+                iconoNoticia++;
+                break;
+            case 2:
+                resultado = R.drawable.ic_noticia2;
+                iconoNoticia++;
+                break;
+            case 3:
+                resultado = R.drawable.ic_noticia3;
+                iconoNoticia++;
+                break;
+            case 4:
+                resultado = R.drawable.ic_noticia4;
+                iconoNoticia++;
+                break;
+            case 5:
+                resultado = R.drawable.ic_noticia5;
+                iconoNoticia++;
+                break;
+            case 6:
+                resultado = R.drawable.ic_noticia6;
+                iconoNoticia = 1;
+                break;
+        }
+        return resultado;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -58,10 +79,22 @@ public class AdaptadorNoticia extends ArrayAdapter<Noticia> {
         else
             holder = (ViewHolder) convertView.getTag();
 
-        holder.descripcion.setText(noticia.getTexto_noticia().substring(0, 76) + "......");
+        holder.descripcion.setText(noticia.getTexto_noticia().substring(0, 172) + ".....");
         holder.titulo.setText(noticia.getTitular());
-        holder.imageView.setImageResource(images[position]);
-
+        switch (noticia.getTipo()) {
+            //externa
+            case 0:
+                holder.imageView.setImageResource(seleccionarIconoGeneral());
+                break;
+            //Radio UCAB
+            case 1:
+                holder.imageView.setImageResource(R.drawable.ic_launcher);
+                break;
+            //UCAB
+            case 2:
+                holder.imageView.setImageResource(R.drawable.ic_logo_ucab);
+                break;
+        }
         return convertView;
     }
 }

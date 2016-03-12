@@ -1,8 +1,10 @@
 package info.androidhive.radioucab.Controlador;
 
+import com.google.android.gms.analytics.Tracker;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
+import info.androidhive.radioucab.Logica.AnalyticsApplication;
 import info.androidhive.radioucab.Logica.FabricLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.PerfilLogica;
@@ -73,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle mDrawerToggle;
     private ImageButton fab_interaccion;
     private ImageView icono_interaccion;
+    private Tracker mTracker;
     // private ManejoConcurso manejoConcurso = new ManejoConcurso();
 
     @Override

@@ -1,24 +1,89 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollViewDetalleNoticia"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/titulo_noticia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="20dp"
-        android:textColor="@color/azul_radio_ucab"
-        android:textSize="18dp" />
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/texto_noticia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/titulo_noticia"
-        android:paddingBottom="20dp"
-        android:textColor="@color/azul_radio_ucab"
-        android:textSize="16dp" />
+        <TextView
+            android:id="@+id/titulo_noticia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/azul_radio_ucab"
+            android:textSize="19sp" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/fecha_creacion_noticia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titulo_noticia"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:textColor="@color/azul_radio_ucab"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/fuente_noticia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fecha_creacion_noticia"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:textColor="@color/azul_radio_ucab"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/texto_noticia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fuente_noticia"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/link_noticia_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/texto_noticia"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="Link:"
+            android:textColor="@color/azul_radio_ucab"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/link_noticia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/texto_noticia"
+            android:layout_toRightOf="@id/link_noticia_nombre"
+            android:autoLink="all"
+            android:clickable="true"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/azul_radio_ucab"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/etiquetas_noticia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/link_noticia"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/azul_radio_ucab"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+</ScrollView>

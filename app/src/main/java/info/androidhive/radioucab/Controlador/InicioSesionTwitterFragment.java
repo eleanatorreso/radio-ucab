@@ -59,6 +59,7 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
         } catch (Exception e) {
             Log.e("IniSesTwit:onCreateV", e.getMessage());
         }
+        manejoActivity.registrarPantallaAnalytics("Inicio de Sesión");
         return null;
     }
 

@@ -83,6 +83,7 @@ public class PerfilFragment extends Fragment {
         if (rootView != null) {
             //cambio el color del toolbar superior
             manejoActivity.editarActivity(6, false, "Perfil");
+            manejoActivity.registrarPantallaAnalytics("Perfil");
             super.onCreate(savedInstanceState);
             actualizarPerfil();
         }

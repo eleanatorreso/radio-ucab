@@ -75,7 +75,6 @@ public class ProgramaLogica {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            int a = 2;
         }
         return programas;
     }

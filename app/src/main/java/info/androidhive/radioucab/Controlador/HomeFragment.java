@@ -30,6 +30,7 @@ import com.twitter.sdk.android.tweetui.UserTimeline;
 import java.util.List;
 
 import info.androidhive.radioucab.Controlador.GCM.RegistrationIntentService;
+import info.androidhive.radioucab.Logica.AnalyticsApplication;
 import info.androidhive.radioucab.Logica.HashtagLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.ManejoEnvioTweet;
@@ -125,7 +126,8 @@ public class HomeFragment extends ListFragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-
+//        AnalyticsApplication application = (AnalyticsApplication) getActivity().getApplication();
+        manejoActivity.registrarPantallaAnalytics("Home");
         return rootView;
     }
 

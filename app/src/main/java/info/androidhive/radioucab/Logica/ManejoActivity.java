@@ -10,12 +10,17 @@ import android.graphics.BitmapFactory;
 import android.graphics.PorterDuff;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.util.ArrayList;
 
@@ -68,6 +73,8 @@ public class ManejoActivity {
     private ProgressBar progressStreaming;
     private ImageView icono_interaccion;
     private static int streaming = 4;
+    private Tracker mTracker;
+    private ImageView boton;
 
     public static ManejoActivity getInstancia() {
         if (instancia == null) {
@@ -114,6 +121,7 @@ public class ManejoActivity {
         ondas_off = (ImageView) activityPrincipal.findViewById(R.id.imagen_ondas_off);
         ondas_on = (ImageView) activityPrincipal.findViewById(R.id.imagen_ondas_on);
         icono_interaccion = (ImageView) activityPrincipal.findViewById(R.id.imagen_interaccion);
+        boton = (ImageView) activityPrincipal.findViewById(R.id.icono_menu);
     }
 
     public void cambiarToolbar() {
@@ -306,12 +314,12 @@ public class ManejoActivity {
             mDrawerList.setSelection(posicion);
             getActivityPrincipal().setTitle(navMenuTitles[posicion]);
         }
-        fragmentManager.popBackStack();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frame_container, fragmento);
-        /*
-        if (addToBackStack)
-            transaction.addToBackStack(null);*/
+        if (addToBackStack) {
+            transaction.addToBackStack(null);
+            botonMenu.setVisibility(View.INVISIBLE);
+        }
         transaction.commit();
         return fragmento;
     }
@@ -361,7 +369,6 @@ public class ManejoActivity {
         }
     }
 
-
     public void progressBarStreaming(boolean flag) {
         if (flag) {
             progressStreaming.setVisibility(View.VISIBLE);
@@ -373,7 +380,7 @@ public class ManejoActivity {
         }
     }
 
-    //metodo crear para actualizar el activity cada vez que la notificacion de la musica sea abierta
+    //metodo creado para actualizar el activity cada vez que la notificacion de la musica sea abierta
     public void cambioReproductor(String mensaje) {
         if (mensaje.equals("Play")) {
             ondas_on.setVisibility(View.VISIBLE);
@@ -382,6 +389,7 @@ public class ManejoActivity {
             boton_play.setVisibility(View.INVISIBLE);
             boton_stop.setVisibility(View.VISIBLE);
             streaming = 1;
+            registrarPantallaAnalytics("Reproduccion del streaming");
         } else if (mensaje.equals("Pausar")) {
             ondas_on.setVisibility(View.INVISIBLE);
             ondas_off.setVisibility(View.VISIBLE);
@@ -412,6 +420,37 @@ public class ManejoActivity {
             return true;
         }
         return false;
+    }
+
+    public void manejoAnalytics() {
+        // Obtain the shared Tracker instance.
+        AnalyticsApplication application = AnalyticsApplication.getInstancia(activityPrincipal);
+        mTracker = application.getDefaultTracker();
+        mTracker.send(new HitBuilders.ScreenViewBuilder()
+                .setNewSession()
+                .build());
+    }
+
+    public void registrarPantallaAnalytics(String name) {
+        if (mTracker == null) {
+            manejoAnalytics();
+        }
+        Log.i("Pantalla enviada", "Nombre de la pantalla: " + name);
+        mTracker.setScreenName("Pantalla:" + name);
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+        mTracker.send(new HitBuilders.EventBuilder().build());
+        GoogleAnalytics.getInstance(activityPrincipal.getBaseContext()).dispatchLocalHits();
+    }
+
+    public void enviarInteraccion(String tipo) {
+        if (mTracker == null) {
+            manejoAnalytics();
+        }
+        mTracker.send(new HitBuilders.SocialBuilder()
+                .setNetwork("Twitter")
+                .setAction("Interaccion")
+                .setTarget(tipo)
+                .build());
     }
 
 }

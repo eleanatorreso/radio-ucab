@@ -47,7 +47,7 @@ public class conexionGETAPIJSONArray extends AsyncTask<String, String, JSONArray
     protected void onPreExecute() {
         try {
             super.onPreExecute();
-            if (!mensaje.isEmpty()) {
+            if (mensaje!= null &&!mensaje.isEmpty()) {
                 noticiaProgressDialog = new ProgressDialog(contexto);
                 noticiaProgressDialog.setMessage(mensaje);
                 noticiaProgressDialog.setIndeterminate(true);

@@ -10,17 +10,27 @@ public class Evento extends SugarRecord implements Comparable<Evento> {
     private String horario;
     private String direccion;
     private Date fecha_inicio;
+    private String descripcion;
 
     public Evento() {
 
     }
 
-    public Evento(int myId, String titulo, String horario, String direccion, Date fecha_inicio) {
+    public Evento(int myId, String titulo, String horario, String direccion, Date fecha_inicio, String descripcion) {
         this.myId = myId;
         this.titulo = titulo;
         this.horario = horario;
         this.direccion = direccion;
         this.fecha_inicio = fecha_inicio;
+        this.descripcion = descripcion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public int getMyId() {

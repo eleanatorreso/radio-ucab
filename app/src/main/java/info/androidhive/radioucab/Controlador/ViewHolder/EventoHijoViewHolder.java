@@ -4,10 +4,21 @@ public class EventoHijoViewHolder {
 
     private String direccionEvento;
     private String horarioEvento;
+    private String descripcion;
 
-    public EventoHijoViewHolder(String direccionEvento, String horarioEvento) {
+
+    public EventoHijoViewHolder(String direccionEvento, String horarioEvento, String descripcion) {
         this.direccionEvento = direccionEvento;
         this.horarioEvento = horarioEvento;
+        this.descripcion = descripcion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getDireccionEvento() {

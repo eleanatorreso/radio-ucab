@@ -424,6 +424,10 @@
     <string name="campo_encabezado_editar_tweet_premiacion">Participa en esta premiación</string>
     <string name="campo_encabezado_editar_tweet_programa">Estas escuchando....</string>
     <string name="campo_encabezado_editar_tweet_solicitar">Solicitar canción</string>
+    <string name="campo_encabezado_eventos">Próximos eventos</string>
+    <string name="campo_encabezado_eventos_descripcion">Descripción del evento:</string>
+    <string name="campo_encabezado_eventos_direccion">Dirección del evento:</string>
+    <string name="campo_encabezado_eventos_horarios">Horarios:</string>
     <string name="campo_encabezado_finalidad_comentario">Finalidad:</string>
     <string name="campo_encabezado_inicio_sesion">Iniciar sesión</string>
     <string name="campo_encabezado_registro">Registro de Usuario</string>
@@ -457,7 +461,7 @@
     <string name="cast_notification_connected_message">Connected to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_connecting_message">Connecting to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_disconnect">Disconnect</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">bbfd73a9-7713-497e-b359-00b86d8fab59</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">3bd6cfc0-40c3-4c83-ab6c-6a8aa12a862a</string>
     <string name="common_android_wear_notification_needs_update_text"><ns1:g id="app_name">%1$s</ns1:g> requires an update to the Android Wear app.</string>
     <string name="common_android_wear_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update the Android Wear app.</string>
     <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>
@@ -576,6 +580,7 @@
     <string name="drawer_close">Slider Menu Closed</string>
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="gcm_defaultSenderId" translatable="false">728231030622</string>
+    <string name="google_app_id">1:728231030622:android:86badc4dab2b4f79</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint_campo_apellido">Apellido</string>
     <string name="hint_campo_correo">Correo Electrónico</string>

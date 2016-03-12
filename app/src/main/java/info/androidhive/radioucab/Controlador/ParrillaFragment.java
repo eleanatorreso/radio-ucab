@@ -52,6 +52,7 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
         } catch (Exception e) {
             Log.e("Parrilla: onCreateView", e.getMessage());
         }
+        manejoActivity.registrarPantallaAnalytics("Parrilla");
         return null;
     }
 

@@ -96,12 +96,12 @@
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\drawable-xhdpi\\abc_text_cursor_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_play.png",
-        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_play.png"
-    },
-    {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_ondas_off.png",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_ondas_off.png"
+    },
+    {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_play.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_play.png"
     },
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_foto_perfil.png",
@@ -110,6 +110,10 @@
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_moreoverflow_mtrl_alpha.png",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\drawable-xhdpi\\abc_ic_menu_moreoverflow_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_noticia4.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_noticia4.png"
     },
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_media_route_on_1_mono_dark.png",
@@ -122,6 +126,10 @@
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_rating_star_off_mtrl_alpha.png",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\drawable-xhdpi\\abc_btn_rating_star_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_logo_ucab.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_logo_ucab.png"
     },
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_edicion.png",
@@ -158,6 +166,10 @@
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_normal.9.png",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.3.0\\res\\drawable-xhdpi\\common_plus_signin_btn_icon_light_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_noticia2.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_noticia2.png"
     },
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\mr_ic_audio_vol.png",
@@ -216,12 +228,12 @@
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_comentario.png"
     },
     {
-        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_principal.png",
-        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_principal.png"
-    },
-    {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_cast_dark.png",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\drawable-xhdpi\\ic_cast_dark.png"
+    },
+    {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_principal.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_principal.png"
     },
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\dgts__logo.png",
@@ -238,6 +250,10 @@
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_imagen_perfil.png",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_imagen_perfil.png"
+    },
+    {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_parrilla4.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_parrilla4.png"
     },
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\dgts__spinner_light.png",
@@ -286,6 +302,10 @@
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_pressed_holo_light.9.png",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\drawable-xhdpi\\abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_parrilla2.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_parrilla2.png"
     },
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_setting_light.png",
@@ -372,6 +392,10 @@
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.digits.sdk.android\\digits\\1.8.0\\res\\drawable-xhdpi\\dgts__addressbook_header.png"
     },
     {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_parrilla5.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_parrilla5.png"
+    },
+    {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_pressed.9.png",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.3.0\\res\\drawable-xhdpi\\common_google_signin_btn_icon_light_pressed.9.png"
     },
@@ -416,12 +440,12 @@
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_perfil.png"
     },
     {
-        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\tw__share_email_header.png",
-        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\twitter-core\\1.5.0\\res\\drawable-xhdpi\\tw__share_email_header.png"
-    },
-    {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_perfil_usuario.png",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_perfil_usuario.png"
+    },
+    {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\tw__share_email_header.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\twitter-core\\1.5.0\\res\\drawable-xhdpi\\tw__share_email_header.png"
     },
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_popup_background_mtrl_mult.9.png",
@@ -462,6 +486,10 @@
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_drawer.png",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_drawer.png"
+    },
+    {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_parrilla6.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_parrilla6.png"
     },
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_go_search_api_mtrl_alpha.png",
@@ -548,6 +576,10 @@
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast\\8.3.0\\res\\drawable-xhdpi\\cast_ic_notification_on.png"
     },
     {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_noticia6.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_noticia6.png"
+    },
+    {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_launcher.png",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi-v4\\ic_launcher.png"
     },
@@ -600,6 +632,14 @@
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\tweet-ui\\1.5.0\\res\\drawable-xhdpi\\tw__ic_retweet_light.png"
     },
     {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_noticia3.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_noticia3.png"
+    },
+    {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_parrilla3.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_parrilla3.png"
+    },
+    {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_configuracion.png",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_configuracion.png"
     },
@@ -624,6 +664,10 @@
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\drawable-xhdpi\\abc_textfield_search_activated_mtrl_alpha.9.png"
     },
     {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_noticia5.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_noticia5.png"
+    },
+    {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\tw__ic_tweet_photo_error_dark.png",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\tweet-ui\\1.5.0\\res\\drawable-xhdpi\\tw__ic_tweet_photo_error_dark.png"
     },
@@ -632,16 +676,16 @@
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.twitter.sdk.android\\tweet-ui\\1.5.0\\res\\drawable-xhdpi\\tw__ic_retweet_dark.png"
     },
     {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_add_white_48dp.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_add_white_48dp.png"
+    },
+    {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\drawable-xhdpi\\abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_pause_dark.png",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\drawable-xhdpi\\ic_pause_dark.png"
-    },
-    {
-        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_add_white_48dp.png",
-        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-xhdpi\\ic_add_white_48dp.png"
     },
     {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_stat_stop.png",

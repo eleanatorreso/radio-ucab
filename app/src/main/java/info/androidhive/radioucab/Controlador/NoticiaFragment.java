@@ -3,6 +3,7 @@ package info.androidhive.radioucab.Controlador;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
@@ -23,7 +24,9 @@ import java.util.List;
 
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONArray;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONObject;
+import info.androidhive.radioucab.Logica.ActualizacionLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
+import info.androidhive.radioucab.Logica.NoticiaLogica;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.Controlador.Adaptor.AdaptadorNoticia;
 import info.androidhive.radioucab.Model.Actualizacion;
@@ -43,11 +46,10 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
     private static Date ultimaActWS;
     private static final ManejoFecha tiempoActual = new ManejoFecha();
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
-
-    public static final String[] descriptions = new String[]{
-            "Descripcion 1",
-            "Descripcion 2", "Descripcion 3",
-            "Descripcion 4"};
+    private final ActualizacionLogica actualizacionLogica = new ActualizacionLogica();
+    private final NoticiaLogica noticiaLogica = new NoticiaLogica();
+    private int pagina = 1;
+    private ProgressDialog noticiaProgressDialog;
 
     public NoticiaFragment() {
     }
@@ -61,6 +63,7 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
         } catch (Exception e) {
             Log.e("Noticias: onCreateView", e.getMessage());
         }
+        manejoActivity.registrarPantallaAnalytics("Noticia");
         return null;
     }
 
@@ -123,14 +126,8 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
             public void onItemClick(AdapterView<?> parent, final View view,
                                     int position, long id) {
                 Noticia item = (Noticia) parent.getItemAtPosition(position);
-
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.addToBackStack("atras");
-                NoticiaDetalleFragment noticiaDetalleFragment = new NoticiaDetalleFragment();
+                NoticiaDetalleFragment noticiaDetalleFragment = (NoticiaDetalleFragment) manejoActivity.cambiarFragment("NoticiaDetalle",true);
                 noticiaDetalleFragment.noticia = Noticia.findById(Noticia.class, item.getId());
-                ft.replace(((ViewGroup) getView().getParent()).getId(), noticiaDetalleFragment);
-                ft.commit();
             }
         });
         List<Noticia> noticiasAlmacenadas = Noticia.listAll(Noticia.class);
@@ -140,22 +137,13 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
             flag = 1;
         }
     }
-/*
-    private void replaceFragment (Fragment fragment){
-        String backStateName = fragment.getClass().getName();
 
-        FragmentManager manager = getFragmentManager();
-        boolean fragmentPopped = manager.popBackStackImmediate(backStateName, 0);
-
-        if (!fragmentPopped){ //fragment not in back stack, create it.
-            FragmentTransaction ft = manager.beginTransaction();
-            ft.replace(R.id.deta, fragment);
-            ft.addToBackStack(backStateName);
-            ft.commit();
-        }
-    }
-*/
     public void comprobarUltimaActualizacion() {
+        noticiaProgressDialog = new ProgressDialog(getActivity());
+        noticiaProgressDialog.setMessage("Cargando las noticias...");
+        noticiaProgressDialog.setIndeterminate(true);
+        noticiaProgressDialog.setCancelable(true);
+        noticiaProgressDialog.show();
         conexionObjeto = new conexionGETAPIJSONObject();
         conexionObjeto.contexto = getActivity();
         conexionObjeto.delegate = this;
@@ -163,11 +151,16 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
     }
 
     public void cargarNoticias() {
+        noticiaProgressDialog = new ProgressDialog(getActivity());
+        noticiaProgressDialog.setMessage("Cargando las noticias...");
+        noticiaProgressDialog.setIndeterminate(true);
+        noticiaProgressDialog.setCancelable(true);
+        noticiaProgressDialog.show();
         conexion = new conexionGETAPIJSONArray();
         conexion.contexto = getActivity();
-        conexion.mensaje = "Cargando las noticias...";
+        //conexion.mensaje = "Cargando las noticias...";
         conexion.delegate = this;
-        conexion.execute("Api/Noticia/GetNoticia");
+        conexion.execute("Api/Noticia/GetNoticia?pagina=" + pagina);
     }
 
     public void preCargarNoticias(List<Noticia> noticias) {
@@ -179,45 +172,18 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
         }
     }
 
-    public void almacenarUltimaAct() {
-        try {
-            ManejoFecha tiempoActual = new ManejoFecha();
-            Actualizacion ultimaActualizacion = new Actualizacion();
-            List<Actualizacion> listaActualizaciones = Actualizacion.listAll(Actualizacion.class);
-            if (listaActualizaciones != null && listaActualizaciones.size() > 0) {
-                ultimaActualizacion = listaActualizaciones.get(0);
-                Date evento = ultimaActualizacion.getActEvento();
-                Date programa = ultimaActualizacion.getActPrograma();
-                Date parrilla = ultimaActualizacion.getActParrilla();
-                Actualizacion.deleteAll(Actualizacion.class);
-                Actualizacion nuevaActualizacion = new Actualizacion(evento, ultimaActWS, programa, parrilla);
-                nuevaActualizacion.save();
-            } else {
-                Actualizacion nuevaActualizacion = new Actualizacion(null, ultimaActWS, null, null);
-                nuevaActualizacion.save();
-            }
-        } catch (Exception e) {
-            Log.e("Noticias: ult.act", e.getMessage());
-        }
-    }
-
-    public void procesarResultados(JSONArray resultado) {
-        almacenarUltimaAct();
+    public void procesarResultados(JSONArray resultados) {
+        actualizacionLogica.almacenarUltimaActualizacion(2, ultimaActWS);
         Noticia noticiaNueva = new Noticia();
         try {
             Noticia.deleteAll(Noticia.class);
-            for (int i = 0; i < resultado.length(); i++) {
-                JSONObject objeto = resultado.getJSONObject(i);
-                noticiaNueva = new Noticia(objeto.getInt("id"), objeto.getString("titular"), objeto.getString("texto_noticia"), objeto.getString("link"), objeto.getString("fuente"));
-                noticiaNueva.save();
-            }
+            noticiaLogica.procesarResultados(resultados);
             adapter = new AdaptadorNoticia(getActivity(), R.layout.adapter_noticia, Noticia.listAll(Noticia.class));
             listaNoticias.setAdapter(adapter);
         } catch (Exception e) {
             Log.e("Noticias:procesando", e.getMessage());
         }
     }
-
 
     public void refrescarContenido() {
         comprobarUltimaActualizacion();
@@ -231,7 +197,6 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
             if (listaActualizaciones != null && listaActualizaciones.size() > 0) {
                 Actualizacion ultimaActualizacion = listaActualizaciones.get(0);
                 if (ultimaActualizacion.getActNoticia().equals(ultimaActWS) == true) {
-                    List<Noticia> a =Noticia.listAll(Noticia.class);
                     mensaje = "Noticias Actualizadas";
                     toast = Toast.makeText(getActivity(), mensaje, Toast.LENGTH_LONG);
                     toast.show();
@@ -253,6 +218,7 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
             toast = Toast.makeText(getActivity(), "Noticias nuevas", Toast.LENGTH_LONG);
             toast.show();
             swipeRefreshLayout.setRefreshing(false);
+            noticiaProgressDialog.dismiss();
         } catch (Exception e) {
             Log.e("Noticias: toast", e.getMessage());
         }
@@ -262,6 +228,7 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
     public void procesoExitoso(JSONObject resultado) {
         ultimaActualizacion(resultado);
         swipeRefreshLayout.setRefreshing(false);
+        noticiaProgressDialog.dismiss();
     }
 
     @Override
@@ -272,6 +239,7 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
     @Override
     public void procesoNoExitoso() {
         try {
+            noticiaProgressDialog.dismiss();
             toast = Toast.makeText(getActivity(), "Error al actualizar las noticias, intentelo más tarde", Toast.LENGTH_LONG);
             toast.show();
             swipeRefreshLayout.setRefreshing(false);

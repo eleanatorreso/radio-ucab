@@ -40,6 +40,39 @@ public class ManejoEnvioTweet implements RespuestaAsyncTask, RespuestaStringAsyn
         this.comentario = comentario;
     }
 
+    public void clasificarInteraccion(){
+        switch (comentario.getFinalidad()){
+            //concurso
+            case 1:
+                manejoActivity.enviarInteraccion("Concurso");
+                break;
+            //dedicatoria
+            case 2:
+                manejoActivity.enviarInteraccion("Dedicatoria");
+                break;
+            //solicitud
+            case 3:
+                manejoActivity.enviarInteraccion("Solicitud");
+                break;
+            //comentario
+            case 4:
+                manejoActivity.enviarInteraccion("Comentario");
+                break;
+            //sugerencia
+            case 5:
+                manejoActivity.enviarInteraccion("Sugerencia");
+                break;
+            //queja
+            case 6:
+                manejoActivity.enviarInteraccion("Queja");
+                break;
+            //programa
+            case 7:
+                manejoActivity.enviarInteraccion("Programa");
+                break;
+        }
+    }
+
     private boolean twitearComentario() {
         final boolean [] respuesta = new boolean[1];
         TwitterApiClient twitterApiClient = TwitterCore.getInstance().getApiClient();
@@ -50,7 +83,8 @@ public class ManejoEnvioTweet implements RespuestaAsyncTask, RespuestaStringAsyn
                 respuesta[0] = true;
                 comentario.setIdTweet(result.data.getId());
                 enviarIdTweet();
-                manejoActivity.cambiarFragment(manejoActivity.getFragmentoActual(),false);
+                manejoActivity.cambiarFragment(manejoActivity.getFragmentoActual(), false);
+                clasificarInteraccion();
             }
 
             @Override
