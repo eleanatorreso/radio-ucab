@@ -11,7 +11,7 @@
         android:gravity="center"
         android:text="@string/campo_encabezado_inicio_sesion"
         android:textColor="@color/azul_ucab"
-        android:textSize="25dp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/campo_texto_inicio_sesion_uno"
@@ -19,6 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/texto_encabezado_inicio_sesion"
         android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:text="@string/campo_texto_inicio_sesion_uno"
         android:textColor="@android:color/black"
         android:textSize="16sp"
@@ -32,10 +34,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/campo_texto_inicio_sesion_uno"
         android:layout_marginTop="15dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:text="@string/campo_texto_inicio_sesion_dos"
         android:textColor="@color/azul_ucab"
         android:textSize="16sp"
-        android:textStyle="bold"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_gravity="center_horizontal"/>

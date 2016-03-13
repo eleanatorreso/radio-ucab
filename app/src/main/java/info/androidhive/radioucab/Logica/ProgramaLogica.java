@@ -65,8 +65,7 @@ public class ProgramaLogica {
                 objeto = resultadoConsulta.getJSONObject(programa);
                 JSONArray locutores = objeto.getJSONArray("locutores");
                 JSONArray horarios = objeto.getJSONArray("horarios");
-                programaNuevo = new Programa(objeto.getInt("id"), objeto.getString("nombre"), objeto.getString("descripcion")
-                        , objeto.getString("tipo"));
+                programaNuevo = new Programa(objeto.getInt("id"), objeto.getString("nombre"), objeto.getString("descripcion"),objeto.getInt("tipo"));
                 programaNuevo.save();
                 procesarHorarios(horarios, programaNuevo);
                 List<Locutor> locutoresPrograma = procesarLocutores(locutores);

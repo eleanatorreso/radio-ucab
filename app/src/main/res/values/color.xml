@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="blanco">#ffff</color>
+    <color name="negro">#000</color>
     <color name="list_pressed">#EDEDED</color>
     <color name="list_divider">#E5E5E5</color>
     <color name="lista_texto">#212121</color>

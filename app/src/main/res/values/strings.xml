@@ -73,11 +73,26 @@
     <!-- Contenido de los campos-->
     <string name="campo_boton_cancelar">Cancelar</string>
     <string name="campo_boton_guardar">Guardar</string>
+    <!-- Mis Concursos-->
+    <string name="campo_encabezado_mis_concursos">Mis concursos</string>
+    <!-- Configuración-->
+    <string name="campo_encabezado_configuración">Configuración</string>
+    <string name="campo_encabezado_configuración_uno">Recibir notificaciones de la aplicación </string>
+    <string name="campo_encabezado_configuración_dos">Consumir menos datos del streaming (esto disminuirá la calidad del audio) </string>
+    <!-- Parrilla-->
+    <string name="campo_encabezado_parrilla">Programación del día</string>
+    <string name="campo_encabezado_horario_parrilla">Hora</string>
+    <string name="campo_encabezado_programa_parrilla">Programa</string>
     <!-- Eventos-->
     <string name="campo_encabezado_eventos">Próximos eventos</string>
     <string name="campo_encabezado_eventos_horarios">Horarios:</string>
     <string name="campo_encabezado_eventos_descripcion">Descripción del evento:</string>
     <string name="campo_encabezado_eventos_direccion">Dirección del evento:</string>
+    <!-- Programas-->
+    <string name="campo_encabezado_programas">Programas de Radio UCAB</string>
+    <string name="campo_encabezado_programas_horarios">Horarios del programa</string>
+    <string name="campo_encabezado_programas_tipo">Tipo de programa:</string>
+    <string name="campo_encabezado_programas_locutores">Comunicate con los locutores</string>
     <!-- Inicio de sesión-->
     <string name="campo_encabezado_inicio_sesion">Iniciar sesión</string>
     <string name="campo_texto_inicio_sesion_uno">Inicia sesión para comenzar a disfrutar de todo lo que Radio UCAB trae para ti: interacción con lo que escuchas, concursos, solicitudes de canciones y mucho más.</string>
@@ -98,8 +113,9 @@
     <string name="campo_boton_editar_perfil">Editar perfil</string>
     <string name="campo_texto_informacion_personal">Información Personal</string>
     <string name="campo_texto_tu_radio_ucab">Tú + Radio UCAB</string>
-    <string name="campo_texto_mis_premios">Mis premios</string>
+    <string name="campo_texto_mis_premios">Mis concursos</string>
     <string name="campo_texto_mis_programas_favoritos">Mis programas favoritos</string>
+    <string name="campo_texto_mis_preferencia_noticias">Mis noticias</string>
     <!-- Dialogo de Interaccion-->
     <string name="campo_header_dialogo">Interactúa con nosotros</string>
     <string name="campo_texto_solicitar_cancion">Solicitar canción</string>

@@ -2,21 +2,39 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    
+
+
     <TextView
-        android:id="@+id/txtLabel"
-         android:layout_width="wrap_content"
+        android:id="@+id/texto_titulo_programa"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="@string/campo_encabezado_configuración"
+        android:textColor="@color/gris_claro"
+        android:textSize="20sp" />
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/campo_encabezado_configuración_uno"
+        android:id="@+id/campo_switch_configuracion_uno"
+        android:layout_below="@+id/texto_titulo_programa"
         android:textSize="16dp"
-        android:text="What's Hot View"/>
-    
-    <ImageView android:layout_width="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"/>
+
+    <Switch
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txtLabel"
-        android:src="@drawable/ic_configuracion"
-        android:layout_centerHorizontal="true"
+        android:text="@string/campo_encabezado_configuración_dos"
+        android:id="@+id/campo_switch_configuracion_dos"
+        android:layout_below="@+id/campo_switch_configuracion_uno"
+        android:textSize="16dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"/>
-    
+
 
 </RelativeLayout>

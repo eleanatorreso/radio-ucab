@@ -9,6 +9,7 @@
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
+        android:textSize="16sp"
         android:textColor="@color/azul_radio_ucab"
         android:text="@string/campo_encabezado_eventos_descripcion" />
 
@@ -19,29 +20,30 @@
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
-        android:layout_below="@id/titulo_descripcion"
-        android:text="descripcion" />
+        android:textSize="15sp"
+        android:layout_below="@id/titulo_descripcion" />
 
     <TextView
         android:id="@+id/titulo_horario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/descripcion_evento"
+        android:textSize="16sp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
         android:textColor="@color/azul_radio_ucab"
-        android:text="@string/campo_encabezado_eventos_horarios" />
+        android:text="@string/campo_encabezado_eventos_horarios"/>
 
     <TextView
         android:id="@+id/evento_horario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/titulo_horario"
+        android:textSize="15sp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        android:text="horario" />
+        android:paddingLeft="10dp" />
 
     <TextView
         android:id="@+id/titulo_direccion"
@@ -51,6 +53,7 @@
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:paddingLeft="10dp"
+        android:textSize="16sp"
         android:textColor="@color/azul_radio_ucab"
         android:text="@string/campo_encabezado_eventos_direccion" />
 
@@ -59,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:layout_below="@id/titulo_direccion"
-        android:text="direccion" />
+        android:textSize="15sp"
+        android:layout_below="@id/titulo_direccion" />
 
 </RelativeLayout>

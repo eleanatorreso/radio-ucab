@@ -71,7 +71,7 @@ public class AdaptadorNoticia extends ArrayAdapter<Noticia> {
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.adapter_noticia, null);
             holder = new ViewHolder();
-            holder.descripcion = (TextView) convertView.findViewById(R.id.desc);
+            holder.descripcion = (TextView) convertView.findViewById(R.id.campo_descripcion_noticia);
             holder.titulo = (TextView) convertView.findViewById(R.id.title);
             holder.imageView = (ImageView) convertView.findViewById(R.id.icon);
             convertView.setTag(holder);

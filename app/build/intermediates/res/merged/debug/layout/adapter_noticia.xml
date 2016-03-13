@@ -4,8 +4,8 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:layout_centerVertical="true" />
@@ -18,10 +18,10 @@
         android:layout_toRightOf="@+id/icon"
         android:layout_marginRight="5dp"
         android:textColor="@color/azul_radio_ucab"
-        android:textSize="17sp" />
+        android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/desc"
+        android:id="@+id/campo_descripcion_noticia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
@@ -30,6 +30,6 @@
         android:layout_marginRight="5dp"
         android:paddingBottom="10dp"
         android:textColor="@android:color/black"
-        android:textSize="12sp" />
+        android:textSize="14sp" />
 
 </RelativeLayout>

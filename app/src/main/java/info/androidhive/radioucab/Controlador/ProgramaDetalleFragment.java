@@ -1,6 +1,5 @@
 package info.androidhive.radioucab.Controlador;
 
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -16,17 +15,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.app.Activity;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.text.Editable;
-import android.view.LayoutInflater;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
-import android.widget.RelativeLayout;
 
+import java.lang.reflect.GenericDeclaration;
 import java.util.List;
 
 import info.androidhive.radioucab.Logica.HorarioProgramaLogica;
@@ -42,7 +33,9 @@ public class ProgramaDetalleFragment extends Fragment {
     public Programa programa;
     private TextView titulo;
     private TextView descripcion;
-    private TextView textoLocutores;
+    private TextView encabezadoLocutores;
+    private TextView encabezadoHorarios;
+    private TextView tipoPrograma;
     private RelativeLayout.LayoutParams params;
     private int previoTextView = 0, idElementos = 0;
     private RelativeLayout layout;
@@ -53,6 +46,7 @@ public class ProgramaDetalleFragment extends Fragment {
     private ManejoActivity manejoActivity = ManejoActivity.getInstancia();
     private final HorarioProgramaLogica horarioProgramaLogica = new HorarioProgramaLogica();
     private LinearLayout contentView;
+    private RelativeLayout.LayoutParams paramHorario;
 
     public ProgramaDetalleFragment() {
     }
@@ -88,14 +82,16 @@ public class ProgramaDetalleFragment extends Fragment {
     public void setImagenFacebook(final String idUsuarioFacebook, int idDerecha) {
         try {
             ImageView imagenFacebook = new ImageView(getActivity());
-            String uri = "@drawable/ic_facebook_icon";
+            String uri = "@drawable/ic_facebook";
             int imageResource = getResources().getIdentifier(uri, null, getActivity().getPackageName());
             Drawable res = getResources().getDrawable(imageResource);
             imagenFacebook.setImageDrawable(res);
             imagenFacebook.setId(Integer.parseInt(siguienteIdElemento()));
-            RelativeLayout.LayoutParams paramIconoFacebook = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+            RelativeLayout.LayoutParams paramIconoFacebook = new RelativeLayout.LayoutParams(40,40);
             paramIconoFacebook.addRule(RelativeLayout.RIGHT_OF, idDerecha);
             paramIconoFacebook.addRule(RelativeLayout.BELOW, previoTextView);
+            //paramIconoFacebook.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+            paramIconoFacebook.setMargins(0, 10, 20, 0);
             layout.addView(imagenFacebook, paramIconoFacebook);
             idFacebook = imagenFacebook.getId();
             imagenFacebook.setOnClickListener(new View.OnClickListener() {
@@ -111,14 +107,15 @@ public class ProgramaDetalleFragment extends Fragment {
 
     public void setImagenTwitter(final String idUsuarioTwitter) {
         ImageView imagenTwitter = new ImageView(getActivity());
-        String uri = "@drawable/ic_twitter_icon";
+        String uri = "@drawable/ic_twitter";
         int imageResource = getResources().getIdentifier(uri, null, getActivity().getPackageName());
         Drawable res = getResources().getDrawable(imageResource);
         imagenTwitter.setImageDrawable(res);
         imagenTwitter.setId(Integer.parseInt(siguienteIdElemento()));
-        RelativeLayout.LayoutParams paramIconoTwitter = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        RelativeLayout.LayoutParams paramIconoTwitter = new RelativeLayout.LayoutParams(40,40);
         paramIconoTwitter.addRule(RelativeLayout.RIGHT_OF, idFacebook);
         paramIconoTwitter.addRule(RelativeLayout.BELOW, previoTextView);
+        paramIconoTwitter.setMargins(0, 10, 20, 0);
         layout.addView(imagenTwitter, paramIconoTwitter);
         idTwitter = imagenTwitter.getId();
         imagenTwitter.setOnClickListener(new View.OnClickListener() {
@@ -134,14 +131,15 @@ public class ProgramaDetalleFragment extends Fragment {
 
     public void setImagenInstagram(final String idUsuarioInstagram) {
         ImageView imagenInstagram = new ImageView(getActivity());
-        String uri = "@drawable/ic_instagram_icon";
+        String uri = "@drawable/ic_instagram";
         int imageResource = getResources().getIdentifier(uri, null, getActivity().getPackageName());
         Drawable res = getResources().getDrawable(imageResource);
         imagenInstagram.setImageDrawable(res);
         imagenInstagram.setId(Integer.parseInt(siguienteIdElemento()));
-        RelativeLayout.LayoutParams paramIconoInstagram = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        RelativeLayout.LayoutParams paramIconoInstagram = new RelativeLayout.LayoutParams(40,40);
         paramIconoInstagram.addRule(RelativeLayout.RIGHT_OF, idTwitter);
         paramIconoInstagram.addRule(RelativeLayout.BELOW, previoTextView);
+        paramIconoInstagram.setMargins(0, 10, 20, 0);
         layout.addView(imagenInstagram, paramIconoInstagram);
         imagenInstagram.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -168,9 +166,12 @@ public class ProgramaDetalleFragment extends Fragment {
             for (Locutor locutor : locutores) {
                 nombreLocutor = new TextView(getActivity());
                 nombreLocutor.setText(locutor.getNombreCompleto());
+                nombreLocutor.setTextColor(getResources().getColor(R.color.negro));
+                nombreLocutor.setTextSize(14);
                 nombreLocutor.setId(Integer.parseInt(siguienteIdElemento()));
-                paramLocutor = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+                paramLocutor = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
                 paramLocutor.addRule(RelativeLayout.BELOW, previoTextView);
+                paramLocutor.setMargins(20, 10, 20, 10);
                 layout.addView(nombreLocutor, paramLocutor);
                 setImagenFacebook(locutor.getUsuarioFacebook(), nombreLocutor.getId());
                 setImagenTwitter(locutor.getUsuarioTwitter());
@@ -204,17 +205,24 @@ public class ProgramaDetalleFragment extends Fragment {
         List<HorarioPrograma> horarios = horarioProgramaLogica.getHorarioPrograma(programa.getId());
         if (horarios != null) {
             TextView horario = new TextView(getActivity());
-            RelativeLayout.LayoutParams paramHorario;
             previoTextView = 0;
+            String texto;
             for (HorarioPrograma horarioPrograma : horarios) {
-                horario.setText(getDiaSemana(horarioPrograma.getDia_semana()) + ": " + horarioPrograma.getHorario_inicio() + "-" + horarioPrograma.getHorario_fin());
+                texto = getDiaSemana(horarioPrograma.getDia_semana()) + ": " + horarioPrograma.getHorario_inicio() + "-" + horarioPrograma.getHorario_fin();
+                horario.setText(texto);
                 horario.setId(Integer.parseInt(siguienteIdElemento()));
+                horario.setTextSize(14);
+                horario.setTextColor(getResources().getColor(R.color.negro));
                 paramHorario = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+                //paramHorario.addRule(RelativeLayout.CENTER_HORIZONTAL);
                 if (previoTextView == 0) {
-                    paramHorario.addRule(RelativeLayout.BELOW, descripcion.getId());
+                    paramHorario.addRule(RelativeLayout.BELOW, encabezadoHorarios.getId());
+                    horario.setPadding(20, 10, 10, 0);
                 } else {
                     paramHorario.addRule(RelativeLayout.BELOW, previoTextView);
+                    horario.setPadding(20, 5, 10, 0);
                 }
+                //paramHorario.setMargins(20, 5, 10,0);
                 previoTextView = horario.getId();
                 layout.addView(horario, paramHorario);
                 horario = new TextView(getActivity());
@@ -223,38 +231,35 @@ public class ProgramaDetalleFragment extends Fragment {
     }
 
     public void crearHijos() {
-        titulo = new TextView(getActivity());
+        titulo = (TextView) getActivity().findViewById(R.id.texto_titulo_programa);
         titulo.setText(programa.getTitulo());
-        descripcion = new TextView(getActivity());
+        descripcion = (TextView) getActivity().findViewById(R.id.texto_descripcion_programa);
         descripcion.setText(programa.getDescripcion());
-        textoLocutores = new TextView(getActivity());
-
-        titulo.setId(Integer.parseInt(siguienteIdElemento()));
-        descripcion.setId(Integer.parseInt(siguienteIdElemento()));
-        textoLocutores.setId(Integer.parseInt(siguienteIdElemento()));
-
-        RelativeLayout.LayoutParams paramTitulo = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        RelativeLayout.LayoutParams paramDescripcion = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        paramDescripcion.addRule(RelativeLayout.BELOW, titulo.getId());
-
-        layout.addView(titulo, paramTitulo);
-        layout.addView(descripcion, paramDescripcion);
+        encabezadoHorarios = (TextView) getActivity().findViewById(R.id.encabezado_horarios_programa);
+        encabezadoLocutores = (TextView) getActivity().findViewById(R.id.encabezado_locutores_programa);
+        tipoPrograma = (TextView) getActivity().findViewById(R.id.texto_tipo_programa);
 
         cargarHorarios();
-
-        if (programa.getTipo() == 0) {
-            textoLocutores.setText("Comunicate con los locutores:");
-            RelativeLayout.LayoutParams paramTextoLocutores = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-            paramTextoLocutores.addRule(RelativeLayout.BELOW, previoTextView);
-            layout.addView(textoLocutores, paramTextoLocutores);
-            previoTextView = textoLocutores.getId();
-            cargarLocutores();
+        switch (programa.getTipo()) {
+            case 0:
+                tipoPrograma.setText("Contenido");
+                break;
+            case 1:
+                tipoPrograma.setText("Programa");
+                encabezadoLocutores.setVisibility(View.VISIBLE);
+                RelativeLayout.LayoutParams paramTextoLocutores = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+                paramTextoLocutores.addRule(RelativeLayout.BELOW, previoTextView);
+                paramTextoLocutores.setMargins(0, 20, 0, 20);
+                paramTextoLocutores.addRule(RelativeLayout.CENTER_HORIZONTAL);
+                encabezadoLocutores.setLayoutParams(paramTextoLocutores);
+                //layout.addView(encabezadoLocutores, paramTextoLocutores);
+                previoTextView = encabezadoLocutores.getId();
+                cargarLocutores();
+                break;
         }
-        personalizarVista();
     }
 
     public static Intent intentAbrirFacebook(Context context, String idFacebook) {
-
         try {
             context.getPackageManager()
                     .getPackageInfo("com.facebook.katana", 0); //Checks if FB is even installed.
@@ -265,14 +270,6 @@ public class ProgramaDetalleFragment extends Fragment {
                     Uri.parse("https://www.facebook.com/sentiapps")); //catches and opens a url to the desired page
         }
     }
-
-    public void personalizarVista(){
-        titulo.setPadding(20,0,0,0);
-        titulo.setTextColor(getResources().getColor(R.color.azul_radio_ucab));
-        titulo.setTextSize(20);
-        titulo.setGravity(Gravity.CENTER_HORIZONTAL);
-    }
-
 
 }
 

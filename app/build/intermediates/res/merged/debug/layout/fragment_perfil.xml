@@ -28,7 +28,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:textColor="@color/lista_texto"
-        android:textSize="17dp" />
+        android:textSize="17sp" />
 
     <Button
         android:id="@+id/boton_editar_perfil"
@@ -40,7 +40,7 @@
         android:background="@drawable/boton_azul_claro"
         android:text="@string/campo_boton_editar_perfil"
         android:textColor="@color/blanco"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/texto_informacion_personal"
@@ -51,16 +51,16 @@
         android:layout_marginTop="10dp"
         android:text="@string/campo_texto_informacion_personal"
         android:textColor="@color/azul_ucab"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <ImageView
         android:id="@+id/icono_twitter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
         android:layout_below="@id/texto_informacion_personal"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:alpha="0.5"
+        android:tint="@android:color/darker_gray"
         android:src="@drawable/ic_twitter" />
 
     <TextView
@@ -72,7 +72,7 @@
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@id/icono_twitter"
         android:textColor="@color/lista_texto"
-        android:textSize="17dp" />
+        android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/icono_correo"
@@ -81,7 +81,7 @@
         android:layout_below="@+id/icono_twitter"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="5dp"
-        android:alpha="0.5"
+        android:tint="@android:color/darker_gray"
         android:src="@drawable/ic_correo" />
 
     <TextView
@@ -93,7 +93,7 @@
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@id/icono_correo"
         android:textColor="@color/lista_texto"
-        android:textSize="17dp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/texto_tu_y_radio_ucab"
@@ -133,6 +133,30 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/campo_texto_mis_premios"
+                android:textColor="@color/azul_ucab"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|top"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imagen_preferencia_noticias"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:src="@drawable/ic_preferencia_noticias" />
+
+            <TextView
+                android:id="@+id/texto_preferencia_noticias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/campo_texto_mis_preferencia_noticias"
                 android:textColor="@color/azul_ucab"
                 android:textSize="14sp" />
         </LinearLayout>

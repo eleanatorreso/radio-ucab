@@ -16,7 +16,7 @@
             android:paddingRight="10dp"
             android:paddingTop="10dp"
             android:textColor="@color/azul_radio_ucab"
-            android:textSize="19sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/fecha_creacion_noticia"
@@ -27,7 +27,7 @@
             android:paddingRight="10dp"
             android:paddingTop="5dp"
             android:textColor="@color/azul_radio_ucab"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/fuente_noticia"
@@ -38,7 +38,7 @@
             android:paddingRight="10dp"
             android:paddingTop="5dp"
             android:textColor="@color/azul_radio_ucab"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/texto_noticia"
@@ -49,7 +49,7 @@
             android:paddingRight="10dp"
             android:paddingTop="10dp"
             android:textColor="@android:color/black"
-            android:textSize="15sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/link_noticia_nombre"
@@ -60,7 +60,7 @@
             android:paddingTop="10dp"
             android:text="Link:"
             android:textColor="@color/azul_radio_ucab"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/link_noticia"
@@ -73,7 +73,7 @@
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:textColor="@color/azul_radio_ucab"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/etiquetas_noticia"
@@ -82,8 +82,9 @@
             android:layout_below="@id/link_noticia"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
+            android:paddingTop="10dp"
             android:textColor="@color/azul_radio_ucab"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
     </RelativeLayout>
 </ScrollView>

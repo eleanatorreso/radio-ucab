@@ -10,6 +10,17 @@
         android:orientation="vertical"
         android:id="@+id/layout_programa">
 
+        <TextView
+            android:id="@+id/campo_encabezado_modulo_programas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="20sp"
+            android:textColor="@color/verde_ucab"
+            android:gravity="center_horizontal"
+            android:text="@string/campo_encabezado_programas" />
+
         <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/lista_recycler_programa"
             android:layout_width="match_parent"
