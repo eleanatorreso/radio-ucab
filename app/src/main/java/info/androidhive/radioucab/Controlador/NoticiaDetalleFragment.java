@@ -38,6 +38,7 @@ public class NoticiaDetalleFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        manejoActivity.mostrarBackToolbar();
         manejoActivity.editarActivity(3, true, null);
         titulo = (TextView) getView().findViewById(R.id.titulo_noticia);
         titulo.setText(noticia.getTitular());
@@ -53,4 +54,5 @@ public class NoticiaDetalleFragment extends Fragment {
         etiquetas = (TextView) getView().findViewById(R.id.etiquetas_noticia);
         etiquetas.setText("Etiquetas: " + noticia.getEtiquetas());
     }
+
 }

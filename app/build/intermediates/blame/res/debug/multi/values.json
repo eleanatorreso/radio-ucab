@@ -4468,14 +4468,7 @@
                     "endOffset": 47422
                 },
                 "from": {
-                    "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 76,
-                        "startColumn": 4,
-                        "startOffset": 3657,
-                        "endColumn": 72,
-                        "endOffset": 3725
-                    }
+                    "file": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\values\\strings.xml"
                 }
             },
             {

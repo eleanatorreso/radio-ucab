@@ -39,6 +39,7 @@ public class EditarTweetDedicatoriaFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         //cambio el color del toolbar superior
+        manejoActivity.mostrarCloseToolbar();
         manejoActivity.editarActivity(6, false, null);
         super.onCreate(savedInstanceState);
         editTextCancion = (EditText) getActivity().findViewById(R.id.editText_cancion);

@@ -68,6 +68,7 @@ public class ProgramaDetalleFragment extends Fragment {
             super.onCreate(savedInstanceState);
             layout = (RelativeLayout) getView().findViewById(R.id.layout_detalle_programa);
             manejoActivity.editarActivity(5, true, "ProgramaDetalle");
+            manejoActivity.mostrarBackToolbar();
             crearHijos();
         } catch (Exception e) {
             Log.i("detallePrograma", e.getMessage());
@@ -90,7 +91,7 @@ public class ProgramaDetalleFragment extends Fragment {
             RelativeLayout.LayoutParams paramIconoFacebook = new RelativeLayout.LayoutParams(40,40);
             paramIconoFacebook.addRule(RelativeLayout.RIGHT_OF, idDerecha);
             paramIconoFacebook.addRule(RelativeLayout.BELOW, previoTextView);
-            //paramIconoFacebook.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+            //paramIconoFacebook.addRule(RelativeLayout.ALIGN_PARENT_END);
             paramIconoFacebook.setMargins(0, 10, 20, 0);
             layout.addView(imagenFacebook, paramIconoFacebook);
             idFacebook = imagenFacebook.getId();
@@ -169,7 +170,7 @@ public class ProgramaDetalleFragment extends Fragment {
                 nombreLocutor.setTextColor(getResources().getColor(R.color.negro));
                 nombreLocutor.setTextSize(14);
                 nombreLocutor.setId(Integer.parseInt(siguienteIdElemento()));
-                paramLocutor = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+                paramLocutor = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
                 paramLocutor.addRule(RelativeLayout.BELOW, previoTextView);
                 paramLocutor.setMargins(20, 10, 20, 10);
                 layout.addView(nombreLocutor, paramLocutor);

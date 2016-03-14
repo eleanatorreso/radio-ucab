@@ -28,7 +28,7 @@ public class AdaptadorPrograma extends RecyclerView.Adapter<ProgramaViewHolder>{
         int resultado = 0;
         switch (iconoPrograma){
             case 1:
-                resultado = R.drawable.ic_parrilla;
+                resultado = R.drawable.ic_parrilla_grande;
                 iconoPrograma++;
                 break;
             case 2:

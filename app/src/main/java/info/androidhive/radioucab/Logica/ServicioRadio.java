@@ -152,7 +152,7 @@ public class ServicioRadio extends Service implements MediaPlayer.OnPreparedList
                         .setSmallIcon(R.drawable.ic_silueta_radio)
                         .setTicker("Escuchas Radio UCAB")
                         .setOngoing(true)
-                        .setContentText("Artista/Locutor")
+                        .setContentText("Top 40")
                         .setContentTitle("Radio UCAB")
                         .addAction(icon, title, retreivePlaybackAction(action))
                         .addAction(R.drawable.ic_stat_stop, "Parar", retreivePlaybackAction(2))

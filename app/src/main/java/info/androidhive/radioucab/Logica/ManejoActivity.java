@@ -29,12 +29,17 @@ import info.androidhive.radioucab.Controlador.ConfiguracionFragment;
 import info.androidhive.radioucab.Controlador.EditarPerfilFragment;
 import info.androidhive.radioucab.Controlador.EditarTweetComentarioFragment;
 import info.androidhive.radioucab.Controlador.EditarTweetDedicatoriaFragment;
+import info.androidhive.radioucab.Controlador.EditarTweetPremiacionFragment;
 import info.androidhive.radioucab.Controlador.EditarTweetProgramaFragment;
 import info.androidhive.radioucab.Controlador.EditarTweetSolicitarFragment;
 import info.androidhive.radioucab.Controlador.EnviarTweet;
 import info.androidhive.radioucab.Controlador.EventoFragment;
 import info.androidhive.radioucab.Controlador.HomeFragment;
 import info.androidhive.radioucab.Controlador.InicioSesionTwitterFragment;
+import info.androidhive.radioucab.Controlador.MainActivity;
+import info.androidhive.radioucab.Controlador.MisConcursosFragment;
+import info.androidhive.radioucab.Controlador.MisNoticiasFragment;
+import info.androidhive.radioucab.Controlador.MisProgramasFragment;
 import info.androidhive.radioucab.Controlador.NavDrawerItem;
 import info.androidhive.radioucab.Controlador.NoticiaDetalleFragment;
 import info.androidhive.radioucab.Controlador.NoticiaFragment;
@@ -74,13 +79,20 @@ public class ManejoActivity {
     private ImageView icono_interaccion;
     private static int streaming = 4;
     private Tracker mTracker;
-    private ImageView boton;
+    private static MainActivity main;
 
     public static ManejoActivity getInstancia() {
         if (instancia == null) {
             instancia = new ManejoActivity();
         }
         return instancia;
+    }
+
+    public static MainActivity getInstanciaMain() {
+        if (main == null) {
+            main = new MainActivity();
+        }
+        return main;
     }
 
     public static Programa getInstanciaPrograma() {
@@ -103,6 +115,7 @@ public class ManejoActivity {
 
     public void setActivityPrincipal(Activity activityPrincipal) {
         this.activityPrincipal = activityPrincipal;
+        this.main = (MainActivity) activityPrincipal;
         toolbar = (Toolbar) activityPrincipal.findViewById(R.id.toolbar);
         perfilLogica.setContexto(activityPrincipal);
         boton_ingresar = (TextView) activityPrincipal.findViewById(R.id.boton_ingresar);
@@ -121,7 +134,6 @@ public class ManejoActivity {
         ondas_off = (ImageView) activityPrincipal.findViewById(R.id.imagen_ondas_off);
         ondas_on = (ImageView) activityPrincipal.findViewById(R.id.imagen_ondas_on);
         icono_interaccion = (ImageView) activityPrincipal.findViewById(R.id.imagen_interaccion);
-        boton = (ImageView) activityPrincipal.findViewById(R.id.icono_menu);
     }
 
     public void cambiarToolbar() {
@@ -249,10 +261,19 @@ public class ManejoActivity {
                 fragment = new EditarTweetProgramaFragment();
                 break;
             case 30:
-                fragment = new info.androidhive.radioucab.Controlador.EditarTweetPremiacionFragment();
+                fragment = new EditarTweetPremiacionFragment();
                 break;
             case 31:
                 fragment = new ConcursoFragment();
+                break;
+            case 32:
+                fragment = new MisConcursosFragment();
+                break;
+            case 33:
+                fragment = new MisNoticiasFragment();
+                break;
+            case 34:
+                fragment = new MisProgramasFragment();
                 break;
             default:
                 break;
@@ -300,15 +321,37 @@ public class ManejoActivity {
                 return 30;
             case "ConcursoFragment":
                 return 31;
+            case "MisConcursosFragment":
+                return 32;
+            case "MisNoticiasFragment":
+                return 33;
+            case "MisProgramasFragment":
+                return 34;
         }
         return 0;
+    }
+
+    public void mostrarBackToolbar(){
+        botonMenu.setVisibility(View.INVISIBLE);
+        main.mostrarBackToolbar();
+    }
+
+    public void mostrarCloseToolbar(){
+        botonMenu.setVisibility(View.INVISIBLE);
+        main.mostrarCloseToolbar();
+    }
+
+    public void ocultarBackToolbar(){
+        if (botonMenu !=null) {
+            botonMenu.setVisibility(View.VISIBLE);
+            main.ocultarOpcionToolbar();
+        }
     }
 
     public Fragment cambiarFragment(String nombre_fragment, boolean addToBackStack) {
         int posicion = getPosicion(nombre_fragment);
         Fragment fragmento = getFragment(posicion);
         FragmentManager fragmentManager = getActivityPrincipal().getFragmentManager();
-        //fragmentManager.beginTransaction().replace(R.id.frame_container, fragmento).commit();
         if (posicion < 20) {
             mDrawerList.setItemChecked(posicion, true);
             mDrawerList.setSelection(posicion);
@@ -317,10 +360,10 @@ public class ManejoActivity {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frame_container, fragmento);
         if (addToBackStack) {
-            transaction.addToBackStack(null);
-            botonMenu.setVisibility(View.INVISIBLE);
+            transaction.addToBackStack("");
         }
         transaction.commit();
+//        fragmentManager.executePendingTransactions();
         return fragmento;
     }
 

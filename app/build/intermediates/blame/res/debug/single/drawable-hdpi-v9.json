@@ -16,11 +16,11 @@
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-hdpi-v9\\ic_silueta_radio.png"
     },
     {
-        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v9\\ic_silueta_musica.png",
-        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-hdpi-v9\\ic_silueta_musica.png"
-    },
-    {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v9\\borde_linear_layout_bottom.xml",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-hdpi-v9\\borde_linear_layout_bottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v9\\ic_silueta_musica.png",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\drawable-hdpi-v9\\ic_silueta_musica.png"
     }
 ]

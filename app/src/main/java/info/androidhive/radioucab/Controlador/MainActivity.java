@@ -4,7 +4,6 @@ import com.google.android.gms.analytics.Tracker;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
-import info.androidhive.radioucab.Logica.AnalyticsApplication;
 import info.androidhive.radioucab.Logica.FabricLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.PerfilLogica;
@@ -12,7 +11,9 @@ import info.androidhive.radioucab.Logica.ServicioRadio;
 import info.androidhive.radioucab.Controlador.Adaptor.AdaptorNavDrawerList;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
+
 import java.util.ArrayList;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
@@ -33,6 +34,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -75,7 +77,10 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle mDrawerToggle;
     private ImageButton fab_interaccion;
     private ImageView icono_interaccion;
+    private ImageView icono_informacion;
     private Tracker mTracker;
+    private ImageView boton;
+    private Toolbar toolbar;
     // private ManejoConcurso manejoConcurso = new ManejoConcurso();
 
     @Override
@@ -180,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
         dedicar_cancion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("TweetDedicatoria",true);
+                manejoActivity.cambiarFragment("TweetDedicatoria", true);
                 alerta_dialogo.dismiss();
             }
         });
@@ -188,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
         solicitar_cancion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("TweetSolicitud",true);
+                manejoActivity.cambiarFragment("TweetSolicitud", true);
                 alerta_dialogo.dismiss();
             }
         });
@@ -197,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
         comentario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("TweetComentario",true);
+                manejoActivity.cambiarFragment("TweetComentario", true);
                 alerta_dialogo.dismiss();
             }
         });
@@ -206,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
         programa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("TweetPrograma",true);
+                manejoActivity.cambiarFragment("TweetPrograma", true);
                 alerta_dialogo.dismiss();
             }
         });
@@ -215,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
         concurso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("ConcursoFragment",true);
+                manejoActivity.cambiarFragment("ConcursoFragment", true);
                 alerta_dialogo.dismiss();
             }
         });
@@ -225,6 +230,42 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 alerta_dialogo.dismiss();
+            }
+        });
+    }
+
+    public void abrirDialogoInformacion() {
+        final AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+        final AlertDialog alerta_dialogo;
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialogo_informacion, null);
+        dialogo.setView(dialogView);
+        dialogo.setCancelable(true);
+        alerta_dialogo = dialogo.create(); //returns an AlertDialog from a Builder.
+        alerta_dialogo.show();
+    }
+
+    public void mostrarBackToolbar() {
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back_white_24dp));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+    }
+
+    public void ocultarOpcionToolbar(){
+        if (toolbar != null)
+            toolbar.setNavigationIcon(null);
+    }
+
+    public void mostrarCloseToolbar() {
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_close_white_24dp));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
     }
@@ -288,7 +329,7 @@ public class MainActivity extends AppCompatActivity {
 
         playbackServiceIntent = new Intent(this, ServicioRadio.class);
 
-        final ImageView boton = (ImageView) findViewById(R.id.icono_menu);
+        boton = (ImageView) findViewById(R.id.icono_menu);
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -335,8 +376,7 @@ public class MainActivity extends AppCompatActivity {
                     abrirDialogoInteraccion();
                 }
             });
-        }
-        else {
+        } else {
             icono_interaccion = (ImageView) findViewById(R.id.imagen_interaccion);
             icono_interaccion.setVisibility(View.VISIBLE);
             icono_interaccion.setOnClickListener(new View.OnClickListener() {
@@ -346,6 +386,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
+        icono_informacion = (ImageView) findViewById(R.id.imagen_informacion);
+        icono_informacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abrirDialogoInformacion();
+            }
+        });
 
         boton_ingresar = (TextView) findViewById(R.id.boton_ingresar);
 
@@ -359,7 +407,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.inflateMenu(R.menu.main);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -367,7 +415,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.accion_ver_perfil:
-                        manejoActivity.cambiarFragment("Perfil",false);
+                        manejoActivity.cambiarFragment("Perfil", false);
                         break;
                     case R.id.accion_cerrar_sesion:
                         crearDialogoSiYNo(getString(R.string.dialogo_asunto_cerrar_sesion)
@@ -379,7 +427,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
 
         imagen_perfil = (ImageView) findViewById(R.id.imagen_usuario);
         cargarUsuarioToolbar();
@@ -409,6 +456,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         manejoActivity.comprobarControlesReproductor();
+
     }
 
     /**
@@ -462,14 +510,28 @@ public class MainActivity extends AppCompatActivity {
 		}*/
         // Handle action bar actions click
         /*
-		switch (item.getItemId()) {
+        switch (item.getItemId()) {
 		case R.id.action_settings:
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}*/
-        return super.onOptionsItemSelected(item);
+
+
+        if (mDrawerToggle.isDrawerIndicatorEnabled() && mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+
+        switch (item.getItemId()) {
+            case 16908332:
+                onBackPressed();
+                return true;
+            default:
+                return false;
+        }
     }
+    //return super.onOptionsItemSelected(item);
+
 
     /* *
      * Called when invalidateOptionsMenu() is triggered
@@ -562,4 +624,26 @@ public class MainActivity extends AppCompatActivity {
         //	mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return super.onKeyDown(keyCode, event);
+    }
+
+    protected void setNavIcon() {
+        int backStackEntryCount = getFragmentManager().getBackStackEntryCount();
+        mDrawerToggle.setDrawerIndicatorEnabled(backStackEntryCount == 0);
+    }
+
+    @Override
+    public void onBackPressed() {
+        int count = getFragmentManager().getBackStackEntryCount();
+        if (getFragmentManager().getBackStackEntryCount() > 0) {
+            getFragmentManager().popBackStack();
+            boton.setVisibility(View.VISIBLE);
+            ocultarOpcionToolbar();
+        } else {
+            crearDialogoSiYNo("Confirme su salida", "¿Está seguro que desea salir de la aplicación?", "Si", "No");
+            super.onBackPressed();
+        }
+    }
 }

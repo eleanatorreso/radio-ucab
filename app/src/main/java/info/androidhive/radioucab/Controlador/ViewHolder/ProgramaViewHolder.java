@@ -13,12 +13,13 @@ import android.widget.TextView;
 import java.util.List;
 
 import info.androidhive.radioucab.Controlador.ProgramaDetalleFragment;
+import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Model.HorarioPrograma;
 import info.androidhive.radioucab.Model.Locutor;
 import info.androidhive.radioucab.Model.Programa;
 import info.androidhive.radioucab.R;
 
-public class ProgramaViewHolder extends RecyclerView.ViewHolder{
+public class ProgramaViewHolder extends RecyclerView.ViewHolder {
 
     public CardView cardView;
     public TextView tituloPrograma;
@@ -26,30 +27,27 @@ public class ProgramaViewHolder extends RecyclerView.ViewHolder{
     public ImageView imagenPrograma;
     public Fragment fragment;
 
+    private ManejoActivity manejoActivity = ManejoActivity.getInstancia();
+
     public ProgramaViewHolder(View itemView) {
         super(itemView);
-        cardView = (CardView)itemView.findViewById(R.id.cardViewPrograma);
-        tituloPrograma = (TextView)itemView.findViewById(R.id.titulo_programa);
-        descripcionPrograma = (TextView)itemView.findViewById(R.id.descripcion_programa);
-        imagenPrograma = (ImageView)itemView.findViewById(R.id.imagen_programa);
+        cardView = (CardView) itemView.findViewById(R.id.cardViewPrograma);
+        tituloPrograma = (TextView) itemView.findViewById(R.id.titulo_programa);
+        descripcionPrograma = (TextView) itemView.findViewById(R.id.descripcion_programa);
+        imagenPrograma = (ImageView) itemView.findViewById(R.id.imagen_programa);
         itemView.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
                 try {
-                    ProgramaDetalleFragment detalle = new ProgramaDetalleFragment();
                     List<Programa> programaSeleccionado = Programa.find(Programa.class, "titulo =?", tituloPrograma.getText().toString());
                     Programa p = Programa.findById(Programa.class, Long.parseLong("1"));
                     List<Locutor> aaa = Locutor.listAll(Locutor.class);
-                    HorarioPrograma ss = HorarioPrograma.findById(HorarioPrograma.class,Long.parseLong("1"));
+                    HorarioPrograma ss = HorarioPrograma.findById(HorarioPrograma.class, Long.parseLong("1"));
                     if (programaSeleccionado != null && programaSeleccionado.size() > 0) {
+                        ProgramaDetalleFragment detalle = (ProgramaDetalleFragment) manejoActivity.cambiarFragment("ProgramaDetalle", true);
                         detalle.programa = programaSeleccionado.get(0);
-                        FragmentManager fm = fragment.getFragmentManager();
-                        FragmentTransaction ft = fm.beginTransaction();
-                        ft.addToBackStack("atras");
-                        ft.replace(((ViewGroup)fragment.getView().getParent()).getId(), detalle);
-                        ft.commit();
                     }
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     int x = 2;
                 }
             }

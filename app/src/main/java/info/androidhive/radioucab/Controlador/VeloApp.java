@@ -1,5 +1,8 @@
 package info.androidhive.radioucab.Controlador;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
@@ -23,8 +26,8 @@ public class VeloApp extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(VeloApp.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
-
 }

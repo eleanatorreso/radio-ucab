@@ -25,6 +25,9 @@ public class PerfilFragment extends Fragment {
     private TextView usuario_twitter;
     private TextView usuario_correo;
     private Button boton_editar_perfil;
+    private ImageView imagen_mis_concursos;
+    private ImageView imagen_mis_noticias;
+    private ImageView imagen_mis_programas;
     private final PerfilLogica perfilLogica = new PerfilLogica();
     private Usuario usuario_actual;
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
@@ -61,9 +64,31 @@ public class PerfilFragment extends Fragment {
         boton_editar_perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("EditarPerfil",true);
+                manejoActivity.cambiarFragment("EditarPerfil", true);
             }
         });
+        imagen_mis_concursos = (ImageView) getActivity().findViewById(R.id.imagen_premiacion);
+        imagen_mis_concursos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                manejoActivity.cambiarFragment("MisConcursosFragment", true);
+            }
+        });
+        imagen_mis_noticias = (ImageView) getActivity().findViewById(R.id.imagen_preferencia_noticias);
+        imagen_mis_noticias.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                manejoActivity.cambiarFragment("MisNoticiasFragment", true);
+            }
+        });
+        imagen_mis_programas = (ImageView) getActivity().findViewById(R.id.imagen_programas_favoritos);
+        imagen_mis_programas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                manejoActivity.cambiarFragment("MisProgramasFragment", true);
+            }
+        });
+
     }
 
     public void actualizarPerfil () {
