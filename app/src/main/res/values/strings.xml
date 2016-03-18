@@ -39,7 +39,6 @@
     
     <!-- Descripcion de contenido -->
     <string name="desc_list_item_icon">Iconos</string>
-
     <!-- Programa -->
     <string name="dia_semana_1">Lunes</string>
     <string name="dia_semana_2">Martes</string>
@@ -48,8 +47,9 @@
     <string name="dia_semana_5">Viernes</string>
     <string name="dia_semana_6">Sábado</string>
     <string name="dia_semana_7">Domingo</string>
-
-
+    <!-- Noticias -->
+    <string name="campo_texto_sin_noticias">No hay noticias disponibles, intente más tarde</string>
+    <string name="campo_encabezado_modulo_noticias">Noticias en Radio UCAB</string>
     <!-- Registro de Usuario -->
     <string name="toast_error_terminos_condiciones">Debe aceptar los terminos y condiciones para registrarse en Radio UCAB</string>
     <string name="toast_error_campos_obligatorios">Todos los campos son obligatorios completelos</string>

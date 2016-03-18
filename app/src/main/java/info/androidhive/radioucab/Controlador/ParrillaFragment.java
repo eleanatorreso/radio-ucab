@@ -1,5 +1,6 @@
 package info.androidhive.radioucab.Controlador;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.util.Log;
@@ -23,6 +24,8 @@ import java.util.TimeZone;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONArray;
 import info.androidhive.radioucab.Logica.ActualizacionLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
+import info.androidhive.radioucab.Logica.ManejoProgressDialog;
+import info.androidhive.radioucab.Logica.ManejoToast;
 import info.androidhive.radioucab.Logica.ParillaLogica;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.Model.Programa;
@@ -40,6 +43,9 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
     private final ParillaLogica parrillaLogica = new ParillaLogica();
     private ActualizacionLogica actualizacionLogica = new ActualizacionLogica();
+    private ManejoProgressDialog manejoProgressDialog = ManejoProgressDialog.getInstancia();
+    private final ManejoToast manejoToast = ManejoToast.getInstancia();
+
     public ParrillaFragment() {
     }
 
@@ -71,7 +77,6 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
 
     public static Date GetUTCdatetimeAsDate()
     {
-        //note: doesn't check for null
         return StringDateToDate(GetUTCdatetimeAsString());
     }
 
@@ -99,9 +104,9 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
     }
 
     public void cargarParrilla() {
+        manejoProgressDialog.iniciarProgressDialog("Cargando parrilla de programación...", getActivity());
         conexion = new conexionGETAPIJSONArray();
         conexion.contexto = getActivity();
-        conexion.mensaje = "Cargando la programación de hoy...";
         conexion.delegate = this;
         TimeZone zonaHoraria = TimeZone.getDefault();
         conexion.execute("Api/Programa/GetContenido?GMT=" + zonaHoraria.getDisplayName(false, TimeZone.SHORT));
@@ -131,6 +136,7 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
     @Override
     public void procesoExitoso(JSONArray resultados) {
         mostrarResultados(resultados);
+        manejoProgressDialog.cancelarProgressDialog();
     }
 
     @Override
@@ -145,6 +151,11 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
 
     @Override
     public void procesoNoExitoso() {
-
+        try {
+            manejoProgressDialog.cancelarProgressDialog();
+            manejoToast.crearToast(getActivity(), "Error al actualizar la parrilla de programación, intentelo más tarde");
+        } catch (Exception e) {
+            Log.e("Noticias: noexit", e.getMessage());
+        }
     }
 }

@@ -103,7 +103,7 @@ public class ServicioRadio extends Service implements MediaPlayer.OnPreparedList
             } else if (intent.getAction().equals(ACTION_PLAY)) {
                 initMedia();
                 try {
-                    mediaPlayer.setDataSource("http://31.200.244.181:8110/");
+                    mediaPlayer.setDataSource(this.getResources().getString(R.string.ip_streaming_high));
                     mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                     wifiLock = ((WifiManager) getSystemService(Context.WIFI_SERVICE))
                             .createWifiLock(WifiManager.WIFI_MODE_FULL, "mylock");

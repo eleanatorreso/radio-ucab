@@ -148,7 +148,7 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
     public void cargarEventos() {
         conexionGETAPIJSONArray conexion = new conexionGETAPIJSONArray();
         conexion.contexto = getActivity();
-        conexion.mensaje = "Cargando los eventos...";
+        //conexion.mensaje = "Cargando los eventos...";
         conexion.delegate = this;
         conexion.execute("Api/Evento/GetEvento?pagina=" + pagina);
     }

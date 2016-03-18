@@ -147,7 +147,7 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
     public void cargarProgramas() {
         conexionArray = new conexionGETAPIJSONArray();
         conexionArray.contexto = getActivity();
-        conexionArray.mensaje = "Cargando los programas...";
+        //conexionArray.mensaje = "Cargando los programas...";
         conexionArray.delegate = this;
         conexionArray.execute("Api/Programa/GetPrograma?pagina=" + pagina);
     }

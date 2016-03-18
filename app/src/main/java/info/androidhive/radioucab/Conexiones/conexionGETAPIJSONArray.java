@@ -19,7 +19,6 @@ import info.androidhive.radioucab.R;
 public class conexionGETAPIJSONArray extends AsyncTask<String, String, JSONArray> {
     ProgressDialog noticiaProgressDialog;
     public static Context contexto;
-    public String mensaje = "";
     public RespuestaAsyncTask delegate = null;
 
     @Override
@@ -46,14 +45,14 @@ public class conexionGETAPIJSONArray extends AsyncTask<String, String, JSONArray
     @Override
     protected void onPreExecute() {
         try {
-            super.onPreExecute();
+            super.onPreExecute();/*
             if (mensaje!= null &&!mensaje.isEmpty()) {
                 noticiaProgressDialog = new ProgressDialog(contexto);
                 noticiaProgressDialog.setMessage(mensaje);
                 noticiaProgressDialog.setIndeterminate(true);
                 noticiaProgressDialog.setCancelable(true);
                 noticiaProgressDialog.show();
-            }
+            }*/
         } catch (Exception ex) {
             if (ex != null && ex.getMessage()!=null)
                 Log.i("Conexion: ", ex.getMessage());

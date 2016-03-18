@@ -17,19 +17,20 @@ public class ActualizacionLogica {
     //1 evento, 2 noticia, 3 programa, 4 parrilla
     public Actualizacion crearActualizacion(int tipo) {
         Actualizacion nuevaActualizacion = new Actualizacion();
+        Date fecha_falsa = new Date();
         try {
             switch (tipo) {
                 case 1:
-                    nuevaActualizacion = new Actualizacion(ultimaActWS, null, null, null);
+                    nuevaActualizacion = new Actualizacion(ultimaActWS, fecha_falsa, fecha_falsa, fecha_falsa);
                     break;
                 case 2:
-                    nuevaActualizacion = new Actualizacion(null, ultimaActWS, null, null);
+                    nuevaActualizacion = new Actualizacion(fecha_falsa, ultimaActWS, fecha_falsa, fecha_falsa);
                     break;
                 case 3:
-                    nuevaActualizacion = new Actualizacion(null, null, ultimaActWS, null);
+                    nuevaActualizacion = new Actualizacion(fecha_falsa, fecha_falsa, ultimaActWS, fecha_falsa);
                     break;
                 case 4:
-                    nuevaActualizacion = new Actualizacion(null, null, null, ultimaActWS);
+                    nuevaActualizacion = new Actualizacion(fecha_falsa, fecha_falsa, fecha_falsa, ultimaActWS);
                     break;
             }
         } catch (Exception e) {
@@ -83,7 +84,7 @@ public class ActualizacionLogica {
             }
             nuevaActualizacion.save();
         } catch (Exception e) {
-            Log.e("Evento: ult.act", e.getMessage());
+            Log.e("Actualizacion: ult.act", e.getMessage());
         }
     }
 

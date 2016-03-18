@@ -33,7 +33,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
     public void crearUsuarioAPI() {
         conexionPOSTAPIString conexion = new conexionPOSTAPIString();
         conexion.contexto = contexto;
-        conexion.mensaje = "Enviando los datos...";
+        //conexion.mensaje = "Enviando los datos...";
         conexion.delegate = (RespuestaStringAsyncTask) this;
         JSONObject objeto = new JSONObject();
         try {
@@ -56,7 +56,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
     public void actualizarUsuarioAPI() {
         conexionPUTAPI conexion = new conexionPUTAPI();
         conexion.contexto = contexto;
-        conexion.mensaje = "Enviando los datos...";
+        //conexion.mensaje = "Enviando los datos...";
         conexion.delegate = this;
         JSONObject objeto = new JSONObject();
         try {

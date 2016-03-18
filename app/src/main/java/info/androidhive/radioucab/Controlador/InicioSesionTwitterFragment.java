@@ -66,7 +66,7 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
     public void comprobarUsuarioAPI(String usuarioTwitter) {
         conexionGETAPIJSONArray conexion = new conexionGETAPIJSONArray();
         conexion.contexto = getActivity();
-        conexion.mensaje = "Comprobando datos...";
+        //conexion.mensaje = "Comprobando datos...";
         conexion.delegate = this;
         conexion.execute("Api/Usuario/Getusuario?usuarioTwitter=" + usuarioTwitter);
     }

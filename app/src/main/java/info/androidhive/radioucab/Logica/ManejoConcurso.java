@@ -30,7 +30,7 @@ public class ManejoConcurso implements RespuestaAsyncTask {
         Concurso.deleteAll(Concurso.class);
         conexionGETAPIJSONArray conexion = new conexionGETAPIJSONArray();
         conexion.contexto = contexto;
-        conexion.mensaje = "";
+        //conexion.mensaje = "";
         conexion.delegate = this;
         conexion.execute("Api/Concurso/getConcursoActuales");
     }

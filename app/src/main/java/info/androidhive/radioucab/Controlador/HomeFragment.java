@@ -126,7 +126,6 @@ public class HomeFragment extends ListFragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-//        AnalyticsApplication application = (AnalyticsApplication) getActivity().getApplication();
         manejoActivity.registrarPantallaAnalytics("Home");
         return rootView;
     }

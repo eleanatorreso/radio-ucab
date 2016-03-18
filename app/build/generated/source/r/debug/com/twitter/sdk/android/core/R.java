@@ -31,35 +31,35 @@ public final class R {
 		public static final int tw__permission_title_text_size = 0x7f09007f;
 	}
 	public static final class drawable {
-		public static final int tw__ic_logo_default = 0x7f0200f7;
-		public static final int tw__login_btn = 0x7f0200fe;
-		public static final int tw__login_btn_default = 0x7f0200ff;
-		public static final int tw__login_btn_default_light = 0x7f020100;
-		public static final int tw__login_btn_disabled = 0x7f020101;
-		public static final int tw__login_btn_light = 0x7f020102;
-		public static final int tw__login_btn_pressed = 0x7f020103;
-		public static final int tw__login_btn_pressed_light = 0x7f020104;
-		public static final int tw__login_btn_text_color_light = 0x7f020105;
-		public static final int tw__share_email_header = 0x7f020107;
-		public static final int tw__transparent = 0x7f020108;
+		public static final int tw__ic_logo_default = 0x7f0200fa;
+		public static final int tw__login_btn = 0x7f020101;
+		public static final int tw__login_btn_default = 0x7f020102;
+		public static final int tw__login_btn_default_light = 0x7f020103;
+		public static final int tw__login_btn_disabled = 0x7f020104;
+		public static final int tw__login_btn_light = 0x7f020105;
+		public static final int tw__login_btn_pressed = 0x7f020106;
+		public static final int tw__login_btn_pressed_light = 0x7f020107;
+		public static final int tw__login_btn_text_color_light = 0x7f020108;
+		public static final int tw__share_email_header = 0x7f02010a;
+		public static final int tw__transparent = 0x7f02010b;
 	}
 	public static final class id {
-		public static final int imageView = 0x7f0f0164;
-		public static final int tw__allow_btn = 0x7f0f0167;
-		public static final int tw__not_now_btn = 0x7f0f0166;
-		public static final int tw__share_email_desc = 0x7f0f0165;
-		public static final int tw__spinner = 0x7f0f0163;
-		public static final int tw__web_view = 0x7f0f0162;
+		public static final int imageView = 0x7f0f0168;
+		public static final int tw__allow_btn = 0x7f0f016b;
+		public static final int tw__not_now_btn = 0x7f0f016a;
+		public static final int tw__share_email_desc = 0x7f0f0169;
+		public static final int tw__spinner = 0x7f0f0167;
+		public static final int tw__web_view = 0x7f0f0166;
 	}
 	public static final class layout {
-		public static final int tw__activity_oauth = 0x7f030053;
-		public static final int tw__activity_share_email = 0x7f030054;
+		public static final int tw__activity_oauth = 0x7f030054;
+		public static final int tw__activity_share_email = 0x7f030055;
 	}
 	public static final class raw {
 		public static final int tw__cacerts = 0x7f060001;
 	}
 	public static final class string {
-		public static final int kit_name = 0x7f0700ee;
+		public static final int kit_name = 0x7f0700f0;
 		public static final int tw__allow_btn_txt = 0x7f070060;
 		public static final int tw__login_btn_txt = 0x7f070062;
 		public static final int tw__not_now_btn_txt = 0x7f070063;

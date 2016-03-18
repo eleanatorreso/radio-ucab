@@ -24,7 +24,7 @@ import info.androidhive.radioucab.R;
 public class conexionPUTAPI extends AsyncTask<String, String, Integer> {
     ProgressDialog noticiaProgressDialog;
     public static Context contexto;
-    public String mensaje = "";
+    //public String mensaje = "";
     public RespuestaAsyncTask delegate = null;
     public int tipo = 0;
     public JSONObject objeto;
@@ -56,14 +56,14 @@ public class conexionPUTAPI extends AsyncTask<String, String, Integer> {
     @Override
     protected void onPreExecute() {
         try {
-            super.onPreExecute();
+            super.onPreExecute();/*
             if (!mensaje.isEmpty()) {
                 noticiaProgressDialog = new ProgressDialog(contexto);
                 noticiaProgressDialog.setMessage(mensaje);
                 noticiaProgressDialog.setIndeterminate(true);
                 noticiaProgressDialog.setCancelable(true);
                 noticiaProgressDialog.show();
-            }
+            }*/
         } catch (Exception ex) {
             int x = 2;
         }

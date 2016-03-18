@@ -436,6 +436,7 @@
     <string name="campo_encabezado_horario_parrilla">Hora</string>
     <string name="campo_encabezado_inicio_sesion">Iniciar sesión</string>
     <string name="campo_encabezado_mis_concursos">Mis concursos</string>
+    <string name="campo_encabezado_modulo_noticias">Noticias en Radio UCAB</string>
     <string name="campo_encabezado_parrilla">Programación del día</string>
     <string name="campo_encabezado_programa_parrilla">Programa</string>
     <string name="campo_encabezado_programas">Programas de Radio UCAB</string>
@@ -464,6 +465,7 @@
     <string name="campo_texto_programa">Participar en el programa actual</string>
     <string name="campo_texto_resgistro_usuario">Ya falta poco para que te unas a Radio UCAB, pero antes necesitamos los siguientes datos para completar tu registro:</string>
     <string name="campo_texto_sin_concursos">No hay concursos en este momento, está atento a nuestra programación para conocer cuando será el próximo.</string>
+    <string name="campo_texto_sin_noticias">No hay noticias disponibles, intente más tarde</string>
     <string name="campo_texto_solicitar_cancion">Solicitar canción</string>
     <string name="campo_texto_tu_radio_ucab">Tú + Radio UCAB</string>
     <string name="campo_texto_tweet_comentario">Completa los siguientes campos para generar tu tweet:</string>
@@ -474,7 +476,7 @@
     <string name="cast_notification_connected_message">Connected to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_connecting_message">Connecting to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_disconnect">Disconnect</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">30f72d57-723b-4b4d-adaa-ae563c754b24</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">5f264232-0860-44eb-babf-a34d5fcb6898</string>
     <string name="common_android_wear_notification_needs_update_text"><ns1:g id="app_name">%1$s</ns1:g> requires an update to the Android Wear app.</string>
     <string name="common_android_wear_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update the Android Wear app.</string>
     <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>

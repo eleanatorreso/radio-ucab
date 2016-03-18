@@ -121,7 +121,7 @@ public class ManejoEnvioTweet implements RespuestaAsyncTask, RespuestaStringAsyn
     public void verificarTweet() {
         conexionPOSTAPIString conexion = new conexionPOSTAPIString();
         conexion.contexto = contexto;
-        conexion.mensaje = "Comprobando comentario...";
+        //conexion.mensaje = "Comprobando comentario...";
         conexion.delegate = this;
         conexion.tipo = 0;
         JSONObject objeto = new JSONObject();
@@ -148,7 +148,7 @@ public class ManejoEnvioTweet implements RespuestaAsyncTask, RespuestaStringAsyn
     private void enviarIdTweet() {
         conexionPUTAPI conexion = new conexionPUTAPI();
         conexion.contexto = contexto;
-        conexion.mensaje = "Publicando comentario...";
+        //conexion.mensaje = "Publicando comentario...";
         conexion.delegate = this;
         conexion.tipo = 1;
         JSONObject objeto = new JSONObject();

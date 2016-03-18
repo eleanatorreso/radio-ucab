@@ -1,5 +1,6 @@
 package info.androidhive.radioucab.Logica;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 
@@ -25,9 +26,15 @@ public class ManejoProgressDialog {
     }
 
     public void cancelarProgressDialog(){
-        if (progressDialog != null) {
+        if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
             progressDialog = null;
         }
     }
+    public void iniciarProgressDialog(String mensaje, Activity activity){
+        if (progressDialog != null && progressDialog.isShowing())
+            progressDialog.dismiss();
+        progressDialog = ProgressDialog.show(activity,"",mensaje,true, true);
+    }
+
 }

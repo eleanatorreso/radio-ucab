@@ -4,7 +4,7 @@
     android:id="@+id/activity_main_swipe_refresh_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical">
@@ -13,6 +13,33 @@
             android:id="@android:id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical" />
-    </LinearLayout>
+            android:scrollbars="vertical"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/imagen_sin_noticias"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_refresh_white_48dp"
+            android:tint="@color/amarillo_ucab"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/texto_sin_noticias"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/azul_radio_ucab"
+            android:text="@string/campo_texto_sin_noticias"
+            android:layout_below="@id/imagen_sin_noticias"
+            android:layout_marginTop="10dp"
+            android:textSize="16dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"/>
+
+    </RelativeLayout>
 </android.support.v4.widget.SwipeRefreshLayout>
