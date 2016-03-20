@@ -1,9 +1,6 @@
 package info.androidhive.radioucab.Logica;
 
-import android.text.format.DateUtils;
 import android.util.Log;
-
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -17,8 +14,9 @@ public class ActualizacionLogica {
     //1 evento, 2 noticia, 3 programa, 4 parrilla
     public Actualizacion crearActualizacion(int tipo) {
         Actualizacion nuevaActualizacion = new Actualizacion();
-        Date fecha_falsa = new Date();
         try {
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            Date fecha_falsa = format.parse("01/01/1976");
             switch (tipo) {
                 case 1:
                     nuevaActualizacion = new Actualizacion(ultimaActWS, fecha_falsa, fecha_falsa, fecha_falsa);
@@ -39,7 +37,7 @@ public class ActualizacionLogica {
         return nuevaActualizacion;
     }
 
-    //1 evento, 2 noticia, 3 programa
+    //1 evento, 2 noticia, 3 programa, 4 parrilla
     public Actualizacion modificarActualizacion(int tipo, Date evento, Date noticia, Date programa, Date parrilla) {
         Actualizacion nuevaActualizacion = new Actualizacion();
         switch (tipo) {

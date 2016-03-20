@@ -162,6 +162,11 @@ public class RegistrationIntentService extends IntentService implements Respuest
     }
 
     @Override
+    public void procesoExitoso(String respuesta) {
+
+    }
+
+    @Override
     public void procesoNoExitoso() {
 
     }

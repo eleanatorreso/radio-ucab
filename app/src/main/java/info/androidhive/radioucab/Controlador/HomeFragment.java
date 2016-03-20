@@ -52,7 +52,7 @@ public class HomeFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //cambio el color del toolbar superior
-        manejoActivity.editarActivity(1, true, "Home");
+        manejoActivity.editarActivity(1, true, "Home","Home");
         try {
 
             final UserTimeline userTimeline = new UserTimeline.Builder()
@@ -126,7 +126,6 @@ public class HomeFragment extends ListFragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-        manejoActivity.registrarPantallaAnalytics("Home");
         return rootView;
     }
 

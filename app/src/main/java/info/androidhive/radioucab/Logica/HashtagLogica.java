@@ -55,6 +55,11 @@ public class HashtagLogica implements RespuestaAsyncTask {
     }
 
     @Override
+    public void procesoExitoso(String respuesta) {
+
+    }
+
+    @Override
     public void procesoNoExitoso() {
 
     }

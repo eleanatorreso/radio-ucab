@@ -24,6 +24,7 @@ public class MisNoticiasFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         manejoActivity.mostrarBackToolbar();
+        manejoActivity.registrarPantallaAnalytics("Mis noticias");
         return inflater.inflate(R.layout.fragment_mis_noticias, container, false);
     }
 

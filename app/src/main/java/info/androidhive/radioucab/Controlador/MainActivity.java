@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
     private Tracker mTracker;
     private ImageView boton;
     private Toolbar toolbar;
-    // private ManejoConcurso manejoConcurso = new ManejoConcurso();
 
     @Override
     protected void onStop() {
@@ -282,7 +281,7 @@ public class MainActivity extends AppCompatActivity {
 
         //cambio el color del toolbar superior
         manejoActivity.setActivityPrincipal(this);
-        manejoActivity.editarActivity(1, true, "Home");
+        manejoActivity.editarActivity(1, true, "Home", "Main");
         //COMENTA ESTO MIENTRAS XQ CREO QUE EL GET TITLE ES PARA AGARARR EL TITULO DEL ACTIONBAR
         //mTitle = mDrawerTitle = getTitle();
 

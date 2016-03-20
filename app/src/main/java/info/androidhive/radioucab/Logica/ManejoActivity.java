@@ -189,7 +189,7 @@ public class ManejoActivity {
         toolbar.setBackgroundColor(color);
     }
 
-    public void editarActivity(int seccion, boolean mostrarBotonInteraccion, String fragmentoActual) {
+    public void editarActivity(int seccion, boolean mostrarBotonInteraccion, String fragmentoActual, String nombreFragmento) {
         cambiarDeColor(seccion);
         cambiarIconoMenu();
         if (mostrarBotonInteraccion == true) {
@@ -202,8 +202,10 @@ public class ManejoActivity {
             boton_interaccion.setVisibility(View.INVISIBLE);
             icono_interaccion.setVisibility(View.INVISIBLE);
         }
-        if (fragmentoActual != null)
+        if (fragmentoActual != null) {
             this.fragmentoActual = fragmentoActual;
+        }
+        registrarPantallaAnalytics(nombreFragmento);
     }
 
     public Fragment getFragment(int position) {

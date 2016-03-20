@@ -67,7 +67,7 @@ public class ProgramaDetalleFragment extends Fragment {
         try {
             super.onCreate(savedInstanceState);
             layout = (RelativeLayout) getView().findViewById(R.id.layout_detalle_programa);
-            manejoActivity.editarActivity(5, true, "ProgramaDetalle");
+            manejoActivity.editarActivity(5, true, "ProgramaDetalle", "Detalle del programa");
             manejoActivity.mostrarBackToolbar();
             crearHijos();
         } catch (Exception e) {

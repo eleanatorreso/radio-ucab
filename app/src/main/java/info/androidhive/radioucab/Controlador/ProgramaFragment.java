@@ -60,7 +60,6 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
         } catch (Exception e) {
             Log.e("Programas: onCreateView", e.getMessage());
         }
-        manejoActivity.registrarPantallaAnalytics("Programa");
         return null;
     }
 
@@ -69,7 +68,7 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
         try {
             if (rootView != null) {
                 super.onCreate(savedInstanceState);
-                manejoActivity.editarActivity(5, true, "Programa");
+                manejoActivity.editarActivity(5, true, "Programa", "Programa");
                 recyclerView = (RecyclerView) rootView.findViewById(R.id.lista_recycler_programa);
                 layoutManager = new LinearLayoutManager(getActivity());
                 recyclerView.setLayoutManager(layoutManager);
@@ -228,6 +227,11 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
 
     @Override
     public void procesoExitoso(int codigo, int tipo) {
+
+    }
+
+    @Override
+    public void procesoExitoso(String respuesta) {
 
     }
 

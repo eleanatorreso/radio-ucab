@@ -71,7 +71,6 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
         } catch (Exception e) {
             Log.e("Noticias: onCreateView", e.getMessage());
         }
-        manejoActivity.registrarPantallaAnalytics("Noticia");
         return null;
     }
 
@@ -79,7 +78,7 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //cambio el color del toolbar superior
-        manejoActivity.editarActivity(3, true, "Noticia");
+        manejoActivity.editarActivity(3, true, "Noticia", "Noticia");
         iconoSinNoticias = (ImageView) getActivity().findViewById(R.id.imagen_sin_noticias);
         iconoSinNoticias.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +114,7 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                refrescarContenido();
+                comprobarUltimaActualizacion();
             }
         });
         swipeRefreshLayout.setColorSchemeResources(R.color.amarillo_ucab, R.color.azul_radio_ucab);
@@ -163,12 +162,8 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
         });
     }
 
-    public void iniciarProgressDialog(String mensaje){
-        manejoProgressDialog.iniciarProgressDialog(mensaje, getActivity());
-    }
-
     public void comprobarUltimaActualizacion() {
-        iniciarProgressDialog("Comprobando si hay actualizaciones disponibles...");
+        manejoProgressDialog.iniciarProgressDialog("Comprobando si hay actualizaciones disponibles...", getActivity());
         conexionObjeto = new conexionGETAPIJSONObject();
         conexionObjeto.contexto = getActivity();
         conexionObjeto.delegate = this;
@@ -176,7 +171,7 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
     }
 
     public void cargarNoticias() {
-        iniciarProgressDialog("Cargando noticias...");
+        manejoProgressDialog.iniciarProgressDialog("Cargando noticias...", getActivity());
         conexion = new conexionGETAPIJSONArray();
         conexion.contexto = getActivity();
         conexion.delegate = this;
@@ -221,10 +216,6 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
         }
     }
 
-    public void refrescarContenido() {
-        comprobarUltimaActualizacion();
-    }
-
     public void ultimaActualizacion(JSONObject resultado) {
         try {
             List<Actualizacion> listaActualizaciones = Actualizacion.listAll(Actualizacion.class);
@@ -267,6 +258,11 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
 
     @Override
     public void procesoExitoso(int codigo, int tipo) {
+
+    }
+
+    @Override
+    public void procesoExitoso(String respuesta) {
 
     }
 

@@ -9,7 +9,7 @@ import info.androidhive.radioucab.R;
 
 public class VeloApp extends Activity {
 
-    private final int SPLASH_DISPLAY_LENGTH = 3200;
+    private final int SPLASH_DISPLAY_LENGTH = 4000;
     private ProgressBar progressBar;
 
     @Override

@@ -28,6 +28,7 @@ public class MisProgramasFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         manejoActivity.mostrarBackToolbar();
+        manejoActivity.registrarPantallaAnalytics("Mis programas favoritos");
         return inflater.inflate(R.layout.fragment_mis_programas, container, false);
     }
 

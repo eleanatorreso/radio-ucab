@@ -59,7 +59,6 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
         } catch (Exception e) {
             Log.e("IniSesTwit:onCreateV", e.getMessage());
         }
-        manejoActivity.registrarPantallaAnalytics("Inicio de Sesión");
         return null;
     }
 
@@ -82,7 +81,7 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
             if (Usuario.listAll(Usuario.class).isEmpty()) {
                 loginButton = (TwitterLoginButton) getActivity().findViewById(R.id.twitter_login_button);
                 segundoEncabezado = (TextView) getActivity().findViewById(R.id.campo_texto_inicio_sesion_dos);
-                manejoActivity.editarActivity(6, false, null);
+                manejoActivity.editarActivity(6, false, null, "Inicio de sesión");
                 if (!Fabric.isInitialized()) {
                     fabric = fabric.getInstance();
                     fabric.initFabric();
@@ -167,6 +166,11 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
 
     @Override
     public void procesoExitoso(int codigo, int tipo) {
+
+    }
+
+    @Override
+    public void procesoExitoso(String respuesta) {
 
     }
 

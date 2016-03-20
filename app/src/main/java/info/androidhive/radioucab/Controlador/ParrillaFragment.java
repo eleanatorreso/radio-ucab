@@ -3,6 +3,7 @@ package info.androidhive.radioucab.Controlador;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,12 +23,17 @@ import java.util.List;
 import java.util.TimeZone;
 
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONArray;
+import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONObject;
+import info.androidhive.radioucab.Conexiones.conexionGETAPIString;
 import info.androidhive.radioucab.Logica.ActualizacionLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
+import info.androidhive.radioucab.Logica.ManejoFecha;
 import info.androidhive.radioucab.Logica.ManejoProgressDialog;
 import info.androidhive.radioucab.Logica.ManejoToast;
 import info.androidhive.radioucab.Logica.ParillaLogica;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
+import info.androidhive.radioucab.Model.Actualizacion;
+import info.androidhive.radioucab.Model.Parrilla;
 import info.androidhive.radioucab.Model.Programa;
 import info.androidhive.radioucab.R;
 
@@ -45,6 +51,10 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
     private ActualizacionLogica actualizacionLogica = new ActualizacionLogica();
     private ManejoProgressDialog manejoProgressDialog = ManejoProgressDialog.getInstancia();
     private final ManejoToast manejoToast = ManejoToast.getInstancia();
+    private conexionGETAPIString conexionString;
+    private static Date ultimaActWS;
+    private static final ManejoFecha tiempoActual = new ManejoFecha();
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     public ParrillaFragment() {
     }
@@ -58,7 +68,6 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
         } catch (Exception e) {
             Log.e("Parrilla: onCreateView", e.getMessage());
         }
-        manejoActivity.registrarPantallaAnalytics("Parrilla");
         return null;
     }
 
@@ -66,41 +75,70 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //cambio el color del toolbar superior
-        manejoActivity.editarActivity(2, true, "Parrilla");
+        manejoActivity.editarActivity(2, true, "Parrilla", "Parrilla");
         listaHora = (ListView) rootView.findViewById(R.id.lista_hora);
         listaPrograma = (ListView) rootView.findViewById(R.id.lista_programa);
-        if (!parrillaLogica.comprobarActualizacionParrilla()) {
-            cargarParrilla();
-            actualizacionLogica.almacenarUltimaActualizacion(4, new Date());
+        swipeRefreshLayout = (SwipeRefreshLayout) getActivity().findViewById(R.id.swipe_refresh_parrilla);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                comprobarUltimaActualizacion();
+            }
+        });
+        swipeRefreshLayout.setColorSchemeResources(R.color.amarillo_ucab, R.color.azul_radio_ucab);
+        comprobarActualizacionParrilla();
+    }
+
+    public void comprobarActualizacionParrilla() {
+        List<Parrilla> parrillaProgramacion = Parrilla.listAll(Parrilla.class);
+        cargarParrillaActualizada();
+        if (!parrillaLogica.comprobarActualizacionParrilla() || parrillaProgramacion.size() == 0) {
+            comprobarUltimaActualizacion();
         }
     }
 
-    public static Date GetUTCdatetimeAsDate()
-    {
+    public void cargarParrillaActualizada() {
+        horas = new ArrayList<String>();
+        programas = new ArrayList<String>();
+        List<Parrilla> parrillaProgramacion = Parrilla.listAll(Parrilla.class);
+        for (Parrilla programa : parrillaProgramacion) {
+            horas.add(programa.getHorario());
+            programas.add(programa.getNombrePrograma());
+        }
+        ArrayAdapter<String> adapterHora = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, horas);
+        listaHora.setAdapter(adapterHora);
+        ArrayAdapter<String> adapterPrograma = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, programas);
+        listaPrograma.setAdapter(adapterPrograma);
+    }
+
+    public static Date GetUTCdatetimeAsDate() {
         return StringDateToDate(GetUTCdatetimeAsString());
     }
 
-    public static String GetUTCdatetimeAsString()
-    {
+    public static String GetUTCdatetimeAsString() {
         final SimpleDateFormat sdf = new SimpleDateFormat(DATEFORMAT);
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         final String utcTime = sdf.format(new Date());
         return utcTime;
     }
 
-    public static Date StringDateToDate(String StrDate)
-    {
+    public static Date StringDateToDate(String StrDate) {
         Date dateToReturn = null;
         SimpleDateFormat dateFormat = new SimpleDateFormat(DATEFORMAT);
-        try
-        {
-            dateToReturn = (Date)dateFormat.parse(StrDate);
-        }
-        catch (ParseException e)
-        {
+        try {
+            dateToReturn = (Date) dateFormat.parse(StrDate);
+        } catch (ParseException e) {
             e.printStackTrace();
         }
         return dateToReturn;
+    }
+
+    public void comprobarUltimaActualizacion() {
+        manejoProgressDialog.iniciarProgressDialog("Comprobando si hay actualizaciones disponibles...", getActivity());
+        conexionString = new conexionGETAPIString();
+        conexionString.contexto = getActivity();
+        conexionString.delegate = this;
+        conexionString.execute("Api/Programa/GetDiaActual");
     }
 
     public void cargarParrilla() {
@@ -112,25 +150,48 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
         conexion.execute("Api/Programa/GetContenido?GMT=" + zonaHoraria.getDisplayName(false, TimeZone.SHORT));
     }
 
-    public void mostrarResultados(JSONArray resultados){
+    public void mostrarResultados(JSONArray resultados) {
+        actualizacionLogica.almacenarUltimaActualizacion(4, ultimaActWS);
+        Parrilla.deleteAll(Parrilla.class);
         horas = new ArrayList<String>();
         programas = new ArrayList<String>();
-        List<Programa> parrilaDelDia = new ArrayList<Programa>();
         for (int i = 0; i < resultados.length(); i++) {
             try {
                 JSONObject objeto = resultados.getJSONObject(i);
                 horas.add(objeto.getString("hora_inicio") + " - " + objeto.getString("hora_fin"));
                 programas.add(objeto.getString("nombre"));
-                parrilaDelDia.add(new Programa(objeto.getString("nombre")));
+                Parrilla parrilla = new Parrilla(objeto.getString("hora_inicio") + " - " + objeto.getString("hora_fin"),
+                        objeto.getString("nombre"), objeto.getInt("id"));
+                parrilla.save();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        parrillaLogica.setParrillaDelDia(parrilaDelDia);
-        ArrayAdapter<String> adapterHora = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,horas );
+        ArrayAdapter<String> adapterHora = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, horas);
         listaHora.setAdapter(adapterHora);
-        ArrayAdapter<String> adapterPrograma = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,programas);
+        ArrayAdapter<String> adapterPrograma = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, programas);
         listaPrograma.setAdapter(adapterPrograma);
+
+    }
+
+    public void ultimaActualizacion(String resultado) {
+        try {
+            List<Actualizacion> listaActualizaciones = Actualizacion.listAll(Actualizacion.class);
+            ultimaActWS = tiempoActual.convertirString(resultado);
+            if (listaActualizaciones != null && listaActualizaciones.size() > 0) {
+                Actualizacion ultimaActualizacion = listaActualizaciones.get(0);
+                if (ultimaActualizacion.getActParrilla().equals(ultimaActWS) == true) {
+                    manejoToast.crearToast(getActivity(), "Parrilla actualizada");
+                } else {
+                    cargarParrilla();
+                }
+            } else {
+                cargarParrilla();
+            }
+        } catch (Exception e) {
+            Log.e("Parrilla: ultima act", e.getMessage());
+        }
+        manejoProgressDialog.cancelarProgressDialog();
     }
 
     @Override
@@ -141,12 +202,17 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
 
     @Override
     public void procesoExitoso(JSONObject resultado) {
-
     }
 
     @Override
     public void procesoExitoso(int codigo, int tipo) {
 
+    }
+
+    @Override
+    public void procesoExitoso(String respuesta) {
+        ultimaActualizacion(respuesta);
+        manejoProgressDialog.cancelarProgressDialog();
     }
 
     @Override

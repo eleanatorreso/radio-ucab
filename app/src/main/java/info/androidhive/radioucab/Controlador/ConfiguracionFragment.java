@@ -19,14 +19,13 @@ public class ConfiguracionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_configuracion, container, false);
-        manejoActivity.registrarPantallaAnalytics("Configuración");
         return rootView;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        manejoActivity.editarActivity(7, false, "Configuracion");
+        manejoActivity.editarActivity(7, false, "Configuracion", "Configuración");
     }
 
 }

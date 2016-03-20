@@ -49,7 +49,7 @@ public class EditarTweetProgramaFragment extends Fragment {
         array_spinner[2]="option 3";
         array_spinner[3]="option 4";
         array_spinner[4]="option 5";
-        manejoActivity.editarActivity(6, false, null);
+        manejoActivity.editarActivity(6, false, null, "Editar tweet programa");
         super.onCreate(savedInstanceState);
         botonEnviar = (Button) getActivity().findViewById(R.id.boton_enviar_solicitud);
         botonEnviar.setOnClickListener(new View.OnClickListener() {

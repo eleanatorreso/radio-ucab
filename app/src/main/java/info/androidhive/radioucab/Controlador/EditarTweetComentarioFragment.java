@@ -59,7 +59,7 @@ public class EditarTweetComentarioFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         //cambio el color del toolbar superior
-        manejoActivity.editarActivity(6, false, null);
+        manejoActivity.editarActivity(6, false, null, "Editar tweet comentario");
         super.onCreate(savedInstanceState);
         editTextComentario = (EditText) getActivity().findViewById(R.id.editText_tweet_comentario);
         grupo_radio_button = (RadioGroup) getActivity().findViewById(R.id.grupo_radio_button_finalidad);

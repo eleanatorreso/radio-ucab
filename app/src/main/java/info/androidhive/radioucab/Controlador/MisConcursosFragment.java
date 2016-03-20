@@ -23,6 +23,7 @@ public class MisConcursosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         manejoActivity.mostrarBackToolbar();
+        manejoActivity.registrarPantallaAnalytics("Mis concursos");
         return inflater.inflate(R.layout.fragment_mis_concursos, container, false);
     }
 

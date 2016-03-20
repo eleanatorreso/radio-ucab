@@ -39,7 +39,7 @@ public class NoticiaDetalleFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         manejoActivity.mostrarBackToolbar();
-        manejoActivity.editarActivity(3, true, null);
+        manejoActivity.editarActivity(3, true, null, "Detalle de la noticia");
         titulo = (TextView) getView().findViewById(R.id.titulo_noticia);
         titulo.setText(noticia.getTitular());
         texto_noticia = (TextView) getView().findViewById(R.id.texto_noticia);

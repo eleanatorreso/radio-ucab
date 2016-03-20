@@ -41,7 +41,7 @@ public class EditarTweetSolicitarFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         //cambio el color del toolbar superior
-        manejoActivity.editarActivity(6, false, null);
+        manejoActivity.editarActivity(6, false, null, "Editar tweet solicitar canción");
         super.onCreate(savedInstanceState);
         editTextCancion = (EditText) getActivity().findViewById(R.id.editText_cancion);
         editTextArtista = (EditText) getActivity().findViewById(R.id.editText_artista);

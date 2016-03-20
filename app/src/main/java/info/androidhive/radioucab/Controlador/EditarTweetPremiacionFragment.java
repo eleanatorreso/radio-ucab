@@ -45,7 +45,7 @@ public class EditarTweetPremiacionFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         //cambio el color del toolbar superior
-        manejoActivity.editarActivity(6, false, null);
+        manejoActivity.editarActivity(6, false, null, "Editar tweet premiación");
         super.onCreate(savedInstanceState);
         botonEnviar = (Button) getActivity().findViewById(R.id.boton_participar_premiacion);
         botonEnviar.setOnClickListener(new View.OnClickListener() {

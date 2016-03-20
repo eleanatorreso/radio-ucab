@@ -7,5 +7,6 @@ public interface RespuestaAsyncTask {
     public void procesoExitoso(JSONArray resultados);
     public void procesoExitoso(JSONObject resultado);
     public void procesoExitoso(int codigo, int tipo);
+    public void procesoExitoso(String respuesta);
     public void procesoNoExitoso();
 }

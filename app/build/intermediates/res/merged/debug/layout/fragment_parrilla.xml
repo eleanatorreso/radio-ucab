@@ -1,75 +1,78 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe_refresh_parrilla"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/campo_encabezado_modulo_parrilla"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
-        android:text="@string/campo_encabezado_parrilla"
-        android:textColor="@color/azul_radio_ucab"
-        android:textSize="20sp" />
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/lower_linear_layout"
-        android:layout_marginTop="20dp"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/campo_encabezado_modulo_parrilla"
-        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/campo_encabezado_modulo_parrilla"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:text="@string/campo_encabezado_parrilla"
+            android:textColor="@color/azul_radio_ucab"
+            android:textSize="20sp" />
 
-        <RelativeLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="130dip"
-            android:layout_height="fill_parent"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/relative_layout_hora">
-
-            <TextView
-                android:id="@+id/campo_encabezado_horario_parrilla"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="@string/campo_encabezado_horario_parrilla"
-                android:textColor="@color/azul_radio_ucab"
-                android:textSize="16sp" />
-
-            <ListView
-                android:id="@+id/lista_hora"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:cacheColorHint="#00000000"
-                android:layout_below="@id/campo_encabezado_horario_parrilla"
-                android:scrollbars="vertical" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/lower_linear_layout"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/relative_layout_programa">
+            android:layout_below="@+id/campo_encabezado_modulo_parrilla"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/campo_encabezado_programa_parrilla"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="@string/campo_encabezado_programa_parrilla"
-                android:textColor="@color/azul_radio_ucab"
-                android:textSize="16sp" />
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="130dip"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/relative_layout_hora">
 
-            <ListView
-                android:id="@+id/lista_programa"
+                <TextView
+                    android:id="@+id/campo_encabezado_horario_parrilla"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/campo_encabezado_horario_parrilla"
+                    android:textColor="@color/azul_radio_ucab"
+                    android:textSize="16sp" />
+
+                <ListView
+                    android:id="@+id/lista_hora"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/campo_encabezado_horario_parrilla"
+                    android:cacheColorHint="#00000000"
+                    android:scrollbars="vertical" />
+            </RelativeLayout>
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:cacheColorHint="#00000000"
-                android:layout_below="@id/campo_encabezado_programa_parrilla"
-                android:scrollbars="vertical"/>
-        </RelativeLayout>
-    </LinearLayout>
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/relative_layout_programa">
 
-</RelativeLayout>
+                <TextView
+                    android:id="@+id/campo_encabezado_programa_parrilla"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/campo_encabezado_programa_parrilla"
+                    android:textColor="@color/azul_radio_ucab"
+                    android:textSize="16sp" />
+
+                <ListView
+                    android:id="@+id/lista_programa"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/campo_encabezado_programa_parrilla"
+                    android:cacheColorHint="#00000000"
+                    android:scrollbars="vertical" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

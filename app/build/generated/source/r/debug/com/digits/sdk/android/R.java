@@ -468,7 +468,7 @@ public final class R {
 		public static final int icon = 0x7f0f0055;
 		public static final int ifRoom = 0x7f0f0020;
 		public static final int image = 0x7f0f0052;
-		public static final int imageView = 0x7f0f0168;
+		public static final int imageView = 0x7f0f0169;
 		public static final int listMode = 0x7f0f000b;
 		public static final int list_item = 0x7f0f0054;
 		public static final int middle = 0x7f0f0018;
@@ -496,11 +496,11 @@ public final class R {
 		public static final int submit_area = 0x7f0f0075;
 		public static final int tabMode = 0x7f0f000d;
 		public static final int title = 0x7f0f0056;
-		public static final int tw__allow_btn = 0x7f0f016b;
-		public static final int tw__not_now_btn = 0x7f0f016a;
-		public static final int tw__share_email_desc = 0x7f0f0169;
-		public static final int tw__spinner = 0x7f0f0167;
-		public static final int tw__web_view = 0x7f0f0166;
+		public static final int tw__allow_btn = 0x7f0f016c;
+		public static final int tw__not_now_btn = 0x7f0f016b;
+		public static final int tw__share_email_desc = 0x7f0f016a;
+		public static final int tw__spinner = 0x7f0f0168;
+		public static final int tw__web_view = 0x7f0f0167;
 		public static final int up = 0x7f0f000a;
 		public static final int useLogo = 0x7f0f0014;
 		public static final int withText = 0x7f0f0022;
