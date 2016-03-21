@@ -21,6 +21,8 @@ import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONObject;
 import info.androidhive.radioucab.Controlador.Adaptor.AdaptadorPrograma;
 import info.androidhive.radioucab.Logica.ActualizacionLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
+import info.androidhive.radioucab.Logica.ManejoProgressDialog;
+import info.androidhive.radioucab.Logica.ManejoToast;
 import info.androidhive.radioucab.Logica.ProgramaLogica;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.Model.Actualizacion;
@@ -42,11 +44,12 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
     private static Date ultimaActWS;
     private View rootView;
     private static final ManejoFecha tiempoActual = new ManejoFecha();
-    private Toast toast;
     private final ProgramaLogica programaLogica = new ProgramaLogica();
     private final ActualizacionLogica actualizacionLogica = new ActualizacionLogica();
     private static int pagina = 1;
     private ManejoActivity manejoActivity = ManejoActivity.getInstancia();
+    private final ManejoToast manejoToast = ManejoToast.getInstancia();
+    private ManejoProgressDialog manejoProgressDialog = ManejoProgressDialog.getInstancia();
 
     public ProgramaFragment() {
     }
@@ -144,14 +147,15 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
     }
 
     public void cargarProgramas() {
+        manejoProgressDialog.iniciarProgressDialog("Cargando los programas...", getActivity());
         conexionArray = new conexionGETAPIJSONArray();
         conexionArray.contexto = getActivity();
-        //conexionArray.mensaje = "Cargando los programas...";
         conexionArray.delegate = this;
         conexionArray.execute("Api/Programa/GetPrograma?pagina=" + pagina);
     }
 
     public void comprobarUltimaActualizacion() {
+        manejoProgressDialog.iniciarProgressDialog("Comprobando si hay actualizaciones disponibles...", getActivity());
         conexionObjeto = new conexionGETAPIJSONObject();
         conexionObjeto.contexto = getActivity();
         conexionObjeto.delegate = this;
@@ -191,9 +195,7 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
             if (listaActualizaciones != null && listaActualizaciones.size() > 0) {
                 Actualizacion ultimaActualizacion = listaActualizaciones.get(0);
                 if (ultimaActualizacion.getActPrograma().equals(ultimaActWS) == true) {
-                    mensaje = "Programas Actualizados";
-                    toast = Toast.makeText(getActivity(), mensaje, Toast.LENGTH_LONG);
-                    toast.show();
+                    manejoToast.crearToast(getActivity(), "Programas actualizados");
                 } else {
                     cargarProgramas();
                 }
@@ -211,8 +213,8 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
         List<Programa> resultadosProgramas = procesarResultados(resultadoConsulta);
         cambioAdaptador(resultadosProgramas);
         try {
-            toast = Toast.makeText(getActivity(), "Programas nuevos", Toast.LENGTH_LONG);
-            toast.show();
+            manejoProgressDialog.cancelarProgressDialog();
+            manejoToast.crearToast(getActivity(), "Programas nuevos");
             swipeRefreshLayout.setRefreshing(false);
         } catch (Exception e) {
             Log.e("Programas: toast", e.getMessage());
@@ -238,8 +240,8 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
     @Override
     public void procesoNoExitoso() {
         try {
-            toast = Toast.makeText(getActivity(), "Error al actualizar los programas, intentelo mas tarde", Toast.LENGTH_LONG);
-            toast.show();
+            manejoProgressDialog.cancelarProgressDialog();
+            manejoToast.crearToast(getActivity(), "Error al actualizar los programas, intentelo más tarde");
             swipeRefreshLayout.setRefreshing(false);
         } catch (Exception e) {
             Log.e("Noticias: toast", e.getMessage());

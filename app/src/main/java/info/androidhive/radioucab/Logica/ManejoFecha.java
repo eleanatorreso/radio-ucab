@@ -8,12 +8,13 @@ import java.util.Date;
 public class ManejoFecha {
 
     private final SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+    private final SimpleDateFormat format2 = new SimpleDateFormat("dd/MM/yyyy");
 
-    public ManejoFecha(){
+    public ManejoFecha() {
 
     }
 
-    public Date getDateNow () {
+    public Date getDateNow() {
         Calendar calendario = Calendar.getInstance();
         String tiempoActual = format.format(calendario.getTime());
         try {
@@ -24,9 +25,18 @@ public class ManejoFecha {
         return null;
     }
 
-    public Date convertirString (String fecha) {
+    public Date convertirString(String fecha) {
         try {
             return format.parse(fecha);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Date convertirStringSimple(String fecha) {
+        try {
+            return format2.parse(fecha);
         } catch (ParseException e) {
             e.printStackTrace();
         }

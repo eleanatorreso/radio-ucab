@@ -24,6 +24,8 @@ import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONObject;
 import info.androidhive.radioucab.Logica.ActualizacionLogica;
 import info.androidhive.radioucab.Logica.EventoLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
+import info.androidhive.radioucab.Logica.ManejoProgressDialog;
+import info.androidhive.radioucab.Logica.ManejoToast;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.Model.Actualizacion;
 import info.androidhive.radioucab.Model.Evento;
@@ -44,11 +46,12 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
     private static Date ultimaActWS;
     private View rootView;
     private static final ManejoFecha tiempoActual = new ManejoFecha();
-    private Toast toast;
     private static int pagina = 1;
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
     private final ActualizacionLogica actualizacionLogica = new ActualizacionLogica();
     private final EventoLogica eventoLogica = new EventoLogica();
+    private final ManejoToast manejoToast = ManejoToast.getInstancia();
+    private ManejoProgressDialog manejoProgressDialog = ManejoProgressDialog.getInstancia();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -146,14 +149,15 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
     }
 
     public void cargarEventos() {
+        manejoProgressDialog.iniciarProgressDialog("Cargando los próximos eventos...", getActivity());
         conexionGETAPIJSONArray conexion = new conexionGETAPIJSONArray();
         conexion.contexto = getActivity();
-        //conexion.mensaje = "Cargando los eventos...";
         conexion.delegate = this;
         conexion.execute("Api/Evento/GetEvento?pagina=" + pagina);
     }
 
     public void comprobarUltimaActualizacion() {
+        manejoProgressDialog.iniciarProgressDialog("Comprobando si hay actualizaciones disponibles...", getActivity());
         conexionObjeto = new conexionGETAPIJSONObject();
         conexionObjeto.contexto = getActivity();
         conexionObjeto.delegate = this;
@@ -191,16 +195,13 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
     }
 
     public void ultimaActualizacion(JSONObject resultado) {
-        String mensaje = "";
         try {
             List<Actualizacion> listaActualizaciones = Actualizacion.listAll(Actualizacion.class);
             ultimaActWS = tiempoActual.convertirString(resultado.getString("fecha_actualizacion"));
             if (listaActualizaciones != null && listaActualizaciones.size() > 0) {
                 Actualizacion ultimaActualizacion = listaActualizaciones.get(0);
                 if (ultimaActualizacion.getActEvento().equals(ultimaActWS) == true) {
-                    mensaje = "Eventos Actualizados";
-                    toast = Toast.makeText(getActivity(), mensaje, Toast.LENGTH_LONG);
-                    toast.show();
+                    manejoToast.crearToast(getActivity(), "Eventos actualizados");
                 } else {
                     cargarEventos();
                 }
@@ -218,8 +219,7 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
         ArrayList<ParentObject> eventos = generarEventos(resultadosEventos);
         cambioAdaptador(eventos);
         try {
-            toast = Toast.makeText(getActivity(), "Eventos nuevos", Toast.LENGTH_LONG);
-            toast.show();
+            manejoToast.crearToast(getActivity(), "Eventos nuevas");
             swipeRefreshLayout.setRefreshing(false);
         }
         catch (Exception e){
@@ -231,6 +231,7 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
     public void procesoExitoso(JSONObject resultado) {
         ultimaActualizacion(resultado);
         swipeRefreshLayout.setRefreshing(false);
+        manejoProgressDialog.cancelarProgressDialog();
     }
 
     @Override
@@ -246,8 +247,8 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
     @Override
     public void procesoNoExitoso() {
         try {
-            toast = Toast.makeText(getActivity(), "Error al actualizar los eventos, intentelo más tarde", Toast.LENGTH_LONG);
-            toast.show();
+            manejoProgressDialog.cancelarProgressDialog();
+            manejoToast.crearToast(getActivity(), "Error al actualizar los eventos, intentelo más tarde");
             swipeRefreshLayout.setRefreshing(false);
         } catch (Exception e) {
             Log.e("Noticias: toast", e.getMessage());

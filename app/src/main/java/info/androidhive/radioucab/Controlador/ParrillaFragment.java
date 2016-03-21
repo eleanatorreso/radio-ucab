@@ -176,8 +176,9 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
 
     public void ultimaActualizacion(String resultado) {
         try {
+            resultado = resultado.replace("\"","");
             List<Actualizacion> listaActualizaciones = Actualizacion.listAll(Actualizacion.class);
-            ultimaActWS = tiempoActual.convertirString(resultado);
+            ultimaActWS = tiempoActual.convertirStringSimple(resultado);
             if (listaActualizaciones != null && listaActualizaciones.size() > 0) {
                 Actualizacion ultimaActualizacion = listaActualizaciones.get(0);
                 if (ultimaActualizacion.getActParrilla().equals(ultimaActWS) == true) {
@@ -196,6 +197,7 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
 
     @Override
     public void procesoExitoso(JSONArray resultados) {
+        swipeRefreshLayout.setRefreshing(false);
         mostrarResultados(resultados);
         manejoProgressDialog.cancelarProgressDialog();
     }
@@ -211,6 +213,7 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
 
     @Override
     public void procesoExitoso(String respuesta) {
+        swipeRefreshLayout.setRefreshing(false);
         ultimaActualizacion(respuesta);
         manejoProgressDialog.cancelarProgressDialog();
     }
@@ -219,6 +222,7 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
     public void procesoNoExitoso() {
         try {
             manejoProgressDialog.cancelarProgressDialog();
+            swipeRefreshLayout.setRefreshing(false);
             manejoToast.crearToast(getActivity(), "Error al actualizar la parrilla de programación, intentelo más tarde");
         } catch (Exception e) {
             Log.e("Noticias: noexit", e.getMessage());
