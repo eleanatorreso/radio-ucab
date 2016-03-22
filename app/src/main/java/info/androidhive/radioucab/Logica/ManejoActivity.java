@@ -212,7 +212,7 @@ public class ManejoActivity {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = new HomeFragment();
+                fragment = (Fragment) new HomeFragment();
                 break;
             case 1:
                 fragment = new ParrillaFragment();
@@ -333,18 +333,18 @@ public class ManejoActivity {
         return 0;
     }
 
-    public void mostrarBackToolbar(){
+    public void mostrarBackToolbar() {
         botonMenu.setVisibility(View.INVISIBLE);
         main.mostrarBackToolbar();
     }
 
-    public void mostrarCloseToolbar(){
+    public void mostrarCloseToolbar() {
         botonMenu.setVisibility(View.INVISIBLE);
         main.mostrarCloseToolbar();
     }
 
-    public void ocultarBackToolbar(){
-        if (botonMenu !=null) {
+    public void ocultarBackToolbar() {
+        if (botonMenu != null) {
             botonMenu.setVisibility(View.VISIBLE);
             main.ocultarOpcionToolbar();
         }
@@ -353,7 +353,7 @@ public class ManejoActivity {
     public Fragment cambiarFragment(String nombre_fragment, boolean addToBackStack) {
         int posicion = getPosicion(nombre_fragment);
         Fragment fragmento = getFragment(posicion);
-        FragmentManager fragmentManager = getActivityPrincipal().getFragmentManager();
+        FragmentManager fragmentManager = getInstanciaMain().getFragmentManager();
         if (posicion < 20) {
             mDrawerList.setItemChecked(posicion, true);
             mDrawerList.setSelection(posicion);
@@ -362,7 +362,7 @@ public class ManejoActivity {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frame_container, fragmento);
         if (addToBackStack) {
-            transaction.addToBackStack("");
+            transaction.addToBackStack(null);
         }
         transaction.commit();
 //        fragmentManager.executePendingTransactions();

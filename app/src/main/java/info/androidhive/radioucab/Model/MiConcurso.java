@@ -2,7 +2,7 @@ package info.androidhive.radioucab.Model;
 
 import com.orm.SugarRecord;
 
-public class MisConcurso extends SugarRecord {
+public class MiConcurso extends SugarRecord {
     private int myId;
     private String nombreConcurso;
     private String fechas;
@@ -11,7 +11,9 @@ public class MisConcurso extends SugarRecord {
     private String estado_concurso;
     private String resultado;
 
-    public MisConcurso(int myId, String nombreConcurso, String fechas, String descripcion, int gano, String estado_concurso, String resultado) {
+    public MiConcurso(){}
+
+    public MiConcurso(int myId, String nombreConcurso, String fechas, String descripcion, int gano, String estado_concurso, String resultado) {
         this.myId = myId;
         this.nombreConcurso = nombreConcurso;
         this.fechas = fechas;

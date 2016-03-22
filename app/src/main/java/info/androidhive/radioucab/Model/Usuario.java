@@ -2,6 +2,8 @@ package info.androidhive.radioucab.Model;
 
 import com.orm.SugarRecord;
 
+import java.util.List;
+
 public class Usuario extends SugarRecord {
     private String nombre;
     private String apellido;

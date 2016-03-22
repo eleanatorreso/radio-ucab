@@ -9,15 +9,15 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import info.androidhive.radioucab.Controlador.ViewHolder.MisConcursosViewHolder;
-import info.androidhive.radioucab.Model.MisConcurso;
+import info.androidhive.radioucab.Model.MiConcurso;
 import info.androidhive.radioucab.R;
 
 public class AdaptadorMisConcursos extends RecyclerView.Adapter<MisConcursosViewHolder>{
 
-    private List<MisConcurso> concursos;
+    private List<MiConcurso> concursos;
     private Fragment fragment;
 
-    public AdaptadorMisConcursos(List<MisConcurso> concursos, Fragment fragment) {
+    public AdaptadorMisConcursos(List<MiConcurso> concursos, Fragment fragment) {
         this.concursos = concursos;
         this.fragment = fragment;
     }
@@ -32,13 +32,17 @@ public class AdaptadorMisConcursos extends RecyclerView.Adapter<MisConcursosView
 
     @Override
     public void onBindViewHolder(MisConcursosViewHolder holder, int position) {
-        MisConcurso miConcurso = concursos.get(position);
+        MiConcurso miConcurso = concursos.get(position);
         holder.tituloConcurso.setText(miConcurso.getNombreConcurso());
         holder.descripcionConcurso.setText(miConcurso.getDescripcion());
         holder.ganoConcurso = miConcurso.getGano();
         holder.fechasConcurso.setText(miConcurso.getFechas());
         holder.resultadoConcurso.setText(miConcurso.getResultado());
         holder.estadoConcurso.setText(miConcurso.getEstado_concurso());
+        holder.myId = miConcurso.getMyId();
+        if (holder.ganoConcurso == 0) {
+            holder.imagen_trofeo.setColorFilter(fragment.getActivity().getResources().getColor(R.color.list_divider));
+        }
         holder.fragment = fragment;
     }
 

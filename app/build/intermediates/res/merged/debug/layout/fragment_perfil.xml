@@ -28,7 +28,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:textColor="@color/lista_texto"
-        android:textSize="17sp" />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/boton_editar_perfil"
@@ -40,7 +40,7 @@
         android:background="@drawable/boton_azul_claro"
         android:text="@string/campo_boton_editar_perfil"
         android:textColor="@color/blanco"
-        android:textSize="15sp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/texto_informacion_personal"

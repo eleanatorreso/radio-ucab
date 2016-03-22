@@ -10,8 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -77,63 +79,7 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setAdapter(adaptadorProgramas);
-                swipeRefreshLayout = (SwipeRefreshLayout) getActivity().findViewById(R.id.activity_programas_swipe_refresh_layout);
-                swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-                    @Override
-                    public void onRefresh() {
-                        refrescarContenido();
-                    }
-                });
-                swipeRefreshLayout.setColorSchemeResources(R.color.amarillo_ucab, R.color.azul_radio_ucab);
-                recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-                    private int currentScrollState;
-                    private int currentFirstVisibleItem;
-                    private int currentVisibleItemCount;
-                    private boolean isLoading;
-
-                    @Override
-                    public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                        super.onScrolled(recyclerView, dx, dy);
-                        currentVisibleItemCount = layoutManager.getChildCount();
-                        currentVisibleItemCount = layoutManager.getItemCount();
-                        currentFirstVisibleItem = layoutManager.findFirstVisibleItemPosition();
-
-                        boolean enable = false;
-                        if (recyclerView != null && recyclerView.getChildCount() > 0) {
-                            // check if the first item of the list is visible
-                            boolean firstItemVisible = layoutManager.findFirstVisibleItemPosition() == 0;
-                            // check if the top of the first item is visible
-                            boolean topOfFirstItemVisible = recyclerView.getChildAt(0).getTop() == 0;
-                            // enabling or disabling the refresh layout
-                            enable = firstItemVisible && topOfFirstItemVisible;
-                        }
-                        swipeRefreshLayout.setEnabled(enable);
-
-                        if (!recyclerView.canScrollVertically(1)) {
-                            onScrolledToEnd();
-                        } else if (dy < 0) {
-                            onScrolledUp();
-                        } else if (dy > 0) {
-                            onScrolledDown();
-                        }
-                    }
-
-
-                    public void onScrolledUp() {
-                    }
-
-                    public void onScrolledDown() {
-                    }
-
-                    public void onScrolledToEnd() {
-                        Log.v("Final", "EEEEH");
-                    }
-
-                    @Override
-                    public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                        super.onScrollStateChanged(recyclerView, newState);
-                    }
-                });
+                manejoSwipeRefresh();
                 List<Programa> programasAlmacenados = Programa.listAll(Programa.class);
                 cambioAdaptador(programasAlmacenados);
                 if (flag == 0) {
@@ -144,6 +90,66 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
         } catch (Exception e) {
             Log.e("Programa: onactivity", e.getMessage());
         }
+    }
+
+    public void manejoSwipeRefresh(){
+        swipeRefreshLayout = (SwipeRefreshLayout) getActivity().findViewById(R.id.activity_programas_swipe_refresh_layout);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                comprobarUltimaActualizacion();
+            }
+        });
+        swipeRefreshLayout.setColorSchemeResources(R.color.amarillo_ucab, R.color.azul_radio_ucab);
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            private int currentScrollState;
+            private int currentFirstVisibleItem;
+            private int currentVisibleItemCount;
+            private boolean isLoading;
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                currentVisibleItemCount = layoutManager.getChildCount();
+                currentVisibleItemCount = layoutManager.getItemCount();
+                currentFirstVisibleItem = layoutManager.findFirstVisibleItemPosition();
+
+                boolean enable = false;
+                if (recyclerView != null && recyclerView.getChildCount() > 0) {
+                    // check if the first item of the list is visible
+                    boolean firstItemVisible = layoutManager.findFirstVisibleItemPosition() == 0;
+                    // check if the top of the first item is visible
+                    boolean topOfFirstItemVisible = recyclerView.getChildAt(0).getTop() == 0;
+                    // enabling or disabling the refresh layout
+                    enable = firstItemVisible && topOfFirstItemVisible;
+                }
+                swipeRefreshLayout.setEnabled(enable);
+
+                if (!recyclerView.canScrollVertically(1)) {
+                    onScrolledToEnd();
+                } else if (dy < 0) {
+                    onScrolledUp();
+                } else if (dy > 0) {
+                    onScrolledDown();
+                }
+            }
+
+
+            public void onScrolledUp() {
+            }
+
+            public void onScrolledDown() {
+            }
+
+            public void onScrolledToEnd() {
+                Log.v("Final", "EEEEH");
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
     }
 
     public void cargarProgramas() {
@@ -162,7 +168,6 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
         conexionObjeto.tipo = 1;
         conexionObjeto.execute("Api/Programa/ultimaModificacionPrograma");
     }
-
 
     public List<Programa> procesarResultados(JSONArray resultadoConsulta) {
         actualizacionLogica.almacenarUltimaActualizacion(3, ultimaActWS);
@@ -183,12 +188,7 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
         recyclerView.setAdapter(adaptadorProgramas);
     }
 
-    public void refrescarContenido() {
-        comprobarUltimaActualizacion();
-    }
-
     public void ultimaActualizacion(JSONObject resultado) {
-        String mensaje = "";
         try {
             List<Actualizacion> listaActualizaciones = Actualizacion.listAll(Actualizacion.class);
             ultimaActWS = tiempoActual.convertirString(resultado.getString("fecha_actualizacion"));
@@ -201,7 +201,6 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
                 }
             } else {
                 cargarProgramas();
-                ;
             }
         } catch (Exception e) {
             Log.e("Programas: ultima act", e.getMessage());
@@ -224,6 +223,7 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
     @Override
     public void procesoExitoso(JSONObject resultado) {
         ultimaActualizacion(resultado);
+        manejoProgressDialog.cancelarProgressDialog();
         swipeRefreshLayout.setRefreshing(false);
     }
 

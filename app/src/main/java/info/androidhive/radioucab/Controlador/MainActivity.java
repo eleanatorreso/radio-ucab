@@ -637,7 +637,8 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         int count = getFragmentManager().getBackStackEntryCount();
         if (getFragmentManager().getBackStackEntryCount() > 0) {
-            getFragmentManager().popBackStack();
+            //getSupportFragmentManager().popBackStack();
+            getFragmentManager().popBackStack(getFragmentManager().getBackStackEntryAt(0).getId(), getFragmentManager().POP_BACK_STACK_INCLUSIVE);
             boton.setVisibility(View.VISIBLE);
             ocultarOpcionToolbar();
         } else {

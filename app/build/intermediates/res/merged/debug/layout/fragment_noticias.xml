@@ -4,6 +4,7 @@
     android:id="@+id/activity_main_swipe_refresh_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -33,7 +34,7 @@
             android:id="@+id/texto_sin_noticias"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/azul_radio_ucab"
+            android:textColor="@color/negro"
             android:text="@string/campo_texto_sin_noticias"
             android:layout_below="@id/imagen_sin_noticias"
             android:layout_marginTop="10dp"

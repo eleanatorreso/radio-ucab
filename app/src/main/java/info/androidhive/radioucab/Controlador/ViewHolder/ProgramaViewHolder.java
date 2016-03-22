@@ -40,9 +40,6 @@ public class ProgramaViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View v) {
                 try {
                     List<Programa> programaSeleccionado = Programa.find(Programa.class, "titulo =?", tituloPrograma.getText().toString());
-                    Programa p = Programa.findById(Programa.class, Long.parseLong("1"));
-                    List<Locutor> aaa = Locutor.listAll(Locutor.class);
-                    HorarioPrograma ss = HorarioPrograma.findById(HorarioPrograma.class, Long.parseLong("1"));
                     if (programaSeleccionado != null && programaSeleccionado.size() > 0) {
                         ProgramaDetalleFragment detalle = (ProgramaDetalleFragment) manejoActivity.cambiarFragment("ProgramaDetalle", true);
                         detalle.programa = programaSeleccionado.get(0);

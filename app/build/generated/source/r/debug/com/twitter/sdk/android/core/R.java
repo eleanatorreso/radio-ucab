@@ -44,12 +44,12 @@ public final class R {
 		public static final int tw__transparent = 0x7f02010b;
 	}
 	public static final class id {
-		public static final int imageView = 0x7f0f0169;
-		public static final int tw__allow_btn = 0x7f0f016c;
-		public static final int tw__not_now_btn = 0x7f0f016b;
-		public static final int tw__share_email_desc = 0x7f0f016a;
-		public static final int tw__spinner = 0x7f0f0168;
-		public static final int tw__web_view = 0x7f0f0167;
+		public static final int imageView = 0x7f0f016d;
+		public static final int tw__allow_btn = 0x7f0f0170;
+		public static final int tw__not_now_btn = 0x7f0f016f;
+		public static final int tw__share_email_desc = 0x7f0f016e;
+		public static final int tw__spinner = 0x7f0f016c;
+		public static final int tw__web_view = 0x7f0f016b;
 	}
 	public static final class layout {
 		public static final int tw__activity_oauth = 0x7f030054;
@@ -59,7 +59,7 @@ public final class R {
 		public static final int tw__cacerts = 0x7f060001;
 	}
 	public static final class string {
-		public static final int kit_name = 0x7f0700f0;
+		public static final int kit_name = 0x7f0700f1;
 		public static final int tw__allow_btn_txt = 0x7f070060;
 		public static final int tw__login_btn_txt = 0x7f070062;
 		public static final int tw__not_now_btn_txt = 0x7f070063;

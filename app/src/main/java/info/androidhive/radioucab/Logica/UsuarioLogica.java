@@ -136,7 +136,6 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
             usuarioBD.setImagen_normal(usuarioApp.getImagen_normal());
             actualizar = true;
         }
-
         usuario = usuarioBD;
         almacenarUsuario(actualizar, false);
     }

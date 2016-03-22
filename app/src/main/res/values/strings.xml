@@ -9,7 +9,7 @@
     <string name="timeline_empty">Espere un momento por favor...</string>
     <string name="texto_detalle_programa">Espere un momento por favor...</string>
     <string name="menu_perfil_usuario">Ingresar</string>
-    <string name="ip_web_service">http://192.168.0.101:24364/</string>
+    <string name="ip_web_service">http://192.168.1.107:24364/</string>
     <string name="ip_streaming_high">http://31.200.244.181:8110</string>
     <string name="ip_streaming_low">http://31.200.244.181:8110</string>
     <string name="ruta_archivos_radio_ucab">/sdcard/.RadioUCAB/</string>
@@ -60,7 +60,7 @@
     <string name="dialogo_mensaje_No">No</string>
     <!-- Registro de Usuario -->
     <string name="dialogo_asunto_terminos_condiciones">Términos y Condiciones</string>
-    <string name="dialogo_contenido_terminos_condiciones">ja njaskj sdbksdbhcdbhc dbhcd jnajxahxbhj xbhxsbhs jnsjn djndcjn cdjncdjndcjdc jncdnjcdjn cdjnd cnjdcnj cdnjcdncd cdjcdnjcmcd</string>
+    <string name="dialogo_contenido_terminos_condiciones">Términos y condiciones</string>
     <string name="dialogo_asunto_cancelar_registro">Cancelar registro</string>
     <string name="dialogo_contenido_cancelar_registro">¿Está seguro de que desea cancelar su registro?</string>
     <!-- Editar Usuario -->
@@ -75,6 +75,7 @@
     <string name="campo_boton_guardar">Guardar</string>
     <!-- Mis Concursos-->
     <string name="campo_encabezado_mis_concursos">Mis concursos</string>
+    <string name="campo_texto_sin_mis_concursos">Aún no has participado en ningún concurso, está atento a la programación de Radio UCAB para participar en el próximo</string>
     <!-- Configuración-->
     <string name="campo_encabezado_configuración">Configuración</string>
     <string name="campo_encabezado_configuración_uno">Recibir notificaciones de la aplicación </string>
@@ -159,7 +160,7 @@
 
     <!-- Dedicatoria Cancion-->
     <string name="campo_encabezado_editar_tweet_dedicar">Dedicar canción</string>
-    <string name="campo_texto_tweet_dedicatoria">Completa los siguientes campos para generar tu dedicatoria. Recuerda que el usuario que recibirá la dedicatoria debe poseer una cuenta de Twitter para que reciba su dedicatoria.</string>
+    <string name="campo_texto_tweet_dedicatoria">Completa los siguientes campos para generar tu dedicatoria. Recuerda que el usuario_tag que recibirá la dedicatoria debe poseer una cuenta de Twitter para que reciba su dedicatoria.</string>
     <string name="hint_campo_editText_usuario_dedicatoria">Usuario receptor de la dedicatoria</string>
 
     <!-- Concursos -->

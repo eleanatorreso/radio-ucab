@@ -25,10 +25,14 @@ import org.json.JSONObject;
 
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONArray;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONObject;
+import info.androidhive.radioucab.Logica.ConcursoLogica;
 import info.androidhive.radioucab.Logica.FabricLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
+import info.androidhive.radioucab.Logica.ManejoProgressDialog;
 import info.androidhive.radioucab.Logica.ManejoSesionTwitter;
+import info.androidhive.radioucab.Logica.ProgramaLogica;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
+import info.androidhive.radioucab.Logica.TagLogica;
 import info.androidhive.radioucab.Logica.UsuarioLogica;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
@@ -45,6 +49,10 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
     private final UsuarioLogica usuarioLogica = new UsuarioLogica();
     private final ManejoSesionTwitter sesionTwitter = new ManejoSesionTwitter();
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
+    private final ProgramaLogica programaLogica = new ProgramaLogica();
+    private final TagLogica tagLogica = new TagLogica();
+    private final ConcursoLogica concursoLogica = new ConcursoLogica();
+    private ManejoProgressDialog manejoProgressDialog = ManejoProgressDialog.getInstancia();
 
     public InicioSesionTwitterFragment() {
     }
@@ -63,15 +71,11 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
     }
 
     public void comprobarUsuarioAPI(String usuarioTwitter) {
+        manejoProgressDialog.iniciarProgressDialog("Procesando la solicitud...",getActivity());
         conexionGETAPIJSONArray conexion = new conexionGETAPIJSONArray();
         conexion.contexto = getActivity();
-        //conexion.mensaje = "Comprobando datos...";
         conexion.delegate = this;
         conexion.execute("Api/Usuario/Getusuario?usuarioTwitter=" + usuarioTwitter);
-    }
-
-    private void personalizarFragment(){
-
     }
 
     @Override
@@ -144,9 +148,13 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
                         , resultado.getString("usuario_twitter"), resultado.getString("token_twitter"), resultado.getString("token_secret_twitter")
                         , resultado.getString("guid"), resultado.getString("imagen_normal"),  resultado.getString("imagen_grande")
                         , resultado.getInt("comentarios_inapropiados"), resultado.getBoolean("sancionado"));
+                programaLogica.almacenarProgramasFavoritos(resultado.getJSONArray("programas_favoritos"));
+                tagLogica.actualizarTags(resultado.getJSONArray("tags_actualizados"), resultado.getJSONArray("tags_usuario"));
+                concursoLogica.almacenarMisConcursos(resultado.getJSONArray("concursos_participados"));
                 Usuario usuarioApp = new Usuario(usuarioResultado.screenName, sesionTwitter.getAuthToken().token
                         , sesionTwitter.getAuthToken().secret, usuarioResultado.profileImageUrl);
                 usuarioLogica.comprobarUsuario(usuarioApp, usuarioBD);
+                manejoProgressDialog.cancelarProgressDialog();
             } catch (JSONException e) {
                 e.printStackTrace();
             }

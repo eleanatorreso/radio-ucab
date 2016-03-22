@@ -465,18 +465,19 @@
     <string name="campo_texto_programa">Participar en el programa actual</string>
     <string name="campo_texto_resgistro_usuario">Ya falta poco para que te unas a Radio UCAB, pero antes necesitamos los siguientes datos para completar tu registro:</string>
     <string name="campo_texto_sin_concursos">No hay concursos en este momento, está atento a nuestra programación para conocer cuando será el próximo.</string>
+    <string name="campo_texto_sin_mis_concursos">Aún no has participado en ningún concurso, está atento a la programación de Radio UCAB para participar en el próximo</string>
     <string name="campo_texto_sin_noticias">No hay noticias disponibles, intente más tarde</string>
     <string name="campo_texto_solicitar_cancion">Solicitar canción</string>
     <string name="campo_texto_tu_radio_ucab">Tú + Radio UCAB</string>
     <string name="campo_texto_tweet_comentario">Completa los siguientes campos para generar tu tweet:</string>
-    <string name="campo_texto_tweet_dedicatoria">Completa los siguientes campos para generar tu dedicatoria. Recuerda que el usuario que recibirá la dedicatoria debe poseer una cuenta de Twitter para que reciba su dedicatoria.</string>
+    <string name="campo_texto_tweet_dedicatoria">Completa los siguientes campos para generar tu dedicatoria. Recuerda que el usuario_tag que recibirá la dedicatoria debe poseer una cuenta de Twitter para que reciba su dedicatoria.</string>
     <string name="campo_texto_tweet_solicitud">Completa los siguientes campos para generar tu solicitud:</string>
     <string name="campo_usuario_correo">Correo Electrónico</string>
     <string name="campo_usuario_twitter">Usuario Twitter</string>
     <string name="cast_notification_connected_message">Connected to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_connecting_message">Connecting to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_disconnect">Disconnect</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">e177f73a-aeda-4ffb-919f-997ef8137495</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">036b734b-83f9-44a6-8667-e05ca984ff05</string>
     <string name="common_android_wear_notification_needs_update_text"><ns1:g id="app_name">%1$s</ns1:g> requires an update to the Android Wear app.</string>
     <string name="common_android_wear_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update the Android Wear app.</string>
     <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>
@@ -588,7 +589,7 @@
     <string name="dialogo_contenido_interaccion_no_exitoso_comentario_inapropiado">Este comentario ha sido clasificado como inapropiado, es por esto que no aparecerá en la cuenta de Radio UCAB. Si tienes alguna duda, contacta al administrador.</string>
     <string name="dialogo_contenido_interaccion_no_exitoso_inapropiado_bloqueado">Este comentario ha sido clasificado como inapropiado, usted ha sido sancionado por Radio UCAB, tiene más de 3 comentarios con contenido inapropiado. Si tienes alguna duda, contacta al administrador.</string>
     <string name="dialogo_contenido_interaccion_no_exitoso_tres_comentarios_inapropiados">Usted está sido sancionado por Radio UCAB, tiene 3 comentarios con contenido inapropiado. Si tiene alguna duda, contacte al administrador</string>
-    <string name="dialogo_contenido_terminos_condiciones">ja njaskj sdbksdbhcdbhc dbhcd jnajxahxbhj xbhxsbhs jnsjn djndcjn cdjncdjndcjdc jncdnjcdjn cdjnd cnjdcnj cdnjcdncd cdjcdnjcmcd</string>
+    <string name="dialogo_contenido_terminos_condiciones">Términos y condiciones</string>
     <string name="dialogo_mensaje_No">No</string>
     <string name="dialogo_mensaje_Si">Si</string>
     <string name="dialogo_mensaje_cerrar">Cerrar</string>
@@ -606,7 +607,7 @@
     <string name="hint_campo_tweet_comentario">Escriba acá su comentario</string>
     <string name="ip_streaming_high">http://31.200.244.181:8110</string>
     <string name="ip_streaming_low">http://31.200.244.181:8110</string>
-    <string name="ip_web_service">http://192.168.0.101:24364/</string>
+    <string name="ip_web_service">http://192.168.1.107:24364/</string>
     <string name="kit_name">Twitter</string>
     <string name="menu_accion_cerrar_sesion">Cerrar Sesión</string>
     <string name="menu_accion_ver_perfil">Ver mi perfil</string>

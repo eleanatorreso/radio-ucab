@@ -131,7 +131,6 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
                 this.currentScrollState = scrollState;
                 int threshold = 1;
                 int count = listaNoticias.getCount();
-
                 if (scrollState == SCROLL_STATE_IDLE) {
                     if (listaNoticias.getLastVisiblePosition() >= count - threshold && pageCount < 2) {
                         Log.i("noticia", "loading more data");

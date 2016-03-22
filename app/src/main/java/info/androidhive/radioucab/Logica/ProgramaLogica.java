@@ -1,20 +1,17 @@
 package info.androidhive.radioucab.Logica;
 
 
-import com.google.android.gms.games.internal.constants.TimeSpan;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
 import info.androidhive.radioucab.Model.HorarioPrograma;
 import info.androidhive.radioucab.Model.Locutor;
-import info.androidhive.radioucab.Model.LocutorPrograma;
 import info.androidhive.radioucab.Model.Programa;
+import info.androidhive.radioucab.Model.ProgramaFavorito;
 
 public class ProgramaLogica {
 
@@ -59,8 +56,8 @@ public class ProgramaLogica {
         Programa programaNuevo = new Programa();
         LocutorProgramaLogica listaProgramaLocutor = new LocutorProgramaLogica();
         List<Programa> programas = new ArrayList<Programa>();
+        JSONObject objeto = null;
         for (int programa = 0; programa < resultadoConsulta.length(); programa++) {
-            JSONObject objeto = null;
             try {
                 objeto = resultadoConsulta.getJSONObject(programa);
                 JSONArray locutores = objeto.getJSONArray("locutores");
@@ -80,6 +77,20 @@ public class ProgramaLogica {
 
     public Programa getProgramaActual() {
         return null;
+    }
+
+    public void almacenarProgramasFavoritos(JSONArray programas){
+        ProgramaFavorito.deleteAll(ProgramaFavorito.class);
+        JSONObject objeto = null;
+        for (int programa = 0; programa < programas.length(); programa++) {
+            try {
+                objeto = programas.getJSONObject(programa);
+                ProgramaFavorito nuevo = new ProgramaFavorito(objeto.getInt("id_programa"), objeto.getString("nombre_programa"));
+                nuevo.save();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

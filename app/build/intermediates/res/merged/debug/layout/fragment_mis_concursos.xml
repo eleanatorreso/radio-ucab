@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_programas_swipe_refresh_layout"
+    android:id="@+id/activity_mis_concursos_swipe_refresh_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
@@ -21,83 +21,39 @@
             android:gravity="center_horizontal"
             android:text="@string/campo_encabezado_mis_concursos" />
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/cardViewConcurso"
+        <ImageView
+            android:id="@+id/imagen_sin_mis_concursos"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_refresh_white_48dp"
+            android:tint="@color/azul_ucab"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/texto_sin_mis_concursos"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/azul_radio_ucab"
+            android:text="@string/campo_texto_sin_mis_concursos"
+            android:layout_below="@id/imagen_sin_mis_concursos"
+            android:layout_marginTop="10dp"
+            android:textSize="16dp"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            android:gravity="center"/>
+
+        <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/lista_recycler_mis_concursos"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layout_below="@id/campo_encabezado_modulo_mis_concursos"
+            android:scrollbars="vertical" />
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center|top"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imagen_concurso_trofeo"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/ic_trofeo" />
-
-                    <TextView
-                        android:id="@+id/texto_nombre_concurso"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:text="Concurso 1"
-                        android:textColor="@color/azul_ucab"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/texto_fecha_concurso"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/texto_nombre_concurso"
-                        android:layout_marginTop="5dp"
-                        android:text="10/02/2016 - 11/02/2016"
-                        android:textColor="@android:color/black"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/texto_descripcion_concurso"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/texto_fecha_concurso"
-                        android:layout_marginTop="5dp"
-                        android:text="Descripción del concurso"
-                        android:textColor="@android:color/black"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/texto_estado_concurso"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/texto_descripcion_concurso"
-                        android:layout_marginTop="5dp"
-                        android:text="Estado del concurso: Terminado"
-                        android:textColor="@color/negro"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/texto_resultado_concurso"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/texto_estado_concurso"
-                        android:layout_marginTop="5dp"
-                        android:text="Ganaste en la posición 1. Premio: tablet."
-                        android:textColor="@color/azul_ucab"
-                        android:textSize="14sp" />
-
-                </LinearLayout>
-            </RelativeLayout>
-
-        </android.support.v7.widget.CardView>
-
-    </LinearLayout>
+    </RelativeLayout>
 </android.support.v4.widget.SwipeRefreshLayout>
