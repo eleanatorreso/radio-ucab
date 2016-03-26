@@ -1,66 +1,93 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_mis_noticias_swipe_refresh_layout"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/campo_encabezado_modulo_mis_noticias"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:textSize="20sp"
-        android:textColor="@color/azul_ucab"
-        android:layout_centerHorizontal="true"
-        android:text="Mis noticias" />
-
-    <TextView
-        android:id="@+id/campo_descripcion_mis_noticias"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="16sp"
-        android:layout_below="@id/campo_encabezado_modulo_mis_noticias"
-        android:textColor="@color/negro"
-        android:text="Selecciona los tipos de noticias de tu preferencia, en base a esto recibiras notificaciones cuando noticias de este tipo estén disponibles"
-        android:layout_gravity="center_vertical" />
-
-    <CheckBox
-        android:id="@+id/check1"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/negro"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="16sp"
-        android:layout_below="@id/campo_descripcion_mis_noticias"
-        android:text="Cultura"/>
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:id="@+id/relative_layout_top_mis_noticias">
 
-    <CheckBox
-        android:id="@+id/check2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/negro"
-        android:textSize="16sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@id/check1"
-        android:text="Politica"/>
+        <TextView
+            android:id="@+id/campo_encabezado_modulo_mis_noticias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/campo_encabezado_mis_noticias"
+            android:textColor="@color/azul_ucab"
+            android:textSize="20sp" />
 
-    <CheckBox
-        android:id="@+id/check3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/negro"
-        android:textSize="16sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@id/check2"
-        android:text="UCAB"/>
+        <TextView
+            android:id="@+id/campo_descripcion_mis_noticias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/campo_encabezado_modulo_mis_noticias"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/campo_texto_mis_noticias"
+            android:textColor="@color/negro"
+            android:textSize="16sp"
+            android:gravity="center"/>
 
+        <ListView
+            android:id="@+id/lista_mis_noticias"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/campo_descripcion_mis_noticias"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="60dp"
+            android:scrollbars="vertical"
+            android:focusable="true"
+            android:layout_alignRight="@+id/campo_descripcion_mis_noticias"
+            android:layout_alignEnd="@+id/campo_descripcion_mis_noticias" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/boton_actualizar_mis_noticias"
+            android:layout_width="110dp"
+            android:layout_height="30dp"
+            android:background="@drawable/boton_azul_claro"
+            android:text="@string/campo_boton_guardar"
+            android:textColor="@color/blanco"
+            android:textSize="16sp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"/>
+
+        <ImageView
+            android:id="@+id/imagen_sin_mis_noticias"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:src="@drawable/ic_refresh_white_48dp"
+            android:tint="@color/azul_ucab"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/texto_sin_mis_noticias"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imagen_sin_mis_noticias"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/campo_texto_sin_mis_noticias"
+            android:textColor="@color/negro"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>
+

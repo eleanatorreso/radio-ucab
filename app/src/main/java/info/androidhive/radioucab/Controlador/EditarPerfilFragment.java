@@ -18,7 +18,9 @@ import android.widget.Toast;
 
 import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.ManejoDialogs;
+import info.androidhive.radioucab.Logica.ManejoProgressDialog;
 import info.androidhive.radioucab.Logica.ManejoString;
+import info.androidhive.radioucab.Logica.ManejoToast;
 import info.androidhive.radioucab.Logica.UsuarioLogica;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
@@ -33,9 +35,10 @@ public class EditarPerfilFragment extends Fragment {
     private Button guardarModificacion;
     private Button cancelar;
     private ManejoDialogs cancelarRegistroUsuario;
-    private Toast toast;
     private ManejoString manejoString = new ManejoString();
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
+    private final ManejoProgressDialog manejoProgressDialog = ManejoProgressDialog.getInstancia();
+    private final ManejoToast manejoToast = ManejoToast.getInstancia();
 
     public EditarPerfilFragment() {
 
@@ -60,6 +63,7 @@ public class EditarPerfilFragment extends Fragment {
             if (!Usuario.listAll(Usuario.class).isEmpty()) {
                 usuario = Usuario.listAll(Usuario.class).get(0);
                 manejoActivity.editarActivity(6, false, null, "Edición del perfil");
+                manejoActivity.mostrarBackToolbar();
                 nombreUsuario = (EditText) getActivity().findViewById(R.id.editText_nombre_usuario);
                 nombreUsuario.setText(usuario.getNombre());
                 apellidoUsuario = (EditText) getActivity().findViewById(R.id.editText_apellido_usuario);
@@ -88,17 +92,17 @@ public class EditarPerfilFragment extends Fragment {
         if (manejoString.verificarEspacioNull(nombreUsuario.getText().toString()) == true
                 && manejoString.verificarEspacioNull(apellidoUsuario.getText().toString()) == true
                 && manejoString.verificarEspacioNull(correoUsuario.getText().toString()) == true) {
-            UsuarioLogica usuarioNuevo = new UsuarioLogica();
+            final UsuarioLogica usuarioNuevo = new UsuarioLogica();
             usuario.setNombre(nombreUsuario.getText().toString().trim());
             usuario.setApellido(apellidoUsuario.getText().toString().trim());
             usuario.setCorreo(correoUsuario.getText().toString().trim());
             usuarioNuevo.usuario = usuario;
             usuarioNuevo.contexto = getActivity();
             usuarioNuevo.almacenarUsuario(true, false);
+            manejoProgressDialog.iniciarProgressDialog("Actualizando la información...", getActivity());
         }
         else {
-            toast = Toast.makeText(getActivity(), getActivity().getString(R.string.toast_error_campos_obligatorios), Toast.LENGTH_LONG);
-            toast.show();
+            manejoToast.crearToast(getActivity(), getActivity().getString(R.string.toast_error_campos_obligatorios));
         }
     }
 

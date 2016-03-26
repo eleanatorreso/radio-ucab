@@ -236,6 +236,10 @@
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_expanded_menu_layout.xml"
     },
     {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\layout\\adapter_mis_noticias.xml",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\layout\\adapter_mis_noticias.xml"
+    },
+    {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_editar_tweet_comentario.xml",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\layout\\fragment_editar_tweet_comentario.xml"
     },

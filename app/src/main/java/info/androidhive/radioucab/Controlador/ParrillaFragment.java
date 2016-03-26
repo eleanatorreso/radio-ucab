@@ -1,6 +1,5 @@
 package info.androidhive.radioucab.Controlador;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -10,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,7 +23,6 @@ import java.util.List;
 import java.util.TimeZone;
 
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONArray;
-import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONObject;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIString;
 import info.androidhive.radioucab.Logica.ActualizacionLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
@@ -34,7 +33,6 @@ import info.androidhive.radioucab.Logica.ParillaLogica;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.Model.Actualizacion;
 import info.androidhive.radioucab.Model.Parrilla;
-import info.androidhive.radioucab.Model.Programa;
 import info.androidhive.radioucab.R;
 
 public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
@@ -48,13 +46,14 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
     static final String DATEFORMAT = "yyyy-MM-dd HH:mm:ss";
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
     private final ParillaLogica parrillaLogica = new ParillaLogica();
-    private ActualizacionLogica actualizacionLogica = new ActualizacionLogica();
+    private final ActualizacionLogica actualizacionLogica = new ActualizacionLogica();
     private ManejoProgressDialog manejoProgressDialog = ManejoProgressDialog.getInstancia();
     private final ManejoToast manejoToast = ManejoToast.getInstancia();
     private conexionGETAPIString conexionString;
     private static Date ultimaActWS;
     private static final ManejoFecha tiempoActual = new ManejoFecha();
     private SwipeRefreshLayout swipeRefreshLayout;
+    private TextView textoDiaActualizacion;
 
     public ParrillaFragment() {
     }
@@ -78,6 +77,8 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
         manejoActivity.editarActivity(2, true, "Parrilla", "Parrilla");
         listaHora = (ListView) rootView.findViewById(R.id.lista_hora);
         listaPrograma = (ListView) rootView.findViewById(R.id.lista_programa);
+        textoDiaActualizacion = (TextView) getActivity().findViewById(R.id.texto_dia_actualizacion_parrilla);
+        textoDiaActualizacion.setText("Actualizado al día: " + actualizacionLogica.getActualizacionParrilla());
         swipeRefreshLayout = (SwipeRefreshLayout) getActivity().findViewById(R.id.swipe_refresh_parrilla);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -109,6 +110,7 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
         listaHora.setAdapter(adapterHora);
         ArrayAdapter<String> adapterPrograma = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, programas);
         listaPrograma.setAdapter(adapterPrograma);
+        textoDiaActualizacion.setText("Actualizado al día: " + actualizacionLogica.getActualizacionParrilla());
     }
 
     public static Date GetUTCdatetimeAsDate() {
@@ -171,13 +173,14 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
         listaHora.setAdapter(adapterHora);
         ArrayAdapter<String> adapterPrograma = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, programas);
         listaPrograma.setAdapter(adapterPrograma);
-
+        textoDiaActualizacion.setText("Actualizado al día: " + actualizacionLogica.getActualizacionParrilla());
     }
 
     public void ultimaActualizacion(String resultado) {
         try {
-            resultado = resultado.replace("\"","");
-            List<Actualizacion> listaActualizaciones = Actualizacion.listAll(Actualizacion.class);
+            resultado = resultado.replace("\"", "");
+            final List<Actualizacion> listaActualizaciones = Actualizacion.listAll(Actualizacion.class);
+            final List<Parrilla> listaParrilla = Parrilla.listAll(Parrilla.class);
             ultimaActWS = tiempoActual.convertirStringSimple(resultado);
             if (listaActualizaciones != null && listaActualizaciones.size() > 0) {
                 Actualizacion ultimaActualizacion = listaActualizaciones.get(0);

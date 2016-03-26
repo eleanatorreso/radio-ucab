@@ -436,6 +436,8 @@
     <string name="campo_encabezado_horario_parrilla">Hora</string>
     <string name="campo_encabezado_inicio_sesion">Iniciar sesión</string>
     <string name="campo_encabezado_mis_concursos">Mis concursos</string>
+    <string name="campo_encabezado_mis_noticias">Mis noticias</string>
+    <string name="campo_encabezado_mis_programas">Mis programas favoritos</string>
     <string name="campo_encabezado_modulo_noticias">Noticias en Radio UCAB</string>
     <string name="campo_encabezado_parrilla">Programación del día</string>
     <string name="campo_encabezado_programa_parrilla">Programa</string>
@@ -459,6 +461,7 @@
     <string name="campo_texto_informacion_personal">Información Personal</string>
     <string name="campo_texto_inicio_sesion_dos">Si estás o no registrado, presiona inicio de sesión y en unos pocos pasos comienza la experiencia Radio UCAB</string>
     <string name="campo_texto_inicio_sesion_uno">Inicia sesión para comenzar a disfrutar de todo lo que Radio UCAB trae para ti: interacción con lo que escuchas, concursos, solicitudes de canciones y mucho más.</string>
+    <string name="campo_texto_mis_noticias">Selecciona los tipos de noticias de tu preferencia, en base a esto recibirás notificaciones cuando estén disponibles noticias de este tipo</string>
     <string name="campo_texto_mis_preferencia_noticias">Mis noticias</string>
     <string name="campo_texto_mis_premios">Mis concursos</string>
     <string name="campo_texto_mis_programas_favoritos">Mis programas favoritos</string>
@@ -466,6 +469,7 @@
     <string name="campo_texto_resgistro_usuario">Ya falta poco para que te unas a Radio UCAB, pero antes necesitamos los siguientes datos para completar tu registro:</string>
     <string name="campo_texto_sin_concursos">No hay concursos en este momento, está atento a nuestra programación para conocer cuando será el próximo.</string>
     <string name="campo_texto_sin_mis_concursos">Aún no has participado en ningún concurso, está atento a la programación de Radio UCAB para participar en el próximo</string>
+    <string name="campo_texto_sin_mis_noticias">No hay preferencias de noticias disponibles, intente más tarde</string>
     <string name="campo_texto_sin_noticias">No hay noticias disponibles, intente más tarde</string>
     <string name="campo_texto_solicitar_cancion">Solicitar canción</string>
     <string name="campo_texto_tu_radio_ucab">Tú + Radio UCAB</string>
@@ -477,7 +481,7 @@
     <string name="cast_notification_connected_message">Connected to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_connecting_message">Connecting to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_disconnect">Disconnect</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">036b734b-83f9-44a6-8667-e05ca984ff05</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">06b2bc17-1c79-4dff-b48c-6fa235bc2219</string>
     <string name="common_android_wear_notification_needs_update_text"><ns1:g id="app_name">%1$s</ns1:g> requires an update to the Android Wear app.</string>
     <string name="common_android_wear_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update the Android Wear app.</string>
     <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>
@@ -590,9 +594,10 @@
     <string name="dialogo_contenido_interaccion_no_exitoso_inapropiado_bloqueado">Este comentario ha sido clasificado como inapropiado, usted ha sido sancionado por Radio UCAB, tiene más de 3 comentarios con contenido inapropiado. Si tienes alguna duda, contacta al administrador.</string>
     <string name="dialogo_contenido_interaccion_no_exitoso_tres_comentarios_inapropiados">Usted está sido sancionado por Radio UCAB, tiene 3 comentarios con contenido inapropiado. Si tiene alguna duda, contacte al administrador</string>
     <string name="dialogo_contenido_terminos_condiciones">Términos y condiciones</string>
-    <string name="dialogo_mensaje_No">No</string>
-    <string name="dialogo_mensaje_Si">Si</string>
-    <string name="dialogo_mensaje_cerrar">Cerrar</string>
+    <string name="dialogo_mensaje_No">NO</string>
+    <string name="dialogo_mensaje_Si">SI</string>
+    <string name="dialogo_mensaje_cerrar">CERRAR</string>
+    <string name="dialogo_mensaje_procesando_solicitud">Procesando la solicitud...</string>
     <string name="drawer_close">Slider Menu Closed</string>
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="gcm_defaultSenderId" translatable="false">728231030622</string>
@@ -607,7 +612,7 @@
     <string name="hint_campo_tweet_comentario">Escriba acá su comentario</string>
     <string name="ip_streaming_high">http://31.200.244.181:8110</string>
     <string name="ip_streaming_low">http://31.200.244.181:8110</string>
-    <string name="ip_web_service">http://192.168.1.107:24364/</string>
+    <string name="ip_web_service">http://192.168.0.107:24364/</string>
     <string name="kit_name">Twitter</string>
     <string name="menu_accion_cerrar_sesion">Cerrar Sesión</string>
     <string name="menu_accion_ver_perfil">Ver mi perfil</string>
@@ -628,7 +633,7 @@
     <string name="store_picture_title">Save image</string>
     <string name="texto_detalle_programa">Espere un momento por favor...</string>
     <string name="timeline_empty">Espere un momento por favor...</string>
-    <string name="title_activity_velo_app">VeloApp</string>
+    <string name="title_activity_velo_app">Velo Radio UCAB</string>
     <string name="toast_comentario_exitosos">"Su comentario ha sido procesado con exito"</string>
     <string name="toast_error_campos_obligatorios">Todos los campos son obligatorios completelos</string>
     <string name="toast_error_campos_obligatorios_comentario">Debe escribir su comentario</string>

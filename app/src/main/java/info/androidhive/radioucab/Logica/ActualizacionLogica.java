@@ -10,6 +10,15 @@ import info.androidhive.radioucab.Model.Actualizacion;
 public class ActualizacionLogica {
 
     public Date ultimaActWS;
+    private final SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
+    public String getActualizacionParrilla(){
+        final Actualizacion actualizacion = Actualizacion.findById(Actualizacion.class,Long.parseLong("1"));
+        if (actualizacion != null) {
+            return format.format(actualizacion.getActParrilla());
+        }
+        return "";
+    }
 
     //1 evento, 2 noticia, 3 programa, 4 parrilla
     public Actualizacion crearActualizacion(int tipo) {
@@ -19,16 +28,19 @@ public class ActualizacionLogica {
             Date fecha_falsa = format.parse("01/01/1976");
             switch (tipo) {
                 case 1:
-                    nuevaActualizacion = new Actualizacion(ultimaActWS, fecha_falsa, fecha_falsa, fecha_falsa);
+                    nuevaActualizacion = new Actualizacion(ultimaActWS, fecha_falsa, fecha_falsa, fecha_falsa, fecha_falsa);
                     break;
                 case 2:
-                    nuevaActualizacion = new Actualizacion(fecha_falsa, ultimaActWS, fecha_falsa, fecha_falsa);
+                    nuevaActualizacion = new Actualizacion(fecha_falsa, ultimaActWS, fecha_falsa, fecha_falsa, fecha_falsa);
                     break;
                 case 3:
-                    nuevaActualizacion = new Actualizacion(fecha_falsa, fecha_falsa, ultimaActWS, fecha_falsa);
+                    nuevaActualizacion = new Actualizacion(fecha_falsa, fecha_falsa, ultimaActWS, fecha_falsa, fecha_falsa);
                     break;
                 case 4:
-                    nuevaActualizacion = new Actualizacion(fecha_falsa, fecha_falsa, fecha_falsa, ultimaActWS);
+                    nuevaActualizacion = new Actualizacion(fecha_falsa, fecha_falsa, fecha_falsa, ultimaActWS, fecha_falsa);
+                    break;
+                case 5:
+                    nuevaActualizacion = new Actualizacion(fecha_falsa, fecha_falsa, fecha_falsa, fecha_falsa, ultimaActWS);
                     break;
             }
         } catch (Exception e) {
@@ -37,8 +49,8 @@ public class ActualizacionLogica {
         return nuevaActualizacion;
     }
 
-    //1 evento, 2 noticia, 3 programa, 4 parrilla
-    public Actualizacion modificarActualizacion(int tipo, Date evento, Date noticia, Date programa, Date parrilla) {
+    //1 evento, 2 noticia, 3 programa, 4 parrilla, 5 tag
+    public Actualizacion modificarActualizacion(int tipo, Date evento, Date noticia, Date programa, Date parrilla, Date tag) {
         Actualizacion nuevaActualizacion = new Actualizacion();
         switch (tipo) {
             case 1:
@@ -46,18 +58,35 @@ public class ActualizacionLogica {
                 nuevaActualizacion.setActNoticia(noticia);
                 nuevaActualizacion.setActPrograma(programa);
                 nuevaActualizacion.setActParrilla(parrilla);
+                nuevaActualizacion.setActTag(tag);
                 break;
             case 2:
                 nuevaActualizacion.setActEvento(evento);
                 nuevaActualizacion.setActNoticia(ultimaActWS);
                 nuevaActualizacion.setActPrograma(programa);
                 nuevaActualizacion.setActParrilla(parrilla);
+                nuevaActualizacion.setActTag(tag);
                 break;
             case 3:
                 nuevaActualizacion.setActEvento(evento);
                 nuevaActualizacion.setActNoticia(noticia);
                 nuevaActualizacion.setActPrograma(ultimaActWS);
                 nuevaActualizacion.setActParrilla(parrilla);
+                nuevaActualizacion.setActTag(tag);
+                break;
+            case 4:
+                nuevaActualizacion.setActEvento(evento);
+                nuevaActualizacion.setActNoticia(noticia);
+                nuevaActualizacion.setActPrograma(programa);
+                nuevaActualizacion.setActParrilla(ultimaActWS);
+                nuevaActualizacion.setActTag(tag);
+                break;
+            case 5:
+                nuevaActualizacion.setActEvento(evento);
+                nuevaActualizacion.setActNoticia(noticia);
+                nuevaActualizacion.setActPrograma(programa);
+                nuevaActualizacion.setActParrilla(parrilla);
+                nuevaActualizacion.setActTag(ultimaActWS);
                 break;
         }
         return nuevaActualizacion;
@@ -75,7 +104,8 @@ public class ActualizacionLogica {
                 Date evento = ultimaActualizacion.getActEvento();
                 Date programa = ultimaActualizacion.getActPrograma();
                 Date parrilla = ultimaActualizacion.getActParrilla();
-                nuevaActualizacion = modificarActualizacion(tipo, evento, noticia, programa, parrilla);
+                Date tag = ultimaActualizacion.getActTag();
+                nuevaActualizacion = modificarActualizacion(tipo, evento, noticia, programa, parrilla, tag);
                 Actualizacion.deleteAll(Actualizacion.class);
             } else {
                 nuevaActualizacion = crearActualizacion(tipo);

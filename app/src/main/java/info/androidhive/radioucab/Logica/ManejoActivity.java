@@ -40,7 +40,6 @@ import info.androidhive.radioucab.Controlador.MainActivity;
 import info.androidhive.radioucab.Controlador.MisConcursosFragment;
 import info.androidhive.radioucab.Controlador.MisNoticiasFragment;
 import info.androidhive.radioucab.Controlador.MisProgramasFragment;
-import info.androidhive.radioucab.Controlador.NavDrawerItem;
 import info.androidhive.radioucab.Controlador.NoticiaDetalleFragment;
 import info.androidhive.radioucab.Controlador.NoticiaFragment;
 import info.androidhive.radioucab.Controlador.ParrillaFragment;
@@ -67,7 +66,6 @@ public class ManejoActivity {
     private String[] navMenuTitles;
     private TypedArray navMenuIcons;
     private ImageButton boton_interaccion;
-    private ArrayList<NavDrawerItem> navDrawerItems;
     private static String fragmentoActual;
     private static Programa programaActual;
     private ImageView boton_play;
@@ -80,6 +78,7 @@ public class ManejoActivity {
     private static int streaming = 4;
     private Tracker mTracker;
     private static MainActivity main;
+    private static String procesoActual;
 
     public static ManejoActivity getInstancia() {
         if (instancia == null) {
@@ -111,6 +110,14 @@ public class ManejoActivity {
 
     public Activity getActivityPrincipal() {
         return activityPrincipal;
+    }
+
+    public static String getProcesoActual() {
+        return procesoActual;
+    }
+
+    public static void setProcesoActual(String procesoActual) {
+        ManejoActivity.procesoActual = procesoActual;
     }
 
     public void setActivityPrincipal(Activity activityPrincipal) {
@@ -186,7 +193,8 @@ public class ManejoActivity {
                 break;
 
         }
-        toolbar.setBackgroundColor(color);
+        if (toolbar != null)
+            toolbar.setBackgroundColor(color);
     }
 
     public void editarActivity(int seccion, boolean mostrarBotonInteraccion, String fragmentoActual, String nombreFragmento) {
@@ -350,22 +358,28 @@ public class ManejoActivity {
         }
     }
 
+    public void almacenarProcesoActual(String nombre_fragment){
+        if (nombre_fragment.equals("EditarPerfil") || nombre_fragment.equals("Registro")){
+            procesoActual = nombre_fragment;
+        }
+    }
+
     public Fragment cambiarFragment(String nombre_fragment, boolean addToBackStack) {
-        int posicion = getPosicion(nombre_fragment);
-        Fragment fragmento = getFragment(posicion);
-        FragmentManager fragmentManager = getInstanciaMain().getFragmentManager();
+        final int posicion = getPosicion(nombre_fragment);
+        final Fragment fragmento = getFragment(posicion);
+        final FragmentManager fragmentManager = getInstanciaMain().getFragmentManager();
         if (posicion < 20) {
             mDrawerList.setItemChecked(posicion, true);
             mDrawerList.setSelection(posicion);
             getActivityPrincipal().setTitle(navMenuTitles[posicion]);
         }
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        final FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frame_container, fragmento);
         if (addToBackStack) {
             transaction.addToBackStack(null);
         }
         transaction.commit();
-//        fragmentManager.executePendingTransactions();
+        almacenarProcesoActual(nombre_fragment);
         return fragmento;
     }
 
@@ -460,7 +474,7 @@ public class ManejoActivity {
     }
 
     public boolean currentVersionL() {
-        int sdkVersion = android.os.Build.VERSION.SDK_INT;
+        final int sdkVersion = android.os.Build.VERSION.SDK_INT;
         if (sdkVersion >= 21) {
             return true;
         }

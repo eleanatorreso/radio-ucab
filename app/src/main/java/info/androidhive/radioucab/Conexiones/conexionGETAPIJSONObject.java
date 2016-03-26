@@ -20,7 +20,6 @@ import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.R;
 
 public class conexionGETAPIJSONObject extends AsyncTask<String, String, JSONObject> {
-    ProgressDialog noticiaProgressDialog;
     public static Context contexto;
     public RespuestaAsyncTask delegate = null;
     public int tipo = 0;
@@ -53,14 +52,7 @@ public class conexionGETAPIJSONObject extends AsyncTask<String, String, JSONObje
     @Override
     protected void onPreExecute() {
         try {
-            super.onPreExecute();/*
-            if (!mensaje.isEmpty()) {
-                noticiaProgressDialog = new ProgressDialog(contexto);
-                noticiaProgressDialog.setMessage(mensaje);
-                noticiaProgressDialog.setIndeterminate(true);
-                noticiaProgressDialog.setCancelable(true);
-                noticiaProgressDialog.show();
-            }*/
+            super.onPreExecute();
         } catch (Exception ex) {
             if (ex != null && ex.getMessage()!=null)
                 Log.i("Conexion: ", ex.getMessage());
@@ -70,8 +62,6 @@ public class conexionGETAPIJSONObject extends AsyncTask<String, String, JSONObje
     @Override
     protected void onPostExecute(JSONObject resultado) {
         super.onPostExecute(resultado);
-        if (noticiaProgressDialog != null)
-            noticiaProgressDialog.dismiss();
         if (resultado != null) {
             delegate.procesoExitoso(resultado);
         } else {

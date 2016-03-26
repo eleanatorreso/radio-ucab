@@ -14,6 +14,7 @@ import java.util.List;
 
 import info.androidhive.radioucab.Controlador.ProgramaDetalleFragment;
 import info.androidhive.radioucab.Logica.ManejoActivity;
+import info.androidhive.radioucab.Logica.ProgramaLogica;
 import info.androidhive.radioucab.Model.HorarioPrograma;
 import info.androidhive.radioucab.Model.Locutor;
 import info.androidhive.radioucab.Model.Programa;
@@ -26,8 +27,7 @@ public class ProgramaViewHolder extends RecyclerView.ViewHolder {
     public TextView descripcionPrograma;
     public ImageView imagenPrograma;
     public Fragment fragment;
-
-    private ManejoActivity manejoActivity = ManejoActivity.getInstancia();
+    private final ProgramaLogica programaLogica = new ProgramaLogica();
 
     public ProgramaViewHolder(View itemView) {
         super(itemView);
@@ -38,15 +38,7 @@ public class ProgramaViewHolder extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    List<Programa> programaSeleccionado = Programa.find(Programa.class, "titulo =?", tituloPrograma.getText().toString());
-                    if (programaSeleccionado != null && programaSeleccionado.size() > 0) {
-                        ProgramaDetalleFragment detalle = (ProgramaDetalleFragment) manejoActivity.cambiarFragment("ProgramaDetalle", true);
-                        detalle.programa = programaSeleccionado.get(0);
-                    }
-                } catch (Exception e) {
-                    int x = 2;
-                }
+                programaLogica.ingresarDetallePrograma(tituloPrograma.getText().toString());
             }
 
         });

@@ -71,7 +71,7 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
     }
 
     public void comprobarUsuarioAPI(String usuarioTwitter) {
-        manejoProgressDialog.iniciarProgressDialog("Procesando la solicitud...",getActivity());
+        manejoProgressDialog.iniciarProgressDialog(getActivity().getString(R.string.dialogo_mensaje_procesando_solicitud), getActivity());
         conexionGETAPIJSONArray conexion = new conexionGETAPIJSONArray();
         conexion.contexto = getActivity();
         conexion.delegate = this;
@@ -154,16 +154,16 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
                 Usuario usuarioApp = new Usuario(usuarioResultado.screenName, sesionTwitter.getAuthToken().token
                         , sesionTwitter.getAuthToken().secret, usuarioResultado.profileImageUrl);
                 usuarioLogica.comprobarUsuario(usuarioApp, usuarioBD);
-                manejoProgressDialog.cancelarProgressDialog();
+                manejoProgressDialog.iniciarProgressDialog("",getActivity());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            //cargo el perfil
         } else {
             Usuario nuevoUsuario = new Usuario(usuarioResultado.name, usuarioResultado.email, usuarioResultado.screenName,
                     sesionTwitter.getAuthToken().token, sesionTwitter.getAuthToken().secret, usuarioResultado.profileImageUrl);
             RegistroUsuarioFragment registroUsuarioFragment = (RegistroUsuarioFragment) manejoActivity.cambiarFragment("Registro",true);
             registroUsuarioFragment.usuario = nuevoUsuario;
+            manejoProgressDialog.cancelarProgressDialog();
         }
     }
 

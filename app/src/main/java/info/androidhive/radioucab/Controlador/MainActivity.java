@@ -1,6 +1,5 @@
 package info.androidhive.radioucab.Controlador;
 
-import com.google.android.gms.analytics.Tracker;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
@@ -9,6 +8,8 @@ import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.PerfilLogica;
 import info.androidhive.radioucab.Logica.ServicioRadio;
 import info.androidhive.radioucab.Controlador.Adaptor.AdaptorNavDrawerList;
+import info.androidhive.radioucab.Model.MiConcurso;
+import info.androidhive.radioucab.Model.Tag;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
 
@@ -57,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<NavDrawerItem> navDrawerItems;
     private AdaptorNavDrawerList adapter;
     private static boolean streaming = false;
-    private MediaPlayer player;
     private Intent playbackServiceIntent;
     private BroadcastReceiver receiver;
     private ImageView boton_play;
@@ -65,11 +65,9 @@ public class MainActivity extends AppCompatActivity {
     private ImageView boton_pause;
     private CharSequence mTitle;
     private FabricLogica fabric;
-    private TwitterLoginButton loginButton;
     private boolean menuAbierto;
     private ImageView imagen_perfil;
     private TextView boton_ingresar;
-    private ImageView boton_menu_opciones;
     private final PerfilLogica perfilLogica = new PerfilLogica();
     private Usuario usuario_actual;
     private ManejoActivity manejoActivity = ManejoActivity.getInstancia();
@@ -78,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton fab_interaccion;
     private ImageView icono_interaccion;
     private ImageView icono_informacion;
-    private Tracker mTracker;
     private ImageView boton;
     private Toolbar toolbar;
 
@@ -99,9 +96,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        // Pass the activity result to the fragment, which will then pass the result to the login
-        // button.
-        Fragment fragment = getFragmentManager().findFragmentById(R.id.frame_container);
+        final Fragment fragment = getFragmentManager().findFragmentById(R.id.frame_container);
         if (fragment != null) {
             fragment.onActivityResult(requestCode, resultCode, data);
         }
@@ -122,19 +117,34 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void crearDialogoSiYNo(String titulo, String mensaje, String botonPositivo, String botonNegativo) {
+    public void crearDialogoSiYNo(String titulo, String mensaje, int tipo) {
         try {
+            final int tipoAccion = tipo;
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(titulo);
             builder.setMessage(mensaje);
-            builder.setPositiveButton(botonPositivo,
+            builder.setPositiveButton(getResources().getString(R.string.dialogo_mensaje_Si),
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            cerrarSesion();
-                            dialog.cancel();
+                            switch (tipoAccion) {
+                                //cerrar sesion
+                                case 0:
+                                    cerrarSesion();
+                                    dialog.cancel();
+                                    break;
+                                //cerrar aplicación
+                                case 1:
+                                    cerrarAplicacion();
+                                    dialog.cancel();
+                                    break;
+                                //cancelar operacion
+                                case 2:
+                                    backFragment();
+                                    break;
+                            }
                         }
                     });
-            builder.setNegativeButton(botonNegativo,
+            builder.setNegativeButton(getResources().getString(R.string.dialogo_mensaje_No),
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
@@ -149,19 +159,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void cerrarAplicacion() {
+        super.onBackPressed();
+    }
+
     private void cerrarSesion() {
         //cerrar sesion en Twitter
         Twitter.getSessionManager().clearActiveSession();
         Twitter.logOut();
         Usuario.deleteAll(Usuario.class);
+        Tag.deleteAll(Tag.class);
+        MiConcurso.deleteAll(MiConcurso.class);
         boton_ingresar.setVisibility(View.VISIBLE);
         imagen_perfil.setVisibility(View.INVISIBLE);
         invalidateOptionsMenu();
-        Fragment fragment = getFragmentManager().findFragmentById(R.id.frame_container);
+        final Fragment fragment = getFragmentManager().findFragmentById(R.id.frame_container);
         try {
             PerfilFragment perfilFragment = (PerfilFragment) fragment;
             if (perfilFragment != null && perfilFragment.isVisible()) {
-                // Call a method in the ArticleFragment to update its content
                 perfilFragment.actualizarPerfil();
             }
         } catch (Exception ex) {
@@ -174,13 +189,13 @@ public class MainActivity extends AppCompatActivity {
         //manejoConcurso.comprobarConcursosActuales();
         final AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
         final AlertDialog alerta_dialogo;
-        LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.dialogo_interaccion, null);
+        final LayoutInflater inflater = getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.dialogo_interaccion, null);
         dialogo.setView(dialogView);
         dialogo.setCancelable(true);
         alerta_dialogo = dialogo.create(); //returns an AlertDialog from a Builder.
         alerta_dialogo.show();
-        LinearLayout dedicar_cancion = (LinearLayout) dialogView.findViewById(R.id.icono_dedicar_cancion);
+        final LinearLayout dedicar_cancion = (LinearLayout) dialogView.findViewById(R.id.icono_dedicar_cancion);
         dedicar_cancion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -188,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
                 alerta_dialogo.dismiss();
             }
         });
-        LinearLayout solicitar_cancion = (LinearLayout) dialogView.findViewById(R.id.icono_solicitar_canción);
+        final LinearLayout solicitar_cancion = (LinearLayout) dialogView.findViewById(R.id.icono_solicitar_canción);
         solicitar_cancion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -197,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        LinearLayout comentario = (LinearLayout) dialogView.findViewById(R.id.icono_comentario);
+        final LinearLayout comentario = (LinearLayout) dialogView.findViewById(R.id.icono_comentario);
         comentario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -206,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        LinearLayout programa = (LinearLayout) dialogView.findViewById(R.id.icono_programa);
+        final LinearLayout programa = (LinearLayout) dialogView.findViewById(R.id.icono_programa);
         programa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -215,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        LinearLayout concurso = (LinearLayout) dialogView.findViewById(R.id.icono_concurso);
+        final LinearLayout concurso = (LinearLayout) dialogView.findViewById(R.id.icono_concurso);
         concurso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -224,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button boton_cerrar = (Button) dialogView.findViewById(R.id.boton_cerrar_interaccion);
+        final Button boton_cerrar = (Button) dialogView.findViewById(R.id.boton_cerrar_interaccion);
         boton_cerrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -236,8 +251,8 @@ public class MainActivity extends AppCompatActivity {
     public void abrirDialogoInformacion() {
         final AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
         final AlertDialog alerta_dialogo;
-        LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.dialogo_informacion, null);
+        final LayoutInflater inflater = getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.dialogo_informacion, null);
         dialogo.setView(dialogView);
         dialogo.setCancelable(true);
         alerta_dialogo = dialogo.create(); //returns an AlertDialog from a Builder.
@@ -254,7 +269,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void ocultarOpcionToolbar(){
+    public void ocultarOpcionToolbar() {
         if (toolbar != null)
             toolbar.setNavigationIcon(null);
     }
@@ -282,13 +297,7 @@ public class MainActivity extends AppCompatActivity {
         //cambio el color del toolbar superior
         manejoActivity.setActivityPrincipal(this);
         manejoActivity.editarActivity(1, true, "Home", "Main");
-        //COMENTA ESTO MIENTRAS XQ CREO QUE EL GET TITLE ES PARA AGARARR EL TITULO DEL ACTIONBAR
-        //mTitle = mDrawerTitle = getTitle();
-
-        // load slide menu items
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
-
-        // nav drawer icons from resources
         navMenuIcons = getResources()
                 .obtainTypedArray(R.array.nav_drawer_icons);
 
@@ -296,8 +305,6 @@ public class MainActivity extends AppCompatActivity {
         mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
 
         navDrawerItems = new ArrayList<NavDrawerItem>();
-
-        // adding nav drawer items to array
         // Home
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
         // Parrilla
@@ -316,16 +323,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Recycle the typed array
         navMenuIcons.recycle();
-
         mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
-
-
-        // setting the nav drawer list adapter
         adapter = new AdaptorNavDrawerList(getApplicationContext(),
                 navDrawerItems);
         mDrawerList.setAdapter(adapter);
-
-
         playbackServiceIntent = new Intent(this, ServicioRadio.class);
 
         boton = (ImageView) findViewById(R.id.icono_menu);
@@ -351,24 +352,20 @@ public class MainActivity extends AppCompatActivity {
                 R.string.drawer_close  /* "close drawer" description */
         ) {
 
-            /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
                 boton.setImageDrawable(getResources().getDrawable(R.drawable.ic_menu));
             }
 
-            /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 boton.setImageDrawable(getResources().getDrawable(R.drawable.ic_launcher));
             }
         };
 
-        // Set the drawer toggle as the DrawerListener
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         fab_interaccion = (ImageButton) findViewById(R.id.boton_interaccion);
         if (manejoActivity.currentVersionL()) {
-            //fab_interaccion.setVisibility(View.VISIBLE);
             fab_interaccion.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -417,10 +414,7 @@ public class MainActivity extends AppCompatActivity {
                         manejoActivity.cambiarFragment("Perfil", false);
                         break;
                     case R.id.accion_cerrar_sesion:
-                        crearDialogoSiYNo(getString(R.string.dialogo_asunto_cerrar_sesion)
-                                , getString(R.string.dialogo_contenido_cerrar_sesion)
-                                , getString(R.string.dialogo_mensaje_Si)
-                                , getString(R.string.dialogo_mensaje_No));
+                        crearDialogoSiYNo(getString(R.string.dialogo_asunto_cerrar_sesion), getString(R.string.dialogo_contenido_cerrar_sesion), 0);
                         break;
                 }
                 return true;
@@ -430,7 +424,6 @@ public class MainActivity extends AppCompatActivity {
         imagen_perfil = (ImageView) findViewById(R.id.imagen_usuario);
         cargarUsuarioToolbar();
         if (savedInstanceState == null) {
-            // on first time display view for first nav item
             displayView(0);
         }
 
@@ -633,17 +626,25 @@ public class MainActivity extends AppCompatActivity {
         mDrawerToggle.setDrawerIndicatorEnabled(backStackEntryCount == 0);
     }
 
+    public void backFragment() {
+        getFragmentManager().popBackStack(getFragmentManager().getBackStackEntryAt(0).getId(), getFragmentManager().POP_BACK_STACK_INCLUSIVE);
+        boton.setVisibility(View.VISIBLE);
+        ocultarOpcionToolbar();
+    }
+
     @Override
     public void onBackPressed() {
         int count = getFragmentManager().getBackStackEntryCount();
         if (getFragmentManager().getBackStackEntryCount() > 0) {
-            //getSupportFragmentManager().popBackStack();
-            getFragmentManager().popBackStack(getFragmentManager().getBackStackEntryAt(0).getId(), getFragmentManager().POP_BACK_STACK_INCLUSIVE);
-            boton.setVisibility(View.VISIBLE);
-            ocultarOpcionToolbar();
+            if (manejoActivity.getProcesoActual() != null) {
+                crearDialogoSiYNo("Confirme su salida", "¿Está seguro que desea cancelar la operación?", 2);
+                manejoActivity.setProcesoActual(null);
+            } else {
+                backFragment();
+            }
+
         } else {
-            crearDialogoSiYNo("Confirme su salida", "¿Está seguro que desea salir de la aplicación?", "Si", "No");
-            super.onBackPressed();
+            crearDialogoSiYNo("Confirme su salida", "¿Está seguro que desea salir de la aplicación?", 1);
         }
     }
 }

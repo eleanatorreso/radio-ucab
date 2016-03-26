@@ -11,9 +11,11 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicHeader;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
+import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -24,7 +26,6 @@ import info.androidhive.radioucab.R;
 public class conexionPUTAPI extends AsyncTask<String, String, Integer> {
     ProgressDialog noticiaProgressDialog;
     public static Context contexto;
-    //public String mensaje = "";
     public RespuestaAsyncTask delegate = null;
     public int tipo = 0;
     public JSONObject objeto;
@@ -39,8 +40,12 @@ public class conexionPUTAPI extends AsyncTask<String, String, Integer> {
             DefaultHttpClient httpclient = new DefaultHttpClient(httpParameters);
             HttpPut httpPut = new HttpPut(contexto.getResources().getString(R.string.ip_web_service) + params[0]);
             httpPut.setHeader("content-type", "application/json");
-            StringEntity entity = new StringEntity(objeto.toString());
+            StringEntity entity = new StringEntity(objeto.toString(),"UTF-8");
+            entity.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE,
+                    "application/json"));
             httpPut.setEntity(entity);
+            //httpPut.addHeader("Accept", "application/json");
+            //httpPut.addHeader("Content-type", "application/json");
             HttpResponse httpResponse = httpclient.execute(httpPut);
             int code = httpResponse.getStatusLine().getStatusCode();
             String message = httpResponse.getStatusLine().getReasonPhrase();
@@ -56,16 +61,9 @@ public class conexionPUTAPI extends AsyncTask<String, String, Integer> {
     @Override
     protected void onPreExecute() {
         try {
-            super.onPreExecute();/*
-            if (!mensaje.isEmpty()) {
-                noticiaProgressDialog = new ProgressDialog(contexto);
-                noticiaProgressDialog.setMessage(mensaje);
-                noticiaProgressDialog.setIndeterminate(true);
-                noticiaProgressDialog.setCancelable(true);
-                noticiaProgressDialog.show();
-            }*/
+            super.onPreExecute();
         } catch (Exception ex) {
-            int x = 2;
+            Log.i("Conexion: ", ex.getMessage());
         }
     }
 

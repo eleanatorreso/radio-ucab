@@ -53,7 +53,7 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
     private final ManejoToast manejoToast = ManejoToast.getInstancia();
     private final ActualizacionLogica actualizacionLogica = new ActualizacionLogica();
     private final NoticiaLogica noticiaLogica = new NoticiaLogica();
-    private int pagina = 1;
+    private static int pagina = 1;
     private ImageView iconoSinNoticias;
     private TextView textoSinNoticia;
     private ManejoProgressDialog manejoProgressDialog = ManejoProgressDialog.getInstancia();
@@ -191,7 +191,7 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
     }
 
     public void preCargarNoticias() {
-        List<Noticia> noticiasAlmacenadas = Noticia.listAll(Noticia.class);
+        final List<Noticia> noticiasAlmacenadas = Noticia.listAll(Noticia.class);
         if (noticiasAlmacenadas.size() > 0) {
             try {
                 adapter = new AdaptadorNoticia(getActivity(), R.layout.adapter_noticia, noticiasAlmacenadas);
@@ -217,11 +217,13 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
 
     public void ultimaActualizacion(JSONObject resultado) {
         try {
-            List<Actualizacion> listaActualizaciones = Actualizacion.listAll(Actualizacion.class);
+            final List<Actualizacion> listaActualizaciones = Actualizacion.listAll(Actualizacion.class);
+            final List<Noticia> listaNoticias = Noticia.listAll(Noticia.class);
             ultimaActWS = tiempoActual.convertirString(resultado.getString("fecha_actualizacion"));
             if (listaActualizaciones != null && listaActualizaciones.size() > 0) {
                 Actualizacion ultimaActualizacion = listaActualizaciones.get(0);
-                if (ultimaActualizacion.getActNoticia().equals(ultimaActWS) == true) {
+                if (ultimaActualizacion.getActNoticia().equals(ultimaActWS) && listaNoticias != null &&
+                        listaNoticias.size() > 0) {
                     manejoToast.crearToast(getActivity(), "Noticias actualizadas");
                 } else {
                     cargarNoticias();

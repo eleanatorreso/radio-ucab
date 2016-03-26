@@ -196,11 +196,13 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
 
     public void ultimaActualizacion(JSONObject resultado) {
         try {
-            List<Actualizacion> listaActualizaciones = Actualizacion.listAll(Actualizacion.class);
+            final List<Actualizacion> listaActualizaciones = Actualizacion.listAll(Actualizacion.class);
+            final List<Evento> listaEventos = Evento.listAll(Evento.class);
             ultimaActWS = tiempoActual.convertirString(resultado.getString("fecha_actualizacion"));
             if (listaActualizaciones != null && listaActualizaciones.size() > 0) {
                 Actualizacion ultimaActualizacion = listaActualizaciones.get(0);
-                if (ultimaActualizacion.getActEvento().equals(ultimaActWS) == true) {
+                if (ultimaActualizacion.getActEvento().equals(ultimaActWS) && listaEventos != null
+                        && listaEventos.size() > 0) {
                     manejoToast.crearToast(getActivity(), "Eventos actualizados");
                 } else {
                     cargarEventos();

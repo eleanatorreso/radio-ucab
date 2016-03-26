@@ -190,11 +190,13 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
 
     public void ultimaActualizacion(JSONObject resultado) {
         try {
-            List<Actualizacion> listaActualizaciones = Actualizacion.listAll(Actualizacion.class);
+            final List<Actualizacion> listaActualizaciones = Actualizacion.listAll(Actualizacion.class);
+            final List<Programa> listaProgramas = Programa.listAll(Programa.class);
             ultimaActWS = tiempoActual.convertirString(resultado.getString("fecha_actualizacion"));
             if (listaActualizaciones != null && listaActualizaciones.size() > 0) {
                 Actualizacion ultimaActualizacion = listaActualizaciones.get(0);
-                if (ultimaActualizacion.getActPrograma().equals(ultimaActWS) == true) {
+                if (ultimaActualizacion.getActPrograma().equals(ultimaActWS) && listaProgramas != null &&
+                        listaProgramas.size() > 0) {
                     manejoToast.crearToast(getActivity(), "Programas actualizados");
                 } else {
                     cargarProgramas();

@@ -55,10 +55,8 @@ public class PerfilFragment extends Fragment {
         usuario_nombre = (TextView) getActivity().findViewById(R.id.texto_usuario_nombre);
         usuario_nombre.setText(usuario_actual.getNombre() + " " + usuario_actual.getApellido());
         usuario_twitter = (TextView) getActivity().findViewById(R.id.texto_usuario_twitter);
-      //usuario_twitter.setText(getActivity().getString(R.string.campo_usuario_twitter) + ": @" + usuario_actual.getUsuario_twitter());
         usuario_twitter.setText("@" + usuario_actual.getUsuario_twitter());
         usuario_correo = (TextView) getActivity().findViewById(R.id.texto_usuario_correo);
-      //  usuario_correo.setText(getActivity().getString(R.string.campo_usuario_correo) + ": " + usuario_actual.getCorreo());
         usuario_correo.setText(usuario_actual.getCorreo());
         boton_editar_perfil = (Button) getActivity().findViewById(R.id.boton_editar_perfil);
         boton_editar_perfil.setOnClickListener(new View.OnClickListener() {

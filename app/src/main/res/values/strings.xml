@@ -9,7 +9,7 @@
     <string name="timeline_empty">Espere un momento por favor...</string>
     <string name="texto_detalle_programa">Espere un momento por favor...</string>
     <string name="menu_perfil_usuario">Ingresar</string>
-    <string name="ip_web_service">http://192.168.1.107:24364/</string>
+    <string name="ip_web_service">http://192.168.0.107:24364/</string>
     <string name="ip_streaming_high">http://31.200.244.181:8110</string>
     <string name="ip_streaming_low">http://31.200.244.181:8110</string>
     <string name="ruta_archivos_radio_ucab">/sdcard/.RadioUCAB/</string>
@@ -53,11 +53,10 @@
     <!-- Registro de Usuario -->
     <string name="toast_error_terminos_condiciones">Debe aceptar los terminos y condiciones para registrarse en Radio UCAB</string>
     <string name="toast_error_campos_obligatorios">Todos los campos son obligatorios completelos</string>
-
     <!-- Contenido Dialogs -->
-    <string name="dialogo_mensaje_cerrar">Cerrar</string>
-    <string name="dialogo_mensaje_Si">Si</string>
-    <string name="dialogo_mensaje_No">No</string>
+    <string name="dialogo_mensaje_cerrar">CERRAR</string>
+    <string name="dialogo_mensaje_Si">SI</string>
+    <string name="dialogo_mensaje_No">NO</string>
     <!-- Registro de Usuario -->
     <string name="dialogo_asunto_terminos_condiciones">Términos y Condiciones</string>
     <string name="dialogo_contenido_terminos_condiciones">Términos y condiciones</string>
@@ -69,10 +68,15 @@
     <!-- Cerrar Sesion -->
     <string name="dialogo_asunto_cerrar_sesion">Cerrar Sesión</string>
     <string name="dialogo_contenido_cerrar_sesion">¿Está seguro de que desea cerrar su sesión?</string>
-
     <!-- Contenido de los campos-->
     <string name="campo_boton_cancelar">Cancelar</string>
     <string name="campo_boton_guardar">Guardar</string>
+    <!-- Mis Programas-->
+    <string name="campo_encabezado_mis_programas">Mis programas favoritos</string>
+    <!-- Mis Noticias-->
+    <string name="campo_encabezado_mis_noticias">Mis noticias</string>
+    <string name="campo_texto_mis_noticias">Selecciona los tipos de noticias de tu preferencia, en base a esto recibirás notificaciones cuando estén disponibles noticias de este tipo</string>
+    <string name="campo_texto_sin_mis_noticias">No hay preferencias de noticias disponibles, intente más tarde</string>
     <!-- Mis Concursos-->
     <string name="campo_encabezado_mis_concursos">Mis concursos</string>
     <string name="campo_texto_sin_mis_concursos">Aún no has participado en ningún concurso, está atento a la programación de Radio UCAB para participar en el próximo</string>
@@ -135,7 +139,6 @@
     <string name="dialogo_contenido_interaccion_no_exitoso_tres_comentarios_inapropiados">Usted está sido sancionado por Radio UCAB, tiene 3 comentarios con contenido inapropiado. Si tiene alguna duda, contacte al administrador</string>
     <string name="dialogo_contenido_interaccion_no_exitoso_comentario_inapropiado">Este comentario ha sido clasificado como inapropiado, es por esto que no aparecerá en la cuenta de Radio UCAB. Si tienes alguna duda, contacta al administrador.</string>
     <string name="dialogo_contenido_interaccion_no_exitoso_inapropiado_bloqueado">Este comentario ha sido clasificado como inapropiado, usted ha sido sancionado por Radio UCAB, tiene más de 3 comentarios con contenido inapropiado. Si tienes alguna duda, contacta al administrador.</string>
-
     <!-- Editar Comentario-->
     <string name="campo_encabezado_editar_tweet_comentario">Enviar comentario</string>
     <string name="campo_texto_tweet_comentario">Completa los siguientes campos para generar tu tweet:</string>
@@ -147,7 +150,6 @@
     <string name="hint_campo_tweet_comentario">Escriba acá su comentario</string>
     <string name="campo_boton_enviar">Enviar</string>
     <string name="toast_error_campos_obligatorios_comentario">Debe escribir su comentario</string>
-
     <!-- Solicitud Cancion-->
     <string name="campo_encabezado_editar_tweet_solicitar">Solicitar canción</string>
     <string name="campo_texto_tweet_solicitud">Completa los siguientes campos para generar tu solicitud:</string>
@@ -157,23 +159,19 @@
     <string name="hint_campo_editText_artista">Artista / Grupo</string>
     <string name="campo_encabezado_artista_grupo">Artista / Grupo:</string>
     <string name="toast_error_campos_obligatorios_solicitud">Debe completar los datos de la canción (Canción y Artista)</string>
-
     <!-- Dedicatoria Cancion-->
     <string name="campo_encabezado_editar_tweet_dedicar">Dedicar canción</string>
     <string name="campo_texto_tweet_dedicatoria">Completa los siguientes campos para generar tu dedicatoria. Recuerda que el usuario_tag que recibirá la dedicatoria debe poseer una cuenta de Twitter para que reciba su dedicatoria.</string>
     <string name="hint_campo_editText_usuario_dedicatoria">Usuario receptor de la dedicatoria</string>
-
     <!-- Concursos -->
     <string name="campo_encabezado_concurso">Concursos actuales</string>
     <string name="campo_encabezado_sin_concursos">No hay concursos actualmente</string>
     <string name="campo_boton_siguiente">Siguiente</string>
     <string name="campo_texto_con_concursos">Puedes participar en los siguientes concursos, recuerda que hay un límite de comentarios establecidos por día.</string>
     <string name="campo_texto_sin_concursos">No hay concursos en este momento, está atento a nuestra programación para conocer cuando será el próximo.</string>
-
     <!-- Tweet Programa-->
     <string name="campo_encabezado_editar_tweet_programa">Estas escuchando....</string>
     <string name="campo_texto_enviar_a">Enviar a:</string>
-
     <!-- Tweet Premiacion-->
     <string name="campo_encabezado_editar_tweet_premiacion">Participa en esta premiación</string>
     <string name="campo_boton_participar">Participar</string>
@@ -183,10 +181,11 @@
     <string name="toast_error_terminos_condiciones_tweet">Debe completar el campo tweet</string>
     <string name="toast_error_general">No es posible procesar su solicitud, intente más tarde</string>
     <string name="toast_comentario_exitosos">"Su comentario ha sido procesado con exito"</string>
-
+    <!-- Diálogo-->
+    <string name="dialogo_mensaje_procesando_solicitud">Procesando la solicitud...</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_velo_app">VeloApp</string>
+    <string name="title_activity_velo_app">Velo Radio UCAB</string>
 
 
 </resources>

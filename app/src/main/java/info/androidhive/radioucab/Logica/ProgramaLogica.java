@@ -8,12 +8,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import info.androidhive.radioucab.Controlador.ProgramaDetalleFragment;
 import info.androidhive.radioucab.Model.HorarioPrograma;
 import info.androidhive.radioucab.Model.Locutor;
 import info.androidhive.radioucab.Model.Programa;
 import info.androidhive.radioucab.Model.ProgramaFavorito;
 
 public class ProgramaLogica {
+
+    private ManejoActivity manejoActivity = ManejoActivity.getInstancia();
 
     public List<HorarioPrograma> procesarHorarios (JSONArray resultadoConsulta, Programa programa) {
         List<HorarioPrograma> horarios = new ArrayList<HorarioPrograma>();
@@ -90,6 +93,14 @@ public class ProgramaLogica {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public void ingresarDetallePrograma(String tituloPrograma){
+        List<Programa> programaSeleccionado = Programa.find(Programa.class, "titulo =?", tituloPrograma);
+        if (programaSeleccionado != null && programaSeleccionado.size() > 0) {
+            ProgramaDetalleFragment detalle = (ProgramaDetalleFragment) manejoActivity.cambiarFragment("ProgramaDetalle", true);
+            detalle.programa = programaSeleccionado.get(0);
         }
     }
 

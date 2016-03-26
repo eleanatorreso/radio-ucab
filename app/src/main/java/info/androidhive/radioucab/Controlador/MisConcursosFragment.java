@@ -27,6 +27,7 @@ import info.androidhive.radioucab.Logica.ConcursoLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.ManejoProgressDialog;
 import info.androidhive.radioucab.Logica.ManejoToast;
+import info.androidhive.radioucab.Logica.ManejoUsuarioActual;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.Model.MiConcurso;
 import info.androidhive.radioucab.Model.Usuario;
@@ -42,8 +43,8 @@ public class MisConcursosFragment extends Fragment implements RespuestaAsyncTask
     private SwipeRefreshLayout swipeRefreshLayout;
     private final ManejoToast manejoToast = ManejoToast.getInstancia();
     private ManejoProgressDialog manejoProgressDialog = ManejoProgressDialog.getInstancia();
-    private conexionGETAPIJSONObject conexionObjeto;
-    private String usuarioTwitter;
+    private ManejoUsuarioActual manejoUsuarioActual = ManejoUsuarioActual.getInstancia();
+    private static int flag = 0;
     private ConcursoLogica concursoLogica = new ConcursoLogica();
     private ImageView imagenRefrescarSinConcursos;
     private TextView textoSinConcursos;
@@ -73,13 +74,22 @@ public class MisConcursosFragment extends Fragment implements RespuestaAsyncTask
             recyclerView = (RecyclerView) getActivity().findViewById(R.id.lista_recycler_mis_concursos);
             layoutManager = new LinearLayoutManager(getActivity());
             imagenRefrescarSinConcursos = (ImageView) getActivity().findViewById(R.id.imagen_sin_mis_concursos);
+            imagenRefrescarSinConcursos.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    comprobarActualizaciones();
+                }
+            });
             textoSinConcursos = (TextView) getActivity().findViewById(R.id.texto_sin_mis_concursos);
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setHasFixedSize(true);
             recyclerView.setAdapter(adaptadorMisConcursos);
             manejoSwipeRefresh();
             cargarMisConcursosAlmacenados();
-            getNombreUsuario();
+            if (flag == 0) {
+                comprobarActualizaciones();
+                flag = 1;
+            }
         }
     }
 
@@ -143,11 +153,6 @@ public class MisConcursosFragment extends Fragment implements RespuestaAsyncTask
         });
     }
 
-    private void getNombreUsuario(){
-        List<Usuario> usuarioActual = Usuario.listAll(Usuario.class);
-        usuarioTwitter = usuarioActual.get(0).getUsuario_twitter();
-    }
-
     public void cargarMisConcursosAlmacenados() {
         List<MiConcurso> misConcursos = MiConcurso.listAll(MiConcurso.class);
         cambioAdaptador(misConcursos);
@@ -165,6 +170,7 @@ public class MisConcursosFragment extends Fragment implements RespuestaAsyncTask
             recyclerView.setVisibility(View.GONE);
             imagenRefrescarSinConcursos.setVisibility(View.VISIBLE);
             textoSinConcursos.setVisibility(View.VISIBLE);
+            swipeRefreshLayout.setVisibility(View.GONE);
         }
     }
 
@@ -173,7 +179,7 @@ public class MisConcursosFragment extends Fragment implements RespuestaAsyncTask
         conexionGETAPIJSONArray conexion = new conexionGETAPIJSONArray();
         conexion.contexto = getActivity();
         conexion.delegate = this;
-        conexion.execute("Api/Usuario/GetMisConcursos?usuarioTwitter=" + usuarioTwitter);
+        conexion.execute("Api/Usuario/GetMisConcursos?usuarioTwitter=" + manejoUsuarioActual.getNombreUsuario());
     }
 
     public List<MiConcurso> procesarResultados(JSONArray resultadoConsulta) {

@@ -1,5 +1,6 @@
 package info.androidhive.radioucab.Logica;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
@@ -20,12 +21,13 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
     private File rutaRadioUCAB;
     private final ManejoSesionTwitter sesionTwitter = new ManejoSesionTwitter();
     public Context contexto;
-    private Toast toast;
     public Usuario usuario;
     private ManejoString cambioUrl = new ManejoString();
     private String url;
     private boolean actualizar, usuarioNuevo;
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
+    private final ManejoProgressDialog manejoProgressDialog = ManejoProgressDialog.getInstancia();
+    private final ManejoToast manejoToast = ManejoToast.getInstancia();
 
     public UsuarioLogica() {
     }
@@ -152,6 +154,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        manejoProgressDialog.cancelarProgressDialog();
     }
 
     @Override
@@ -163,8 +166,9 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
     public void procesoExitoso(int codigo, int tipo) {
         if (codigo == 204) {
             usuario.save();
-            manejoActivity.cambiarFragment("Perfil",false);
+            manejoActivity.cambiarFragment("Perfil", false);
         }
+        manejoProgressDialog.cancelarProgressDialog();
     }
 
     @Override
@@ -183,8 +187,8 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
 
     @Override
     public void procesoNoExitoso() {
-        toast = Toast.makeText(contexto, "No es posible procesar su solicitud, intente más tarde", Toast.LENGTH_LONG);
-        toast.show();
+        manejoToast.crearToast((Activity) contexto, contexto.getResources().getString(R.string.toast_error_general));
+        manejoProgressDialog.cancelarProgressDialog();
     }
 
     @Override
@@ -192,12 +196,13 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
         //me regresa el guid del usuario almacenado
         usuario.setGuid(resultado.replace("\"", ""));
         usuario.save();
-        manejoActivity.cambiarFragment("Perfil",false);
+        manejoActivity.cambiarFragment("Perfil", false);
+        manejoProgressDialog.cancelarProgressDialog();
     }
 
     @Override
     public void procesoNoExitosoString() {
-        toast = Toast.makeText(contexto, "No es posible procesar su solicitud, intente más tarde", Toast.LENGTH_LONG);
-        toast.show();
+        manejoToast.crearToast((Activity) contexto, contexto.getResources().getString(R.string.toast_error_general));
+        manejoProgressDialog.cancelarProgressDialog();
     }
 }

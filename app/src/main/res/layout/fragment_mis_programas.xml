@@ -6,17 +6,44 @@
         android:id="@+id/campo_encabezado_modulo_mis_programas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:textSize="20sp"
-        android:textColor="@color/azul_ucab"
         android:layout_centerHorizontal="true"
-        android:text="Mis programas favoritos" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/campo_encabezado_mis_programas"
+        android:textColor="@color/azul_ucab"
+        android:textSize="20sp" />
 
     <ListView
-        android:id="@+id/listView1"
-        android:layout_height="fill_parent"
+        android:id="@+id/lista_mis_programas"
         android:layout_width="fill_parent"
-        android:layout_below="@id/campo_encabezado_modulo_mis_programas"/>
+        android:layout_height="fill_parent"
+        android:layout_below="@id/campo_encabezado_modulo_mis_programas" />
+
+    <ImageView
+        android:id="@+id/imagen_sin_mis_programas"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:src="@drawable/ic_refresh_white_48dp"
+        android:tint="@color/azul_ucab"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/texto_sin__mis_programas"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imagen_sin_mis_programas"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/campo_texto_sin_noticias"
+        android:textColor="@color/negro"
+        android:textSize="16sp"
+        android:visibility="gone" />
 
 </RelativeLayout>

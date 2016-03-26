@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:2:1-122:12
+ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:2:1-115:12
 	xmlns:android
 		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:2:11-69
 	package
@@ -261,7 +261,7 @@ ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\An
 	android:name
 		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:30:15-71
 application
-ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:32:5-120:19
+ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:32:5-113:19
 MERGED from [com.google.android.gms:play-services-measurement:8.3.0] C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-measurement\8.3.0\AndroidManifest.xml:26:5-46:19
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\AndroidManifest.xml:20:5-24:19
 MERGED from [com.android.support:support-v4:22.2.0] C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\AndroidManifest.xml:22:5-20
@@ -503,40 +503,26 @@ service#info.androidhive.radioucab.Controlador.GCM.RegistrationIntentService
 ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:100:9-78
 	android:name
 		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:100:18-75
-receiver#com.google.android.gms.analytics.CampaignTrackingReceiver
-ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:103:9-109:20
-	android:exported
-		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:105:13-36
+receiver#com.google.android.gms.analytics.AnalyticsReceiver
+ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:103:9-108:20
 	android:enabled
 		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:104:13-35
 	android:name
-		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:103:19-91
-intent-filter#com.android.vending.INSTALL_REFERRER
-ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:106:13-108:29
-action#com.android.vending.INSTALL_REFERRER
-ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:107:17-79
-	android:name
-		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:107:25-76
-receiver#com.google.android.gms.analytics.AnalyticsReceiver
-ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:110:9-115:20
-	android:enabled
-		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:111:13-35
-	android:name
-		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:110:19-84
+		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:103:19-84
 intent-filter#com.google.android.gms.analytics.ANALYTICS_DISPATCH
-ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:112:13-114:29
+ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:105:13-107:29
 action#com.google.android.gms.analytics.ANALYTICS_DISPATCH
-ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:113:17-94
+ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:106:17-94
 	android:name
-		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:113:25-91
+		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:106:25-91
 service#com.google.android.gms.analytics.AnalyticsService
-ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:116:9-118:39
+ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:109:9-111:39
 	android:exported
-		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:118:13-37
+		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:111:13-37
 	android:enabled
-		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:117:13-35
+		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:110:13-35
 	android:name
-		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:116:18-82
+		ADDED from C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\src\main\AndroidManifest.xml:109:18-82
 provider#com.google.android.gms.measurement.AppMeasurementContentProvider
 ADDED from [com.google.android.gms:play-services-measurement:8.3.0] C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-measurement\8.3.0\AndroidManifest.xml:28:7-31:37
 MERGED from [com.google.android.gms:play-services-measurement:8.3.0] C:\Users\Eleana Torres\Documents\radio-ucab-app-movil\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-measurement\8.3.0\AndroidManifest.xml:28:7-31:37

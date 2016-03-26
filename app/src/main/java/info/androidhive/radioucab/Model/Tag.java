@@ -5,7 +5,7 @@ import com.orm.SugarRecord;
 public class Tag extends SugarRecord {
     private int myId;
     private String nombre_tag;
-    private boolean usuario_tag;
+    private int usuario_tag;
 
     public Tag(){
 
@@ -32,11 +32,11 @@ public class Tag extends SugarRecord {
         this.nombre_tag = nombre_tag;
     }
 
-    public boolean isUsuario_tag() {
+    public int getUsuario_tag() {
         return usuario_tag;
     }
 
-    public void setUsuario_tag(boolean usuario_tag) {
+    public void setUsuario_tag(int usuario_tag) {
         this.usuario_tag = usuario_tag;
     }
 }
