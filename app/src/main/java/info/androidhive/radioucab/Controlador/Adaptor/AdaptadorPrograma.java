@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import info.androidhive.radioucab.Logica.ProgramaLogica;
 import info.androidhive.radioucab.Model.Programa;
 import info.androidhive.radioucab.R;
 import info.androidhive.radioucab.Controlador.ViewHolder.ProgramaViewHolder;
@@ -18,6 +19,7 @@ public class AdaptadorPrograma extends RecyclerView.Adapter<ProgramaViewHolder>{
     private List<Programa> programas;
     private Fragment fragment;
     private int iconoPrograma = 1;
+    private final ProgramaLogica programaLogica = new ProgramaLogica();
 
     public AdaptadorPrograma(List<Programa> programas, Fragment fragment) {
         this.programas = programas;
@@ -69,6 +71,9 @@ public class AdaptadorPrograma extends RecyclerView.Adapter<ProgramaViewHolder>{
         holder.tituloPrograma.setText(programas.get(position).getTitulo());
         holder.imagenPrograma.setImageResource(seleccionarIconoPrograma());
         holder.fragment = fragment;
+        if (!programaLogica.comprobarProgramaFavorito(programas.get(position).getTitulo())) {
+            holder.imagenFavorito.setColorFilter(fragment.getActivity().getResources().getColor(R.color.list_divider));
+        }
     }
 
     @Override

@@ -5,7 +5,7 @@
 
 
     <TextView
-        android:id="@+id/texto_titulo_programa"
+        android:id="@+id/texto_titulo_configuracion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="@string/campo_encabezado_configuración_uno"
         android:id="@+id/campo_switch_configuracion_uno"
-        android:layout_below="@+id/texto_titulo_programa"
+        android:layout_below="@+id/texto_titulo_configuracion"
         android:textSize="16dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
@@ -35,6 +35,18 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/boton_actualizar_configuracion"
+        android:layout_width="110dp"
+        android:layout_height="30dp"
+        android:background="@drawable/boton_azul_claro"
+        android:text="@string/campo_boton_guardar"
+        android:textColor="@color/blanco"
+        android:textSize="16sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/campo_switch_configuracion_dos"/>
 
 
 </RelativeLayout>

@@ -154,7 +154,7 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
                 Usuario usuarioApp = new Usuario(usuarioResultado.screenName, sesionTwitter.getAuthToken().token
                         , sesionTwitter.getAuthToken().secret, usuarioResultado.profileImageUrl);
                 usuarioLogica.comprobarUsuario(usuarioApp, usuarioBD);
-                manejoProgressDialog.iniciarProgressDialog("",getActivity());
+                manejoProgressDialog.iniciarProgressDialog(getActivity().getString(R.string.dialogo_mensaje_iniciando_sesion),getActivity());
             } catch (JSONException e) {
                 e.printStackTrace();
             }

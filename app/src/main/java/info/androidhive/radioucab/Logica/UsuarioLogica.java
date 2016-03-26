@@ -35,7 +35,6 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
     public void crearUsuarioAPI() {
         conexionPOSTAPIString conexion = new conexionPOSTAPIString();
         conexion.contexto = contexto;
-        //conexion.mensaje = "Enviando los datos...";
         conexion.delegate = (RespuestaStringAsyncTask) this;
         JSONObject objeto = new JSONObject();
         try {
@@ -58,7 +57,6 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
     public void actualizarUsuarioAPI() {
         conexionPUTAPI conexion = new conexionPUTAPI();
         conexion.contexto = contexto;
-        //conexion.mensaje = "Enviando los datos...";
         conexion.delegate = this;
         JSONObject objeto = new JSONObject();
         try {
@@ -113,6 +111,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
         } else {
             usuario.save();
             manejoActivity.cambiarFragment("Perfil",false);
+            manejoProgressDialog.cancelarProgressDialog();
         }
     }
 
@@ -147,6 +146,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
         //me regresa el usuario almacenado
         JSONObject resultado = null;
         try {
+            manejoProgressDialog.cancelarProgressDialog();
             resultado = resultados.getJSONObject(0);
             usuario.setGuid(resultado.getString("guid").replace("\"", ""));
             usuario.save();
@@ -154,7 +154,6 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        manejoProgressDialog.cancelarProgressDialog();
     }
 
     @Override
