@@ -104,4 +104,13 @@ public class ProgramaLogica {
         }
     }
 
+    public boolean comprobarProgramaFavorito(String titulo){
+        boolean esFavorito = false;
+        List<ProgramaFavorito> programasFavoritos = ProgramaFavorito.find(ProgramaFavorito.class, "nombre_programa = ?", titulo);
+        if (programasFavoritos != null && programasFavoritos.size() > 0) {
+            esFavorito = true;
+        }
+        return esFavorito;
+    }
+
 }

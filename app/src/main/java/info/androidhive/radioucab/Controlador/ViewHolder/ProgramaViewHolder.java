@@ -27,6 +27,7 @@ public class ProgramaViewHolder extends RecyclerView.ViewHolder {
     public TextView descripcionPrograma;
     public ImageView imagenPrograma;
     public Fragment fragment;
+    public ImageView imagenFavorito;
     private final ProgramaLogica programaLogica = new ProgramaLogica();
 
     public ProgramaViewHolder(View itemView) {
@@ -35,12 +36,16 @@ public class ProgramaViewHolder extends RecyclerView.ViewHolder {
         tituloPrograma = (TextView) itemView.findViewById(R.id.titulo_programa);
         descripcionPrograma = (TextView) itemView.findViewById(R.id.descripcion_programa);
         imagenPrograma = (ImageView) itemView.findViewById(R.id.imagen_programa);
+        imagenFavorito = (ImageView) itemView.findViewById(R.id.imagen_programa_favorito);
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 programaLogica.ingresarDetallePrograma(tituloPrograma.getText().toString());
             }
-
         });
+        /*
+        if (!programaLogica.comprobarProgramaFavorito(tituloPrograma.getText().toString())) {
+            imagenFavorito.setColorFilter(fragment.getActivity().getResources().getColor(R.color.list_divider));
+        }*/
     }
 }

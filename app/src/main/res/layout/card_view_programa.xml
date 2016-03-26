@@ -43,6 +43,7 @@
                 android:layout_toRightOf="@+id/imagen_programa" />
 
             <ImageView
+                android:id="@+id/imagen_programa_favorito"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_below="@id/descripcion_programa"
