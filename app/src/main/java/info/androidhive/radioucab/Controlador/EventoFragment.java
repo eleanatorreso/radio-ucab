@@ -9,15 +9,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import com.bignerdranch.expandablerecyclerview.Model.ParentObject;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+
 import info.androidhive.radioucab.Controlador.Adaptor.AdaptadorEvento;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONArray;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONObject;
@@ -52,6 +59,9 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
     private final EventoLogica eventoLogica = new EventoLogica();
     private final ManejoToast manejoToast = ManejoToast.getInstancia();
     private ManejoProgressDialog manejoProgressDialog = ManejoProgressDialog.getInstancia();
+    private TextView textoSinEventos;
+    private ImageView imagenSinEventos;
+    private TextView textoEncabezado;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,86 +77,98 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        try {
-            if (rootView != null) {
-                super.onCreate(savedInstanceState);
-                //cambio el color del toolbar superior
-                manejoActivity.editarActivity(4, true, "Evento", "Evento");
-                recyclerView = (RecyclerView) rootView.findViewById(R.id.lista_recycler_evento);
-                layoutManager = new LinearLayoutManager(getActivity());
-                recyclerView.setLayoutManager(layoutManager);
-                recyclerView.setHasFixedSize(true);
-                recyclerView.setAdapter(adaptadorEvento);
-                swipeRefreshLayout = (SwipeRefreshLayout) getActivity().findViewById(R.id.activity_eventos_swipe_refresh_layout);
-                swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-                    @Override
-                    public void onRefresh() {
-                        refrescarContenido();
-                    }
-                });
-                swipeRefreshLayout.setColorSchemeResources(R.color.amarillo_ucab, R.color.azul_radio_ucab);
-                recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-                    private int currentScrollState;
-                    private int currentFirstVisibleItem;
-                    private int currentVisibleItemCount;
-                    private boolean isLoading;
 
-                    @Override
-                    public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                        super.onScrolled(recyclerView, dx, dy);
-                        currentVisibleItemCount = layoutManager.getChildCount();
-                        currentVisibleItemCount = layoutManager.getItemCount();
-                        currentFirstVisibleItem = layoutManager.findFirstVisibleItemPosition();
-
-                        boolean enable = false;
-                        if (recyclerView != null && recyclerView.getChildCount() > 0) {
-                            // check if the first item of the list is visible
-                            boolean firstItemVisible = layoutManager.findFirstVisibleItemPosition() == 0;
-                            // check if the top of the first item is visible
-                            boolean topOfFirstItemVisible = recyclerView.getChildAt(0).getTop() == 0;
-                            // enabling or disabling the refresh layout
-                            enable = firstItemVisible && topOfFirstItemVisible;
-                        }
-                        swipeRefreshLayout.setEnabled(enable);
-
-                        if (!recyclerView.canScrollVertically(1)) {
-                            onScrolledToEnd();
-                        } else if (dy < 0) {
-                            onScrolledUp();
-                        } else if (dy > 0) {
-                            onScrolledDown();
-                        }
-                    }
-
-
-                    public void onScrolledUp() {
-                    }
-
-                    public void onScrolledDown() {
-                    }
-
-                    public void onScrolledToEnd() {
-                        Log.v("Final", "EEEEH");
-                    }
-
-                    @Override
-                    public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                        super.onScrollStateChanged(recyclerView, newState);
-                    }
-                });
-                List<Evento> eventosAlmacenados = Evento.listAll(Evento.class);
-                Collections.sort(eventosAlmacenados);
-                ArrayList<ParentObject> eventos = generarEventos(eventosAlmacenados);
-                cambioAdaptador(eventos);
-                if (flag == 0) {
+        if (rootView != null) {
+            super.onCreate(savedInstanceState);
+            //cambio el color del toolbar superior
+            manejoActivity.editarActivity(4, true, "Evento", "Evento");
+            recyclerView = (RecyclerView) rootView.findViewById(R.id.lista_recycler_evento);
+            layoutManager = new LinearLayoutManager(getActivity());
+            recyclerView.setLayoutManager(layoutManager);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setAdapter(adaptadorEvento);
+            imagenSinEventos = (ImageView) getActivity().findViewById(R.id.imagen_sin_eventos);
+            imagenSinEventos.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
                     comprobarUltimaActualizacion();
-                    flag = 1;
+                }
+            });
+            textoSinEventos = (TextView) getActivity().findViewById(R.id.texto_sin_eventos);
+            textoEncabezado = (TextView) getActivity().findViewById(R.id.titulo_modulo_eventos);
+            manejoScroll();
+            List<Evento> eventosAlmacenados = Evento.listAll(Evento.class);
+            Collections.sort(eventosAlmacenados);
+            ArrayList<ParentObject> eventos = generarEventos(eventosAlmacenados);
+            cambioAdaptador(eventos);
+            if (flag == 0) {
+                comprobarUltimaActualizacion();
+                flag = 1;
+            }
+        }
+
+    }
+
+    public void manejoScroll() {
+        swipeRefreshLayout = (SwipeRefreshLayout) getActivity().findViewById(R.id.activity_eventos_swipe_refresh_layout);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refrescarContenido();
+            }
+        });
+        swipeRefreshLayout.setColorSchemeResources(R.color.amarillo_ucab, R.color.azul_radio_ucab);
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            private int currentScrollState;
+            private int currentFirstVisibleItem;
+            private int currentVisibleItemCount;
+            private boolean isLoading;
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                currentVisibleItemCount = layoutManager.getChildCount();
+                currentVisibleItemCount = layoutManager.getItemCount();
+                currentFirstVisibleItem = layoutManager.findFirstVisibleItemPosition();
+
+                boolean enable = false;
+                if (recyclerView != null && recyclerView.getChildCount() > 0) {
+                    // check if the first item of the list is visible
+                    boolean firstItemVisible = layoutManager.findFirstVisibleItemPosition() == 0;
+                    // check if the top of the first item is visible
+                    boolean topOfFirstItemVisible = recyclerView.getChildAt(0).getTop() == 0;
+                    // enabling or disabling the refresh layout
+                    enable = firstItemVisible && topOfFirstItemVisible;
+                }
+                swipeRefreshLayout.setEnabled(enable);
+
+                if (!recyclerView.canScrollVertically(1)) {
+                    onScrolledToEnd();
+                } else if (dy < 0) {
+                    onScrolledUp();
+                } else if (dy > 0) {
+                    onScrolledDown();
                 }
             }
-        } catch (Exception e) {
-            Log.e("Evento: onactivity", e.getMessage());
-        }
+
+
+            public void onScrolledUp() {
+            }
+
+            public void onScrolledDown() {
+            }
+
+            public void onScrolledToEnd() {
+                Log.v("Final", "EEEEH");
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
     }
+
 
     public void cargarEventos() {
         manejoProgressDialog.iniciarProgressDialog("Cargando los próximos eventos...", getActivity());
@@ -182,12 +204,29 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
         return parentObjects;
     }
 
-    private void cambioAdaptador (ArrayList<ParentObject> eventos) {
+    private void comprobarEventos(){
+        final List<Evento> listaEventos = Evento.listAll(Evento.class);
+        if (listaEventos != null && listaEventos.size() > 0){
+            textoEncabezado.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.VISIBLE);
+            imagenSinEventos.setVisibility(View.GONE);
+            textoSinEventos.setVisibility(View.GONE);
+        }
+        else {
+            textoEncabezado.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.GONE);
+            imagenSinEventos.setVisibility(View.VISIBLE);
+            textoSinEventos.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void cambioAdaptador(ArrayList<ParentObject> eventos) {
         adaptadorEvento = new AdaptadorEvento(getActivity(), eventos);
         adaptadorEvento.setCustomParentAnimationViewId(R.id.list_item_expand_arrow);
         adaptadorEvento.setParentClickableViewAnimationDefaultDuration();
         adaptadorEvento.setParentAndIconExpandOnClick(true);
         recyclerView.setAdapter(adaptadorEvento);
+        comprobarEventos();
     }
 
     public void refrescarContenido() {
@@ -223,8 +262,7 @@ public class EventoFragment extends Fragment implements RespuestaAsyncTask {
         try {
             manejoToast.crearToast(getActivity(), "Eventos nuevas");
             swipeRefreshLayout.setRefreshing(false);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             Log.e("Eventos: toast", e.getMessage());
         }
     }

@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -52,6 +54,9 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
     private ManejoActivity manejoActivity = ManejoActivity.getInstancia();
     private final ManejoToast manejoToast = ManejoToast.getInstancia();
     private ManejoProgressDialog manejoProgressDialog = ManejoProgressDialog.getInstancia();
+    private TextView textoEncabezado;
+    private TextView textoSinProgramas;
+    private ImageView imagenSinProgramas;
 
     public ProgramaFragment() {
     }
@@ -79,6 +84,16 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setAdapter(adaptadorProgramas);
+                imagenSinProgramas = (ImageView) getActivity().findViewById(R.id.imagen_sin_programas);
+                imagenSinProgramas.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        comprobarUltimaActualizacion();
+                    }
+                });
+                textoSinProgramas = (TextView) getActivity().findViewById(R.id.texto_sin_programas);
+                textoEncabezado = (TextView) getActivity().findViewById(R.id.campo_encabezado_modulo_programas);
+
                 manejoSwipeRefresh();
                 List<Programa> programasAlmacenados = Programa.listAll(Programa.class);
                 cambioAdaptador(programasAlmacenados);
@@ -153,7 +168,7 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
     }
 
     public void cargarProgramas() {
-        manejoProgressDialog.iniciarProgressDialog("Cargando los programas...", getActivity());
+        manejoProgressDialog.iniciarProgressDialog(getResources().getString(R.string.campo_dialogo_cargando_programas), getActivity());
         conexionArray = new conexionGETAPIJSONArray();
         conexionArray.contexto = getActivity();
         conexionArray.delegate = this;
@@ -161,7 +176,7 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
     }
 
     public void comprobarUltimaActualizacion() {
-        manejoProgressDialog.iniciarProgressDialog("Comprobando si hay actualizaciones disponibles...", getActivity());
+        manejoProgressDialog.iniciarProgressDialog(getResources().getString(R.string.campo_dialogo_actualizando_programa), getActivity());
         conexionObjeto = new conexionGETAPIJSONObject();
         conexionObjeto.contexto = getActivity();
         conexionObjeto.delegate = this;
@@ -186,6 +201,23 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
     private void cambioAdaptador(List<Programa> programas) {
         adaptadorProgramas = new AdaptadorPrograma(programas, this);
         recyclerView.setAdapter(adaptadorProgramas);
+        comprobarLista();
+    }
+
+    public void comprobarLista(){
+        final List<Programa> listaProgramas = Programa.listAll(Programa.class);
+        if (listaProgramas != null && listaProgramas.size() > 0){
+            textoEncabezado.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.VISIBLE);
+            imagenSinProgramas.setVisibility(View.GONE);
+            textoSinProgramas.setVisibility(View.GONE);
+        }
+        else {
+            textoEncabezado.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.GONE);
+            imagenSinProgramas.setVisibility(View.VISIBLE);
+            textoSinProgramas.setVisibility(View.VISIBLE);
+        }
     }
 
     public void ultimaActualizacion(JSONObject resultado) {
@@ -197,7 +229,7 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
                 Actualizacion ultimaActualizacion = listaActualizaciones.get(0);
                 if (ultimaActualizacion.getActPrograma().equals(ultimaActWS) && listaProgramas != null &&
                         listaProgramas.size() > 0) {
-                    manejoToast.crearToast(getActivity(), "Programas actualizados");
+                    manejoToast.crearToast(getActivity(), getActivity().getResources().getString(R.string.campo_toast_programas_actualizados));
                 } else {
                     cargarProgramas();
                 }
@@ -215,7 +247,7 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
         cambioAdaptador(resultadosProgramas);
         try {
             manejoProgressDialog.cancelarProgressDialog();
-            manejoToast.crearToast(getActivity(), "Programas nuevos");
+            manejoToast.crearToast(getActivity(), getResources().getString(R.string.campo_toast_programas_nuevos));
             swipeRefreshLayout.setRefreshing(false);
         } catch (Exception e) {
             Log.e("Programas: toast", e.getMessage());
@@ -243,7 +275,7 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
     public void procesoNoExitoso() {
         try {
             manejoProgressDialog.cancelarProgressDialog();
-            manejoToast.crearToast(getActivity(), "Error al actualizar los programas, intentelo más tarde");
+            manejoToast.crearToast(getActivity(), getActivity().getResources().getString(R.string.campo_toast_error_actualizar_programas));
             swipeRefreshLayout.setRefreshing(false);
         } catch (Exception e) {
             Log.e("Noticias: toast", e.getMessage());

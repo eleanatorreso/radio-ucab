@@ -62,28 +62,28 @@ public class PerfilFragment extends Fragment {
         boton_editar_perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("EditarPerfil", true);
+                manejoActivity.cambiarFragment("EditarPerfil", true, true);
             }
         });
         imagen_mis_concursos = (ImageView) getActivity().findViewById(R.id.imagen_premiacion);
         imagen_mis_concursos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("MisConcursosFragment", true);
+                manejoActivity.cambiarFragment("MisConcursosFragment", true, false);
             }
         });
         imagen_mis_noticias = (ImageView) getActivity().findViewById(R.id.imagen_preferencia_noticias);
         imagen_mis_noticias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("MisNoticiasFragment", true);
+                manejoActivity.cambiarFragment("MisNoticiasFragment", true, false);
             }
         });
         imagen_mis_programas = (ImageView) getActivity().findViewById(R.id.imagen_programas_favoritos);
         imagen_mis_programas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("MisProgramasFragment", true);
+                manejoActivity.cambiarFragment("MisProgramasFragment", true, false);
             }
         });
 
@@ -97,7 +97,7 @@ public class PerfilFragment extends Fragment {
             manejoActivity.cambiarToolbar();
         }
         else {
-            manejoActivity.cambiarFragment("Inicio",false);
+            manejoActivity.cambiarFragment("Inicio",false, false);
         }
     }
 
@@ -106,6 +106,7 @@ public class PerfilFragment extends Fragment {
         if (rootView != null) {
             //cambio el color del toolbar superior
             manejoActivity.editarActivity(6, false, "Perfil", "Perfil");
+            manejoActivity.ocultarBackToolbar();
             super.onCreate(savedInstanceState);
             actualizarPerfil();
         }

@@ -6,6 +6,10 @@ public class Configuracion extends SugarRecord {
     private int usoHighStreaming;
     private int recibirNotificaciones;
 
+    public Configuracion(){
+
+    }
+
     public int getUsoHighStreaming() {
         return usoHighStreaming;
     }

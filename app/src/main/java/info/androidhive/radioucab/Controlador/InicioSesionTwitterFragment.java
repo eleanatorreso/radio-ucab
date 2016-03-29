@@ -26,14 +26,17 @@ import org.json.JSONObject;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONArray;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONObject;
 import info.androidhive.radioucab.Logica.ConcursoLogica;
+import info.androidhive.radioucab.Logica.ConfiguracionLogica;
 import info.androidhive.radioucab.Logica.FabricLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.ManejoProgressDialog;
 import info.androidhive.radioucab.Logica.ManejoSesionTwitter;
+import info.androidhive.radioucab.Logica.ManejoToast;
 import info.androidhive.radioucab.Logica.ProgramaLogica;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.Logica.TagLogica;
 import info.androidhive.radioucab.Logica.UsuarioLogica;
+import info.androidhive.radioucab.Model.Configuracion;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
 import io.fabric.sdk.android.Fabric;
@@ -41,18 +44,14 @@ import io.fabric.sdk.android.Fabric;
 public class InicioSesionTwitterFragment extends Fragment implements RespuestaAsyncTask {
 
     private TwitterLoginButton loginButton;
-    private TextView segundoEncabezado;
     private View rootView;
     private FabricLogica fabric;
-    private Toast toast;
     private User usuarioResultado;
     private final UsuarioLogica usuarioLogica = new UsuarioLogica();
     private final ManejoSesionTwitter sesionTwitter = new ManejoSesionTwitter();
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
-    private final ProgramaLogica programaLogica = new ProgramaLogica();
-    private final TagLogica tagLogica = new TagLogica();
-    private final ConcursoLogica concursoLogica = new ConcursoLogica();
     private ManejoProgressDialog manejoProgressDialog = ManejoProgressDialog.getInstancia();
+    private ManejoToast manejoToast = ManejoToast.getInstancia();
 
     public InicioSesionTwitterFragment() {
     }
@@ -84,7 +83,6 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
             super.onCreate(savedInstanceState);
             if (Usuario.listAll(Usuario.class).isEmpty()) {
                 loginButton = (TwitterLoginButton) getActivity().findViewById(R.id.twitter_login_button);
-                segundoEncabezado = (TextView) getActivity().findViewById(R.id.campo_texto_inicio_sesion_dos);
                 manejoActivity.editarActivity(6, false, null, "Inicio de sesión");
                 if (!Fabric.isInitialized()) {
                     fabric = fabric.getInstance();
@@ -120,12 +118,7 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
                 });
             }
             else {
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.addToBackStack("atras");
-                PerfilFragment perfilFragment = new PerfilFragment();
-                ft.replace(((ViewGroup) getView().getParent()).getId(), perfilFragment);
-                ft.commit();
+                manejoActivity.cambiarFragment("Perfil",false, false);
             }
         } catch (Exception e) {
             Log.e("IniSesTwit:onActiv", e.getMessage());
@@ -141,29 +134,9 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
     @Override
     public void procesoExitoso(JSONArray resultados) {
         if (resultados != null && resultados.length() > 0) {
-            JSONObject resultado = null;
-            try {
-                resultado = resultados.getJSONObject(0);
-                Usuario usuarioBD = new Usuario(resultado.getString("nombre"), resultado.getString("apellido"), resultado.getString("correo")
-                        , resultado.getString("usuario_twitter"), resultado.getString("token_twitter"), resultado.getString("token_secret_twitter")
-                        , resultado.getString("guid"), resultado.getString("imagen_normal"),  resultado.getString("imagen_grande")
-                        , resultado.getInt("comentarios_inapropiados"), resultado.getBoolean("sancionado"));
-                programaLogica.almacenarProgramasFavoritos(resultado.getJSONArray("programas_favoritos"));
-                tagLogica.actualizarTags(resultado.getJSONArray("tags_actualizados"), resultado.getJSONArray("tags_usuario"));
-                concursoLogica.almacenarMisConcursos(resultado.getJSONArray("concursos_participados"));
-                Usuario usuarioApp = new Usuario(usuarioResultado.screenName, sesionTwitter.getAuthToken().token
-                        , sesionTwitter.getAuthToken().secret, usuarioResultado.profileImageUrl);
-                usuarioLogica.comprobarUsuario(usuarioApp, usuarioBD);
-                manejoProgressDialog.iniciarProgressDialog(getActivity().getString(R.string.dialogo_mensaje_iniciando_sesion),getActivity());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            usuarioLogica.iniciarSesion(resultados, usuarioResultado);
         } else {
-            Usuario nuevoUsuario = new Usuario(usuarioResultado.name, usuarioResultado.email, usuarioResultado.screenName,
-                    sesionTwitter.getAuthToken().token, sesionTwitter.getAuthToken().secret, usuarioResultado.profileImageUrl);
-            RegistroUsuarioFragment registroUsuarioFragment = (RegistroUsuarioFragment) manejoActivity.cambiarFragment("Registro",true);
-            registroUsuarioFragment.usuario = nuevoUsuario;
-            manejoProgressDialog.cancelarProgressDialog();
+            usuarioLogica.registrarUsuario(usuarioResultado);
         }
     }
 
@@ -184,7 +157,6 @@ public class InicioSesionTwitterFragment extends Fragment implements RespuestaAs
 
     @Override
     public void procesoNoExitoso() {
-        toast = Toast.makeText(getActivity(), "No es posible procesar su solicitud, intente más tarde", Toast.LENGTH_LONG);
-        toast.show();
+        manejoToast.crearToast(getActivity(),getActivity().getString(R.string.toast_error_general));
     }
 }

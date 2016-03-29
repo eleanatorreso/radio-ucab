@@ -17,7 +17,6 @@ import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.R;
 
 public class conexionGETAPIJSONArray extends AsyncTask<String, String, JSONArray> {
-    ProgressDialog noticiaProgressDialog;
     public static Context contexto;
     public RespuestaAsyncTask delegate = null;
 
@@ -55,8 +54,6 @@ public class conexionGETAPIJSONArray extends AsyncTask<String, String, JSONArray
     @Override
     protected void onPostExecute(JSONArray resultados) {
         super.onPostExecute(resultados);
-        if (noticiaProgressDialog != null)
-            noticiaProgressDialog.dismiss();
         if (resultados != null) {
             try {
                 delegate.procesoExitoso(resultados);

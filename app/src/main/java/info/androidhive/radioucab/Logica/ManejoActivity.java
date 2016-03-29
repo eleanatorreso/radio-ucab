@@ -67,7 +67,6 @@ public class ManejoActivity {
     private TypedArray navMenuIcons;
     private ImageButton boton_interaccion;
     private static String fragmentoActual;
-    private static Programa programaActual;
     private ImageView boton_play;
     private ImageView boton_stop;
     private ImageView boton_pause;
@@ -78,7 +77,7 @@ public class ManejoActivity {
     private static int streaming = 4;
     private Tracker mTracker;
     private static MainActivity main;
-    private static String procesoActual;
+    private static boolean almacenarProcesoActual;
 
     public static ManejoActivity getInstancia() {
         if (instancia == null) {
@@ -94,12 +93,6 @@ public class ManejoActivity {
         return main;
     }
 
-    public static Programa getInstanciaPrograma() {
-        if (programaActual == null) {
-        }
-        return null;
-    }
-
     public String getFragmentoActual() {
         return fragmentoActual;
     }
@@ -112,12 +105,12 @@ public class ManejoActivity {
         return activityPrincipal;
     }
 
-    public static String getProcesoActual() {
-        return procesoActual;
+    public static boolean isAlmacenarProcesoActual() {
+        return almacenarProcesoActual;
     }
 
-    public static void setProcesoActual(String procesoActual) {
-        ManejoActivity.procesoActual = procesoActual;
+    public static void setAlmacenarProcesoActual(boolean almacenarProcesoActual) {
+        ManejoActivity.almacenarProcesoActual = almacenarProcesoActual;
     }
 
     public void setActivityPrincipal(Activity activityPrincipal) {
@@ -358,13 +351,18 @@ public class ManejoActivity {
         }
     }
 
-    public void almacenarProcesoActual(String nombre_fragment){
-        if (nombre_fragment.equals("EditarPerfil") || nombre_fragment.equals("Registro")){
-            procesoActual = nombre_fragment;
+    public void almacenarProcesoActual(boolean almacenarProcesoActual) {
+        this.almacenarProcesoActual = almacenarProcesoActual;
+    }
+
+    public void mostrarNombreInformacion(String nombrePrograma){
+        if (main.textoProgramaSonando != null) {
+            main.textoProgramaSonando.setText(nombrePrograma);
+            main.progressBarInformacion.setVisibility(View.GONE);
         }
     }
 
-    public Fragment cambiarFragment(String nombre_fragment, boolean addToBackStack) {
+    public Fragment cambiarFragment(String nombre_fragment, boolean addToBackStack, boolean almacenarProcesoActual) {
         final int posicion = getPosicion(nombre_fragment);
         final Fragment fragmento = getFragment(posicion);
         final FragmentManager fragmentManager = getInstanciaMain().getFragmentManager();
@@ -379,7 +377,7 @@ public class ManejoActivity {
             transaction.addToBackStack(null);
         }
         transaction.commit();
-        almacenarProcesoActual(nombre_fragment);
+        almacenarProcesoActual(almacenarProcesoActual);
         return fragmento;
     }
 

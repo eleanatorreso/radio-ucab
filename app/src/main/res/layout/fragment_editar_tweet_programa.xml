@@ -11,6 +11,7 @@
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
         android:gravity="center"
         android:src="@drawable/ic_programa" />
 
@@ -52,6 +53,7 @@
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginLeft="10dp"
             android:gravity="left|center"
             android:orientation="vertical">
 
@@ -81,6 +83,17 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar_editar_programa"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:indeterminate="true"
+        android:layout_gravity="center"
+        android:background="@drawable/circle_shape"
+        android:layout_alignTop="@+id/editText_tweet_programa"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/editText_tweet_programa"

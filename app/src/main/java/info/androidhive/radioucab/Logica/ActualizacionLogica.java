@@ -11,13 +11,28 @@ public class ActualizacionLogica {
 
     public Date ultimaActWS;
     private final SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+    private final ManejoFecha manejoFecha = new ManejoFecha();
 
     public String getActualizacionParrilla(){
-        final Actualizacion actualizacion = Actualizacion.findById(Actualizacion.class,Long.parseLong("1"));
-        if (actualizacion != null) {
-            return format.format(actualizacion.getActParrilla());
+        final List<Actualizacion> actualizacionesAlmacenadas = Actualizacion.listAll(Actualizacion.class);
+        if (actualizacionesAlmacenadas != null && actualizacionesAlmacenadas.size() > 0) {
+            final String fecha = manejoFecha.getDiaSemana(actualizacionesAlmacenadas.get(0).getActParrilla()) + ". "
+                    + format.format(actualizacionesAlmacenadas.get(0).getActParrilla());
+            return fecha;
         }
         return "";
+    }
+
+    public boolean comprobarActualizacionParrilla(){
+        final List<Actualizacion> actualizacionesAlmacenadas = Actualizacion.listAll(Actualizacion.class);
+        if (actualizacionesAlmacenadas != null && actualizacionesAlmacenadas.size() > 0) {
+            if (actualizacionesAlmacenadas.get(0).getActParrilla() != null) {
+                if (manejoFecha.getDiaSemana(actualizacionesAlmacenadas.get(0).getActParrilla()).equals(manejoFecha.getDiaSemana(new Date()))) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     //1 evento, 2 noticia, 3 programa, 4 parrilla

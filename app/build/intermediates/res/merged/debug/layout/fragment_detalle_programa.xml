@@ -28,7 +28,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="15dp"
             android:src="@drawable/ic_star_black_24dp"
-            android:tint="@color/amarillo_ucab" />
+            android:tint="@color/list_divider"/>
 
         <TextView
             android:id="@+id/texto_descripcion_programa"

@@ -78,7 +78,7 @@ public class RegistroUsuarioFragment extends Fragment {
                 terminosCondiciones.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        dialogoTerminosCondiciones.crearDialogo();
+                        dialogoTerminosCondiciones.crearDialogo(false, true);
                     }
                 });
                 crearUsuario = (Button) getActivity().findViewById(R.id.boton_crear_usuario);
@@ -128,7 +128,7 @@ public class RegistroUsuarioFragment extends Fragment {
     }
 
     public void cambiarPerfil() {
-        manejoActivity.cambiarFragment("Perfil",false);
+        manejoActivity.cambiarFragment("Perfil",false, false);
     }
 
     public void crearDialogoSiYNo(String titulo, String mensaje, String botonPositivo, String botonNegativo) {

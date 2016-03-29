@@ -23,6 +23,9 @@ import java.util.List;
 import info.androidhive.radioucab.Logica.HorarioProgramaLogica;
 import info.androidhive.radioucab.Logica.LocutorProgramaLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
+import info.androidhive.radioucab.Logica.ManejoToast;
+import info.androidhive.radioucab.Logica.ManejoUsuarioActual;
+import info.androidhive.radioucab.Logica.ProgramaLogica;
 import info.androidhive.radioucab.Model.HorarioPrograma;
 import info.androidhive.radioucab.Model.Locutor;
 import info.androidhive.radioucab.Model.Programa;
@@ -36,17 +39,18 @@ public class ProgramaDetalleFragment extends Fragment {
     private TextView encabezadoLocutores;
     private TextView encabezadoHorarios;
     private TextView tipoPrograma;
-    private RelativeLayout.LayoutParams params;
+    private ImageView imagenProgramaFavorito;
     private int previoTextView = 0, idElementos = 0;
     private RelativeLayout layout;
     private final LocutorProgramaLogica logicaLocutor = new LocutorProgramaLogica();
     private int idFacebook;
     private int idTwitter;
-    private int idLocutores;
-    private ManejoActivity manejoActivity = ManejoActivity.getInstancia();
+    private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
+    private final ManejoUsuarioActual manejoUsuarioActual = ManejoUsuarioActual.getInstancia();
+    private final ManejoToast manejoToast = ManejoToast.getInstancia();
     private final HorarioProgramaLogica horarioProgramaLogica = new HorarioProgramaLogica();
-    private LinearLayout contentView;
     private RelativeLayout.LayoutParams paramHorario;
+    private final ProgramaLogica programaLogica = new ProgramaLogica();
 
     public ProgramaDetalleFragment() {
     }
@@ -231,7 +235,24 @@ public class ProgramaDetalleFragment extends Fragment {
         }
     }
 
+    public void comprobarColoImagenFavorito(){
+        if (!programaLogica.comprobarProgramaFavorito(programa.getTitulo())) {
+            imagenProgramaFavorito.setColorFilter(getActivity().getResources().getColor(R.color.list_divider));
+        }
+        else {
+            imagenProgramaFavorito.setColorFilter(getActivity().getResources().getColor(R.color.amarillo_ucab));
+        }
+    }
+
     public void crearHijos() {
+        imagenProgramaFavorito = (ImageView) getActivity().findViewById(R.id.imagen_estrella_detalle);
+        comprobarColoImagenFavorito();
+        imagenProgramaFavorito.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                almacenarProgramaFavorito();
+            }
+        });
         titulo = (TextView) getActivity().findViewById(R.id.texto_titulo_programa);
         titulo.setText(programa.getTitulo());
         descripcion = (TextView) getActivity().findViewById(R.id.texto_descripcion_programa);
@@ -257,6 +278,19 @@ public class ProgramaDetalleFragment extends Fragment {
                 previoTextView = encabezadoLocutores.getId();
                 cargarLocutores();
                 break;
+        }
+    }
+
+    public void almacenarProgramaFavorito(){
+        if (!programaLogica.isAlmacenamientoProgramaFavorito()) {
+            if (manejoUsuarioActual.usuarioConectado()) {
+                programaLogica.almacenarProgramaFavorito(programa.getTitulo(), getActivity(), this);
+            } else {
+                manejoToast.crearToast(getActivity(), getActivity().getResources().getString(R.string.toast_error_debe_estar_logeado));
+            }
+        }
+        else {
+            manejoToast.crearToast(getActivity(), getActivity().getResources().getString(R.string.campo_toast_almacenamiento_en_proceso));
         }
     }
 

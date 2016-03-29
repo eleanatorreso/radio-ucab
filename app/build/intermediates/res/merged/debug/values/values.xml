@@ -414,6 +414,11 @@
     <string name="campo_boton_guardar">Guardar</string>
     <string name="campo_boton_participar">Participar</string>
     <string name="campo_boton_siguiente">Siguiente</string>
+    <string name="campo_cargando">Cargando...</string>
+    <string name="campo_dialogo_actualizando_programa">Comprobando si hay actualizaciones disponibles...</string>
+    <string name="campo_dialogo_almacenar_configuraciones">Almacenando las configuraciones...</string>
+    <string name="campo_dialogo_cargando_programas">Cargando los programas...</string>
+    <string name="campo_encabezado_actualizacion_del_dia">Parrilla del día:</string>
     <string name="campo_encabezado_artista_grupo">Artista / Grupo:</string>
     <string name="campo_encabezado_cancion">Canción:</string>
     <string name="campo_encabezado_comentario">Comentario:</string>
@@ -447,6 +452,7 @@
     <string name="campo_encabezado_programas_tipo">Tipo de programa:</string>
     <string name="campo_encabezado_registro">Registro de Usuario</string>
     <string name="campo_encabezado_sin_concursos">No hay concursos actualmente</string>
+    <string name="campo_error_sin_programa_actual">No tenemos información disponible del programa actual</string>
     <string name="campo_header_dialogo">Interactúa con nosotros</string>
     <string name="campo_radio_button_finalidad_comentario">Comentario</string>
     <string name="campo_radio_button_finalidad_queja">Queja</string>
@@ -461,6 +467,7 @@
     <string name="campo_texto_informacion_personal">Información Personal</string>
     <string name="campo_texto_inicio_sesion_dos">Si estás o no registrado, presiona inicio de sesión y en unos pocos pasos comienza la experiencia Radio UCAB</string>
     <string name="campo_texto_inicio_sesion_uno">Inicia sesión para comenzar a disfrutar de todo lo que Radio UCAB trae para ti: interacción con lo que escuchas, concursos, solicitudes de canciones y mucho más.</string>
+    <string name="campo_texto_inicio_tweet">Quiero escuchar</string>
     <string name="campo_texto_mis_noticias">Selecciona los tipos de noticias de tu preferencia, en base a esto recibirás notificaciones cuando estén disponibles noticias de este tipo</string>
     <string name="campo_texto_mis_preferencia_noticias">Mis noticias</string>
     <string name="campo_texto_mis_premios">Mis concursos</string>
@@ -468,20 +475,33 @@
     <string name="campo_texto_programa">Participar en el programa actual</string>
     <string name="campo_texto_resgistro_usuario">Ya falta poco para que te unas a Radio UCAB, pero antes necesitamos los siguientes datos para completar tu registro:</string>
     <string name="campo_texto_sin_concursos">No hay concursos en este momento, está atento a nuestra programación para conocer cuando será el próximo.</string>
+    <string name="campo_texto_sin_eventos">No hay eventos disponibles, intente más tarde</string>
     <string name="campo_texto_sin_mis_concursos">Aún no has participado en ningún concurso, está atento a la programación de Radio UCAB para participar en el próximo</string>
     <string name="campo_texto_sin_mis_noticias">No hay preferencias de noticias disponibles, intente más tarde</string>
     <string name="campo_texto_sin_noticias">No hay noticias disponibles, intente más tarde</string>
+    <string name="campo_texto_sin_programas">No hay programas disponibles, intente más tarde</string>
     <string name="campo_texto_solicitar_cancion">Solicitar canción</string>
     <string name="campo_texto_tu_radio_ucab">Tú + Radio UCAB</string>
     <string name="campo_texto_tweet_comentario">Completa los siguientes campos para generar tu tweet:</string>
     <string name="campo_texto_tweet_dedicatoria">Completa los siguientes campos para generar tu dedicatoria. Recuerda que el usuario_tag que recibirá la dedicatoria debe poseer una cuenta de Twitter para que reciba su dedicatoria.</string>
     <string name="campo_texto_tweet_solicitud">Completa los siguientes campos para generar tu solicitud:</string>
+    <string name="campo_toast_actualizacion">Preferencias actualizadas</string>
+    <string name="campo_toast_almacenamiento_en_proceso">Almacenamiento en proceso, intente más tarde</string>
+    <string name="campo_toast_almacenar_configuraciones">Configuración actualizada</string>
+    <string name="campo_toast_error_actualizar_mis_noticias">Error al actualizar las preferecias, intentelo más tarde"</string>
+    <string name="campo_toast_error_actualizar_programas">Error al actualizar los programas, intentelo más tarde</string>
+    <string name="campo_toast_error_actualizar_programas_favoritos">Error al almacenar los programas favoritos, intentelo más tarde</string>
+    <string name="campo_toast_error_almacenar_configuraciones">Error al almacenar las configuraciones, intentelo más tarde</string>
+    <string name="campo_toast_error_almacenar_mis_noticias">Error al almacenar las preferencias, intentelo más tarde</string>
+    <string name="campo_toast_etiquetas_nuevas">Etiquetas nuevas</string>
+    <string name="campo_toast_programas_actualizados">Programas actualizados</string>
+    <string name="campo_toast_programas_nuevos">Programas nuevos</string>
     <string name="campo_usuario_correo">Correo Electrónico</string>
     <string name="campo_usuario_twitter">Usuario Twitter</string>
     <string name="cast_notification_connected_message">Connected to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_connecting_message">Connecting to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_disconnect">Disconnect</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">53ec5929-acfd-48a6-8348-1c4ba7cd2e91</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">11be28aa-032e-4419-967a-dbc1840cece4</string>
     <string name="common_android_wear_notification_needs_update_text"><ns1:g id="app_name">%1$s</ns1:g> requires an update to the Android Wear app.</string>
     <string name="common_android_wear_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update the Android Wear app.</string>
     <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>
@@ -516,6 +536,7 @@
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="create_calendar_message">Allow Ad to create a calendar event?</string>
     <string name="create_calendar_title">Create calendar event</string>
+    <string name="cuenta_twitter">tweetsRadioUCAB</string>
     <string name="decline">Decline</string>
     <string name="desc_list_item_icon">Iconos</string>
     <string name="dgts__call_me">Call me</string>
@@ -579,6 +600,8 @@
     <string name="dialogo_asunto_cancelar_edicion">Cancelar edición</string>
     <string name="dialogo_asunto_cancelar_registro">Cancelar registro</string>
     <string name="dialogo_asunto_cerrar_sesion">Cerrar Sesión</string>
+    <string name="dialogo_asunto_error">Error</string>
+    <string name="dialogo_asunto_informacion">¿Qué está sonando?</string>
     <string name="dialogo_asunto_interaccion_exitoso">Tu tweet lucirá de la siguiente forma</string>
     <string name="dialogo_asunto_terminos_condiciones">Términos y Condiciones</string>
     <string name="dialogo_asunto_terminos_condiciones_concurso">Términos y Condiciones del Concurso</string>
@@ -591,13 +614,19 @@
     <string name="dialogo_contenido_interaccion_exitoso_solicitud">Canción solicitada exitosamente, recibirás una notificación de ser seleccionada entre las más pedidas</string>
     <string name="dialogo_contenido_interaccion_no_exitoso">No se ha podido procesar su solicitud, intente nuevamente</string>
     <string name="dialogo_contenido_interaccion_no_exitoso_comentario_inapropiado">Este comentario ha sido clasificado como inapropiado, es por esto que no aparecerá en la cuenta de Radio UCAB. Si tienes alguna duda, contacta al administrador.</string>
-    <string name="dialogo_contenido_interaccion_no_exitoso_inapropiado_bloqueado">Este comentario ha sido clasificado como inapropiado, usted ha sido sancionado por Radio UCAB, tiene más de 3 comentarios con contenido inapropiado. Si tienes alguna duda, contacta al administrador.</string>
-    <string name="dialogo_contenido_interaccion_no_exitoso_tres_comentarios_inapropiados">Usted está sido sancionado por Radio UCAB, tiene 3 comentarios con contenido inapropiado. Si tiene alguna duda, contacte al administrador</string>
+    <string name="dialogo_contenido_interaccion_no_exitoso_sancionado">Usted se encuentra sancionado por Radio UCAB, ha realizado comentarios con contenido inapropiado. Si tienes alguna duda, contacte al administrador.</string>
     <string name="dialogo_contenido_terminos_condiciones">Términos y condiciones</string>
     <string name="dialogo_mensaje_No">NO</string>
+    <string name="dialogo_mensaje_Ok">OK</string>
     <string name="dialogo_mensaje_Si">SI</string>
+    <string name="dialogo_mensaje_cancelar_operacion">¿Está seguro que desea cancelar la operación?</string>
     <string name="dialogo_mensaje_cerrar">CERRAR</string>
+    <string name="dialogo_mensaje_confirmacion_salida">¿Está seguro que desea salir de la aplicación?</string>
+    <string name="dialogo_mensaje_informacion">Escuchas</string>
+    <string name="dialogo_mensaje_iniciando_sesion">Iniciando sesión...</string>
     <string name="dialogo_mensaje_procesando_solicitud">Procesando la solicitud...</string>
+    <string name="dialogo_texto_enviar_a">Enviar a:</string>
+    <string name="dialogo_titulo_confirmacion_salida">Confirme su salida</string>
     <string name="drawer_close">Slider Menu Closed</string>
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="gcm_defaultSenderId" translatable="false">728231030622</string>
@@ -638,7 +667,9 @@
     <string name="toast_error_campos_obligatorios">Todos los campos son obligatorios completelos</string>
     <string name="toast_error_campos_obligatorios_comentario">Debe escribir su comentario</string>
     <string name="toast_error_campos_obligatorios_solicitud">Debe completar los datos de la canción (Canción y Artista)</string>
+    <string name="toast_error_debe_estar_logeado">Debe iniciar sesión en la aplicación para almacenar sus programas favoritos</string>
     <string name="toast_error_general">No es posible procesar su solicitud, intente más tarde</string>
+    <string name="toast_error_tamano_excedido">El comentario debe ser menor de 140 caracteres</string>
     <string name="toast_error_terminos_condiciones">Debe aceptar los terminos y condiciones para registrarse en Radio UCAB</string>
     <string name="toast_error_terminos_condiciones_concurso">Debe aceptar los terminos y condiciones para participar en este concurso</string>
     <string name="toast_error_terminos_condiciones_tweet">Debe completar el campo tweet</string>

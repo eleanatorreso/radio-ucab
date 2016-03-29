@@ -235,7 +235,7 @@ public class MisNoticiasFragment extends Fragment implements RespuestaAsyncTask 
             if (listaActualizaciones != null && listaActualizaciones.size() > 0) {
                 Actualizacion ultimaActualizacion = listaActualizaciones.get(0);
                 if (ultimaActualizacion.getActTag().equals(ultimaActWS) == true && listaTag != null && listaTag.size() > 0) {
-                    manejoToast.crearToast(getActivity(), "Preferencias de noticias actualizadas");
+                    manejoToast.crearToast(getActivity(), getActivity().getResources().getString(R.string.campo_toast_actualizacion));
                 } else {
                     cargarNoticias();
                 }
@@ -252,7 +252,7 @@ public class MisNoticiasFragment extends Fragment implements RespuestaAsyncTask 
     public void procesoExitoso(JSONArray resultados) {
         procesarResultados(resultados);
         try {
-            manejoToast.crearToast(getActivity(), "Etiquetas nuevas");
+            manejoToast.crearToast(getActivity(), getActivity().getResources().getString(R.string.campo_toast_etiquetas_nuevas));
             swipeRefreshLayout.setRefreshing(false);
             manejoProgressDialog.cancelarProgressDialog();
         } catch (Exception e) {
@@ -271,14 +271,13 @@ public class MisNoticiasFragment extends Fragment implements RespuestaAsyncTask 
     @Override
     public void procesoExitoso(int codigo, int tipo) {
         if (codigo == 204) {
-            manejoProgressDialog.cancelarProgressDialog();
-            manejoToast.crearToast(getActivity(), "Preferencias actualizadas");
+            manejoToast.crearToast(getActivity(), getActivity().getResources().getString(R.string.campo_toast_actualizacion));
             tagLogica.actualizarTagModificados();
-            manejoActivity.cambiarFragment("Perfil",false);
+            manejoActivity.cambiarFragment("Perfil",false, false);
         } else {
-            manejoProgressDialog.cancelarProgressDialog();
-            manejoToast.crearToast(getActivity(), "Error al almacenar las preferencias, intentelo más tarde");
+            manejoToast.crearToast(getActivity(), getActivity().getResources().getString(R.string.campo_toast_error_almacenar_mis_noticias));
         }
+        manejoProgressDialog.cancelarProgressDialog();
     }
 
     @Override
@@ -290,7 +289,7 @@ public class MisNoticiasFragment extends Fragment implements RespuestaAsyncTask 
     public void procesoNoExitoso() {
         try {
             manejoProgressDialog.cancelarProgressDialog();
-            manejoToast.crearToast(getActivity(), "Error al actualizar las preferecias, intentelo más tarde");
+            manejoToast.crearToast(getActivity(), getActivity().getResources().getString(R.string.campo_toast_error_actualizar_mis_noticias));
             swipeRefreshLayout.setRefreshing(false);
         } catch (Exception e) {
             Log.e("Noticias: noexit", e.getMessage());

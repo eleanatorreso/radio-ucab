@@ -94,7 +94,7 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
             public void onItemClick(AdapterView<?> parent, final View view,
                                     int position, long id) {
                 Noticia item = (Noticia) parent.getItemAtPosition(position);
-                NoticiaDetalleFragment noticiaDetalleFragment = (NoticiaDetalleFragment) manejoActivity.cambiarFragment("NoticiaDetalle", true);
+                NoticiaDetalleFragment noticiaDetalleFragment = (NoticiaDetalleFragment) manejoActivity.cambiarFragment("NoticiaDetalle", true, false);
                 noticiaDetalleFragment.noticia = Noticia.findById(Noticia.class, item.getId());
             }
         });

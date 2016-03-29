@@ -5,6 +5,8 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.twitter.sdk.android.core.models.User;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,6 +15,7 @@ import java.io.File;
 
 import info.androidhive.radioucab.Conexiones.conexionPOSTAPIString;
 import info.androidhive.radioucab.Conexiones.conexionPUTAPI;
+import info.androidhive.radioucab.Controlador.RegistroUsuarioFragment;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
 
@@ -28,8 +31,42 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
     private final ManejoProgressDialog manejoProgressDialog = ManejoProgressDialog.getInstancia();
     private final ManejoToast manejoToast = ManejoToast.getInstancia();
+    private final ProgramaLogica programaLogica = new ProgramaLogica();
+    private final TagLogica tagLogica = new TagLogica();
+    private final ConcursoLogica concursoLogica = new ConcursoLogica();
+    private final ConfiguracionLogica configuracionLogica = new ConfiguracionLogica();
 
     public UsuarioLogica() {
+    }
+
+    public void iniciarSesion(JSONArray resultados, User usuarioResultado){
+        final JSONObject resultado;
+        try {
+            resultado = resultados.getJSONObject(0);
+            Usuario usuarioBD = new Usuario(resultado.getString("nombre"), resultado.getString("apellido"), resultado.getString("correo")
+                    , resultado.getString("usuario_twitter"), resultado.getString("token_twitter"), resultado.getString("token_secret_twitter")
+                    , resultado.getString("guid"), resultado.getString("imagen_normal"),  resultado.getString("imagen_grande")
+                    , resultado.getInt("comentarios_inapropiados"), resultado.getBoolean("sancionado"));
+            programaLogica.almacenarProgramasFavoritos(resultado.getJSONArray("programas_favoritos"));
+            tagLogica.actualizarTags(resultado.getJSONArray("tags_actualizados"), resultado.getJSONArray("tags_usuario"));
+            concursoLogica.almacenarMisConcursos(resultado.getJSONArray("concursos_participados"));
+            configuracionLogica.almacenarConfiguracionBD(resultado.getInt("configuracion"));
+            Usuario usuarioApp = new Usuario(usuarioResultado.screenName, sesionTwitter.getAuthToken().token
+                    , sesionTwitter.getAuthToken().secret, usuarioResultado.profileImageUrl);
+            manejoProgressDialog.iniciarProgressDialog(contexto.getString(R.string.dialogo_mensaje_iniciando_sesion),(Activity) contexto);
+            comprobarUsuario(usuarioApp, usuarioBD);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void registrarUsuario(User usuarioResultado){
+        Usuario nuevoUsuario = new Usuario(usuarioResultado.name, usuarioResultado.email, usuarioResultado.screenName,
+                sesionTwitter.getAuthToken().token, sesionTwitter.getAuthToken().secret, usuarioResultado.profileImageUrl);
+        RegistroUsuarioFragment registroUsuarioFragment = (RegistroUsuarioFragment) manejoActivity.cambiarFragment("Registro",true, true);
+        registroUsuarioFragment.usuario = nuevoUsuario;
+        manejoProgressDialog.cancelarProgressDialog();
     }
 
     public void crearUsuarioAPI() {
@@ -110,7 +147,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
             actualizarUsuarioAPI();
         } else {
             usuario.save();
-            manejoActivity.cambiarFragment("Perfil",false);
+            manejoActivity.cambiarFragment("Perfil",false, false);
             manejoProgressDialog.cancelarProgressDialog();
         }
     }
@@ -150,7 +187,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
             resultado = resultados.getJSONObject(0);
             usuario.setGuid(resultado.getString("guid").replace("\"", ""));
             usuario.save();
-            manejoActivity.cambiarFragment("Perfil",false);
+            manejoActivity.cambiarFragment("Perfil",false, false);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -165,7 +202,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
     public void procesoExitoso(int codigo, int tipo) {
         if (codigo == 204) {
             usuario.save();
-            manejoActivity.cambiarFragment("Perfil", false);
+            manejoActivity.cambiarFragment("Perfil", false, false);
         }
         manejoProgressDialog.cancelarProgressDialog();
     }
@@ -195,7 +232,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
         //me regresa el guid del usuario almacenado
         usuario.setGuid(resultado.replace("\"", ""));
         usuario.save();
-        manejoActivity.cambiarFragment("Perfil", false);
+        manejoActivity.cambiarFragment("Perfil", false, false);
         manejoProgressDialog.cancelarProgressDialog();
     }
 

@@ -35,7 +35,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/negro"
-            android:text="@string/campo_texto_sin_noticias"
+            android:text="@string/campo_texto_sin_mis_noticias"
             android:layout_below="@id/imagen_sin_noticias"
             android:layout_marginTop="10dp"
             android:textSize="16dp"

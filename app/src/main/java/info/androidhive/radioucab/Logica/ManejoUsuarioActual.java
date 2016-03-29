@@ -75,4 +75,12 @@ public class ManejoUsuarioActual {
             }
         }
     }
+
+    public boolean usuarioConectado(){
+        final List<Usuario> usuarios = Usuario.listAll(Usuario.class);
+        if (usuarios != null && usuarios.size() > 0) {
+            return true;
+        }
+        return false;
+    }
 }

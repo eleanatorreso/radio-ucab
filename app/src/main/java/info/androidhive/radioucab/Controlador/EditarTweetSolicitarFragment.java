@@ -14,6 +14,7 @@ import android.widget.Toast;
 import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.ManejoEnvioTweet;
 import info.androidhive.radioucab.Logica.ManejoString;
+import info.androidhive.radioucab.Logica.ManejoToast;
 import info.androidhive.radioucab.Model.Comentario;
 import info.androidhive.radioucab.R;
 
@@ -24,7 +25,8 @@ public class EditarTweetSolicitarFragment extends Fragment {
     private Button botonEnviar;
     private EditText editTextCancion;
     private EditText editTextArtista;
-    private Toast toast;
+    private final ManejoToast manejoToast = ManejoToast.getInstancia();
+    private ManejoEnvioTweet manejoTwitter;
 
     public EditarTweetSolicitarFragment() {
         // Required empty public constructor
@@ -34,7 +36,6 @@ public class EditarTweetSolicitarFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        manejoActivity.mostrarCloseToolbar();
         return inflater.inflate(R.layout.fragment_editar_tweet_solicitar, container, false);
     }
 
@@ -42,6 +43,7 @@ public class EditarTweetSolicitarFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         //cambio el color del toolbar superior
         manejoActivity.editarActivity(6, false, null, "Editar tweet solicitar canción");
+        manejoActivity.mostrarCloseToolbar();
         super.onCreate(savedInstanceState);
         editTextCancion = (EditText) getActivity().findViewById(R.id.editText_cancion);
         editTextArtista = (EditText) getActivity().findViewById(R.id.editText_artista);
@@ -54,17 +56,16 @@ public class EditarTweetSolicitarFragment extends Fragment {
         });
     }
 
-    public void publicarTweet () {
+    public void publicarTweet() {
         if (manejoString.verificarEspacioNull(editTextCancion.getText().toString()) == true &&
                 manejoString.verificarEspacioNull(editTextArtista.getText().toString()) == true) {
-            String comentario = "Quiero escuchar " + editTextCancion.getText().toString() + " - " + editTextArtista.getText().toString();
-            Comentario tweet = new Comentario(comentario,3,editTextArtista.getText().toString(),editTextCancion.getText().toString());
-            final ManejoEnvioTweet manejoTwitter = new ManejoEnvioTweet(getActivity(), tweet);
+            final String comentario = getActivity().getString(R.string.campo_texto_inicio_tweet) + " " + editTextCancion.getText().toString()
+                    + " - " + editTextArtista.getText().toString();
+            final Comentario tweet = new Comentario(comentario, 3, editTextArtista.getText().toString(), editTextCancion.getText().toString());
+            manejoTwitter = new ManejoEnvioTweet(getActivity(), tweet);
             manejoTwitter.verificarTweet();
-        }
-        else {
-            toast = Toast.makeText(getActivity(), getActivity().getString(R.string.toast_error_campos_obligatorios_solicitud), Toast.LENGTH_LONG);
-            toast.show();
+        } else {
+            manejoToast.crearToast(getActivity(), getActivity().getString(R.string.toast_error_campos_obligatorios_solicitud));
         }
     }
 }

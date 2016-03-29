@@ -1,14 +1,15 @@
 package info.androidhive.radioucab.Controlador;
 
 import com.twitter.sdk.android.Twitter;
-import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
 import info.androidhive.radioucab.Logica.FabricLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
+import info.androidhive.radioucab.Logica.ParrillaLogica;
 import info.androidhive.radioucab.Logica.PerfilLogica;
 import info.androidhive.radioucab.Logica.ServicioRadio;
 import info.androidhive.radioucab.Controlador.Adaptor.AdaptorNavDrawerList;
 import info.androidhive.radioucab.Model.MiConcurso;
+import info.androidhive.radioucab.Model.ProgramaFavorito;
 import info.androidhive.radioucab.Model.Tag;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
@@ -27,7 +28,6 @@ import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
@@ -47,6 +47,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
@@ -70,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView boton_ingresar;
     private final PerfilLogica perfilLogica = new PerfilLogica();
     private Usuario usuario_actual;
-    private ManejoActivity manejoActivity = ManejoActivity.getInstancia();
+    private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
+    private final ParrillaLogica parrillaLogica = new ParrillaLogica();
     private Menu menu;
     private ActionBarDrawerToggle mDrawerToggle;
     private ImageButton fab_interaccion;
@@ -78,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageView icono_informacion;
     private ImageView boton;
     private Toolbar toolbar;
+    public TextView textoProgramaSonando;
+    public ProgressBar progressBarInformacion;
 
     @Override
     protected void onStop() {
@@ -139,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
                                     break;
                                 //cancelar operacion
                                 case 2:
+                                    manejoActivity.setAlmacenarProcesoActual(false);
                                     backFragment();
                                     break;
                             }
@@ -170,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
         Usuario.deleteAll(Usuario.class);
         Tag.deleteAll(Tag.class);
         MiConcurso.deleteAll(MiConcurso.class);
+        ProgramaFavorito.deleteAll(ProgramaFavorito.class);
         boton_ingresar.setVisibility(View.VISIBLE);
         imagen_perfil.setVisibility(View.INVISIBLE);
         invalidateOptionsMenu();
@@ -185,8 +191,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void abrirDialogoInteraccion() {
-        //manejoConcurso.contexto = this;
-        //manejoConcurso.comprobarConcursosActuales();
         final AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
         final AlertDialog alerta_dialogo;
         final LayoutInflater inflater = getLayoutInflater();
@@ -199,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
         dedicar_cancion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("TweetDedicatoria", true);
+                manejoActivity.cambiarFragment("TweetDedicatoria", true, true);
                 alerta_dialogo.dismiss();
             }
         });
@@ -207,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
         solicitar_cancion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("TweetSolicitud", true);
+                manejoActivity.cambiarFragment("TweetSolicitud", true, true);
                 alerta_dialogo.dismiss();
             }
         });
@@ -216,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
         comentario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("TweetComentario", true);
+                manejoActivity.cambiarFragment("TweetComentario", true, true);
                 alerta_dialogo.dismiss();
             }
         });
@@ -225,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
         programa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("TweetPrograma", true);
+                manejoActivity.cambiarFragment("TweetPrograma", true, true);
                 alerta_dialogo.dismiss();
             }
         });
@@ -234,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
         concurso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manejoActivity.cambiarFragment("ConcursoFragment", true);
+                manejoActivity.cambiarFragment("ConcursoFragment", true, true);
                 alerta_dialogo.dismiss();
             }
         });
@@ -257,6 +261,18 @@ public class MainActivity extends AppCompatActivity {
         dialogo.setCancelable(true);
         alerta_dialogo = dialogo.create(); //returns an AlertDialog from a Builder.
         alerta_dialogo.show();
+        final Button boton_cerrar = (Button) dialogView.findViewById(R.id.boton_cerrar_informacion);
+        boton_cerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alerta_dialogo.dismiss();
+            }
+        });
+        progressBarInformacion = (ProgressBar) dialogView.findViewById(R.id.progressBar_que_suena);
+        progressBarInformacion.getIndeterminateDrawable().setColorFilter(getResources().getColor(R.color.azul_radio_ucab), android.graphics.PorterDuff.Mode.MULTIPLY);
+        progressBarInformacion.setVisibility(View.VISIBLE);
+        textoProgramaSonando = (TextView) dialogView.findViewById(R.id.texto_que_esta_sonando);
+        parrillaLogica.getProgramaActual(this, 0);
     }
 
     public void mostrarBackToolbar() {
@@ -286,10 +302,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
-        manejoActivity.setActivityPrincipal(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+        manejoActivity.setActivityPrincipal(this);
+        manejoActivity.ocultarBackToolbar();
         fabric = fabric.getInstance();
         fabric.context = this;
         fabric.initFabric();
@@ -411,7 +428,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.accion_ver_perfil:
-                        manejoActivity.cambiarFragment("Perfil", false);
+                        manejoActivity.cambiarFragment("Perfil", false, true);
                         break;
                     case R.id.accion_cerrar_sesion:
                         crearDialogoSiYNo(getString(R.string.dialogo_asunto_cerrar_sesion), getString(R.string.dialogo_contenido_cerrar_sesion), 0);
@@ -629,22 +646,20 @@ public class MainActivity extends AppCompatActivity {
     public void backFragment() {
         getFragmentManager().popBackStack(getFragmentManager().getBackStackEntryAt(0).getId(), getFragmentManager().POP_BACK_STACK_INCLUSIVE);
         boton.setVisibility(View.VISIBLE);
-        ocultarOpcionToolbar();
+        manejoActivity.ocultarBackToolbar();
     }
 
     @Override
     public void onBackPressed() {
         int count = getFragmentManager().getBackStackEntryCount();
         if (getFragmentManager().getBackStackEntryCount() > 0) {
-            if (manejoActivity.getProcesoActual() != null) {
-                crearDialogoSiYNo("Confirme su salida", "¿Está seguro que desea cancelar la operación?", 2);
-                manejoActivity.setProcesoActual(null);
+            if (manejoActivity.isAlmacenarProcesoActual() == true) {
+                crearDialogoSiYNo(getResources().getString(R.string.dialogo_titulo_confirmacion_salida), getResources().getString(R.string.dialogo_mensaje_cancelar_operacion), 2);
             } else {
                 backFragment();
             }
-
         } else {
-            crearDialogoSiYNo("Confirme su salida", "¿Está seguro que desea salir de la aplicación?", 1);
+            crearDialogoSiYNo(getResources().getString(R.string.dialogo_titulo_confirmacion_salida), getResources().getString(R.string.dialogo_mensaje_confirmacion_salida), 1);
         }
     }
 }

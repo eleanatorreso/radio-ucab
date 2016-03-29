@@ -24,7 +24,6 @@ import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.R;
 
 public class conexionPUTAPI extends AsyncTask<String, String, Integer> {
-    ProgressDialog noticiaProgressDialog;
     public static Context contexto;
     public RespuestaAsyncTask delegate = null;
     public int tipo = 0;
@@ -40,7 +39,7 @@ public class conexionPUTAPI extends AsyncTask<String, String, Integer> {
             DefaultHttpClient httpclient = new DefaultHttpClient(httpParameters);
             HttpPut httpPut = new HttpPut(contexto.getResources().getString(R.string.ip_web_service) + params[0]);
             httpPut.setHeader("content-type", "application/json");
-            StringEntity entity = new StringEntity(objeto.toString(),"UTF-8");
+            StringEntity entity = new StringEntity(objeto.toString(), HTTP.UTF_8);
             entity.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE,
                     "application/json"));
             httpPut.setEntity(entity);
@@ -70,8 +69,6 @@ public class conexionPUTAPI extends AsyncTask<String, String, Integer> {
     @Override
     protected void onPostExecute(Integer codigo) {
         super.onPostExecute(codigo);
-        if (noticiaProgressDialog != null)
-            noticiaProgressDialog.dismiss();
         if (codigo != 0) {
             try {
                 delegate.procesoExitoso(codigo, tipo);

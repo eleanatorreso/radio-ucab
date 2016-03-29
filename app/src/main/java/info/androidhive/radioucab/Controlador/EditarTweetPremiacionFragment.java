@@ -17,6 +17,7 @@ import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.ManejoDialogs;
 import info.androidhive.radioucab.Logica.ManejoEnvioTweet;
 import info.androidhive.radioucab.Logica.ManejoString;
+import info.androidhive.radioucab.Logica.ManejoToast;
 import info.androidhive.radioucab.Model.Comentario;
 import info.androidhive.radioucab.R;
 
@@ -25,10 +26,11 @@ public class EditarTweetPremiacionFragment extends Fragment {
     private final ManejoString manejoString = new ManejoString();
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
     private Button botonEnviar;
-    private Toast toast;
     private EditText editTextComentario;
     private CheckBox terminosCondiciones;
     private ManejoDialogs dialogoTerminosCondiciones;
+    private final ManejoToast manejoToast = ManejoToast.getInstancia();
+    private ManejoEnvioTweet manejoTwitter;
 
     public EditarTweetPremiacionFragment() {
         // Required empty public constructor
@@ -60,25 +62,23 @@ public class EditarTweetPremiacionFragment extends Fragment {
                 + "</u>"));
         dialogoTerminosCondiciones = new ManejoDialogs(getActivity().getString(R.string.dialogo_asunto_terminos_condiciones_concurso),
                 "terminos traidos de la bd",
-                getActivity().getString(R.string.dialogo_mensaje_cerrar),getActivity());
+                getActivity().getString(R.string.dialogo_mensaje_cerrar), getActivity());
         terminosCondiciones.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogoTerminosCondiciones.crearDialogo();
+                dialogoTerminosCondiciones.crearDialogo(false, true);
             }
         });
     }
 
-    public void publicarTweet () {
+    public void publicarTweet() {
         if (manejoString.verificarEspacioNull(editTextComentario.getText().toString()) &&
                 terminosCondiciones.isChecked()) {
-            Comentario tweet = new Comentario(editTextComentario.getText().toString(), 1);
-            final ManejoEnvioTweet manejoTwitter = new ManejoEnvioTweet(getActivity(), tweet);
+            final Comentario tweet = new Comentario(editTextComentario.getText().toString(), 1);
+            manejoTwitter = new ManejoEnvioTweet(getActivity(), tweet);
             manejoTwitter.verificarTweet();
-        }
-        else {
-            toast = Toast.makeText(getActivity(), getActivity().getString(R.string.toast_error_campos_obligatorios_comentario), Toast.LENGTH_LONG);
-            toast.show();
+        } else {
+            manejoToast.crearToast(getActivity(), getActivity().getString(R.string.toast_error_campos_obligatorios_comentario));
         }
     }
 }

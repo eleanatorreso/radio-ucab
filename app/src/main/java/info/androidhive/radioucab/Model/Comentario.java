@@ -12,6 +12,8 @@ public class Comentario {
     private String cancion;
     private String artista;
     private String receptor_dedicatoria;
+    private String twitterLocutor;
+    private int idLocutor;
 
     public Comentario(String comentario, int finalidad) {
         this.comentario = comentario;
@@ -35,6 +37,22 @@ public class Comentario {
         this.artista = artista;
         this.cancion = cancion;
         this.receptor_dedicatoria = receptor_dedicatoria;
+    }
+
+    public String getTwitterLocutor() {
+        return twitterLocutor;
+    }
+
+    public void setTwitterLocutor(String twitterLocutor) {
+        this.twitterLocutor = twitterLocutor;
+    }
+
+    public int getIdLocutor() {
+        return idLocutor;
+    }
+
+    public void setIdLocutor(int idLocutor) {
+        this.idLocutor = idLocutor;
     }
 
     public String getReceptor_dedicatoria() {

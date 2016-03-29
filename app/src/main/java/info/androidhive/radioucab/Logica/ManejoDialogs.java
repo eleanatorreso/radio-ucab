@@ -26,6 +26,7 @@ public class ManejoDialogs extends DialogFragment {
     public boolean respuesta;
     public View view;
     private int tipo;
+    private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
 
     public ManejoDialogs() {
     }
@@ -46,15 +47,18 @@ public class ManejoDialogs extends DialogFragment {
         this.tipo = tipo;
     }
 
-    public void crearDialogo() {
+    public void crearDialogo(final boolean regresarFragmento, boolean setCancelable) {
         try {
             AlertDialog.Builder builder = new AlertDialog.Builder(contextoActual);
             builder.setTitle(titulo);
             builder.setMessage(mensaje);
-            builder.setCancelable(true);
+            builder.setCancelable(setCancelable);
             builder.setPositiveButton(botonPositivo,
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
+                            if (regresarFragmento) {
+                                manejoActivity.cambiarFragment(manejoActivity.getFragmentoActual(), false, false);
+                            }
                             dialog.cancel();
                         }
                     });

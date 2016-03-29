@@ -12,6 +12,7 @@ import android.widget.Toast;
 import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.ManejoEnvioTweet;
 import info.androidhive.radioucab.Logica.ManejoString;
+import info.androidhive.radioucab.Logica.ManejoToast;
 import info.androidhive.radioucab.Model.Comentario;
 import info.androidhive.radioucab.R;
 
@@ -23,7 +24,8 @@ public class EditarTweetDedicatoriaFragment extends Fragment {
     private EditText editTextCancion;
     private EditText editTextArtista;
     private EditText editTextUsuario;
-    private Toast toast;
+    private final ManejoToast manejoToast = ManejoToast.getInstancia();
+    private ManejoEnvioTweet manejoTwitter;
 
     public EditarTweetDedicatoriaFragment() {
         // Required empty public constructor
@@ -55,20 +57,18 @@ public class EditarTweetDedicatoriaFragment extends Fragment {
         });
     }
 
-    public void publicarTweet () {
+    public void publicarTweet() {
         if (manejoString.verificarEspacioNull(editTextCancion.getText().toString()) == true &&
                 manejoString.verificarEspacioNull(editTextArtista.getText().toString()) == true &&
                 manejoString.verificarEspacioNull(editTextUsuario.getText().toString()) == true) {
-            String comentario = "Quiero dedicar " + editTextCancion.getText().toString() + " - " + editTextArtista.getText().toString()
-            + " a " + editTextUsuario.getText().toString();
+            final String comentario = "Quiero dedicar " + editTextCancion.getText().toString() + " - " + editTextArtista.getText().toString()
+                    + " a " + editTextUsuario.getText().toString();
             Comentario tweet = new Comentario(comentario, 2, editTextArtista.getText().toString(), editTextCancion.getText().toString(),
                     editTextUsuario.getText().toString());
-            final ManejoEnvioTweet manejoTwitter = new ManejoEnvioTweet(getActivity(), tweet);
+            manejoTwitter = new ManejoEnvioTweet(getActivity(), tweet);
             manejoTwitter.verificarTweet();
-        }
-        else {
-            toast = Toast.makeText(getActivity(), getActivity().getString(R.string.toast_error_campos_obligatorios_comentario), Toast.LENGTH_LONG);
-            toast.show();
+        } else {
+            manejoToast.crearToast(getActivity(), getActivity().getString(R.string.toast_error_campos_obligatorios_comentario));
         }
     }
 }

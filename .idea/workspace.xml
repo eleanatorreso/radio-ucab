@@ -57,55 +57,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="InicioSesionTwitterFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/InicioSesionTwitterFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="155" column="36" selection-start-line="155" selection-start-column="36" selection-end-line="155" selection-end-column="36" />
-              <folding>
-                <element signature="e#7731#7797#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UsuarioLogica.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/UsuarioLogica.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8017493">
-              <caret line="203" column="52" selection-start-line="203" selection-start-column="52" selection-end-line="203" selection-end-column="52" />
-              <folding>
-                <element signature="e#7823#7886#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ManejoArchivos.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ManejoArchivos.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoArchivos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RespuestaArchivoAsyncTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/RespuestaArchivoAsyncTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.9259257">
-              <caret line="185" column="50" selection-start-line="185" selection-start-column="50" selection-end-line="185" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.25222552">
+              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -551,9 +507,9 @@
                 <option name="name" value="prepareComDigitsSdkAndroidDigits180Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.github.satyan:sugar:1.3" />
+                <option name="description" value="Prepare com.github.satyan:sugar:1.5" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareComGithubSatyanSugar13Library" />
+                <option name="name" value="prepareComGithubSatyanSugar15Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare com.google.android.gms:play-services:8.3.0" />
@@ -1279,9 +1235,9 @@
                 <option name="name" value="prepareComDigitsSdkAndroidDigits180Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.github.satyan:sugar:1.3" />
+                <option name="description" value="Prepare com.github.satyan:sugar:1.5" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComGithubSatyanSugar13Library" />
+                <option name="name" value="prepareComGithubSatyanSugar15Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare com.google.android.gms:play-services:8.3.0" />
@@ -1609,7 +1565,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil" value="4362898360070" />
+        <entry key="C:\Users\Eleana Torres\Documents\radio-ucab-app-movil" value="4364239657639" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1854,7 +1810,7 @@
                             <option value="C:/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-measurement/8.3.0/play-services-measurement-8.3.0.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twitter.sdk.android/twitter/1.8.0/7dc9a6203691b4e1e496c557d6ed0f93e961ea14/twitter-1.8.0.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twitter.sdk.android/tweet-composer/0.9.0/4fa2b99bd16b3cf178587baca7172bd5859d8377/tweet-composer-0.9.0.aar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.satyan/sugar/1.3/c2a3669151f72f7ac921d8c0f84ce4a8cc5e0cbb/sugar-1.3.aar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.satyan/sugar/1.5/c6da68b9e25aafa5bff8b7f13c4f7b4d4ed5dc4e/sugar-1.5.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.bignerdranch.android/expandablerecyclerview/1.0.3/f548f1715b422597cc6399e82f098d3f4d30007/expandablerecyclerview-1.0.3.aar" />
                             <option value="C:/Android/sdk/extras/android/m2repository/com/android/support/cardview-v7/21.0.3/cardview-v7-21.0.3.aar" />
                             <option value="C:/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services/8.3.0/play-services-8.3.0.aar" />
@@ -2023,57 +1979,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Model/ProgramasFavoritos.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_perfil.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Model/MiConcurso.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/card_view_mis_concursos.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ViewHolder/MisConcursosViewHolder.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/Adaptor/AdaptadorMisConcursos.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_noticias.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_mis_concursos.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ConcursoLogica.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/adapter_mis_noticia.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Model/Actualizacion.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionGETAPIJSONObject.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MisConcursosFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/adapter_mis_noticias.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/PerfilFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionPUTListAPI.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Model/Tag.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/Adaptor/AdaptadorMisNoticias.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionGETAPIJSONArray.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionListaPUTAPI.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_mis_noticias.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/NoticiaFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EventoFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ProgramaFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionPUTAPI.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoUsuarioActual.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/TagLogica.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MisNoticiasFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/RegistroUsuarioFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarPerfilFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_parrilla.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ActualizacionLogica.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ParrillaFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_mis_programas.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Model/Programa.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MisProgramasFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_detalle_programa.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_eventos.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_noticias.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EventoFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Model/Configuracion.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_configuracion.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ConfiguracionLogica.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ConfiguracionFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/card_view_programa.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ViewHolder/ProgramaViewHolder.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/Adaptor/AdaptadorPrograma.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ProgramaLogica.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_programa.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/color.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_parrilla.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ConcursoFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarPerfilFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/InicioSesionTwitterFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MisNoticiasFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/NoticiaFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/PerfilFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/UsuarioLogica.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/card_view_programa.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/Adaptor/AdaptadorPrograma.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ViewHolder/ProgramaViewHolder.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionGETAPIJSONArray.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ConfiguracionFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoUsuarioActual.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ProgramaFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_detalle_programa.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ProgramaDetalleFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ParillaLogica.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ParrillaFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialogo_informacion.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoFecha.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ActualizacionLogica.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoDialogs.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/RegistroUsuarioFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionPOSTAPIString.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionPUTAPI.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarTweetSolicitarFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarTweetPremiacionFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarTweetDedicatoriaFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/RespuestaProgramaAsyncTask.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ProgramaLogica.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ParrillaLogica.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_editar_tweet_programa.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Model/Comentario.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarTweetProgramaFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoEnvioTweet.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/HomeFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoArchivos.java" />
       </list>
     </option>
   </component>
@@ -2109,12 +2065,20 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="radio-ucab-app-movil" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2251,58 +2215,6 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Controlador" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ViewHolder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="radio-ucab-app-movil" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="radioucab" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controlador" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Adaptor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="radio-ucab-app-movil" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="radioucab" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Conexiones" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -2316,17 +2228,9 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2341,6 +2245,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="info.androidhive.radioucab.Logica" />
       <recent name="info.androidhive.radioucab.Controlador" />
       <recent name="info.androidhive.radioucab.Conexiones" />
       <recent name="info.androidhive.radioucab.Controlador.Adaptor" />
@@ -2563,7 +2468,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="461" y="280" width="444" height="168" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2571,28 +2476,28 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32829046" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36797273" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37308347" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3781942" sideWeight="0.4924357" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37478706" sideWeight="0.5075643" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3781942" sideWeight="0.4924357" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37478706" sideWeight="0.5075643" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5103093" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28290468" sideWeight="0.48969072" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21785174" sideWeight="0.48969072" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2618,67 +2523,37 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarTweetDedicatoriaFragment.java</url>
-          <line>41</line>
+          <line>43</line>
           <properties />
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/NoticiaFragment.java</url>
-          <line>254</line>
-          <properties />
-          <option name="timeStamp" value="88" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionGETAPIJSONArray.java</url>
-          <line>49</line>
+          <line>48</line>
           <properties />
           <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionGETAPIJSONArray.java</url>
-          <line>63</line>
+          <line>60</line>
           <properties />
           <option name="timeStamp" value="105" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ParillaLogica.java</url>
-          <line>15</line>
-          <properties />
-          <option name="timeStamp" value="107" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ParillaLogica.java</url>
-          <line>16</line>
-          <properties />
-          <option name="timeStamp" value="108" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ParrillaFragment.java</url>
-          <line>226</line>
+          <line>211</line>
           <properties />
           <option name="timeStamp" value="114" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ParillaLogica.java</url>
-          <line>20</line>
-          <properties />
-          <option name="timeStamp" value="124" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ParillaLogica.java</url>
-          <line>23</line>
-          <properties />
-          <option name="timeStamp" value="125" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MisNoticiasFragment.java</url>
-          <line>292</line>
+          <line>291</line>
           <properties />
           <option name="timeStamp" value="191" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MisNoticiasFragment.java</url>
-          <line>293</line>
+          <line>292</line>
           <properties />
           <option name="timeStamp" value="192" />
         </line-breakpoint>
@@ -2689,20 +2564,14 @@
           <option name="timeStamp" value="193" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MisNoticiasFragment.java</url>
-          <line>156</line>
-          <properties />
-          <option name="timeStamp" value="205" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionGETAPIJSONArray.java</url>
-          <line>39</line>
+          <line>38</line>
           <properties />
           <option name="timeStamp" value="213" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionGETAPIJSONArray.java</url>
-          <line>38</line>
+          <line>37</line>
           <properties />
           <option name="timeStamp" value="214" />
         </line-breakpoint>
@@ -2732,13 +2601,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionPUTAPI.java</url>
-          <line>55</line>
+          <line>54</line>
           <properties />
           <option name="timeStamp" value="222" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionPUTAPI.java</url>
-          <line>79</line>
+          <line>76</line>
           <properties />
           <option name="timeStamp" value="223" />
         </line-breakpoint>
@@ -2765,24 +2634,6 @@
           <line>195</line>
           <properties />
           <option name="timeStamp" value="235" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MisNoticiasFragment.java</url>
-          <line>148</line>
-          <properties />
-          <option name="timeStamp" value="236" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MisNoticiasFragment.java</url>
-          <line>140</line>
-          <properties />
-          <option name="timeStamp" value="237" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MisNoticiasFragment.java</url>
-          <line>144</line>
-          <properties />
-          <option name="timeStamp" value="238" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MisNoticiasFragment.java</url>
@@ -2815,427 +2666,496 @@
           <option name="timeStamp" value="245" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ProgramaLogica.java</url>
-          <line>64</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ParrillaFragment.java</url>
+          <line>159</line>
           <properties />
-          <option name="timeStamp" value="249" />
+          <option name="timeStamp" value="257" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ProgramaDetalleFragment.java</url>
-          <line>243</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionPUTAPI.java</url>
+          <line>53</line>
           <properties />
-          <option name="timeStamp" value="255" />
+          <option name="timeStamp" value="291" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ParrillaLogica.java</url>
+          <line>179</line>
+          <properties />
+          <option name="timeStamp" value="296" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ParrillaLogica.java</url>
+          <line>107</line>
+          <properties />
+          <option name="timeStamp" value="304" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ParrillaLogica.java</url>
+          <line>159</line>
+          <properties />
+          <option name="timeStamp" value="305" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ParrillaLogica.java</url>
+          <line>174</line>
+          <properties />
+          <option name="timeStamp" value="306" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ParrillaLogica.java</url>
+          <line>70</line>
+          <properties />
+          <option name="timeStamp" value="323" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoEnvioTweet.java</url>
+          <line>203</line>
+          <properties />
+          <option name="timeStamp" value="325" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoEnvioTweet.java</url>
+          <line>77</line>
+          <properties />
+          <option name="timeStamp" value="326" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoEnvioTweet.java</url>
+          <line>169</line>
+          <properties />
+          <option name="timeStamp" value="327" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoEnvioTweet.java</url>
+          <line>220</line>
+          <properties />
+          <option name="timeStamp" value="328" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoEnvioTweet.java</url>
+          <line>83</line>
+          <properties />
+          <option name="timeStamp" value="329" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoEnvioTweet.java</url>
+          <line>92</line>
+          <properties />
+          <option name="timeStamp" value="331" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionPUTAPI.java</url>
+          <line>35</line>
+          <properties />
+          <option name="timeStamp" value="333" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionPUTAPI.java</url>
+          <line>47</line>
+          <properties />
+          <option name="timeStamp" value="334" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionPUTAPI.java</url>
+          <line>50</line>
+          <properties />
+          <option name="timeStamp" value="336" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoEnvioTweet.java</url>
+          <line>80</line>
+          <properties />
+          <option name="timeStamp" value="338" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoEnvioTweet.java</url>
+          <line>95</line>
+          <properties />
+          <option name="timeStamp" value="339" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoEnvioTweet.java</url>
+          <line>121</line>
+          <properties />
+          <option name="timeStamp" value="340" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionPOSTAPIString.java</url>
+          <line>41</line>
+          <properties />
+          <option name="timeStamp" value="341" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionPOSTAPIString.java</url>
+          <line>46</line>
+          <properties />
+          <option name="timeStamp" value="343" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ParrillaLogica.java</url>
+          <line>91</line>
+          <properties />
+          <option name="timeStamp" value="346" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ParrillaLogica.java</url>
+          <line>111</line>
+          <properties />
+          <option name="timeStamp" value="347" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarTweetProgramaFragment.java</url>
+          <line>134</line>
+          <properties />
+          <option name="timeStamp" value="348" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarTweetProgramaFragment.java</url>
+          <line>135</line>
+          <properties />
+          <option name="timeStamp" value="349" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarTweetProgramaFragment.java</url>
+          <line>146</line>
+          <properties />
+          <option name="timeStamp" value="350" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarTweetProgramaFragment.java</url>
+          <line>149</line>
+          <properties />
+          <option name="timeStamp" value="352" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarTweetProgramaFragment.java</url>
+          <line>96</line>
+          <properties />
+          <option name="timeStamp" value="353" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarTweetProgramaFragment.java</url>
+          <line>87</line>
+          <properties />
+          <option name="timeStamp" value="354" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/HomeFragment.java</url>
+          <line>72</line>
+          <properties />
+          <option name="timeStamp" value="355" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/HomeFragment.java</url>
+          <line>78</line>
+          <properties />
+          <option name="timeStamp" value="356" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/HomeFragment.java</url>
+          <line>65</line>
+          <properties />
+          <option name="timeStamp" value="357" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/HomeFragment.java</url>
+          <line>68</line>
+          <properties />
+          <option name="timeStamp" value="358" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/HomeFragment.java</url>
+          <line>53</line>
+          <properties />
+          <option name="timeStamp" value="359" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="256" />
+      <option name="time" value="360" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
-        <watch expression="ProgramaFavorito.listAll(ProgramaFavorito.class)" language="JAVA" custom="info.androidhive.radioucab.Model.ProgramaFavorito" />
-        <watch expression="Tag.listAll(Tag.class)" language="JAVA" custom="info.androidhive.radioucab.Model.Tag" />
-        <watch expression="MiConcurso.listAll(MiConcurso.class)" language="JAVA" custom="info.androidhive.radioucab.Model.MiConcurso" />
+        <watch expression="spinner.getSelectedItem()" language="JAVA" custom="" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Model/RadioUCABApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15044248">
-          <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.20178041">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/TagLogica.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44837758">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Model/Tag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30088496">
-          <caret line="6" column="29" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoEnvioTweet.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ConcursoFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="40" selection-start-line="86" selection-start-column="40" selection-end-line="86" selection-end-column="40" />
+          <caret line="125" column="138" selection-start-line="125" selection-start-column="138" selection-end-line="125" selection-end-column="138" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ViewHolder/ProgramaViewHolder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="256" column="36" selection-start-line="256" selection-start-column="36" selection-end-line="256" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.19287834">
+          <caret line="38" column="90" selection-start-line="38" selection-start-column="90" selection-end-line="38" selection-end-column="90" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4108#4157#0" expanded="true" />
-            <element signature="e#4812#4865#0" expanded="true" />
-            <element signature="e#4887#5800#0" expanded="true" />
-            <element signature="e#5799#5800#0" expanded="true" />
-            <element signature="e#5841#5894#0" expanded="true" />
-            <element signature="e#14588#14608#0" expanded="true" />
-            <element signature="e#14659#14680#0" expanded="true" />
-            <element signature="e#17355#17403#0" expanded="true" />
-            <element signature="e#17405#17456#0" expanded="true" />
+            <element signature="e#1661#1870#0" expanded="false" />
+            <element signature="e#1869#1870#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Android/sdk/sources/android-21/android/graphics/BitmapFactory.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionGETAPIString.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="415" column="25" selection-start-line="415" selection-start-column="25" selection-end-line="415" selection-end-column="25" />
-          <folding>
-            <element signature="e#18945#18946#0" expanded="false" />
-            <element signature="e#18994#18995#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/PerfilLogica.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="9" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.20178041">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Android/sdk/sources/android-21/android/widget/Toast.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionGETAPIJSONObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="248" column="24" selection-start-line="248" selection-start-column="24" selection-end-line="248" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/NoticiaDetalleFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="43" selection-start-line="39" selection-start-column="43" selection-end-line="40" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoToast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64896756">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionPUTAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6342183">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/PerfilFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48377582">
-          <caret line="64" column="69" selection-start-line="64" selection-start-column="69" selection-end-line="64" selection-end-column="69" />
-          <folding>
-            <element signature="e#1780#1838#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/RegistroUsuarioFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="52" selection-start-line="65" selection-start-column="52" selection-end-line="65" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarPerfilFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5608308">
-          <caret line="101" column="102" selection-start-line="101" selection-start-column="102" selection-end-line="101" selection-end-column="102" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#4623#4688#0" expanded="false" />
-            <element signature="e#4771#4836#0" expanded="false" />
-            <element signature="e#4854#4922#0" expanded="false" />
-            <element signature="e#4940#4992#0" expanded="false" />
-            <element signature="e#5010#5062#0" expanded="false" />
-            <element signature="e#5528#5783#0" expanded="false" />
-            <element signature="e#5782#5783#0" expanded="false" />
-            <element signature="e#5859#6069#0" expanded="false" />
-            <element signature="e#6068#6069#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18397626">
-          <caret line="366" column="20" selection-start-line="366" selection-start-column="20" selection-end-line="366" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4060#4061#0" expanded="true" />
-            <element signature="e#4098#4099#0" expanded="true" />
-            <element signature="e#4260#4261#0" expanded="true" />
-            <element signature="e#4300#4301#0" expanded="true" />
-            <element signature="e#4347#4348#0" expanded="true" />
-            <element signature="e#4383#4384#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ActualizacionLogica.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_parrilla.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6496815">
-          <caret line="87" column="21" selection-start-line="87" selection-start-column="21" selection-end-line="88" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoFecha.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23224044">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_noticias.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23018868">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="42" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ParrillaFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="109" column="42" selection-start-line="109" selection-start-column="42" selection-end-line="109" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MisNoticiasFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27191412">
-          <caret line="80" column="87" selection-start-line="80" selection-start-column="65" selection-end-line="80" selection-end-column="87" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Android/sdk/sources/android-21/android/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33273703">
-          <caret line="766" column="28" selection-start-line="766" selection-start-column="28" selection-end-line="766" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MisProgramasFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50445104">
-          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
-          <folding>
-            <element signature="e#1780#2074#0" expanded="true" />
-            <element signature="e#2620#2628#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_mis_programas.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0487013">
-          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
-          <folding>
-            <element signature="e#476#516#0" expanded="true" />
-            <element signature="e#1685#1719#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_detalle_programa.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.275862">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding>
-            <element signature="e#3530#3576#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_perfil.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8980892">
-          <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_mis_noticias.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13375796">
-          <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="60" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.8991098">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ConfiguracionFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30612245">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.050445102">
+          <caret line="134" column="41" selection-start-line="134" selection-start-column="41" selection-end-line="134" selection-end-column="41" />
           <folding>
-            <element signature="e#1708#1868#0" expanded="true" />
-            <element signature="e#1867#1868#0" expanded="true" />
+            <element signature="e#3813#3899#0" expanded="false" />
+            <element signature="e#4037#4125#0" expanded="false" />
+            <element signature="e#5094#5180#0" expanded="false" />
+            <element signature="e#5258#5350#0" expanded="false" />
+            <element signature="e#5734#5826#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Model/Configuracion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39650145">
-          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
-          <folding>
-            <element signature="e#477#478#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ConfiguracionLogica.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3469388">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_configuracion.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29617834">
-          <caret line="39" column="55" selection-start-line="39" selection-start-column="55" selection-end-line="39" selection-end-column="55" />
-          <folding>
-            <element signature="e#459#499#0" expanded="true" />
-            <element signature="e#704#748#0" expanded="true" />
-            <element signature="e#1149#1193#0" expanded="true" />
-            <element signature="e#1696#1725#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ProgramaDetalleFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3265306">
-          <caret line="243" column="0" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Model/HorarioPrograma.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6443149">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoUsuarioActual.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="76" column="5" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_programa.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.40764332">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/card_view_programa.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.172414">
-          <caret line="45" column="57" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="57" />
+        <state vertical-scroll-proportion="-8.206897">
+          <caret line="53" column="39" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MisConcursosFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.1311953">
-          <caret line="190" column="9" selection-start-line="190" selection-start-column="9" selection-end-line="190" selection-end-column="9" />
-          <folding>
-            <element signature="e#7860#7872#0" expanded="true" />
-          </folding>
-        </state>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/Adaptor/AdaptadorMisConcursos.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/Adaptor/AdaptadorPrograma.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="39" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
+          <caret line="75" column="9" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Model/ProgramaFavorito.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50445104">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ProgramaFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.5294118">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_detalle_programa.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoUsuarioActual.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8575668">
+          <caret line="84" column="5" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar_bottom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.5172415">
+          <caret line="38" column="50" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Model/Parrilla.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="33" />
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialogo_informacion.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-55.103447">
+          <caret line="100" column="38" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="38" />
+          <folding>
+            <element signature="e#1405#1441#0" expanded="true" />
+            <element signature="e#4388#4416#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://C:/Android/sdk/sources/android-21/android/os/Handler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="798" column="0" selection-start-line="798" selection-start-column="0" selection-end-line="798" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Android/sdk/sources/android-21/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4801" column="0" selection-start-line="4801" selection-start-column="0" selection-end-line="4801" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoFecha.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3323442">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/RegistroUsuarioFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="75" selection-start-line="83" selection-start-column="75" selection-end-line="83" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Android/sdk/sources/android-21/org/json/JSONObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33152175">
+          <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionPOSTAPIString.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42391303">
+          <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+          <folding>
+            <element signature="e#1624#1682#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarTweetSolicitarFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4456522">
+          <caret line="65" column="43" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarTweetDedicatoriaFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4456522">
+          <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarTweetPremiacionFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4456522">
+          <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+          <folding>
+            <element signature="e#2526#2595#0" expanded="false" />
+            <element signature="e#2679#2757#0" expanded="false" />
+            <element signature="e#2820#2876#0" expanded="false" />
+            <element signature="e#3592#3668#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionGETAPIJSONArray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25222552">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="20" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Android/sdk/sources/android-21/android/os/Looper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ActualizacionLogica.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32941177">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ParrillaFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35882354">
+          <caret line="154" column="29" selection-start-line="154" selection-start-column="29" selection-end-line="154" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Model/Locutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/RespuestaProgramaAsyncTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="42" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Conexiones/conexionPUTAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.45">
+          <caret line="80" column="20" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -3243,112 +3163,208 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ProgramaLogica.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="108" column="107" selection-start-line="108" selection-start-column="107" selection-end-line="108" selection-end-column="107" />
+          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
           <folding>
-            <element signature="e#732#749#0" expanded="true" />
-            <element signature="e#1646#1655#0" expanded="true" />
-            <element signature="e#2607#2617#0" expanded="true" />
-            <element signature="e#3612#3613#0" expanded="true" />
-            <element signature="e#3639#3640#0" expanded="true" />
+            <element signature="e#1594#1611#0" expanded="true" />
+            <element signature="e#2507#2516#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Android/sdk/sources/android-21/android/widget/LinearLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33236152">
-          <caret line="1807" column="0" selection-start-line="1807" selection-start-column="0" selection-end-line="1807" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/Adaptor/AdaptadorPrograma.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/VeloApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="75" column="9" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
-          <folding>
-            <element signature="e#3016#3017#0" expanded="true" />
-            <element signature="e#3055#3056#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ViewHolder/MisConcursosViewHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.4373178">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="19" selection-end-column="155" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ViewHolder/ProgramaViewHolder.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_velo_app.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7521866">
-          <caret line="48" column="11" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
-          <folding>
-            <element signature="e#1661#1870#0" expanded="true" />
-            <element signature="e#1869#1870#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.01607717">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="28" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Model/LocutorPrograma.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Model/Programa.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2973761">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ProgramaFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/ProgramaDetalleFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.271137">
-          <caret line="183" column="5" selection-start-line="183" selection-start-column="5" selection-end-line="183" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="158" column="48" selection-start-line="158" selection-start-column="48" selection-end-line="158" selection-end-column="48" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_mis_concursos.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.034483">
+          <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="58" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1724138">
+          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/HomeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3412462">
+          <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
+          <folding>
+            <element signature="e#2271#2334#0" expanded="true" />
+            <element signature="e#2744#3502#0" expanded="true" />
+            <element signature="e#3501#3502#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/EditarTweetProgramaFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3323442">
+          <caret line="123" column="33" selection-start-line="123" selection-start-column="33" selection-end-line="123" selection-end-column="33" />
+          <folding>
+            <element signature="e#3976#4024#0" expanded="true" />
+            <element signature="e#5648#5724#0" expanded="true" />
+            <element signature="e#6553#6608#0" expanded="true" />
+            <element signature="e#6630#6696#0" expanded="true" />
+            <element signature="e#6698#6751#0" expanded="true" />
+            <element signature="e#6938#7003#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30267063">
+          <caret line="656" column="173" selection-start-line="656" selection-start-column="173" selection-end-line="656" selection-end-column="173" />
+          <folding>
+            <element signature="e#26096#26166#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.9259257">
-          <caret line="185" column="50" selection-start-line="185" selection-start-column="50" selection-end-line="185" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.3950178">
+          <caret line="215" column="100" selection-start-line="215" selection-start-column="100" selection-end-line="215" selection-end-column="100" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/InicioSesionTwitterFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Controlador/NoticiaFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="155" column="36" selection-start-line="155" selection-start-column="36" selection-end-line="155" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.50445104">
+          <caret line="118" column="11" selection-start-line="118" selection-start-column="11" selection-end-line="119" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoEnvioTweet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45400593">
+          <caret line="227" column="80" selection-start-line="227" selection-start-column="80" selection-end-line="227" selection-end-column="80" />
           <folding>
-            <element signature="e#7731#7797#0" expanded="true" />
+            <element signature="e#10493#10542#0" expanded="true" />
+            <element signature="e#10568#10660#0" expanded="true" />
+            <element signature="e#10686#10733#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/RespuestaArchivoAsyncTask.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Model/Comentario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5548961">
+          <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+          <folding>
+            <element signature="e#1340#1341#0" expanded="true" />
+            <element signature="e#1400#1401#0" expanded="true" />
+            <element signature="e#1452#1453#0" expanded="true" />
+            <element signature="e#1485#1486#0" expanded="true" />
+            <element signature="e#1517#1518#0" expanded="true" />
+            <element signature="e#1564#1565#0" expanded="true" />
+            <element signature="e#1606#1607#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoDialogs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50445104">
+          <caret line="33" column="43" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_editar_tweet_programa.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38961038">
+          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+          <folding>
+            <element signature="e#1021#1069#0" expanded="true" />
+            <element signature="e#2478#2508#0" expanded="true" />
+            <element signature="e#4017#4054#0" expanded="true" />
+            <element signature="e#4829#4857#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ParrillaLogica.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3323442">
+          <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+          <folding>
+            <element signature="e#4339#4410#0" expanded="true" />
+            <element signature="e#4506#4581#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+          <caret line="357" column="62" selection-start-line="357" selection-start-column="62" selection-end-line="357" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/ManejoArchivos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.25222552">
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/info/androidhive/radioucab/Logica/UsuarioLogica.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8017493">
-          <caret line="203" column="52" selection-start-line="203" selection-start-column="52" selection-end-line="203" selection-end-column="52" />
-          <folding>
-            <element signature="e#7823#7886#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

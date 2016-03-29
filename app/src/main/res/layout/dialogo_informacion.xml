@@ -6,6 +6,15 @@
     android:background="@color/blanco"
     android:orientation="vertical">
 
+
+    <ProgressBar
+        android:id="@+id/progressBar_que_suena"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:indeterminate="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/circle_shape"/>
+
     <LinearLayout
         android:id="@+id/layout_header"
         android:layout_width="match_parent"
@@ -26,7 +35,7 @@
                 android:layout_below="@+id/header_dialogo"
                 android:layout_marginLeft="25dp"
                 android:gravity="center"
-                android:text="¿Qué está sonando?"
+                android:text="@string/dialogo_asunto_informacion"
                 android:textColor="@color/blanco"
                 android:textSize="20dp" />
 
@@ -85,14 +94,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/texto_imagen_que_suena"
+                android:id="@+id/texto_que_esta_sonando"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:gravity="left"
-                android:text="Escuchas TOP 40"
                 android:textColor="@color/azul_radio_ucab"
                 android:textSize="16sp" />
+
         </LinearLayout>
 
     </LinearLayout>
@@ -105,7 +114,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/boton_cerrar_interaccion"
+            android:id="@+id/boton_cerrar_informacion"
             android:layout_width="110dp"
             android:layout_height="30dp"
             android:layout_marginTop="5dp"
@@ -117,4 +126,7 @@
             android:gravity="center"
             android:textSize="15dp" />
     </LinearLayout>
+
+
+
 </RelativeLayout>

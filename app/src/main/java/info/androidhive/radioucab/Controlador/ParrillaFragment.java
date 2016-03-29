@@ -29,7 +29,7 @@ import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.ManejoFecha;
 import info.androidhive.radioucab.Logica.ManejoProgressDialog;
 import info.androidhive.radioucab.Logica.ManejoToast;
-import info.androidhive.radioucab.Logica.ParillaLogica;
+import info.androidhive.radioucab.Logica.ParrillaLogica;
 import info.androidhive.radioucab.Logica.RespuestaAsyncTask;
 import info.androidhive.radioucab.Model.Actualizacion;
 import info.androidhive.radioucab.Model.Parrilla;
@@ -45,7 +45,7 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
     private List<String> programas;
     static final String DATEFORMAT = "yyyy-MM-dd HH:mm:ss";
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
-    private final ParillaLogica parrillaLogica = new ParillaLogica();
+    private final ParrillaLogica parrillaLogica = new ParrillaLogica();
     private final ActualizacionLogica actualizacionLogica = new ActualizacionLogica();
     private ManejoProgressDialog manejoProgressDialog = ManejoProgressDialog.getInstancia();
     private final ManejoToast manejoToast = ManejoToast.getInstancia();
@@ -78,7 +78,6 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
         listaHora = (ListView) rootView.findViewById(R.id.lista_hora);
         listaPrograma = (ListView) rootView.findViewById(R.id.lista_programa);
         textoDiaActualizacion = (TextView) getActivity().findViewById(R.id.texto_dia_actualizacion_parrilla);
-        textoDiaActualizacion.setText("Actualizado al día: " + actualizacionLogica.getActualizacionParrilla());
         swipeRefreshLayout = (SwipeRefreshLayout) getActivity().findViewById(R.id.swipe_refresh_parrilla);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -110,7 +109,7 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
         listaHora.setAdapter(adapterHora);
         ArrayAdapter<String> adapterPrograma = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, programas);
         listaPrograma.setAdapter(adapterPrograma);
-        textoDiaActualizacion.setText("Actualizado al día: " + actualizacionLogica.getActualizacionParrilla());
+        textoDiaActualizacion.setText(actualizacionLogica.getActualizacionParrilla());
     }
 
     public static Date GetUTCdatetimeAsDate() {
@@ -153,34 +152,20 @@ public class ParrillaFragment extends Fragment implements RespuestaAsyncTask {
     }
 
     public void mostrarResultados(JSONArray resultados) {
-        actualizacionLogica.almacenarUltimaActualizacion(4, ultimaActWS);
-        Parrilla.deleteAll(Parrilla.class);
-        horas = new ArrayList<String>();
-        programas = new ArrayList<String>();
-        for (int i = 0; i < resultados.length(); i++) {
-            try {
-                JSONObject objeto = resultados.getJSONObject(i);
-                horas.add(objeto.getString("hora_inicio") + " - " + objeto.getString("hora_fin"));
-                programas.add(objeto.getString("nombre"));
-                Parrilla parrilla = new Parrilla(objeto.getString("hora_inicio") + " - " + objeto.getString("hora_fin"),
-                        objeto.getString("nombre"), objeto.getInt("id"));
-                parrilla.save();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        ArrayAdapter<String> adapterHora = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, horas);
+        parrillaLogica.procesarResultados(ultimaActWS, resultados);
+        ArrayAdapter<String> adapterHora = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, parrillaLogica.getHoras());
         listaHora.setAdapter(adapterHora);
-        ArrayAdapter<String> adapterPrograma = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, programas);
+        ArrayAdapter<String> adapterPrograma = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, parrillaLogica.getProgramas());
         listaPrograma.setAdapter(adapterPrograma);
         textoDiaActualizacion.setText("Actualizado al día: " + actualizacionLogica.getActualizacionParrilla());
+        parrillaLogica.setHoras(null);
+        parrillaLogica.setProgramas(null);
     }
 
     public void ultimaActualizacion(String resultado) {
         try {
             resultado = resultado.replace("\"", "");
             final List<Actualizacion> listaActualizaciones = Actualizacion.listAll(Actualizacion.class);
-            final List<Parrilla> listaParrilla = Parrilla.listAll(Parrilla.class);
             ultimaActWS = tiempoActual.convertirStringSimple(resultado);
             if (listaActualizaciones != null && listaActualizaciones.size() > 0) {
                 Actualizacion ultimaActualizacion = listaActualizaciones.get(0);
