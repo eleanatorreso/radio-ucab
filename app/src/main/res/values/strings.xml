@@ -216,6 +216,8 @@
     <string name="dialogo_mensaje_confirmacion_salida">¿Está seguro que desea salir de la aplicación?</string>
     <!-- Toast -->
     <string name="toast_error_general">No es posible procesar su solicitud, intente más tarde</string>
+    <!-- Ayuda-->
+    <string name="campo_encabezado_ayuda">Ayuda</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_velo_app">Velo Radio UCAB</string>

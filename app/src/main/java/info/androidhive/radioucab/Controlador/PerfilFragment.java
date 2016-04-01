@@ -28,6 +28,7 @@ public class PerfilFragment extends Fragment {
     private ImageView imagen_mis_concursos;
     private ImageView imagen_mis_noticias;
     private ImageView imagen_mis_programas;
+    private ImageView imagen_ayuda;
     private final PerfilLogica perfilLogica = new PerfilLogica();
     private Usuario usuario_actual;
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
@@ -86,7 +87,13 @@ public class PerfilFragment extends Fragment {
                 manejoActivity.cambiarFragment("MisProgramasFragment", true, false);
             }
         });
-
+        imagen_ayuda = (ImageView) getActivity().findViewById(R.id.icono_ayuda);
+        imagen_ayuda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                manejoActivity.cambiarFragment("AyudaFragment", true, false);
+            }
+        });
     }
 
     public void actualizarPerfil () {

@@ -24,6 +24,7 @@ import com.google.android.gms.analytics.Tracker;
 
 import java.util.ArrayList;
 
+import info.androidhive.radioucab.Controlador.AyudaFragment;
 import info.androidhive.radioucab.Controlador.ConcursoFragment;
 import info.androidhive.radioucab.Controlador.ConfiguracionFragment;
 import info.androidhive.radioucab.Controlador.EditarPerfilFragment;
@@ -278,6 +279,9 @@ public class ManejoActivity {
             case 34:
                 fragment = new MisProgramasFragment();
                 break;
+            case 35:
+                fragment = new AyudaFragment();
+                break;
             default:
                 break;
         }
@@ -330,6 +334,8 @@ public class ManejoActivity {
                 return 33;
             case "MisProgramasFragment":
                 return 34;
+            case "AyudaFragment":
+                return 35;
         }
         return 0;
     }

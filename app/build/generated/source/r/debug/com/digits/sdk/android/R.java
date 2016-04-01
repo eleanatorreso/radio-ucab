@@ -398,19 +398,19 @@ public final class R {
 		public static final int dgts__logo_name = 0x7f02007b;
 		public static final int dgts__spinner_dark = 0x7f02007c;
 		public static final int dgts__spinner_light = 0x7f02007d;
-		public static final int progress_dark = 0x7f0200f3;
-		public static final int progress_light = 0x7f0200f4;
-		public static final int tw__ic_logo_default = 0x7f0200fa;
-		public static final int tw__login_btn = 0x7f020101;
-		public static final int tw__login_btn_default = 0x7f020102;
-		public static final int tw__login_btn_default_light = 0x7f020103;
-		public static final int tw__login_btn_disabled = 0x7f020104;
-		public static final int tw__login_btn_light = 0x7f020105;
-		public static final int tw__login_btn_pressed = 0x7f020106;
-		public static final int tw__login_btn_pressed_light = 0x7f020107;
-		public static final int tw__login_btn_text_color_light = 0x7f020108;
-		public static final int tw__share_email_header = 0x7f02010a;
-		public static final int tw__transparent = 0x7f02010b;
+		public static final int progress_dark = 0x7f0200f4;
+		public static final int progress_light = 0x7f0200f5;
+		public static final int tw__ic_logo_default = 0x7f0200fb;
+		public static final int tw__login_btn = 0x7f020102;
+		public static final int tw__login_btn_default = 0x7f020103;
+		public static final int tw__login_btn_default_light = 0x7f020104;
+		public static final int tw__login_btn_disabled = 0x7f020105;
+		public static final int tw__login_btn_light = 0x7f020106;
+		public static final int tw__login_btn_pressed = 0x7f020107;
+		public static final int tw__login_btn_pressed_light = 0x7f020108;
+		public static final int tw__login_btn_text_color_light = 0x7f020109;
+		public static final int tw__share_email_header = 0x7f02010b;
+		public static final int tw__transparent = 0x7f02010c;
 	}
 	public static final class id {
 		public static final int action_bar = 0x7f0f006a;
@@ -468,7 +468,7 @@ public final class R {
 		public static final int icon = 0x7f0f0055;
 		public static final int ifRoom = 0x7f0f0020;
 		public static final int image = 0x7f0f0052;
-		public static final int imageView = 0x7f0f017f;
+		public static final int imageView = 0x7f0f0181;
 		public static final int listMode = 0x7f0f000b;
 		public static final int list_item = 0x7f0f0054;
 		public static final int middle = 0x7f0f0018;
@@ -496,11 +496,11 @@ public final class R {
 		public static final int submit_area = 0x7f0f0075;
 		public static final int tabMode = 0x7f0f000d;
 		public static final int title = 0x7f0f0056;
-		public static final int tw__allow_btn = 0x7f0f0182;
-		public static final int tw__not_now_btn = 0x7f0f0181;
-		public static final int tw__share_email_desc = 0x7f0f0180;
-		public static final int tw__spinner = 0x7f0f017e;
-		public static final int tw__web_view = 0x7f0f017d;
+		public static final int tw__allow_btn = 0x7f0f0184;
+		public static final int tw__not_now_btn = 0x7f0f0183;
+		public static final int tw__share_email_desc = 0x7f0f0182;
+		public static final int tw__spinner = 0x7f0f0180;
+		public static final int tw__web_view = 0x7f0f017f;
 		public static final int up = 0x7f0f000a;
 		public static final int useLogo = 0x7f0f0014;
 		public static final int withText = 0x7f0f0022;
@@ -539,9 +539,9 @@ public final class R {
 		public static final int dgts__activity_pin_code = 0x7f030024;
 		public static final int dgts__country_row = 0x7f030025;
 		public static final int dgts__state_button = 0x7f030026;
-		public static final int support_simple_spinner_dropdown_item = 0x7f030051;
-		public static final int tw__activity_oauth = 0x7f030055;
-		public static final int tw__activity_share_email = 0x7f030056;
+		public static final int support_simple_spinner_dropdown_item = 0x7f030052;
+		public static final int tw__activity_oauth = 0x7f030056;
+		public static final int tw__activity_share_email = 0x7f030057;
 	}
 	public static final class raw {
 		public static final int tw__cacerts = 0x7f060001;
@@ -563,8 +563,8 @@ public final class R {
 		public static final int abc_shareactionprovider_share_with = 0x7f07000b;
 		public static final int abc_shareactionprovider_share_with_application = 0x7f07000c;
 		public static final int abc_toolbar_collapse_description = 0x7f070070;
-		public static final int dgts__call_me = 0x7f0700da;
-		public static final int dgts__calling = 0x7f0700db;
+		public static final int dgts__call_me = 0x7f0700db;
+		public static final int dgts__calling = 0x7f0700dc;
 		public static final int dgts__cancel = 0x7f070034;
 		public static final int dgts__communication_error = 0x7f070035;
 		public static final int dgts__confirmation_code = 0x7f070036;
@@ -576,7 +576,7 @@ public final class R {
 		public static final int dgts__confirmation_sending_text = 0x7f07003c;
 		public static final int dgts__confirmation_sent_text = 0x7f07003d;
 		public static final int dgts__confirmation_sms = 0x7f07003e;
-		public static final int dgts__country_spinner_format = 0x7f0700dc;
+		public static final int dgts__country_spinner_format = 0x7f0700dd;
 		public static final int dgts__create_account_text = 0x7f07003f;
 		public static final int dgts__creating_account_text = 0x7f070040;
 		public static final int dgts__digits_logo_desc = 0x7f070041;
@@ -599,20 +599,20 @@ public final class R {
 		public static final int dgts__signing_in = 0x7f070052;
 		public static final int dgts__success_desc = 0x7f070053;
 		public static final int dgts__terms_text = 0x7f070054;
-		public static final int dgts__terms_text_call_me = 0x7f0700dd;
+		public static final int dgts__terms_text_call_me = 0x7f0700de;
 		public static final int dgts__terms_text_create = 0x7f070055;
 		public static final int dgts__terms_text_sign_in = 0x7f070056;
 		public static final int dgts__try_again = 0x7f070057;
 		public static final int dgts__try_again_confirmation = 0x7f070058;
 		public static final int dgts__try_again_phone_number = 0x7f070059;
 		public static final int dgts__try_another_phone = 0x7f07005a;
-		public static final int dgts__unsupported_operator_error = 0x7f0700de;
+		public static final int dgts__unsupported_operator_error = 0x7f0700df;
 		public static final int dgts__upload_contacts = 0x7f07005b;
 		public static final int dgts__verification_code = 0x7f07005c;
 		public static final int dgts_pin_code_terms = 0x7f07005d;
 		public static final int dgts_verify = 0x7f07005e;
 		public static final int dgts_verifying = 0x7f07005f;
-		public static final int kit_name = 0x7f070113;
+		public static final int kit_name = 0x7f070114;
 		public static final int tw__allow_btn_txt = 0x7f070060;
 		public static final int tw__login_btn_txt = 0x7f070062;
 		public static final int tw__not_now_btn_txt = 0x7f070063;

@@ -264,6 +264,10 @@
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\abc_alert_dialog_material.xml"
     },
     {
+        "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_ayuda.xml",
+        "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\src\\main\\res\\layout\\fragment_ayuda.xml"
+    },
+    {
         "merged": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
         "source": "C:\\Users\\Eleana Torres\\Documents\\radio-ucab-app-movil\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.0\\res\\layout\\notification_template_media.xml"
     },

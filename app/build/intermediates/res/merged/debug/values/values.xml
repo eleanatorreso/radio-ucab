@@ -420,6 +420,7 @@
     <string name="campo_dialogo_cargando_programas">Cargando los programas...</string>
     <string name="campo_encabezado_actualizacion_del_dia">Parrilla del día:</string>
     <string name="campo_encabezado_artista_grupo">Artista / Grupo:</string>
+    <string name="campo_encabezado_ayuda">Ayuda</string>
     <string name="campo_encabezado_cancion">Canción:</string>
     <string name="campo_encabezado_comentario">Comentario:</string>
     <string name="campo_encabezado_concurso">Concursos actuales</string>
@@ -501,7 +502,7 @@
     <string name="cast_notification_connected_message">Connected to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_connecting_message">Connecting to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_disconnect">Disconnect</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">11be28aa-032e-4419-967a-dbc1840cece4</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">1804134c-c1ff-4d70-b083-b0675107cd34</string>
     <string name="common_android_wear_notification_needs_update_text"><ns1:g id="app_name">%1$s</ns1:g> requires an update to the Android Wear app.</string>
     <string name="common_android_wear_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update the Android Wear app.</string>
     <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>
