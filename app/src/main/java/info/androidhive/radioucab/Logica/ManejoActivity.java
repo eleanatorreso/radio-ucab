@@ -282,6 +282,9 @@ public class ManejoActivity {
             case 35:
                 fragment = new AyudaFragment();
                 break;
+            case 36:
+                fragment = new EditarTweetPremiacionFragment();
+                break;
             default:
                 break;
         }
@@ -336,6 +339,8 @@ public class ManejoActivity {
                 return 34;
             case "AyudaFragment":
                 return 35;
+            case "EditarConcurso":
+                return 36;
         }
         return 0;
     }

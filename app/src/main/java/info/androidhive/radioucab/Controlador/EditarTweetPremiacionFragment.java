@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import info.androidhive.radioucab.Logica.ManejoActivity;
@@ -19,6 +20,7 @@ import info.androidhive.radioucab.Logica.ManejoEnvioTweet;
 import info.androidhive.radioucab.Logica.ManejoString;
 import info.androidhive.radioucab.Logica.ManejoToast;
 import info.androidhive.radioucab.Model.Comentario;
+import info.androidhive.radioucab.Model.Concurso;
 import info.androidhive.radioucab.R;
 
 public class EditarTweetPremiacionFragment extends Fragment {
@@ -26,11 +28,13 @@ public class EditarTweetPremiacionFragment extends Fragment {
     private final ManejoString manejoString = new ManejoString();
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
     private Button botonEnviar;
+    private TextView nombreConcurso;
     private EditText editTextComentario;
     private CheckBox terminosCondiciones;
     private ManejoDialogs dialogoTerminosCondiciones;
     private final ManejoToast manejoToast = ManejoToast.getInstancia();
     private ManejoEnvioTweet manejoTwitter;
+    public Concurso concurso;
 
     public EditarTweetPremiacionFragment() {
         // Required empty public constructor
@@ -56,12 +60,14 @@ public class EditarTweetPremiacionFragment extends Fragment {
                 publicarTweet();
             }
         });
+        nombreConcurso = (TextView)getActivity().findViewById(R.id.texto_nombre_premiacion);
+        nombreConcurso.setText(concurso.getNombre());
         editTextComentario = (EditText) getActivity().findViewById(R.id.editText_tweet_premiacion);
         terminosCondiciones = (CheckBox) getActivity().findViewById(R.id.checkbox_terminos_condiciones_concurso);
         terminosCondiciones.setText(Html.fromHtml("<u>" + getActivity().getString(R.string.campo_terminos_condiciones_concurso)
                 + "</u>"));
         dialogoTerminosCondiciones = new ManejoDialogs(getActivity().getString(R.string.dialogo_asunto_terminos_condiciones_concurso),
-                "terminos traidos de la bd",
+                concurso.getTerminos_condiciones(),
                 getActivity().getString(R.string.dialogo_mensaje_cerrar), getActivity());
         terminosCondiciones.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +81,7 @@ public class EditarTweetPremiacionFragment extends Fragment {
         if (manejoString.verificarEspacioNull(editTextComentario.getText().toString()) &&
                 terminosCondiciones.isChecked()) {
             final Comentario tweet = new Comentario(editTextComentario.getText().toString(), 1);
+            tweet.setIdConcurso(concurso.getMyId());
             manejoTwitter = new ManejoEnvioTweet(getActivity(), tweet);
             manejoTwitter.verificarTweet();
         } else {

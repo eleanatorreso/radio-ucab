@@ -28,7 +28,7 @@ public class EventoLogica {
                 JSONArray direccion = objeto.getJSONArray("detalles");
                 for (int detalles = 0; detalles < direccion.length(); detalles++) {
                     JSONObject objetoDetalle = direccion.getJSONObject(detalles);
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm");
                     Date fecha_inicio = new Date();
                     fecha_inicio = dateFormat.parse(objetoDetalle.getString("fecha_inicio"));
                     eventoNuevo = new Evento(objeto.getInt("id"), objeto.getString("nombre"), objetoDetalle.getString("horario")

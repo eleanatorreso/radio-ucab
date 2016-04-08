@@ -198,6 +198,7 @@ public class ManejoEnvioTweet implements RespuestaAsyncTask, RespuestaStringAsyn
 
     @Override
     public void procesoExitoso(int codigo, int tipo) {
+        manejoToast.crearToast((Activity)contexto, contexto.getString(R.string.toast_comentario_exitosos));
         manejoProgressDialog.cancelarProgressDialog();
         //respuesta sobre chequeo de comentario
         /*

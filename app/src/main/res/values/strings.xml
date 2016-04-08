@@ -207,7 +207,7 @@
     <string name="dialogo_asunto_terminos_condiciones_concurso">Términos y Condiciones del Concurso</string>
     <string name="toast_error_terminos_condiciones_concurso">Debe aceptar los terminos y condiciones para participar en este concurso</string>
     <string name="toast_error_terminos_condiciones_tweet">Debe completar el campo tweet</string>
-    <string name="toast_comentario_exitosos">"Su comentario ha sido procesado con exito"</string>
+    <string name="toast_comentario_exitosos">"Su comentario ha sido procesado con exito, muchas gracias por participar en Radio UCAB"</string>
     <!-- Diálogo-->
     <string name="dialogo_mensaje_procesando_solicitud">Procesando la solicitud...</string>
     <string name="dialogo_mensaje_iniciando_sesion">Iniciando sesión...</string>

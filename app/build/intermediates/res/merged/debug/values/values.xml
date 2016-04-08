@@ -502,7 +502,7 @@
     <string name="cast_notification_connected_message">Connected to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_connecting_message">Connecting to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_disconnect">Disconnect</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">8366b9a0-7106-44c2-9f77-7132d03d318f</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">b58edca2-3e47-4d69-aabf-f64be9d3e858</string>
     <string name="common_android_wear_notification_needs_update_text"><ns1:g id="app_name">%1$s</ns1:g> requires an update to the Android Wear app.</string>
     <string name="common_android_wear_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update the Android Wear app.</string>
     <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>
@@ -664,7 +664,7 @@
     <string name="texto_detalle_programa">Espere un momento por favor...</string>
     <string name="timeline_empty">Espere un momento por favor...</string>
     <string name="title_activity_velo_app">Velo Radio UCAB</string>
-    <string name="toast_comentario_exitosos">"Su comentario ha sido procesado con exito"</string>
+    <string name="toast_comentario_exitosos">"Su comentario ha sido procesado con exito, muchas gracias por participar en Radio UCAB"</string>
     <string name="toast_error_campos_obligatorios">Todos los campos son obligatorios completelos</string>
     <string name="toast_error_campos_obligatorios_comentario">Debe escribir su comentario</string>
     <string name="toast_error_campos_obligatorios_solicitud">Debe completar los datos de la canción (Canción y Artista)</string>
