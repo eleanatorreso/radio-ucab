@@ -19,6 +19,9 @@ import java.util.TimeZone;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIJSONArray;
 import info.androidhive.radioucab.Conexiones.conexionGETAPIString;
 import info.androidhive.radioucab.Model.Actualizacion;
+import info.androidhive.radioucab.Model.Locutor;
+import info.androidhive.radioucab.Model.LocutorParrilla;
+import info.androidhive.radioucab.Model.LocutorPrograma;
 import info.androidhive.radioucab.Model.Parrilla;
 import info.androidhive.radioucab.Model.Programa;
 import info.androidhive.radioucab.R;
@@ -37,7 +40,7 @@ public class ParrillaLogica implements RespuestaAsyncTask{
     private static int tipo;
     public RespuestaProgramaAsyncTask delegate = null;
     private final ManejoActivity manejoActivity = ManejoActivity.getInstancia();
-    private Programa programaActual;
+    private Parrilla programaActual;
 
     public List<String> getHoras() {
         return horas;
@@ -67,15 +70,42 @@ public class ParrillaLogica implements RespuestaAsyncTask{
         return false;
     }
 
+    public void procesarLocutores(JSONArray resultadoConsulta, Parrilla parrilla) {
+        List<LocutorParrilla> locutores = new ArrayList<LocutorParrilla>();
+        JSONArray array;
+        JSONObject objeto;
+        for (int i = 0; i < resultadoConsulta.length(); i++) {
+            try {
+                array = resultadoConsulta.getJSONArray(i);
+                for (int j = 0; j < array.length(); j++) {
+                    if (!array.isNull(j)) {
+                        objeto = array.getJSONObject(j);
+                        JSONArray locutoresArray = objeto.getJSONArray("locutores");
+                        JSONObject objectoLocutor = locutoresArray.getJSONObject(0);
+                        final LocutorParrilla locutorNuevo = new LocutorParrilla(parrilla, objectoLocutor.getInt("id"), objectoLocutor.getString("nombreCompleto"),
+                                objectoLocutor.getString("usuarioTwitter"));
+                        locutorNuevo.save();
+                        locutores.add(locutorNuevo);
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void procesarResultados(Date ultimaActWS, JSONArray resultados){
         actualizacionLogica.almacenarUltimaActualizacion(4, ultimaActWS);
+        LocutorParrilla.deleteAll(LocutorParrilla.class);
         Parrilla.deleteAll(Parrilla.class);
         for (int i = 0; i < resultados.length(); i++) {
             try {
                 JSONObject objeto = resultados.getJSONObject(i);
-                final Parrilla parrilla = new Parrilla(objeto.getString("hora_inicio") + " - " + objeto.getString("hora_fin"),
-                        objeto.getString("nombre"), objeto.getInt("id"));
+                JSONArray locutores = objeto.getJSONArray("locutores");
+                final Parrilla parrilla = new Parrilla(objeto.getString("hora_inicio") + " - " +
+                        objeto.getString("hora_fin"), objeto.getString("nombre"), objeto.getInt("id"));
                 parrilla.save();
+                procesarLocutores(locutores, parrilla);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

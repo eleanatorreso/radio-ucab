@@ -78,7 +78,7 @@ public class ProgramaFragment extends Fragment implements RespuestaAsyncTask {
         try {
             if (rootView != null) {
                 super.onCreate(savedInstanceState);
-                manejoActivity.editarActivity(5, true, "Programa", "Programa");
+                manejoActivity.editarActivity(5, true, "Programa", "Programa",true);
                 recyclerView = (RecyclerView) rootView.findViewById(R.id.lista_recycler_programa);
                 layoutManager = new LinearLayoutManager(getActivity());
                 recyclerView.setLayoutManager(layoutManager);

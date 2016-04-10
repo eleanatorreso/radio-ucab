@@ -191,7 +191,7 @@ public class ManejoActivity {
             toolbar.setBackgroundColor(color);
     }
 
-    public void editarActivity(int seccion, boolean mostrarBotonInteraccion, String fragmentoActual, String nombreFragmento) {
+    public void editarActivity(int seccion, boolean mostrarBotonInteraccion, String fragmentoActual, String nombreFragmento, boolean ocultarBack) {
         cambiarDeColor(seccion);
         cambiarIconoMenu();
         if (mostrarBotonInteraccion == true) {
@@ -208,6 +208,9 @@ public class ManejoActivity {
             this.fragmentoActual = fragmentoActual;
         }
         registrarPantallaAnalytics(nombreFragmento);
+        if(ocultarBack) {
+            ocultarBackToolbar();
+        }
     }
 
     public Fragment getFragment(int position) {
@@ -360,6 +363,10 @@ public class ManejoActivity {
             botonMenu.setVisibility(View.VISIBLE);
             main.ocultarOpcionToolbar();
         }
+    }
+
+    public void registrarIdTelefono() {
+        main.registrarIdTelefono();
     }
 
     public void almacenarProcesoActual(boolean almacenarProcesoActual) {

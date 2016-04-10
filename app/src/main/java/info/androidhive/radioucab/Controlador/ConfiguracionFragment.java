@@ -53,7 +53,7 @@ public class ConfiguracionFragment extends Fragment implements RespuestaAsyncTas
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        manejoActivity.editarActivity(7, false, "Configuracion", "Configuración");
+        manejoActivity.editarActivity(7, false, "Configuracion", "Configuración",true);
         configuracionUno = (Switch) getActivity().findViewById(R.id.campo_switch_configuracion_uno);
         configuracionDos = (Switch) getActivity().findViewById(R.id.campo_switch_configuracion_dos);
         botonGuardar = (Button) getActivity().findViewById(R.id.boton_actualizar_configuracion);
@@ -86,17 +86,23 @@ public class ConfiguracionFragment extends Fragment implements RespuestaAsyncTas
             if (configuracionUno.isChecked()) {
                 valorNotificacion = 1;
             }
+            else {
+                valorNotificacion = 0;
+            }
             if (configuracionDos.isChecked()) {
                 valorStreaming = 1;
             }
-            actualizarMisNoticias(valorNotificacion);
+            else {
+                valorStreaming = 0;
+            }
+            actualizarConfiguracion(valorNotificacion);
         }
         else {
             manejoToast.crearToast(getActivity(), getActivity().getResources().getString(R.string.campo_toast_almacenamiento_en_proceso));
         }
     }
 
-    public void actualizarMisNoticias(int valorPushNotification) {
+    public void actualizarConfiguracion(int valorPushNotification) {
         manejoProgressDialog.iniciarProgressDialog(getActivity().getResources().getString(R.string.campo_dialogo_almacenar_configuraciones), getActivity());
         final conexionPUTAPI conexion = new conexionPUTAPI();
         conexion.contexto = getActivity();

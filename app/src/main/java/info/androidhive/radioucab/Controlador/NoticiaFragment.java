@@ -74,11 +74,12 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
         return null;
     }
 
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //cambio el color del toolbar superior
-        manejoActivity.editarActivity(3, true, "Noticia", "Noticia");
+        manejoActivity.editarActivity(3, true, "Noticia", "Noticia",true);
         iconoSinNoticias = (ImageView) getActivity().findViewById(R.id.imagen_sin_noticias);
         iconoSinNoticias.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,8 +100,8 @@ public class NoticiaFragment extends ListFragment implements RespuestaAsyncTask 
             }
         });
         // Add footer view
-        footer = ((LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.progressbar_footer, null, false);
-        listaNoticias.addFooterView(footer);
+        //footer = ((LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.progressbar_footer, null, false);
+        //listaNoticias.addFooterView(footer);
         preCargarNoticias();
         if (flag == 0) {
             comprobarUltimaActualizacion();

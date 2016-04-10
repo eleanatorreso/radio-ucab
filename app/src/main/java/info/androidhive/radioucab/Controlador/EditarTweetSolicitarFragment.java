@@ -7,9 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.ManejoEnvioTweet;
@@ -42,7 +39,7 @@ public class EditarTweetSolicitarFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         //cambio el color del toolbar superior
-        manejoActivity.editarActivity(6, false, null, "Editar tweet solicitar canción");
+        manejoActivity.editarActivity(6, false, null, "Editar tweet solicitar canción",false);
         manejoActivity.mostrarCloseToolbar();
         super.onCreate(savedInstanceState);
         editTextCancion = (EditText) getActivity().findViewById(R.id.editText_cancion);

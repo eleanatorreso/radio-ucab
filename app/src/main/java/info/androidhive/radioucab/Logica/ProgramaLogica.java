@@ -15,6 +15,8 @@ import info.androidhive.radioucab.Conexiones.conexionPUTAPI;
 import info.androidhive.radioucab.Controlador.ProgramaDetalleFragment;
 import info.androidhive.radioucab.Model.HorarioPrograma;
 import info.androidhive.radioucab.Model.Locutor;
+import info.androidhive.radioucab.Model.LocutorPrograma;
+import info.androidhive.radioucab.Model.Parrilla;
 import info.androidhive.radioucab.Model.Programa;
 import info.androidhive.radioucab.Model.ProgramaFavorito;
 import info.androidhive.radioucab.R;
@@ -64,7 +66,8 @@ public class ProgramaLogica implements RespuestaAsyncTask {
             try {
                 objeto = resultadoConsulta.getJSONObject(horario);
                 locutorNuevo = new Locutor(objeto.getInt("id"), objeto.getString("nombreCompleto"),
-                        objeto.getString("usuarioTwitter"), objeto.getString("usuarioFacebook"), objeto.getString("usuarioInstagram"));
+                        objeto.getString("usuarioTwitter"), objeto.getString("usuarioFacebook"), objeto.getString("usuarioInstagram"),
+                        objeto.getString("usuarioNombreFacebook"));
                 locutorNuevo.save();
                 locutores.add(locutorNuevo);
             } catch (JSONException e) {
@@ -97,16 +100,12 @@ public class ProgramaLogica implements RespuestaAsyncTask {
         return programas;
     }
 
-    public Programa getDatosPrograma(int idPrograma){
-        final List<Programa> programas = Programa.find(Programa.class, "my_id = ?", idPrograma + "");
+    public Parrilla getDatosPrograma(int idPrograma){
+        final List<Parrilla> programas = Parrilla.find(Parrilla.class, "id_programa = ?", idPrograma + "");
         if (programas != null && programas.size() > 0) {
-            final Programa programa = programas.get(0);
+            final Parrilla programa = programas.get(0);
             return programa;
         }
-        return null;
-    }
-
-    public Programa getProgramaActual() {
         return null;
     }
 

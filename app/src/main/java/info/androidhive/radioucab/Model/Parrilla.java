@@ -2,11 +2,14 @@ package info.androidhive.radioucab.Model;
 
 import com.orm.SugarRecord;
 
+import java.util.List;
+
 public class Parrilla extends SugarRecord {
 
-    public String horario;
-    public String nombrePrograma;
-    public int idPrograma;
+    private String horario;
+    private String nombrePrograma;
+    private int idPrograma;
+    private List<LocutorParrilla> locutores;
 
     public Parrilla() {
 
@@ -40,5 +43,16 @@ public class Parrilla extends SugarRecord {
 
     public void setIdPrograma(int idPrograma) {
         this.idPrograma = idPrograma;
+    }
+
+    private List<LocutorParrilla> busquedaLocutores () {
+        locutores = LocutorParrilla.find(LocutorParrilla.class, "parrilla = ?", String.valueOf(this.getId()));
+        return locutores;
+    }
+
+    public List<LocutorParrilla> getLocutores() {
+        if (locutores != null)
+            return  locutores;
+        return busquedaLocutores();
     }
 }

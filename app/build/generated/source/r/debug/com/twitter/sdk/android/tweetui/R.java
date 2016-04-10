@@ -173,10 +173,10 @@ public final class R {
 		public static final int tw__cacerts = 0x7f060001;
 	}
 	public static final class string {
-		public static final int kit_name = 0x7f070114;
+		public static final int kit_name = 0x7f070118;
 		public static final int tw__allow_btn_txt = 0x7f070060;
-		public static final int tw__favorite_tweet = 0x7f07012d;
-		public static final int tw__favorited_tweet = 0x7f07012e;
+		public static final int tw__favorite_tweet = 0x7f070131;
+		public static final int tw__favorited_tweet = 0x7f070132;
 		public static final int tw__loading_tweet = 0x7f070061;
 		public static final int tw__login_btn_txt = 0x7f070062;
 		public static final int tw__not_now_btn_txt = 0x7f070063;

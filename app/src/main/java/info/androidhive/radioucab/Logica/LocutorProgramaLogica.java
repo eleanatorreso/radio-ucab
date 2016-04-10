@@ -10,7 +10,7 @@ public class LocutorProgramaLogica {
 
     public void procesarLocutoresPrograma (List<Locutor> locutores, Programa programa) {
         LocutorPrograma nuevoObjeto = new LocutorPrograma();
-
+        LocutorPrograma.deleteAll(LocutorPrograma.class);
         for (int i = 0; i < locutores.size(); i++) {
             nuevoObjeto = new LocutorPrograma(programa, locutores.get(i));
             nuevoObjeto.save();

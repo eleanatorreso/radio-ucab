@@ -6,6 +6,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.text.Html;
@@ -18,6 +19,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import info.androidhive.radioucab.Controlador.GCM.RegistrationIntentService;
 import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.ManejoDialogs;
 import info.androidhive.radioucab.Logica.ManejoString;
@@ -62,7 +65,7 @@ public class RegistroUsuarioFragment extends Fragment {
         if (rootView != null) {
             super.onCreate(savedInstanceState);
             if (usuario != null) {
-                manejoActivity.editarActivity(6, false, "Registro", "Registro del usuario");
+                manejoActivity.editarActivity(6, false, "Registro", "Registro del usuario",true);
                 manejoActivity.mostrarBackToolbar();
                 nombreUsuario = (EditText) getActivity().findViewById(R.id.editText_nombre_usuario);
                 nombreUsuario.setText(usuario.getNombre());

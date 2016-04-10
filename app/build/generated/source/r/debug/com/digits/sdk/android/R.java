@@ -612,7 +612,7 @@ public final class R {
 		public static final int dgts_pin_code_terms = 0x7f07005d;
 		public static final int dgts_verify = 0x7f07005e;
 		public static final int dgts_verifying = 0x7f07005f;
-		public static final int kit_name = 0x7f070114;
+		public static final int kit_name = 0x7f070118;
 		public static final int tw__allow_btn_txt = 0x7f070060;
 		public static final int tw__login_btn_txt = 0x7f070062;
 		public static final int tw__not_now_btn_txt = 0x7f070063;

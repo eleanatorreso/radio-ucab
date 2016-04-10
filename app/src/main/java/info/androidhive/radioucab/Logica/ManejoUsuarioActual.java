@@ -26,6 +26,14 @@ public class ManejoUsuarioActual {
         return misPreferenciasNoticias;
     }
 
+    public boolean usuarioLogeado(){
+        List<Usuario> usuarioActual = Usuario.listAll(Usuario.class);
+        if (usuarioActual != null && !usuarioActual.isEmpty()) {
+            return true;
+        }
+        return false;
+    }
+
     public static void setMisPreferenciasNoticias(List<Tag> misPreferenciasNoticias) {
         ManejoUsuarioActual.misPreferenciasNoticias = misPreferenciasNoticias;
     }

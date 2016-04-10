@@ -143,6 +143,8 @@ public class RegistrationIntentService extends IntentService implements Respuest
         conexion.execute("Api/GCM/PutGcm");
     }
 
+
+
     @Override
     public void procesoExitoso(JSONArray resultados) {
 

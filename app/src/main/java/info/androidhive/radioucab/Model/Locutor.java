@@ -8,16 +8,26 @@ public class Locutor extends SugarRecord {
     private String nombreCompleto;
     private String usuarioTwitter;
     private String usuarioFacebook;
+    private String usuarioNombreFacebook;
     private String usuarioInstagram;
 
     public Locutor () {}
 
-    public Locutor(int myId, String nombreCompleto, String usuarioTwitter, String usuarioFacebook, String usuarioInstagram) {
+    public Locutor(int myId, String nombreCompleto, String usuarioTwitter, String usuarioFacebook, String usuarioInstagram, String usuarioNombreFacebook) {
         this.myId = myId;
         this.nombreCompleto = nombreCompleto;
         this.usuarioTwitter = usuarioTwitter;
         this.usuarioFacebook = usuarioFacebook;
         this.usuarioInstagram = usuarioInstagram;
+        this.usuarioNombreFacebook = usuarioNombreFacebook;
+    }
+
+    public String getUsuarioNombreFacebook() {
+        return usuarioNombreFacebook;
+    }
+
+    public void setUsuarioNombreFacebook(String usuarioNombreFacebook) {
+        this.usuarioNombreFacebook = usuarioNombreFacebook;
     }
 
     public int getMyId() {

@@ -11,9 +11,6 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -26,8 +23,8 @@ import info.androidhive.radioucab.Logica.ManejoToast;
 import info.androidhive.radioucab.Logica.ParrillaLogica;
 import info.androidhive.radioucab.Logica.RespuestaProgramaAsyncTask;
 import info.androidhive.radioucab.Model.Comentario;
-import info.androidhive.radioucab.Model.Locutor;
-import info.androidhive.radioucab.Model.Programa;
+import info.androidhive.radioucab.Model.LocutorParrilla;
+import info.androidhive.radioucab.Model.Parrilla;
 import info.androidhive.radioucab.R;
 
 public class EditarTweetProgramaFragment extends Fragment implements RespuestaProgramaAsyncTask {
@@ -37,7 +34,7 @@ public class EditarTweetProgramaFragment extends Fragment implements RespuestaPr
     private Button botonEnviar;
     private EditText editTextComentario;
     private String array_spinner[];
-    private Programa programa;
+    private Parrilla programa;
     private final ParrillaLogica parrillaLogica = new ParrillaLogica();
     private final ManejoToast manejoToast = ManejoToast.getInstancia();
     private final LocutorProgramaLogica logicaLocutor = new LocutorProgramaLogica();
@@ -46,7 +43,7 @@ public class EditarTweetProgramaFragment extends Fragment implements RespuestaPr
     private TextView textoEnviarA;
     private TextView encabezadoNombrePrograma;
     private ManejoDialogs manejoDialogs;
-    private List <Locutor> locutores;
+    private List <LocutorParrilla> locutores;
 
     public EditarTweetProgramaFragment() {
         // Required empty public constructor
@@ -64,7 +61,7 @@ public class EditarTweetProgramaFragment extends Fragment implements RespuestaPr
         //cambio el color del toolbar superior
         super.onCreate(savedInstanceState);
         manejoActivity.mostrarCloseToolbar();
-        manejoActivity.editarActivity(6, false, null, "Editar tweet programa");
+        manejoActivity.editarActivity(6, false, null, "Editar tweet programa",false);
         botonEnviar = (Button) getActivity().findViewById(R.id.boton_enviar_solicitud);
         botonEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +90,7 @@ public class EditarTweetProgramaFragment extends Fragment implements RespuestaPr
             progressBar.setVisibility(View.VISIBLE);
         }
         else {
-            encabezadoNombrePrograma.setText(programa.getTitulo());
+            encabezadoNombrePrograma.setText(programa.getNombrePrograma());
             spinner.setVisibility(View.VISIBLE);
             editTextComentario.setVisibility(View.VISIBLE);
             textoEnviarA.setVisibility(View.VISIBLE);
@@ -112,9 +109,9 @@ public class EditarTweetProgramaFragment extends Fragment implements RespuestaPr
     public void publicarTweet () {
         if (manejoString.verificarEspacioNull(editTextComentario.getText().toString())) {
             final Comentario tweet = new Comentario(editTextComentario.getText().toString(), 7);
-            tweet.setIdPrograma(programa.getMyId());
+            tweet.setIdPrograma(programa.getIdPrograma());
             if (spinner.getSelectedItemId() != 0){
-                Locutor locutor = locutores.get(Integer.parseInt(spinner.getSelectedItemId() + "") - 1);
+                LocutorParrilla locutor = locutores.get(Integer.parseInt(spinner.getSelectedItemId() + "") - 1);
                 if (locutor != null) {
                     tweet.setIdLocutor(locutor.getMyId());
                     tweet.setTwitterLocutor(locutor.getUsuarioTwitter());
@@ -129,20 +126,20 @@ public class EditarTweetProgramaFragment extends Fragment implements RespuestaPr
     }
 
     @Override
-    public void procesoExitoso(Programa programa) {
+    public void procesoExitoso(Parrilla programa) {
         if (programa != null){
             this.programa = programa;
-            locutores = logicaLocutor.getLocutoresPrograma(programa.getId());
+            locutores = programa.getLocutores();
             if (locutores != null && locutores.size() > 0) {
                 array_spinner = new String[locutores.size() + 1];
-                array_spinner[0] = programa.getTitulo();
+                array_spinner[0] = programa.getNombrePrograma();
                 for (int i = 0; i < locutores.size(); i++) {
-                    array_spinner[i + 1] = locutores.get(i).getNombreCompleto();
+                    array_spinner[i + 1] = locutores.get(i).getNombreLocutor();
                 }
             }
             else {
                 array_spinner = new String[1];
-                array_spinner[0] = programa.getTitulo();
+                array_spinner[0] = programa.getNombrePrograma();
             }
             cambiarSpinner();
         }
@@ -156,5 +153,7 @@ public class EditarTweetProgramaFragment extends Fragment implements RespuestaPr
     @Override
     public void procesoNoExitoso() {
         manejoActivity.mostrarNombreInformacion(getActivity().getString(R.string.campo_error_sin_programa_actual));
+        encabezadoNombrePrograma.setText(getActivity().getString(R.string.campo_error_sin_programa_actual));
+        progressBar.setVisibility(View.GONE);
     }
 }

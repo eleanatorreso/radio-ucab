@@ -6,13 +6,10 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.ManejoDialogs;
@@ -51,7 +48,7 @@ public class EditarTweetPremiacionFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         //cambio el color del toolbar superior
-        manejoActivity.editarActivity(6, false, null, "Editar tweet premiación");
+        manejoActivity.editarActivity(6, false, null, "Editar tweet premiación",false);
         super.onCreate(savedInstanceState);
         botonEnviar = (Button) getActivity().findViewById(R.id.boton_participar_premiacion);
         botonEnviar.setOnClickListener(new View.OnClickListener() {

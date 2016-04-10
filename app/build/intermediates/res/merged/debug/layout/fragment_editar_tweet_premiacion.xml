@@ -33,7 +33,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="Nombre Concurso"
         android:textColor="@color/azul_radio_ucab"
         android:textSize="19dp" />
 
@@ -44,8 +43,9 @@
         android:layout_below="@+id/texto_nombre_premiacion"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:gravity="center|left"
-        android:text="Descripcion del Concurso, debo traerla de la base de datos"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 

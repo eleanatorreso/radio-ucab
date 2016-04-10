@@ -9,7 +9,7 @@
     <string name="timeline_empty">Espere un momento por favor...</string>
     <string name="texto_detalle_programa">Espere un momento por favor...</string>
     <string name="menu_perfil_usuario">Ingresar</string>
-    <string name="ip_web_service">http://192.168.0.107:24364/</string>
+    <string name="ip_web_service">http://192.168.0.104:24364/</string>
     <string name="ip_streaming_high">http://31.200.244.181:8110</string>
     <string name="ip_streaming_low">http://31.200.244.181:8110</string>
     <string name="ruta_archivos_radio_ucab">/sdcard/.RadioUCAB/</string>
@@ -63,6 +63,9 @@
     <string name="dialogo_mensaje_Si">SI</string>
     <string name="dialogo_mensaje_No">NO</string>
     <string name="dialogo_mensaje_Ok">OK</string>
+    <!-- Diálogo interaccion -->
+    <string name="dialogo_asunto_conectate">¡Conéctate con Radio UCAB!</string>
+    <string name="dialogo_mensaje_conectate">Para interactuar con Radio UCAB debes iniciar sesión</string>
     <!-- Registro de Usuario -->
     <string name="dialogo_asunto_terminos_condiciones">Términos y Condiciones</string>
     <string name="dialogo_contenido_terminos_condiciones">Términos y condiciones</string>
@@ -161,6 +164,8 @@
     <string name="dialogo_contenido_interaccion_exitoso_programa">Comentario enviado exitosamente al programa</string>
     <string name="dialogo_contenido_interaccion_no_exitoso">No se ha podido procesar su solicitud, intente nuevamente</string>
     <string name="dialogo_asunto_error">Error</string>
+    <string name="dialogo_contenido_interaccion_no_exitoso_tweet">Ups Twitter, no  pudo procesar la publicación de tu comentario. Recuerda que no puedes twitear dos comentarios exactamente iguales</string>
+    <string name="dialogo_contenido_interaccion_no_exitoso_concurso_cantidad">Ya supero la cantidad de comentarios permitidos por día para participar en este concurso, intenta mañana.</string>
     <string name="dialogo_contenido_interaccion_no_exitoso_comentario_inapropiado">Este comentario ha sido clasificado como inapropiado, es por esto que no aparecerá en la cuenta de Radio UCAB. Si tienes alguna duda, contacta al administrador.</string>
     <string name="dialogo_contenido_interaccion_no_exitoso_sancionado">Usted se encuentra sancionado por Radio UCAB, ha realizado comentarios con contenido inapropiado. Si tienes alguna duda, contacte al administrador.</string>
     <!-- Editar Comentario-->

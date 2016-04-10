@@ -79,7 +79,7 @@ public class Programa extends SugarRecord {
     }
 
     public List<Locutor> getLocutores() {
-        if (horarios != null)
+        if (locutores != null)
             return  locutores;
         return busquedaLocutores();
     }

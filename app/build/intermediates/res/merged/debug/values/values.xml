@@ -502,7 +502,7 @@
     <string name="cast_notification_connected_message">Connected to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_connecting_message">Connecting to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_disconnect">Disconnect</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">b58edca2-3e47-4d69-aabf-f64be9d3e858</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">2be6918c-d91c-469b-9884-e575107289fc</string>
     <string name="common_android_wear_notification_needs_update_text"><ns1:g id="app_name">%1$s</ns1:g> requires an update to the Android Wear app.</string>
     <string name="common_android_wear_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update the Android Wear app.</string>
     <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>
@@ -601,6 +601,7 @@
     <string name="dialogo_asunto_cancelar_edicion">Cancelar edición</string>
     <string name="dialogo_asunto_cancelar_registro">Cancelar registro</string>
     <string name="dialogo_asunto_cerrar_sesion">Cerrar Sesión</string>
+    <string name="dialogo_asunto_conectate">¡Conéctate con Radio UCAB!</string>
     <string name="dialogo_asunto_error">Error</string>
     <string name="dialogo_asunto_informacion">¿Qué está sonando?</string>
     <string name="dialogo_asunto_interaccion_exitoso">Tu tweet lucirá de la siguiente forma</string>
@@ -615,13 +616,16 @@
     <string name="dialogo_contenido_interaccion_exitoso_solicitud">Canción solicitada exitosamente, recibirás una notificación de ser seleccionada entre las más pedidas</string>
     <string name="dialogo_contenido_interaccion_no_exitoso">No se ha podido procesar su solicitud, intente nuevamente</string>
     <string name="dialogo_contenido_interaccion_no_exitoso_comentario_inapropiado">Este comentario ha sido clasificado como inapropiado, es por esto que no aparecerá en la cuenta de Radio UCAB. Si tienes alguna duda, contacta al administrador.</string>
+    <string name="dialogo_contenido_interaccion_no_exitoso_concurso_cantidad">Ya supero la cantidad de comentarios permitidos por día para participar en este concurso, intenta mañana.</string>
     <string name="dialogo_contenido_interaccion_no_exitoso_sancionado">Usted se encuentra sancionado por Radio UCAB, ha realizado comentarios con contenido inapropiado. Si tienes alguna duda, contacte al administrador.</string>
+    <string name="dialogo_contenido_interaccion_no_exitoso_tweet">Ups Twitter, no  pudo procesar la publicación de tu comentario. Recuerda que no puedes twitear dos comentarios exactamente iguales</string>
     <string name="dialogo_contenido_terminos_condiciones">Términos y condiciones</string>
     <string name="dialogo_mensaje_No">NO</string>
     <string name="dialogo_mensaje_Ok">OK</string>
     <string name="dialogo_mensaje_Si">SI</string>
     <string name="dialogo_mensaje_cancelar_operacion">¿Está seguro que desea cancelar la operación?</string>
     <string name="dialogo_mensaje_cerrar">CERRAR</string>
+    <string name="dialogo_mensaje_conectate">Para interactuar con Radio UCAB debes iniciar sesión</string>
     <string name="dialogo_mensaje_confirmacion_salida">¿Está seguro que desea salir de la aplicación?</string>
     <string name="dialogo_mensaje_informacion">Escuchas</string>
     <string name="dialogo_mensaje_iniciando_sesion">Iniciando sesión...</string>
@@ -642,7 +646,7 @@
     <string name="hint_campo_tweet_comentario">Escriba acá su comentario</string>
     <string name="ip_streaming_high">http://31.200.244.181:8110</string>
     <string name="ip_streaming_low">http://31.200.244.181:8110</string>
-    <string name="ip_web_service">http://192.168.0.107:24364/</string>
+    <string name="ip_web_service">http://192.168.0.104:24364/</string>
     <string name="kit_name">Twitter</string>
     <string name="menu_accion_cerrar_sesion">Cerrar Sesión</string>
     <string name="menu_accion_ver_perfil">Ver mi perfil</string>

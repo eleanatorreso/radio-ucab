@@ -1,42 +1,23 @@
 package info.androidhive.radioucab.Controlador;
 
 import android.app.ListFragment;
-import android.content.Intent;
-import android.graphics.Outline;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewOutlineProvider;
-import android.widget.AbsListView;
-import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
-import com.twitter.sdk.android.core.TwitterAuthConfig;
-import com.twitter.sdk.android.core.TwitterCore;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.models.Tweet;
 import com.twitter.sdk.android.tweetui.TimelineResult;
 import com.twitter.sdk.android.tweetui.TweetTimelineListAdapter;
 import com.twitter.sdk.android.tweetui.UserTimeline;
 
-import java.util.List;
-
-import info.androidhive.radioucab.Controlador.GCM.RegistrationIntentService;
-import info.androidhive.radioucab.Logica.AnalyticsApplication;
-import info.androidhive.radioucab.Logica.HashtagLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
-import info.androidhive.radioucab.Logica.ManejoEnvioTweet;
-import info.androidhive.radioucab.Model.Hashtag;
 import info.androidhive.radioucab.R;
-import io.fabric.sdk.android.Fabric;
 
 public class HomeFragment extends ListFragment {
 
@@ -99,8 +80,7 @@ public class HomeFragment extends ListFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         if (rootView != null) {
             super.onCreate(savedInstanceState);
-            manejoActivity.editarActivity(1, true, "Home","Home");
-            manejoActivity.ocultarBackToolbar();
+            manejoActivity.editarActivity(1, true, "Home","Home",true);
         }
     }
 

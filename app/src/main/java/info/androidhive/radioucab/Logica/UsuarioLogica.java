@@ -2,6 +2,7 @@ package info.androidhive.radioucab.Logica;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -15,6 +16,7 @@ import java.io.File;
 
 import info.androidhive.radioucab.Conexiones.conexionPOSTAPIString;
 import info.androidhive.radioucab.Conexiones.conexionPUTAPI;
+import info.androidhive.radioucab.Controlador.GCM.RegistrationIntentService;
 import info.androidhive.radioucab.Controlador.RegistroUsuarioFragment;
 import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
@@ -147,6 +149,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
             actualizarUsuarioAPI();
         } else {
             usuario.save();
+            manejoActivity.registrarIdTelefono();
             manejoActivity.cambiarFragment("Perfil",false, false);
             manejoProgressDialog.cancelarProgressDialog();
         }
@@ -187,6 +190,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
             resultado = resultados.getJSONObject(0);
             usuario.setGuid(resultado.getString("guid").replace("\"", ""));
             usuario.save();
+            manejoActivity.registrarIdTelefono();
             manejoActivity.cambiarFragment("Perfil",false, false);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -234,6 +238,7 @@ public class UsuarioLogica implements RespuestaAsyncTask, RespuestaArchivoAsyncT
         usuario.save();
         manejoActivity.cambiarFragment("Perfil", false, false);
         manejoProgressDialog.cancelarProgressDialog();
+        manejoActivity.registrarIdTelefono();
     }
 
     @Override

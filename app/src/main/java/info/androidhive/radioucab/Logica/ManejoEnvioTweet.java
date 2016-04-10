@@ -91,6 +91,10 @@ public class ManejoEnvioTweet implements RespuestaAsyncTask, RespuestaStringAsyn
             @Override
             public void failure(TwitterException e) {
                 respuesta[0] = false;
+                manejoDialogs = new ManejoDialogs(contexto.getString(R.string.dialogo_asunto_error),
+                        contexto.getString(R.string.dialogo_contenido_interaccion_no_exitoso_tweet),
+                        contexto.getString(R.string.dialogo_mensaje_Ok),contexto);
+                manejoDialogs.crearDialogo(true, false);
             }
         });
         return respuesta[0];
@@ -258,6 +262,13 @@ public class ManejoEnvioTweet implements RespuestaAsyncTask, RespuestaStringAsyn
             } else if (codigo == 0) {
                 //error intente de nuevo
                 manejoToast.crearToast((Activity) contexto, contexto.getString(R.string.toast_error_general));
+            }
+             else if (codigo == 5) {
+                //ya comento el numero permitido en el concurso
+                manejoDialogs = new ManejoDialogs(contexto.getString(R.string.dialogo_asunto_error),
+                        contexto.getString(R.string.dialogo_contenido_interaccion_no_exitoso_concurso_cantidad),
+                        contexto.getString(R.string.dialogo_mensaje_Ok),contexto);
+                manejoDialogs.crearDialogo(true, false);
             }
         }
         manejoProgressDialog.cancelarProgressDialog();

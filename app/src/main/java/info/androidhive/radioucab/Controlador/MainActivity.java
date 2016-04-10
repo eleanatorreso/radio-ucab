@@ -2,8 +2,11 @@ package info.androidhive.radioucab.Controlador;
 
 import com.twitter.sdk.android.Twitter;
 
+import info.androidhive.radioucab.Controlador.GCM.RegistrationIntentService;
 import info.androidhive.radioucab.Logica.FabricLogica;
 import info.androidhive.radioucab.Logica.ManejoActivity;
+import info.androidhive.radioucab.Logica.ManejoDialogs;
+import info.androidhive.radioucab.Logica.ManejoUsuarioActual;
 import info.androidhive.radioucab.Logica.ParrillaLogica;
 import info.androidhive.radioucab.Logica.PerfilLogica;
 import info.androidhive.radioucab.Logica.ServicioRadio;
@@ -15,12 +18,14 @@ import info.androidhive.radioucab.Model.Usuario;
 import info.androidhive.radioucab.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -82,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     public TextView textoProgramaSonando;
     public ProgressBar progressBarInformacion;
+    private ManejoDialogs dialogo;
+    private ManejoUsuarioActual usuarioActual = ManejoUsuarioActual.getInstancia();
 
     @Override
     protected void onStop() {
@@ -191,65 +198,72 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void abrirDialogoInteraccion() {
-        final AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
-        final AlertDialog alerta_dialogo;
-        final LayoutInflater inflater = getLayoutInflater();
-        final View dialogView = inflater.inflate(R.layout.dialogo_interaccion, null);
-        dialogo.setView(dialogView);
-        dialogo.setCancelable(true);
-        alerta_dialogo = dialogo.create(); //returns an AlertDialog from a Builder.
-        alerta_dialogo.show();
-        final LinearLayout dedicar_cancion = (LinearLayout) dialogView.findViewById(R.id.icono_dedicar_cancion);
-        dedicar_cancion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                manejoActivity.cambiarFragment("TweetDedicatoria", true, true);
-                alerta_dialogo.dismiss();
-            }
-        });
-        final LinearLayout solicitar_cancion = (LinearLayout) dialogView.findViewById(R.id.icono_solicitar_canción);
-        solicitar_cancion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                manejoActivity.cambiarFragment("TweetSolicitud", true, true);
-                alerta_dialogo.dismiss();
-            }
-        });
+        if (usuarioActual.usuarioConectado()) {
+            final AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+            final AlertDialog alerta_dialogo;
+            final LayoutInflater inflater = getLayoutInflater();
+            final View dialogView = inflater.inflate(R.layout.dialogo_interaccion, null);
+            dialogo.setView(dialogView);
+            dialogo.setCancelable(true);
+            alerta_dialogo = dialogo.create(); //returns an AlertDialog from a Builder.
+            alerta_dialogo.show();
+            final LinearLayout dedicar_cancion = (LinearLayout) dialogView.findViewById(R.id.icono_dedicar_cancion);
+            dedicar_cancion.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    manejoActivity.cambiarFragment("TweetDedicatoria", true, true);
+                    alerta_dialogo.dismiss();
+                }
+            });
+            final LinearLayout solicitar_cancion = (LinearLayout) dialogView.findViewById(R.id.icono_solicitar_canción);
+            solicitar_cancion.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    manejoActivity.cambiarFragment("TweetSolicitud", true, true);
+                    alerta_dialogo.dismiss();
+                }
+            });
 
-        final LinearLayout comentario = (LinearLayout) dialogView.findViewById(R.id.icono_comentario);
-        comentario.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                manejoActivity.cambiarFragment("TweetComentario", true, true);
-                alerta_dialogo.dismiss();
-            }
-        });
+            final LinearLayout comentario = (LinearLayout) dialogView.findViewById(R.id.icono_comentario);
+            comentario.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    manejoActivity.cambiarFragment("TweetComentario", true, true);
+                    alerta_dialogo.dismiss();
+                }
+            });
 
-        final LinearLayout programa = (LinearLayout) dialogView.findViewById(R.id.icono_programa);
-        programa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                manejoActivity.cambiarFragment("TweetPrograma", true, true);
-                alerta_dialogo.dismiss();
-            }
-        });
+            final LinearLayout programa = (LinearLayout) dialogView.findViewById(R.id.icono_programa);
+            programa.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    manejoActivity.cambiarFragment("TweetPrograma", true, true);
+                    alerta_dialogo.dismiss();
+                }
+            });
 
-        final LinearLayout concurso = (LinearLayout) dialogView.findViewById(R.id.icono_concurso);
-        concurso.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                manejoActivity.cambiarFragment("ConcursoFragment", true, true);
-                alerta_dialogo.dismiss();
-            }
-        });
+            final LinearLayout concurso = (LinearLayout) dialogView.findViewById(R.id.icono_concurso);
+            concurso.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    manejoActivity.cambiarFragment("ConcursoFragment", true, true);
+                    alerta_dialogo.dismiss();
+                }
+            });
 
-        final Button boton_cerrar = (Button) dialogView.findViewById(R.id.boton_cerrar_interaccion);
-        boton_cerrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alerta_dialogo.dismiss();
-            }
-        });
+            final Button boton_cerrar = (Button) dialogView.findViewById(R.id.boton_cerrar_interaccion);
+            boton_cerrar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alerta_dialogo.dismiss();
+                }
+            });
+        }
+        else {
+            dialogo = new ManejoDialogs(getString(R.string.dialogo_asunto_conectate), getString(R.string.dialogo_mensaje_conectate),
+                    getString(R.string.dialogo_mensaje_cerrar),this);
+            dialogo.crearDialogo(false,true);
+        }
     }
 
     public void abrirDialogoInformacion() {
@@ -273,6 +287,11 @@ public class MainActivity extends AppCompatActivity {
         progressBarInformacion.setVisibility(View.VISIBLE);
         textoProgramaSonando = (TextView) dialogView.findViewById(R.id.texto_que_esta_sonando);
         parrillaLogica.getProgramaActual(this, 0);
+    }
+
+    public void registrarIdTelefono(){
+        Intent intent = new Intent(this, RegistrationIntentService.class);
+        startService(intent);
     }
 
     public void mostrarBackToolbar() {
@@ -303,168 +322,168 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
-        manejoActivity.setActivityPrincipal(this);
-        manejoActivity.ocultarBackToolbar();
-        fabric = fabric.getInstance();
-        fabric.context = this;
-        fabric.initFabric();
+            setContentView(R.layout.activity_main);
+            overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+            manejoActivity.setActivityPrincipal(this);
+            manejoActivity.ocultarBackToolbar();
+            fabric = fabric.getInstance();
+            fabric.context = this;
+            fabric.initFabric();
 
-        //cambio el color del toolbar superior
-        manejoActivity.setActivityPrincipal(this);
-        manejoActivity.editarActivity(1, true, "Home", "Main");
-        navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
-        navMenuIcons = getResources()
-                .obtainTypedArray(R.array.nav_drawer_icons);
+            //cambio el color del toolbar superior
+            manejoActivity.setActivityPrincipal(this);
+            manejoActivity.editarActivity(1, true, "Home", "Main", true);
+            navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
+            navMenuIcons = getResources()
+                    .obtainTypedArray(R.array.nav_drawer_icons);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
+            mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+            mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
 
-        navDrawerItems = new ArrayList<NavDrawerItem>();
-        // Home
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
-        // Parrilla
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
-        // Noticias
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
-        // Eventos
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
-        // Programas
-        //navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1), true, "22"));
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
-        // Perfil
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
-        // Configuracion
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1)));
+            navDrawerItems = new ArrayList<NavDrawerItem>();
+            // Home
+            navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
+            // Parrilla
+            navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
+            // Noticias
+            navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
+            // Eventos
+            navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
+            // Programas
+            //navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1), true, "22"));
+            navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
+            // Perfil
+            navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
+            // Configuracion
+            navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1)));
 
-        // Recycle the typed array
-        navMenuIcons.recycle();
-        mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
-        adapter = new AdaptorNavDrawerList(getApplicationContext(),
-                navDrawerItems);
-        mDrawerList.setAdapter(adapter);
-        playbackServiceIntent = new Intent(this, ServicioRadio.class);
+            // Recycle the typed array
+            navMenuIcons.recycle();
+            mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
+            adapter = new AdaptorNavDrawerList(getApplicationContext(),
+                    navDrawerItems);
+            mDrawerList.setAdapter(adapter);
+            playbackServiceIntent = new Intent(this, ServicioRadio.class);
 
-        boton = (ImageView) findViewById(R.id.icono_menu);
-        boton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //start abre a la izquierda, end a la derecha
-                if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-                    mDrawerLayout.closeDrawer(GravityCompat.START);
-                    menuAbierto = false;
+            boton = (ImageView) findViewById(R.id.icono_menu);
+            boton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //start abre a la izquierda, end a la derecha
+                    if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+                        mDrawerLayout.closeDrawer(GravityCompat.START);
+                        menuAbierto = false;
+                        boton.setImageDrawable(getResources().getDrawable(R.drawable.ic_menu));
+                    } else {
+                        mDrawerLayout.openDrawer(GravityCompat.START);
+                        boton.setImageDrawable(getResources().getDrawable(R.drawable.ic_launcher));
+                    }
+                }
+            });
+
+            mDrawerToggle = new ActionBarDrawerToggle(
+                    this,                  /* host Activity */
+                    mDrawerLayout,         /* DrawerLayout object */
+                    R.string.drawer_open,  /* "open drawer" description */
+                    R.string.drawer_close  /* "close drawer" description */
+            ) {
+
+                public void onDrawerClosed(View view) {
+                    super.onDrawerClosed(view);
                     boton.setImageDrawable(getResources().getDrawable(R.drawable.ic_menu));
-                } else {
-                    mDrawerLayout.openDrawer(GravityCompat.START);
+                }
+
+                public void onDrawerOpened(View drawerView) {
+                    super.onDrawerOpened(drawerView);
                     boton.setImageDrawable(getResources().getDrawable(R.drawable.ic_launcher));
                 }
+            };
+
+            mDrawerLayout.setDrawerListener(mDrawerToggle);
+            fab_interaccion = (ImageButton) findViewById(R.id.boton_interaccion);
+            if (manejoActivity.currentVersionL()) {
+                fab_interaccion.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        abrirDialogoInteraccion();
+                    }
+                });
+            } else {
+                icono_interaccion = (ImageView) findViewById(R.id.imagen_interaccion);
+                icono_interaccion.setVisibility(View.VISIBLE);
+                icono_interaccion.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        abrirDialogoInteraccion();
+                    }
+                });
             }
-        });
 
-        mDrawerToggle = new ActionBarDrawerToggle(
-                this,                  /* host Activity */
-                mDrawerLayout,         /* DrawerLayout object */
-                R.string.drawer_open,  /* "open drawer" description */
-                R.string.drawer_close  /* "close drawer" description */
-        ) {
-
-            public void onDrawerClosed(View view) {
-                super.onDrawerClosed(view);
-                boton.setImageDrawable(getResources().getDrawable(R.drawable.ic_menu));
-            }
-
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-                boton.setImageDrawable(getResources().getDrawable(R.drawable.ic_launcher));
-            }
-        };
-
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
-        fab_interaccion = (ImageButton) findViewById(R.id.boton_interaccion);
-        if (manejoActivity.currentVersionL()) {
-            fab_interaccion.setOnClickListener(new View.OnClickListener() {
+            icono_informacion = (ImageView) findViewById(R.id.imagen_informacion);
+            icono_informacion.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    abrirDialogoInteraccion();
+                    abrirDialogoInformacion();
                 }
             });
-        } else {
-            icono_interaccion = (ImageView) findViewById(R.id.imagen_interaccion);
-            icono_interaccion.setVisibility(View.VISIBLE);
-            icono_interaccion.setOnClickListener(new View.OnClickListener() {
+
+            boton_ingresar = (TextView) findViewById(R.id.boton_ingresar);
+
+            boton_ingresar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    abrirDialogoInteraccion();
+                    Fragment fragment = new InicioSesionTwitterFragment();
+                    FragmentManager fragmentManager = getFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.frame_container, fragment).commit();
                 }
             });
-        }
 
-        icono_informacion = (ImageView) findViewById(R.id.imagen_informacion);
-        icono_informacion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                abrirDialogoInformacion();
-            }
-        });
-
-        boton_ingresar = (TextView) findViewById(R.id.boton_ingresar);
-
-        boton_ingresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Fragment fragment = new InicioSesionTwitterFragment();
-                FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.frame_container, fragment).commit();
-            }
-        });
-
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.inflateMenu(R.menu.main);
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.accion_ver_perfil:
-                        manejoActivity.cambiarFragment("Perfil", false, true);
-                        break;
-                    case R.id.accion_cerrar_sesion:
-                        crearDialogoSiYNo(getString(R.string.dialogo_asunto_cerrar_sesion), getString(R.string.dialogo_contenido_cerrar_sesion), 0);
-                        break;
+            toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+            toolbar.inflateMenu(R.menu.main);
+            toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem menuItem) {
+                    switch (menuItem.getItemId()) {
+                        case R.id.accion_ver_perfil:
+                            manejoActivity.cambiarFragment("Perfil", false, true);
+                            break;
+                        case R.id.accion_cerrar_sesion:
+                            crearDialogoSiYNo(getString(R.string.dialogo_asunto_cerrar_sesion), getString(R.string.dialogo_contenido_cerrar_sesion), 0);
+                            break;
+                    }
+                    return true;
                 }
-                return true;
-            }
-        });
+            });
 
-        imagen_perfil = (ImageView) findViewById(R.id.imagen_usuario);
-        cargarUsuarioToolbar();
-        if (savedInstanceState == null) {
-            displayView(0);
-        }
-
-        boton_play = (ImageView) findViewById(R.id.icon_play);
-        boton_play.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                playStreaming(1);
+            imagen_perfil = (ImageView) findViewById(R.id.imagen_usuario);
+            cargarUsuarioToolbar();
+            if (savedInstanceState == null) {
+                displayView(0);
             }
-        });
 
-        boton_stop = (ImageView) findViewById(R.id.icon_stop);
-        boton_stop.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                playStreaming(2);
-            }
-        });
+            boton_play = (ImageView) findViewById(R.id.icon_play);
+            boton_play.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    playStreaming(1);
+                }
+            });
 
-        boton_pause = (ImageView) findViewById(R.id.icon_pause);
-        boton_pause.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                playStreaming(3);
-            }
-        });
-        manejoActivity.comprobarControlesReproductor();
+            boton_stop = (ImageView) findViewById(R.id.icon_stop);
+            boton_stop.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    playStreaming(2);
+                }
+            });
+
+            boton_pause = (ImageView) findViewById(R.id.icon_pause);
+            boton_pause.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    playStreaming(3);
+                }
+            });
+            manejoActivity.comprobarControlesReproductor();
 
     }
 

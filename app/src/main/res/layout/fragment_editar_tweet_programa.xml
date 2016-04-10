@@ -43,9 +43,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/texto_nombre_programa"
-        android:gravity="center|left"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="10dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
 
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="10dp"
-            android:gravity="left|center"
+            android:gravity="center"
             android:orientation="vertical">
 
             <TextView
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:gravity="left"
             android:orientation="vertical">
 
             <Spinner
@@ -79,6 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
+                android:gravity="left"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -86,10 +87,12 @@
 
     <ProgressBar
         android:id="@+id/progressBar_editar_programa"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
         android:indeterminate="true"
         android:layout_gravity="center"
+        android:layout_below="@id/texto_nombre_programa"
         android:background="@drawable/circle_shape"
         android:layout_alignTop="@+id/editText_tweet_programa"
         android:layout_centerHorizontal="true"

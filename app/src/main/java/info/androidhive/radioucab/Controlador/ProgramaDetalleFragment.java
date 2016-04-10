@@ -71,7 +71,7 @@ public class ProgramaDetalleFragment extends Fragment {
         try {
             super.onCreate(savedInstanceState);
             layout = (RelativeLayout) getView().findViewById(R.id.layout_detalle_programa);
-            manejoActivity.editarActivity(5, true, "ProgramaDetalle", "Detalle del programa");
+            manejoActivity.editarActivity(5, true, "ProgramaDetalle", "Detalle del programa",false);
             manejoActivity.mostrarBackToolbar();
             crearHijos();
         } catch (Exception e) {
@@ -84,7 +84,7 @@ public class ProgramaDetalleFragment extends Fragment {
         return idElementos + "";
     }
 
-    public void setImagenFacebook(final String idUsuarioFacebook, int idDerecha) {
+    public void setImagenFacebook(final String idUsuarioFacebook, int idDerecha, final String nombreFacebook) {
         try {
             ImageView imagenFacebook = new ImageView(getActivity());
             String uri = "@drawable/ic_facebook";
@@ -101,7 +101,7 @@ public class ProgramaDetalleFragment extends Fragment {
             idFacebook = imagenFacebook.getId();
             imagenFacebook.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    Intent facebookIntent = intentAbrirFacebook(v.getContext(), idUsuarioFacebook);
+                    Intent facebookIntent = intentAbrirFacebook(v.getContext(), idUsuarioFacebook, nombreFacebook);
                     startActivity(facebookIntent);
                 }
             });
@@ -178,7 +178,7 @@ public class ProgramaDetalleFragment extends Fragment {
                 paramLocutor.addRule(RelativeLayout.BELOW, previoTextView);
                 paramLocutor.setMargins(20, 10, 20, 10);
                 layout.addView(nombreLocutor, paramLocutor);
-                setImagenFacebook(locutor.getUsuarioFacebook(), nombreLocutor.getId());
+                setImagenFacebook(locutor.getUsuarioFacebook(), nombreLocutor.getId(), locutor.getUsuarioNombreFacebook());
                 setImagenTwitter(locutor.getUsuarioTwitter());
                 setImagenInstagram(locutor.getUsuarioInstagram());
                 previoTextView = nombreLocutor.getId();
@@ -294,7 +294,7 @@ public class ProgramaDetalleFragment extends Fragment {
         }
     }
 
-    public static Intent intentAbrirFacebook(Context context, String idFacebook) {
+    public static Intent intentAbrirFacebook(Context context, String idFacebook, String nombreFacebook) {
         try {
             context.getPackageManager()
                     .getPackageInfo("com.facebook.katana", 0); //Checks if FB is even installed.
@@ -302,7 +302,7 @@ public class ProgramaDetalleFragment extends Fragment {
                     Uri.parse("fb://profile/" + idFacebook)); //Trys to make intent with FB's URI
         } catch (Exception e) {
             return new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://www.facebook.com/sentiapps")); //catches and opens a url to the desired page
+                    Uri.parse("https://www.facebook.com/" + nombreFacebook)); //catches and opens a url to the desired page
         }
     }
 

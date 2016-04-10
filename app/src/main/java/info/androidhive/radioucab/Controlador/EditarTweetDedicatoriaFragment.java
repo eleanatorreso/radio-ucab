@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import info.androidhive.radioucab.Logica.ManejoActivity;
 import info.androidhive.radioucab.Logica.ManejoEnvioTweet;
@@ -42,7 +41,7 @@ public class EditarTweetDedicatoriaFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         //cambio el color del toolbar superior
         manejoActivity.mostrarCloseToolbar();
-        manejoActivity.editarActivity(6, false, null, "Editar tweet dedicatoria de canción");
+        manejoActivity.editarActivity(6, false, null, "Editar tweet dedicatoria de canción",false);
         super.onCreate(savedInstanceState);
         editTextCancion = (EditText) getActivity().findViewById(R.id.editText_cancion);
         editTextArtista = (EditText) getActivity().findViewById(R.id.editText_artista);
