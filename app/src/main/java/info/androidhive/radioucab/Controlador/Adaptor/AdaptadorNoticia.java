@@ -78,8 +78,13 @@ public class AdaptadorNoticia extends ArrayAdapter<Noticia> {
         }
         else
             holder = (ViewHolder) convertView.getTag();
-
-        holder.descripcion.setText(noticia.getTexto_noticia().substring(0, 140) + ".....");
+        int length = noticia.getTexto_noticia().length();
+        if(length < 141) {
+            holder.descripcion.setText(noticia.getTexto_noticia().substring(length) + ".....");
+        }
+        else {
+            holder.descripcion.setText(noticia.getTexto_noticia().substring(0, 140) + ".....");
+        }
         holder.titulo.setText(noticia.getTitular());
         switch (noticia.getTipo()) {
             //externa
