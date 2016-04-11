@@ -502,7 +502,7 @@
     <string name="cast_notification_connected_message">Connected to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_connecting_message">Connecting to <ns1:g id="name">%1$s</ns1:g></string>
     <string name="cast_notification_disconnect">Disconnect</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">d322c344-2014-4014-b960-07ee41e0d06d</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">1db61943-20f2-4bd4-b7da-26949faefd11</string>
     <string name="common_android_wear_notification_needs_update_text"><ns1:g id="app_name">%1$s</ns1:g> requires an update to the Android Wear app.</string>
     <string name="common_android_wear_update_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t run unless you update the Android Wear app.</string>
     <string msgid="6006316683626838685" name="common_android_wear_update_title">Update Android Wear</string>
@@ -605,8 +605,10 @@
     <string name="dialogo_asunto_error">Error</string>
     <string name="dialogo_asunto_informacion">¿Qué está sonando?</string>
     <string name="dialogo_asunto_interaccion_exitoso">Tu tweet lucirá de la siguiente forma</string>
+    <string name="dialogo_asunto_premios">Premios</string>
     <string name="dialogo_asunto_terminos_condiciones">Términos y Condiciones</string>
     <string name="dialogo_asunto_terminos_condiciones_concurso">Términos y Condiciones del Concurso</string>
+    <string name="dialogo_boton_ver_premios">Ver premios</string>
     <string name="dialogo_contenido_cancelar_edicion">¿Está seguro de que desea cancelar la edición?</string>
     <string name="dialogo_contenido_cancelar_registro">¿Está seguro de que desea cancelar su registro?</string>
     <string name="dialogo_contenido_cerrar_sesion">¿Está seguro de que desea cerrar su sesión?</string>
@@ -620,6 +622,8 @@
     <string name="dialogo_contenido_interaccion_no_exitoso_sancionado">Usted se encuentra sancionado por Radio UCAB, ha realizado comentarios con contenido inapropiado. Si tienes alguna duda, contacte al administrador.</string>
     <string name="dialogo_contenido_interaccion_no_exitoso_tweet">Ups Twitter, no  pudo procesar la publicación de tu comentario. Recuerda que no puedes twitear dos comentarios exactamente iguales</string>
     <string name="dialogo_contenido_terminos_condiciones">Términos y condiciones</string>
+    <string name="dialogo_encabezado_posicion">Posicion</string>
+    <string name="dialogo_encabezado_premios">Premios</string>
     <string name="dialogo_mensaje_No">NO</string>
     <string name="dialogo_mensaje_Ok">OK</string>
     <string name="dialogo_mensaje_Si">SI</string>

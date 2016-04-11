@@ -86,22 +86,23 @@ public class MyGcmListenerService extends GcmListenerService {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         String [] split = message.split("/");
         String mensaje = split[0];
-        String tipo = split[1];
+        int id = Integer.parseInt(split[1].toString());
         Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent,
                 PendingIntent.FLAG_ONE_SHOT);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setContentTitle("Radio UCAB")
-                .setContentText(mensaje)
                 .setAutoCancel(true)
                 .setContentIntent(pendingIntent)
-                .setColor(R.color.azul_radio_ucab);
+                .setColor(getResources().getColor(R.color.azul_radio_ucab))
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(mensaje));
         notificationBuilder.setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
         notificationBuilder.setSound(alarmSound);
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        notificationManager.notify(1 /* ID of notification */, notificationBuilder.build());
+        notificationManager.notify(id, notificationBuilder.build());
     }
 }

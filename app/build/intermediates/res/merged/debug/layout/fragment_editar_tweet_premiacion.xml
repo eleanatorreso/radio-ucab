@@ -42,9 +42,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/texto_nombre_premiacion"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         android:gravity="center|left"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
@@ -66,23 +66,55 @@
         android:id="@+id/checkbox_terminos_condiciones_concurso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/editText_tweet_premiacion"
         android:checked="false"
         android:clickable="true"
         android:textColor="@color/azul_ucab"
-        android:layout_below="@id/editText_tweet_premiacion"
         android:textSize="16dp" />
 
-    <Button
-        android:id="@+id/boton_participar_premiacion"
-        android:layout_width="110dp"
-        android:layout_height="30dp"
-        android:background="@drawable/boton_azul_claro"
-        android:layout_gravity="center|left"
-        android:text="@string/campo_boton_participar"
-        android:textColor="@color/blanco"
-        android:textSize="15dp"
-        android:layout_below="@+id/checkbox_terminos_condiciones_concurso"
-        android:layout_alignRight="@+id/editText_tweet_premiacion"
-        android:layout_alignEnd="@+id/editText_tweet_premiacion" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/checkbox_terminos_condiciones_concurso"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|top"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/boton_ver_premios"
+                android:layout_width="110dp"
+                android:layout_height="30dp"
+                android:layout_gravity="left"
+                android:background="@drawable/boton_gris"
+                android:text="@string/dialogo_boton_ver_premios"
+                android:textColor="@color/blanco"
+                android:layout_marginLeft="10dp"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|top"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/boton_participar_premiacion"
+                android:layout_width="110dp"
+                android:layout_height="30dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/boton_azul_claro"
+                android:text="@string/campo_boton_participar"
+                android:textColor="@color/blanco"
+                android:textSize="15dp" />
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>

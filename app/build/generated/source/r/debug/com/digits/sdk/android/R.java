@@ -468,7 +468,7 @@ public final class R {
 		public static final int icon = 0x7f0f0055;
 		public static final int ifRoom = 0x7f0f0020;
 		public static final int image = 0x7f0f0052;
-		public static final int imageView = 0x7f0f0184;
+		public static final int imageView = 0x7f0f018a;
 		public static final int listMode = 0x7f0f000b;
 		public static final int list_item = 0x7f0f0054;
 		public static final int middle = 0x7f0f0018;
@@ -496,11 +496,11 @@ public final class R {
 		public static final int submit_area = 0x7f0f0075;
 		public static final int tabMode = 0x7f0f000d;
 		public static final int title = 0x7f0f0056;
-		public static final int tw__allow_btn = 0x7f0f0187;
-		public static final int tw__not_now_btn = 0x7f0f0186;
-		public static final int tw__share_email_desc = 0x7f0f0185;
-		public static final int tw__spinner = 0x7f0f0183;
-		public static final int tw__web_view = 0x7f0f0182;
+		public static final int tw__allow_btn = 0x7f0f018d;
+		public static final int tw__not_now_btn = 0x7f0f018c;
+		public static final int tw__share_email_desc = 0x7f0f018b;
+		public static final int tw__spinner = 0x7f0f0189;
+		public static final int tw__web_view = 0x7f0f0188;
 		public static final int up = 0x7f0f000a;
 		public static final int useLogo = 0x7f0f0014;
 		public static final int withText = 0x7f0f0022;
@@ -539,9 +539,9 @@ public final class R {
 		public static final int dgts__activity_pin_code = 0x7f030024;
 		public static final int dgts__country_row = 0x7f030025;
 		public static final int dgts__state_button = 0x7f030026;
-		public static final int support_simple_spinner_dropdown_item = 0x7f030052;
-		public static final int tw__activity_oauth = 0x7f030056;
-		public static final int tw__activity_share_email = 0x7f030057;
+		public static final int support_simple_spinner_dropdown_item = 0x7f030053;
+		public static final int tw__activity_oauth = 0x7f030057;
+		public static final int tw__activity_share_email = 0x7f030058;
 	}
 	public static final class raw {
 		public static final int tw__cacerts = 0x7f060001;
@@ -612,7 +612,7 @@ public final class R {
 		public static final int dgts_pin_code_terms = 0x7f07005d;
 		public static final int dgts_verify = 0x7f07005e;
 		public static final int dgts_verifying = 0x7f07005f;
-		public static final int kit_name = 0x7f070118;
+		public static final int kit_name = 0x7f07011c;
 		public static final int tw__allow_btn_txt = 0x7f070060;
 		public static final int tw__login_btn_txt = 0x7f070062;
 		public static final int tw__not_now_btn_txt = 0x7f070063;

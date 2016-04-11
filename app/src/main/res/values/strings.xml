@@ -9,7 +9,7 @@
     <string name="timeline_empty">Espere un momento por favor...</string>
     <string name="texto_detalle_programa">Espere un momento por favor...</string>
     <string name="menu_perfil_usuario">Ingresar</string>
-    <string name="ip_web_service">http://192.168.0.104:24364/</string>
+    <string name="ip_web_service">http://192.168.0.104/radioUCAB/</string>
     <string name="ip_streaming_high">http://31.200.244.181:8110</string>
     <string name="ip_streaming_low">http://31.200.244.181:8110</string>
     <string name="ruta_archivos_radio_ucab">/sdcard/.RadioUCAB/</string>
@@ -55,6 +55,11 @@
     <!-- Registro de Usuario -->
     <string name="toast_error_terminos_condiciones">Debe aceptar los terminos y condiciones para registrarse en Radio UCAB</string>
     <string name="toast_error_campos_obligatorios">Todos los campos son obligatorios completelos</string>
+    <!-- Diálogo premios-->
+    <string name="dialogo_asunto_premios">Premios</string>
+    <string name="dialogo_encabezado_posicion">Posicion</string>
+    <string name="dialogo_encabezado_premios">Premios</string>
+    <string name="dialogo_boton_ver_premios">Ver premios</string>
     <!-- Diálogo información -->
     <string name="dialogo_asunto_informacion">¿Qué está sonando?</string>
     <string name="dialogo_mensaje_informacion">Escuchas</string>

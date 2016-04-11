@@ -95,8 +95,15 @@ public class Concurso extends SugarRecord {
         this.terminos_condiciones = terminos_condiciones;
     }
 
-    public List<Premio> getPremios() {
+    private List<Premio> busquedaPremios () {
+        premios = Premio.find(Premio.class, "concurso = ?", String.valueOf(this.getId()));
         return premios;
+    }
+
+    public List<Premio> getPremios() {
+        if (premios != null)
+            return  premios;
+        return busquedaPremios();
     }
 
     public void setPremios(List<Premio> premios) {
