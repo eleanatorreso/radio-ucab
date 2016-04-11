@@ -33,7 +33,7 @@ public class HomeFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final SwipeRefreshLayout swipeLayout = (SwipeRefreshLayout) getActivity().findViewById(R.id.swipe_layout);
+      //  final SwipeRefreshLayout swipeLayout = (SwipeRefreshLayout) getActivity().findViewById(R.id.swipe_layout);
         try {
 
             final UserTimeline userTimeline = new UserTimeline.Builder()
@@ -43,7 +43,7 @@ public class HomeFragment extends ListFragment {
                     .build();
             final TweetTimelineListAdapter adapter = new TweetTimelineListAdapter(getActivity(), userTimeline);
             setListAdapter(adapter);
-            swipeLayout.setColorSchemeResources(R.color.amarillo_ucab, R.color.azul_radio_ucab);
+           /* swipeLayout.setColorSchemeResources(R.color.amarillo_ucab, R.color.azul_radio_ucab);
             swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                 @Override
                 public void onRefresh() {
@@ -62,7 +62,7 @@ public class HomeFragment extends ListFragment {
                     });
                 }
             });
-
+*/
         } catch (Exception e) {
             int x = 0;
         }
